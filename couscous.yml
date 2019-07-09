@@ -2,7 +2,7 @@
 # baseUrl: http://username.github.io/project
 
 template:
-    url: https://github.com/CouscousPHP/Template-Light
+    url: https://github.com/CouscousPHP/Template-ReadTheDocs
 
 # Used to link to the GitHub project
 github:

@@ -1,67 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NStack</title>
 
-        <title>NStack</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic'
+          rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/css/highlight.dark.css">
-        <link rel="stylesheet" href="/css/main.css">
-    </head>
-    <body>
+    <link rel="stylesheet" href="/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/theme-fixes.css" type="text/css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+</head>
+<body class="wy-body-for-nav">
 
-        <header class="navbar navbar-default navbar-fixed-top">
+    <div class="wy-grid-for-nav">
 
-            <a class="navbar-brand" href="/">
-                NStack
-                <small class="hidden-xs hidden-sm">
-                    Backend as a service
-                </small>
-            </a>
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+            <div class="wy-side-nav-search">
+                <a href="/" class="fa fa-home"> NStack</a>
+            </div>
 
-                            <a href="https://github.com/nstack-io/documentation">
-                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
-                </a>
-            
-        </header>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                                            <li class="toctree-l1 ">
+                            <a class="reference internal "
+                               href="/index.html">
+                                Home
+                            </a>
+                        </li>
+                                            <li class="toctree-l1 ">
+                            <a class="reference internal "
+                               href="/developers.html">
+                                Developers
+                            </a>
+                        </li>
+                                            <li class="toctree-l1 ">
+                            <a class="reference internal "
+                               href="/Commerce.html">
+                                Commerce
+                            </a>
+                        </li>
+                                            <li class="toctree-l1 ">
+                            <a class="reference internal "
+                               href="/guides.html">
+                                Guides
+                            </a>
+                        </li>
+                                    </ul>
+            </div>
+            &nbsp;
+        </nav>
 
-        <main class="container-fluid">
-            <div class="row">
+        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-                
-                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+                        <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+                <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+                <a href="/">NStack</a>
+            </nav>
 
-                        <ul class="nav nav-pills nav-stacked">
-                                                            <li class="">
-                                    <a href="/index.html">
-                                        Home
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="/developers.html">
-                                        Developers
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="/Commerce.html">
-                                        Commerce
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="/guides.html">
-                                        Guides
-                                    </a>
-                                </li>
-                                                    </ul>
 
-                    </nav>
-
-                
-                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="features">Features</h1>
+                        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="main" class="document">
+                        <h1 id="features">Features</h1>
 <h2 id="introduction">Introduction</h2>
 <p>This document describes what features are available in NStack and what use cases they can be used for. Use this as a reference when you are not sure what a certain feature can be used for or if you want to refresh you mind on what amazing things NStack can do.</p>
 <p>NStack includes many features that facilitate and speed up development and project management and we should try to use it to its fullest. Don't reinvent the wheel!</p>
@@ -352,30 +354,41 @@ Along side collecting the result, on the NStack website you can see a nice overv
 <p>The phone number validator <strong>validates</strong> if a given phone number has the <strong>right amount of digits</strong> according to the <strong>origin countries</strong> standard.</p>
 <h4 id="email">Email</h4>
 <p>The email validator is not only a <strong>validator</strong> for the <strong>structure</strong> of the email address, but also checks for <strong>common mistakes</strong> (e.g.: typing .con instead .com) and can return a warning if there seems to be a common mistake. </p>
-                </section>
+                    </div>
 
+                    <footer>
+                        <hr/>
+                                                    <div role="contentinfo">
+                                <p>
+                                    Find NStack on <a href="https://github.com/nstack-io/documentation">GitHub</a>.
+                                </p>
+                            </div>
+                                                Built with <a href="http://couscous.io/">Couscous</a> using a <a href="https://github.com/CouscousPHP/Template-ReadTheDocs">theme</a> based on <a href="https://readthedocs.org/">Read the Docs</a>.
+                    </footer>
+
+                </div>
             </div>
-        </main>
 
-        <footer>
-            <div class="container-fluid">
-                <p class="text-muted">
-                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
-                </p>
-            </div>
-        </footer>
+        </section>
 
-        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+    </div>
 
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script src="/js/theme.js"></script>
+
+    <script>
+        $(function() {
+            // Syntax highlighting
+            hljs.initHighlightingOnLoad();
+        });
+    </script>
+        <!-- Livereload -->
         <script>
-            $(function() {
-                $("section>h1").wrap('<div class="page-header" />');
-                // Syntax highlighting
-                hljs.initHighlightingOnLoad();
-            });
+            document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+                    ':35729/livereload.js?snipver=1"></' + 'script>')
         </script>
-
+        <!-- End Livereload -->
     </body>
 </html>
