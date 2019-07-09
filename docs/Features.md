@@ -1,4 +1,4 @@
-# Feature overview
+# Features
 ## Introduction
 This document describes what features are available in NStack and what use cases they can be used for. Use this as a reference when you are not sure what a certain feature can be used for or if you want to refresh you mind on what amazing things NStack can do.
 
