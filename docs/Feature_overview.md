@@ -110,7 +110,8 @@ There are a few ways you can configure how the user should interact and be infor
 	
 
 * 'Force" - The user will be prompted with the update dialog on app open, Which they **cannot close**. They are forced to update the app.
-→ When selecting "Yes" the **App store** updates screen will be opened.  
+	* When selecting "Yes" the **App store** updates screen will be opened.
+	
 	![iOS version control force](images/iOS/iOS_version_control_force.PNG)
 
 **New in version:**
