@@ -8,8 +8,9 @@ For documentation on how to implement the sdk's and how to use the features, ref
 1. [Create your application on NStack](Getting_started.md)
 2. [Add SDK to your project](#sdk's)  
 	See the SDK's documentation on how to implement for your specific platform.
-3. Checkout SDK documention on how to implement the required features
-4. Checkout [guides](Guides.md) for the features you want to use
+3. Checkout [guides](Guides.md) for the features you want to use
+4. Checkout SDK documention on how to implement the required features
+
 
 ## Documentation
 * [Postman API documentation](https://nodes-agency-1.postman.co/collections/12675-6191fda7-9251-4027-bf72-232022e02044?version=latest&workspace=55441cf0-95b9-4e87-9372-c7cbf2e3e04d)
