@@ -20,10 +20,10 @@ menu:
       relativeUrl: index.html
     developers:
       text: Developers
-      relativeUrl: developers.html
+      relativeUrl: documentation/developers.html
     commerce:
       text: Commerce
-      relativeUrl: Commerce.html
+      relativeUrl: documentation/Commerce.html
     guides:
       text: Guides
-      relativeUrl: guides.html
+      relativeUrl: documentation/guides.html
