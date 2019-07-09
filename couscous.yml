@@ -1,6 +1,9 @@
 # Base URL of the published website
 # baseUrl: http://username.github.io/project
 
+template:
+    url: https://github.com/CouscousPHP/Template-Light
+
 # Used to link to the GitHub project
 github:
     user: nstack-io
