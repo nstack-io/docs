@@ -5,7 +5,7 @@ For documentation on how to implement the sdk's and how to use the features, ref
 
 ## Getting started
 
-(TODO: Rewrite)
+(TODO: Rewrite/ add guide)
 
 * Application setup on NStack
 * Add SDK to your project

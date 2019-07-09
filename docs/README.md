@@ -3,9 +3,9 @@ NStack is Nodes "Backend as a Service" product that enables clients to manage ma
 
 From a development perspective NStack provides a set of tools that facilitate and speed up development and project management.
 From handling translations to useful datasets you can use in your products like languages and countries, NStack surely has a feature that will help you speed up development.
-Check all the features NStack has to offer in the [Feature overview](Feature_overview.md).
 
 ## Content
 * [Feature overview](Feature_overview.md)
 * [Developers](Developers.md)
 * [Guides](Guides.md)
+* [Commerce](Commerce.md)
