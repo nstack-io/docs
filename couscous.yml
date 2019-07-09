@@ -1,0 +1,26 @@
+# Base URL of the published website
+# baseUrl: http://username.github.io/project
+
+# Used to link to the GitHub project
+github:
+    user: nstack-io
+    repo: documentation
+
+title: NStack
+subTitle: Backend as a service
+
+# The left menu bar
+menu:
+  items:
+    home:
+      text: Home
+      relativeUrl: index.html
+    developers:
+      text: Developers
+      relativeUrl: developers.html
+    commerce:
+      text: Commerce
+      relativeUrl: Commerce.html
+    guides:
+      text: Guides
+      relativeUrl: guides.html

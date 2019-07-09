@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>NStack</title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/highlight.dark.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                NStack
+                <small class="hidden-xs hidden-sm">
+                    Backend as a service
+                </small>
+            </a>
+
+                            <a href="https://github.com/nstack-io/documentation">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+                </a>
+            
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                        <ul class="nav nav-pills nav-stacked">
+                                                            <li class="">
+                                    <a href="/index.html">
+                                        Home
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/developers.html">
+                                        Developers
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/Commerce.html">
+                                        Commerce
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/guides.html">
+                                        Guides
+                                    </a>
+                                </li>
+                                                    </ul>
+
+                    </nav>
+
+                
+                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                    <h1 id="nstack-how-it-works">NStack: How it works</h1>
+<h2 id="general-functionality">General functionality</h2>
+<ul>
+<li>Localization (previously known as translate)</li>
+<li>Version control</li>
+<li>Collections</li>
+<li>Basic file hosting</li>
+<li>Messages</li>
+<li>Rate reminders</li>
+<li>Various content utils i.e. list of countries, time zones, ip to location lookups</li>
+<li>Various validators</li>
+</ul>
+<h2 id="localization">Localization</h2>
+<p>NStack's main functionality is based on the API call App Open. </p>
+<h3 id="the-short-story">The short story</h3>
+<ol>
+<li>Send phone language, current version to NStack and when the localization was last updated</li>
+<li>NStack finds best fit language based on language and returns it if the server version is newer than the phone's version</li>
+<li>NStack checks if Version control has any updates enabled for the received version (i.e. 1.0.0) </li>
+<li>NStack returns all of this in App Open response</li>
+<li>Phone uses newest translation, updates last updated, shows any Version control dialog if necessary</li>
+</ol>
+<h3 id="the-long-story">The long story</h3>
+<p>Every consuming platform of NStack bundles a local version of the current Localization. Some versions of NStack bundles all languages for offline change, some don't, but the default language is always bundled. </p>
+<p>Once running the NStack client also caches received translations from the App Open call and overwrites the bundled language on every app start.</p>
+<p><img src="images/HowItWorks/App_Open_Sequence.png" alt="App open sequence" /></p>
+<h3 id="publish-cdn--app-open-v2">Publish CDN / App Open V2</h3>
+<p>Around June 2019, we introduced CDN hosting of language translations. It serves two purposes:</p>
+<ol>
+<li>&quot;Freezing&quot; a translation at a given time</li>
+<li>Caching the translation harder</li>
+</ol>
+<p>This introduced a small change to the App Open call. Instead of providing the language selected via best fit from the Accept-Language header, it returns all languages in the form:</p>
+<pre><code>"localize": [
+            {
+                "id": 938,
+                "url": "https://nstack-staging.vapor.cloud/api/v2/localize/resources/938",
+                "last_updated_at": "2019-06-21T14:10:29+00:00",
+                "should_update": true,
+                "language": {
+                    "id": 56,
+                    "name": "English",
+                    "locale": "en_EN",
+                    "direction": "LRM",
+                    "is_default": true,
+                    "is_best_fit": true
+                }
+            },</code></pre>
+<p>Notice the url is a direct link to localize resource, which means the language was updated, but not published, so it's hitting NStack directly. If it was published, we would see the CDN url.</p>
+<p>&quot;should_update&quot; is marked as true, which means that language should be locally cached and used from now on.</p>
+<h2 id="version-control">Version Control</h2>
+<p>Also part of the App Open call is Version control. As the name implies, Version control is for getting people to update our app to the latest App Store / Google Play version.</p>
+<p>A version can be added as follows:</p>
+<ol>
+<li>Specify new version that is available in App Store / Google Play i.e. 1.5</li>
+<li>Update mode can be off, on or forced. If forced the Update prompt is blocking app interaction and the user has to update the app.</li>
+<li>You can specify a changelog that will be showed on next app launch</li>
+</ol>
+<p>Let's make an example. We launched 1.0 a year back, we now want people to upgrade to 2.0 because of breaking API or similar.</p>
+<p>We make a force update version entry in NStack:
+<img src="images/HowItWorks/WEB_Version_Control.png" alt="WEB version control configuration" /></p>
+<p>What will happen for users on version 1.0:
+<img src="images/HowItWorks/App_Open_Sequence_version.png" alt="App Open Sequence version control" /></p>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container-fluid">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>

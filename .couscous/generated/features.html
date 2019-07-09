@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>NStack</title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/highlight.dark.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                NStack
+                <small class="hidden-xs hidden-sm">
+                    Backend as a service
+                </small>
+            </a>
+
+                            <a href="https://github.com/nstack-io/documentation">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+                </a>
+            
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                        <ul class="nav nav-pills nav-stacked">
+                                                            <li class="">
+                                    <a href="/index.html">
+                                        Home
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/developers.html">
+                                        Developers
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/Commerce.html">
+                                        Commerce
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/guides.html">
+                                        Guides
+                                    </a>
+                                </li>
+                                                    </ul>
+
+                    </nav>
+
+                
+                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                    <h1 id="features">Features</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This document describes what features are available in NStack and what use cases they can be used for. Use this as a reference when you are not sure what a certain feature can be used for or if you want to refresh you mind on what amazing things NStack can do.</p>
+<p>NStack includes many features that facilitate and speed up development and project management and we should try to use it to its fullest. Don't reinvent the wheel!</p>
+<h2 id="content">Content</h2>
+<h3 id="localize">Localize</h3>
+<p>Localize is the most used feature of NStack and can/<strong>should</strong> be used <strong>in all apps</strong>.<br />
+Localize is a way to <strong>manage</strong> all the <strong>text</strong> on all the platforms, it manages <strong>translations</strong> and allows you to <strong>update text</strong> on apps <strong>without</strong> having to <strong>release</strong> a <strong>new version</strong>.<br />
+This way the PM or the client can change any text in the project straight from the NStack website.</p>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Button titles</li>
+<li>Screen titles</li>
+<li>Base urls (Useful when the backend is not stable yet or the app is working with a beta api for the time being)</li>
+<li>URLs for terms of service</li>
+<li>...</li>
+</ul>
+<h3 id="responses">Responses</h3>
+<p>The responses feature is very <strong>versatile</strong> and can be used as an <strong>alternative</strong> for <strong>custom API's</strong> for simple apps/websites that mainly use <strong>static content</strong>.<br />
+Using Responses(and collections) can <strong>replace</strong> a simple <strong>API</strong> and can <strong>save</strong> 100's of hours of development time on the right project.</p>
+<p>Using responses for static content can save many hours when the client wants to change some of that content, instead of having a developer change all the hard coded content and make a new build and have QA release it, instead the client/PM can change the content them selfs in NStack. No new build needed, no developer or QA time needed.</p>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Store static content</li>
+<li>Store default configurations</li>
+<li>...</li>
+</ul>
+<h3 id="collections">Collections</h3>
+<p>The collection feature can be seen as a <strong>more structured</strong> version of the <strong>responses</strong> feature, and in turn is also very <strong>versatile</strong> and a good <strong>alternative</strong> for <strong>custom API's</strong> for simple apps/websites.</p>
+<p>In the collection feature you can <strong>define</strong> a <strong>template</strong> (e.g.: A Product which has a title, description and price), using this model you can <strong>add collections</strong> and <strong>single</strong> Products to be stored.</p>
+<p>An <strong>example</strong> could be:</p>
+<p>You have defined you <strong>&quot;Product&quot;</strong> template, a product should have a <strong>title</strong>, <strong>description</strong> and <strong>price</strong>.<br />
+Using this template you can setup certain <strong>collections</strong>:</p>
+<ul>
+<li>All products</li>
+<li>Available products</li>
+<li>Products on sale</li>
+</ul>
+<p>But you can also define a <strong>single</strong> product based on the <strong>template</strong>, an example for that could be &quot;Product of the day&quot;, &quot;Most popular product&quot;, ...</p>
+<p>A generic product is just <strong>1 example</strong> of what the collections could be used for and you can of course use <strong>more templates</strong> at the <strong>same time</strong>.<br />
+On the <strong>right project</strong> with the <strong>right planning</strong> this feature can be very <strong>powerful</strong>. </p>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Store a list of All product/articles</li>
+<li>Store a list of available products/ articles</li>
+<li>Feature the &quot;Product of the day&quot; </li>
+<li>Store an apps default configuration along with some premade configurations </li>
+<li>...</li>
+</ul>
+<h3 id="files">Files</h3>
+<p>The files feature allows you to <strong>store</strong> all kinds of <strong>files</strong> ( images, pdf's, ...) that can then be easily retrieved by anyone with the required access.<br />
+This can be very useful to host <strong>static images</strong> like backgrounds or header images.
+The files are accessible through <strong>URL</strong> so this can be used on <strong>any platform</strong>.</p>
+<p><strong>Access settings:</strong></p>
+<ul>
+<li>Private options:
+<ul>
+<li>&quot;Password protected&quot; - Requires a <strong>password</strong> to view the file.</li>
+<li>&quot;Login protected&quot; - Requires the user to <strong>login</strong> and have <strong>access</strong> to the application to view the file.</li>
+</ul></li>
+<li>Public options:
+<ul>
+<li>&quot;CDN&quot; - The file is cached and can be <strong>loaded faster</strong> with options (width, height). But the file <strong>cannot be deleted fast</strong>.</li>
+<li>&quot;Web server&quot; - The file is served via web server, it is <strong>slower</strong> that CDN but can be <strong>deleted fast</strong>.</li>
+</ul></li>
+</ul>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Background image</li>
+<li>Header image</li>
+<li>PDF file with terms of service</li>
+<li>...</li>
+</ul>
+<h2 id="notify-user">Notify user</h2>
+<p>All of the following features can be active at the same time so they can conflict with each other, to not disturb the user only 1 message will be shown per app open.<br />
+The priority for each popup will be as followed:</p>
+<p><strong>iOS:</strong></p>
+<ol>
+<li>Update alert</li>
+<li>Whats new alert</li>
+<li>Message</li>
+<li>Rate reminder</li>
+</ol>
+<p><strong>Android:</strong></p>
+<p>(TODO: Check order on Android SDK)</p>
+<h3 id="version-control">Version control</h3>
+<p>(TODO: Add android screenshots)</p>
+<p>Using the version control feature of NStack you can inform the user that a <strong>new version</strong> of the app is <strong>available</strong>.<br />
+There are a few ways you can configure how the user should interact and be informed about the new version:</p>
+<p><strong>Update mode:</strong></p>
+<ul>
+<li>&quot;Off&quot; - The user will <strong>not</strong> be prompted with the update dialog.</li>
+<li>
+<p>&quot;On&quot; - The user will be prompted with the update dialog on app open. But can <strong>decide</strong> to say no to the update, 24h later they will see the dialog again.</p>
+<ul>
+<li>When selecting &quot;Yes&quot; the <strong>App Store</strong> will be opened on the apps page where the user can <strong>update</strong> the app.</li>
+<li>When selecting &quot;No&quot; the dialog will be <strong>dismissed</strong> and the app resumes as normal.</li>
+</ul>
+<p><img src="images/iOS/iOS_version_control.PNG" alt="iOS version control" /></p>
+</li>
+<li>
+<p>'Force&quot; - The user will be prompted with the update dialog on app open, Which they <strong>cannot close</strong>. They are forced to update the app.</p>
+<ul>
+<li>When selecting &quot;Yes&quot; the <strong>App store</strong> updates screen will be opened.</li>
+</ul>
+<p><img src="images/iOS/iOS_version_control_force.PNG" alt="iOS version control force" /></p>
+</li>
+</ul>
+<p><strong>New in version:</strong></p>
+<ul>
+<li>
+<p>&quot;Yes&quot; - If the app has been <strong>auto-updated</strong>, we will show a dialog with the <strong>change log</strong> on the next app open.<br />
+<img src="images/iOS/iOS_version_control_auto_update.PNG" alt="iOS version control auto update" /></p>
+</li>
+<li>&quot;No&quot; - No dialog will be shown after an auto-update.</li>
+</ul>
+<p><strong>Change log:</strong></p>
+<p>In the change log you can list all the <strong>new features</strong>, bug fixes or UI updates that are present in the new app and need to be presented to the user.</p>
+<p><strong>File(Android):</strong></p>
+<p>You can upload a file to the new version, this is mainly used when <strong>releasing</strong> an Android app <strong>outside</strong> of the <strong>Google play</strong> store using a .apk file.</p>
+<p><strong>Text:</strong></p>
+<p>The title and button texts used in the popups can be configured in the <strong>localisation</strong> section of the app on the <strong>&quot;Nstack(system)&quot; platform</strong>.</p>
+<h3 id="messages">Messages</h3>
+<p>Using the Messages feature of NStack can be a great tool for <strong>informing your user</strong> about technical difficulties, new sales or actions, etc<br />
+This message is shown to the user <strong>on app launch</strong>.
+You can configure how often the user will see the message, currently 2 options are available:</p>
+<ul>
+<li>&quot;Show always&quot; - Shows the message on <strong>very</strong> app launch</li>
+<li>&quot;Show once&quot; - Shows the message <strong>once</strong> on app launch and will not be shown again after the user presses &quot;OK&quot;.<br />
+(TODO: Add android screenshots)<br />
+<img src="images/iOS/iOS_message.PNG" alt="iOS message" /></li>
+</ul>
+<h3 id="rate-reminders">Rate reminders</h3>
+<p>Rate reminders ask the user to <strong>rate</strong> the app on the platform specific <strong>store</strong>.<br />
+You can currently only configure the rate reminder based on the amount of times the user has <strong>opened</strong> the <strong>app</strong>.
+The popup is shown <strong>on app launch</strong> when the required amount of app openings has been met.</p>
+<p><strong>iOS</strong></p>
+<p>On iOS this is done by showing Apple's build in rating popup.<br />
+<em>&quot;You should be aware that the prompt will only be displayed to a user a maximum of <strong>three</strong> times within a <strong>365-day period</strong>.&quot;</em> - <a href="https://developer.apple.com/documentation/storekit/skstorereviewcontroller/requesting_app_store_reviews">Apple docs</a></p>
+<p><img src="images/iOS/iOS_rate_reminder.PNG" alt="iOS rate reminder" />
+<img src="images/iOS/iOS_rate_reminder_starred.PNG" alt="iOS rate reminder starred" /></p>
+<p><strong>Android</strong></p>
+<p>(TODO: Check on Android/ add screenshot) Not implemented?</p>
+<h2 id="geographic">Geographic</h2>
+<p><strong>Note: The following datasets are global, meaning changing it in 1 project will change it for all projects.</strong></p>
+<p>Encourage the developers to use these datasets in appropriate use cases, these datasets discourage hardcoding this data in the app or using a 3rd party datasets/libraries.
+It also gives us more flexibility to update the data without a new app release should something change.</p>
+<h3 id="continets">Continets</h3>
+<p>The continents dataset includes the 7 continents, for each continent the following properties are available:</p>
+<ul>
+<li>Name</li>
+<li>Code</li>
+<li>Image</li>
+</ul>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Show list of continents for the user to pick from.</li>
+<li>Use images as markers on a map.</li>
+<li>...</li>
+</ul>
+<h3 id="countries">Countries</h3>
+<p>The countries dataset includes around 250 countries, for each country the following properties are available:</p>
+<ul>
+<li>Country code</li>
+<li>ISO code</li>
+<li>2 images</li>
+<li>English Name</li>
+<li>Native name</li>
+<li>Continent</li>
+<li>Capital</li>
+<li>Capital timezone</li>
+<li>Coordinates for the capital</li>
+<li>Phone number prefix</li>
+<li>Currency</li>
+<li>Languages</li>
+</ul>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Show list of countries for the user to pick from</li>
+<li>See what currency is used in a certain country</li>
+<li>Check what timezone a certain county uses</li>
+<li>Get the coordinates from a certain country's capital</li>
+<li>...</li>
+</ul>
+<h3 id="time-zones">Time zones</h3>
+<p>The timezones dataset includes over 500 timezones, for each timezone the following properties are available:</p>
+<ul>
+<li>Name</li>
+<li>Abbreviation</li>
+<li>Offset from UTC in seconds</li>
+<li>A standardised text used in the UTC notation (e.g.: UTC+5)</li>
+</ul>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Show a list of timezones for the user to pick from.</li>
+<li>Check the offset from UTC for a certain timezone</li>
+<li>...</li>
+</ul>
+<p><em>Notes:</em></p>
+<ul>
+<li><em>As there are so many timezones using this as a reference might a bit overkill.</em></li>
+<li><em>Many languages/platform have a build in way of handling/Referencing timezones, discuss with the developer what is needed/possible.</em></li>
+</ul>
+<h3 id="languages">Languages</h3>
+<p>The languages dataset includes over 50 languages, for each language the following properties are available:</p>
+<ul>
+<li>Name</li>
+<li>Locale ( [language abbreviation] - [area] e.g.: en-Gb, en-US. Both english but different areas )</li>
+<li>Reading direction</li>
+</ul>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Show a list of languages</li>
+<li>...</li>
+</ul>
+<h3 id="ips">IP's</h3>
+<p>The enormous IP dataset includes over 10 million IPs, for each IP range the following properties are available: </p>
+<ul>
+<li>Start of range</li>
+<li>End of range</li>
+<li>Country</li>
+<li>State</li>
+<li>City</li>
+<li>Location coordinates</li>
+<li>Timezone</li>
+<li>ISP</li>
+<li>Type</li>
+</ul>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Use as a fallback when the user denied the location permissions
+Using this dataset as a reference we can see in what area the user is without relying on the device.
+This is useful in cases where the location of the user doesn't need to be accurate, where just a city is accurate enough.<br />
+<strong>Warning: This is not 100% accurate, When traveling a IP address of the users home country can still be in use.</strong></li>
+<li>...</li>
+</ul>
+<h2 id="misc">Misc</h2>
+<h3 id="ugc-push-logs">UGC: Push logs</h3>
+<p>The push logs features allows the <strong>backend</strong> responsible for sending out push notifications to <strong>log</strong> all the <strong>notifications</strong> it sends out.<br />
+These logs can be seen on the NStack website and can be <strong>easily sorted</strong>.</p>
+<p>These logs can be very <strong>useful</strong> if anything goes wrong in in terms of push notifications, this is traditionally <strong>very hard to debug</strong> and figure out what went wrong, with these logs we should have a better idea on what was send and if it succeeded or not and can <strong>save many hours debugging</strong>.</p>
+<p>The logs include:</p>
+<ul>
+<li>Push provider (e.g.: Firebase, urban-airship)</li>
+<li>Key: App key in fcm/ urban-airship</li>
+<li>Message: included in the push notification</li>
+<li>Succeeded: if the push was send or not</li>
+<li>Type (e.g: standard, friend-request, taxi-arrived)</li>
+<li>UserID: The user ID used by the project</li>
+<li>Relation: Similar to type but more general (e.g.: Booking, Company, ...)</li>
+</ul>
+<h3 id="ugc-feedback">UGC: Feedback</h3>
+<p>The feedback feature is a very useful for <strong>collecting</strong> user <strong>feedback</strong> in <strong>one place</strong> that is easily accessible.
+This can be used to include a &quot;Send us feedback&quot; section in the settings screen of the project.
+Using the feedback feature the user can send feedback with the following properties:</p>
+<ul>
+<li>Operating system (iOS, Android, web)</li>
+<li>App version</li>
+<li>Device</li>
+<li>Name of user</li>
+<li>Email of user</li>
+<li>Message</li>
+<li>An image</li>
+</ul>
+<p>When you have collected some feedback from users you have the following feature</p>
+<ul>
+<li>Assign a person</li>
+<li>Set a status (options: Created, Assigned, Progress, Done and Skipped)</li>
+</ul>
+<h3 id="ugc-results">UGC: Results</h3>
+<p>The results feature was originally used to aggregate the results of a survey but can be used to collect any kind of question answers.
+Along side collecting the result, on the NStack website you can see a nice overview of all the results and even see them in graphs.</p>
+<p>The results include the following properties:</p>
+<ul>
+<li>Key: Can be used as the question but can be given any value.</li>
+<li>User: Name or id of the user sending the result.</li>
+<li>Answer: The answer given to a certain question.</li>
+<li>Points: If can be used if the answer has a numeric value and a text value.</li>
+<li>Tag: Any tags you would want to include.</li>
+</ul>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Surveys</li>
+<li>Periodic questions</li>
+<li>...</li>
+</ul>
+<h3 id="validators">Validators</h3>
+<h4 id="phone-number">Phone number</h4>
+<p>The phone number validator <strong>validates</strong> if a given phone number has the <strong>right amount of digits</strong> according to the <strong>origin countries</strong> standard.</p>
+<h4 id="email">Email</h4>
+<p>The email validator is not only a <strong>validator</strong> for the <strong>structure</strong> of the email address, but also checks for <strong>common mistakes</strong> (e.g.: typing .con instead .com) and can return a warning if there seems to be a common mistake. </p>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="container-fluid">
+                <p class="text-muted">
+                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                </p>
+            </div>
+        </footer>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+            });
+        </script>
+
+    </body>
+</html>
