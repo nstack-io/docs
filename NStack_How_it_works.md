@@ -1,13 +1,4 @@
 # NStack: How it works
-## General functionality
-* Localization (previously known as translate)
-* Version control
-* Collections
-* Basic file hosting
-* Messages
-* Rate reminders
-* Various content utils i.e. list of countries, time zones, ip to location lookups
-* Various validators
 
 ## Localization
 NStack's main functionality is based on the API call App Open. 
