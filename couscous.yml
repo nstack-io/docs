@@ -5,9 +5,9 @@ template:
 baseUrl: https://nstack-io.github.io/documentation/
 
 # Used to link to the GitHub project
-github:
-    user: nstack-io
-    repo: documentation
+# github:
+#     user: nstack-io
+#     repo: documentation
 
 branch: gh-pages
 

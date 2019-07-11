@@ -19,8 +19,6 @@ For documentation on how to implement the sdk's and how to use the features, ref
 ## SDK's
 
 * [iOS](https://github.com/nodes-ios/NStackSDK)
-* Android
-  * [Kotlin](https://github.com/nodes-android/nstack-kotlin)
-  * [Java](https://github.com/nodes-android/nstack)
+* [Android](https://github.com/nodes-android/nstack-kotlin)
 * [PHP](https://github.com/nodes-projects/nstack-laravel)
 * [Vapor](https://github.com/nodes-vapor/nstack)
