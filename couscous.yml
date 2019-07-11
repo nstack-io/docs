@@ -1,5 +1,5 @@
 template:
-    url: https://github.com/CouscousPHP/Template-Light.git
+    directory: .
 
 # Base URL of the published website
 baseUrl: "https://nstack-io.github.io/documentation/"
