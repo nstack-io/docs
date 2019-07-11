@@ -3,6 +3,7 @@
 
 template:
     url: https://github.com/CouscousPHP/Template-Light
+    directory: .
 
 # Used to link to the GitHub project
 github:
