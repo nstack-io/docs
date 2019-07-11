@@ -1,8 +1,8 @@
-# Base URL of the published website
-baseUrl: https://nstack-io.github.io/documentation/
-
 template:
-    url: https://github.com/CouscousPHP/Template-Light
+    url: https://github.com/CouscousPHP/Template-Light.git
+
+# Base URL of the published website
+baseUrl: "https://nstack-io.github.io/documentation/"
 
 # Used to link to the GitHub project
 github:
@@ -19,13 +19,13 @@ menu:
   items:
     home:
       text: Home
-      relativeUrl: baseUrl
+      relativeUrl: index.html
     developers:
       text: Developers
-      relativeUrl: baseUrl/developers.html
+      relativeUrl: documentation/developers.html
     commerce:
       text: Commerce
-      relativeUrl: baseUrl/Commerce.html
+      relativeUrl: documentation/Commerce.html
     guides:
       text: Guides
-      relativeUrl: baseUrl/guides.html
+      relativeUrl: documentation/guides.html
