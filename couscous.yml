@@ -1,8 +1,8 @@
 template:
-    directory: .
+    url: https://github.com/CouscousPHP/Template-Light.git
 
 # Base URL of the published website
-baseUrl: "https://nstack-io.github.io/documentation/"
+# baseUrl: "https://nstack-io.github.io/documentation/"
 
 # Used to link to the GitHub project
 github:
