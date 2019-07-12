@@ -11,3 +11,4 @@ Here you can find guides on how to use the features in the NStack dashboard.
 * [Localize for beginners](Guides/Localize_for_beginners.md)  
 * [Localize for experts](Guides/Localize_for_experts.md)
 * [Responses](Guides/Responses.md)
+* [Collections](Guides/Collections.md)

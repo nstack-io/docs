@@ -12,11 +12,12 @@
 ## Overview
 ### System overview
 
-The purpuse of the Responses feature in NStack is to enable you, as a client, to be able to control certain information shown in the app. As the Responses feature is very versatile the usage of it depends on what it is used for in the app. The system is hosted on Nodes servers, and you gain access to the system by having a Nodes employee inviting you via email
+The purpose of the Responses feature in NStack is to enable you, as a client, to be able to control certain information shown in the app. As the Responses feature is very versatile the usage of it depends on what it is used for in the app. The system is hosted on Nodes servers, and you gain access to the system by having a Nodes employee inviting you via email.
+See the [Getting started](Getting_started.md) guide for more info on accessing NStack.
 
 ### Guide overview
 
-The purpose of this guide is to present the Responses feature of NStack and one of it's possible usages. The guide does no cover any other aspects of NStack, for information on other features refer to the [feature overview](Features.md) or the other [guides](Guides.md).
+The purpose of this guide is to present the Responses feature of NStack and one of it's possible use cases. The guide does not cover any other aspects of NStack, for information on other features or more use cases for responses, refer to the [feature overview](../Features.md) or the other [guides](../Guides.md).
 
 ## Accessing the Responses system
 
@@ -65,3 +66,9 @@ To see your deleted responses press the "Deleted" button at the top of the respo
 To restore a deleted response and make it active again press the "Play" button on the response you want to restore.
 
 ![Restore button](../images/Guides/Responses/restore_button.png)
+
+You will be prompted with a dialog to confirm if you want to restore the response, press the "OK" button if you are sure you want to restore the response.
+
+![Confirm restoration](../images/Guides/Responses/confirm_restore.png)
+
+Return back to the "Active" section to see your restored response.
