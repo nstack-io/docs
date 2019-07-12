@@ -130,18 +130,18 @@ There are a few ways you can configure how the user should interact and be infor
 	* When selecting "Yes" the **App Store** will be opened on the apps page where the user can **update** the app.
 	* When selecting "No" the dialog will be **dismissed** and the app resumes as normal.
 	
-	![iOS version control](images/iOS/iOS_version_control.PNG)
+	![iOS version control](images/FeatureOverview/iOS/iOS_version_control.PNG)
 	
 
 * 'Force" - The user will be prompted with the update dialog on app open, Which they **cannot close**. They are forced to update the app.
 	* When selecting "Yes" the **App store** updates screen will be opened.
 	
-	![iOS version control force](images/iOS/iOS_version_control_force.PNG)
+	![iOS version control force](images/FeatureOverview/iOS/iOS_version_control_force.PNG)
 
 **New in version:**
 
 * "Yes" - If the app has been **auto-updated**, we will show a dialog with the **change log** on the next app open.  
-	![iOS version control auto update](images/iOS/iOS_version_control_auto_update.PNG)
+	![iOS version control auto update](images/FeatureOverview/iOS/iOS_version_control_auto_update.PNG)
 
 * "No" - No dialog will be shown after an auto-update.
 
@@ -166,7 +166,7 @@ You can configure how often the user will see the message, currently 2 options a
 * "Show always" - Shows the message on **very** app launch
 * "Show once" - Shows the message **once** on app launch and will not be shown again after the user presses "OK".  
 (TODO: Add android screenshots)  
-	![iOS message](images/iOS/iOS_message.PNG)
+	![iOS message](images/FeatureOverview/iOS/iOS_message.PNG)
 
 ### Rate reminders
 Rate reminders ask the user to **rate** the app on the platform specific **store**.  
@@ -178,8 +178,8 @@ The popup is shown **on app launch** when the required amount of app openings ha
 On iOS this is done by showing Apple's build in rating popup.  
 *"You should be aware that the prompt will only be displayed to a user a maximum of **three** times within a **365-day period**."* - [Apple docs](https://developer.apple.com/documentation/storekit/skstorereviewcontroller/requesting_app_store_reviews)
 
-![iOS rate reminder](images/iOS/iOS_rate_reminder.PNG)
-![iOS rate reminder starred](images/iOS/iOS_rate_reminder_starred.PNG)
+![iOS rate reminder](images/FeatureOverview/iOS/iOS_rate_reminder.PNG)
+![iOS rate reminder starred](images/FeatureOverview/iOS/iOS_rate_reminder_starred.PNG)
 
 **Android**
 
