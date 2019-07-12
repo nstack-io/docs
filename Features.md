@@ -1,4 +1,28 @@
 # Features
+* [Introduction](#introduction)
+* [Content](#content)
+	* [Localize](#localize)
+	* [Responses](#responses)
+	* [Collections](#collections)
+	* [Files](#files)
+* [Notify User](#notify-user)
+	* [Version control](#version-control)
+	* [Messages](#messages) 
+	* [Rate reminder](#rate-reminders)
+* [Geographic](#geographic)
+	* [Continents](#continents)
+	* [Countries](#countries)
+	* [Time zones](#time-zones)
+	* [Languages](#languages)
+	* [IP's](#ips)
+* [Misc](#misc)
+	* [UGC: Push logs](#ugc-push-logs) 
+	* [UGC: Feedback](#ugc-feedback)
+	* [UGC: Results](#ugc-results)
+	* [Validators](#validators)
+		*  [Phone number](#phone-number)
+		*  [Email](#email)
+
 ## Introduction
 This document describes what features are available in NStack and what use cases they can be used for. Use this as a reference when you are not sure what a certain feature can be used for or if you want to refresh you mind on what amazing things NStack can do.
 
@@ -168,7 +192,7 @@ Encourage the developers to use these datasets in appropriate use cases, these d
 It also gives us more flexibility to update the data without a new app release should something change.
 
 
-### Continets
+### Continents
 The continents dataset includes the 7 continents, for each continent the following properties are available:
 
 * Name
