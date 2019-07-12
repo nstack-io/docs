@@ -1,4 +1,4 @@
-# NStack guide - Translate for Experts
+# NStack guide - Localize for Experts
 
 * [Overview](#overview)
 	* [System overview](#system-overview)
@@ -29,9 +29,9 @@ The purpose of this guide is to present the translation feature “Translate” 
 
 NStack is designed to store text values for multiple apps, with multiple platforms and multiple languages. Platforms in NStack are representations of the different parts of an app that make up the app ecosystem, typically being web, mobile and backend. The mobile platform contains text values that are used mainly by the app, the backend contains values that are used solely by the backend, e.g. push notifications text, and the web platform stores values that are used on a website, if any.
 
-## Accessing the Translate system
+## Accessing the Localize system
 
-After logging in, assuming you have just one project, you will be presented with the following screen. If you have access to multiple projects, you’ll have to select a project first. Press the “Translate” button to access the translation feature of NStack.
+After logging in, assuming you have just one project, you will be presented with the following screen. If you have access to multiple projects, you’ll have to select a project first. Press the “Localize” button to access the translation feature of NStack.
 
 ![NStack main screen, translate highlighted](images/TranslateForExperts/nstack_main_translate.png)
 

@@ -1,4 +1,4 @@
-# NStack Guide - Translate for Beginners
+# NStack Guide - Localize for Beginners
 
 * [Overview](#overview)	
 	* [System overview](#system-overview)
@@ -27,9 +27,9 @@ NStack is designed to store text values for multiple apps, with multiple platfor
 
 See the [Getting started](Getting_started.md) guide for information on how to access NStack.
 
-## Accessing the translate system
+## Accessing the Localize system
 
-After logging in, assuming you have just one project, you will be presented with the following screen. If you have access to multiple projects, you’ll have to select a project first. Press the “Translate” button to access the translation feature of NStack.
+After logging in, assuming you have just one project, you will be presented with the following screen. If you have access to multiple projects, you’ll have to select a project first. Press the “Localize” button to access the translation feature of NStack.
 
 ![NStack main screen, translate highlighted](images/TranslateForBeginners/nstack_main_translate.png)
 
