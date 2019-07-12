@@ -32,17 +32,17 @@ See the [Getting started](Getting_started.md) guide for information on how to ac
 
 To manage users, you will have to add them to your company. This is done by accessing the menu via the three dots in the upper right corner. Click “Companies” to see a list of companies you have access to. Usually there will be only one company in this list. 
 
-![NStack menu](images/UserManagement/nstack-menu.png)
+![NStack menu](../images/Guides/UserManagement/nstack-menu.png)
 
 To manage the users of that company, press the user icon.
 
-![User icon](images/UserManagement/manage_users.png)
+![User icon](../images/Guides/UserManagement/manage_users.png)
 
 ### Creating users
 
-![Invite user to company button](images/UserManagement/invite_user_to_company_button.png)
+![Invite user to company button](../images/Guides/UserManagement/invite_user_to_company_button.png)
 
-![Inviet user to company](images/UserManagement/invite_user_to_company.png)
+![Inviet user to company](../images/Guides/UserManagement/invite_user_to_company.png)
 
 If you wish to create a new user, click the green “Invite User to Company” button, and fill out the form that pops up with the user's email.
 
@@ -56,16 +56,16 @@ Users can be granted access to specific applications if needed, instead of all y
 
 Ensure that the form is filled out correctly, and submit the form by pressing “Invite User to Company”. The user will receive an email with an invitation to join NStack. Until the user has accepted the invitation, the user will be listed under pending invitations.
 
-![Pending invitation](images/UserManagement/pending_invitations.png)
+![Pending invitation](../images/Guides/UserManagement/pending_invitations.png)
 
 ### Editing users
 
 To edit a user, click the pencil icon in the row containing the user. You can edit the user role.
 
-![Editing user](images/UserManagement/editing_user.png)
+![Editing user](../images/Guides/UserManagement/editing_user.png)
 
 ### Deleting users
 
 To delete a user, click the cross icon in the row containing the user.
 
-![Editing user](images/UserManagement/editing_user.png)
+![Editing user](../images/Guides/UserManagement/editing_user.png)
