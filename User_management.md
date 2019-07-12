@@ -41,6 +41,7 @@ To manage the users of that company, press the user icon.
 ### Creating users
 
 ![Invite user to company button](images/UserManagement/invite_user_to_company_button.png)
+
 ![Inviet user to company](images/UserManagement/invite_user_to_company.png)
 
 If you wish to create a new user, click the green “Invite User to Company” button, and fill out the form that pops up with the user's email.
