@@ -8,6 +8,8 @@ deploy:
   keep_history: true
   on:
     branch: master
+directories:
+  - $HOME/.composer/cache/files
 env:
   global:
     - GIT_NAME: "'Casper Rasmussen'"
