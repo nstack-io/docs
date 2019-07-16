@@ -4,7 +4,7 @@ php:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
+  github_token: "GH_TOKEN"
   keep_history: true
   on:
     branch: master
