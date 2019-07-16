@@ -14,7 +14,7 @@ env:
 before_script:
   - composer install --no-progress
 script:
-  - vendor/bin/couscous deploy
+  - vendor/bin/couscous travis-auto-deploy
 
 deploy:
   provider: pages
