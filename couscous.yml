@@ -23,9 +23,6 @@ menu:
     developers:
       text: Developers
       absoluteUrl: https://nstack-io.github.io/documentation/developers.html
-    commerce:
-      text: Commerce
-      absoluteUrl: https://nstack-io.github.io/documentation/commerce.html
     guides:
       text: Guides
       absoluteUrl: https://nstack-io.github.io/documentation/guides.html
