@@ -10,9 +10,9 @@ deploy:
     branch: master
 env:
   global:
-    - GIT_NAME: "'Couscous auto deploy'"
-    - GIT_EMAIL: couscous@couscous.io
-    - GH_REF: github.com/CouscousPHP/Couscous
+    - GIT_NAME: "'Casper Rasmussen'"
+    - GIT_EMAIL: cr@nodes.dk
+    - GH_REF: github.com/casperhr
     - secure: MHkOfnpn9EMo65OCQM3McRnTodqw+nvOebDm4GZehODGe77ouTZpxAhpPq28OgxWYHLAdibROa7s8iQiWsefAf9120480u98WUWX6sg+LaQ1A+Tm5VwdwdS042RVS7DOzvLUkRyq1gF0zKi/Ih7UMWA7QkZN++jvALyva/hnBuDAT8SSIpj1KJAAgTzEpDl47wiTCdkqKDArMRcUsk0AYgKnL4wiBYQ80LLIHg+SKG6QWOeWdT7fcvZNhanwPO7cpe095Dyxe6PHrh36FM8FDvd+ywZN/03lLcMvGyfFIc3hpsPT+nP04KQoE+3XwoMOP0Dxaw7FyNPh5V4CZ5omj5rNkat9ZjX/kEFQXHnPmwAcn/vEqtt9gwhuxw35VyLDF9BzFeyYt1txnRWhubZ3gKDxyWMGZs61oLfuxPwzxEO1LPaCwkbOyZG6l9WdgLFwpKy3Sg7QwwjS4Lq6rL5AEeIdViG9VGnfR8TsZzcjLyHNeDQTcUz74+Q4a/kpOLOSBiulDjKVB3lTIEajpGwQWWqzEgEPLeLGxxy8igffztxtjB0rLu/CkK7mLQN4GuhqSuY5m5o41lu/g+F6MiAdmVtl8YQetGrZnyrsua0QRezqpYY5ZmVrUqQnuPH1mz3jyk8zaC4jkLhCZw4N4Kdm9knHfT4cygc8E8aXzKHiyaY=
 before_script:
   - composer install --no-progress
