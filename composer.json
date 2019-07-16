@@ -1,6 +1,5 @@
 {
     "require": {
-        "couscous/couscous": "^1.7",
-        "phpunit/phpunit": "^5"
+        "couscous/couscous": "^1.7"
     }
 }

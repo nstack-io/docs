@@ -7,7 +7,7 @@ deploy:
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   on:
-    branch: gh-pages
+    branch: master
 env:
   global:
     - GIT_NAME: "'Couscous auto deploy'"
@@ -17,6 +17,4 @@ env:
 before_script:
   - composer install --no-progress
 script:
-  - phpunit  
-after_success:
   - vendor/bin/couscous travis-auto-deploy --php-version=5.6
