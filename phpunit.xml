@@ -16,19 +16,9 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./project</directory>
-	    <exclude>
-                <directory suffix=".php">./project/Routes</directory>
-            </exclude>
         </whitelist>
     </filter>
     <php>
         <env name="APP_ENV" value="testing"/>
-        <env name="CACHE_DRIVER" value="array"/>
-        <env name="SESSION_DRIVER" value="array"/>
-        <env name="QUEUE_DRIVER" value="sync"/>
-        <env name="DB_HOST" value="127.0.0.1" />
-        <env name="DB_DATABASE" value="nstack" />
-        <env name="DB_USERNAME" value="nstack" />
-        <env name="DB_PASSWORD" value="nstack" />
     </php>
 </phpunit>
