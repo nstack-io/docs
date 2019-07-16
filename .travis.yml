@@ -1,6 +1,6 @@
 language: php
 php:
-  - 5.5
+  - 5.6
 env:
   global:
     - GIT_NAME: "'Couscous auto deploy'"
@@ -12,4 +12,4 @@ before_script:
 script:
   - phpunit  
 after_success:
-  - vendor/bin/couscous travis-auto-deploy --php-version=5.5
+  - vendor/bin/couscous travis-auto-deploy --php-version=5.6
