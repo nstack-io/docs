@@ -9,7 +9,7 @@ github:
     user: nstack-io
     repo: documentation
 
-branch: gh-pages
+branch: master
 
 title: NStack
 subTitle: Backend as a service
