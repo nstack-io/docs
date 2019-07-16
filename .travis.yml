@@ -14,7 +14,7 @@ env:
 before_script:
   - composer install --no-progress
 script:
-  - vendor/bin/couscous travis-auto-deploy
+  - vendor/bin/couscous travis-auto-deploy --branch=gh-pages
 
 deploy:
   provider: pages
