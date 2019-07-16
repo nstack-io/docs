@@ -7,7 +7,7 @@ deploy:
   github_token: "$GITHUB_TOKEN"
   keep_history: true
   on:
-    branch: gh-pages
+    branch: master
 cache:
   directories:
     - $HOME/.composer/cache
@@ -20,5 +20,5 @@ env:
 before_script:
   - composer install --no-progress
 script:
-  - vendor/bin/couscous travis-auto-deploy --php-version=5.6 --branch=gh-pages
+  - vendor/bin/couscous travis-auto-deploy --php-version=5.6 --branch=master
 
