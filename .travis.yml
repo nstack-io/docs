@@ -8,13 +8,14 @@ deploy:
   keep_history: true
   on:
     branch: gh-pages
-directories:
-  - "$HOME/.composer/cache/files"
+cache:
+  directories:
+    - $HOME/.composer/cache
 env:
   global:
     - GIT_NAME: "Casper Rasmussen"
     - GIT_EMAIL: "cr@nodes.dk"
-    - GH_REF: "nstack-io/documentation"
+    - GH_REF: "github.com/nstack-io/documentation"
     - secure: eMI3vAxLpuwmXyqr83+ytGt8mMsJAnw+xjUYfcilPPNZiRRTxya4V11VVKKmFjc/EtpLk1dxxthccHN6YjVIpQguz2uPmFDn7HWkmaaf8SvHf3r1TK7N8bVr3O3N8Kpn7jUUDbVdhzu5aXROJBtNxEYT03Q+NTD4Mm57j4Jc0Zv6/I6+rc6QMjjvnz8hf8tq0xo73Ccg/ciHxnBgiKki95b3CbbrEBvEtE/rlTm1AiZhI6WS+IIsY76iBEGeXZnf+/ERShXIk/TtJgChIxbVhERfhsbltgmz4nb6LEA6ONvmdpURsH1sMS8/IQbUbVziULFAyiSmmt2bUD5DyWrMX3Ph7fIlH+5EGphhIp2qLUCOR9ShDsL11RGDQ+VkUNVxr9NLD5BKotC+o8IbYmHfL0hTWyPZV5YzVilvVmVNJXJyfMXwb/+B+E+s4ZyfKfduVRCCzJJwghVADJJUkobpzCxOI4m1w2zQlJr7kK8O0VSgIQpcvhUneT7g62LfmAeiftGE/ddkO/+RBJUXMULJPfDdJEEYSyubUi3UbDsr2ZmDK0ommLzctAcjH4zsxuvee+AHBqUuysneuFoC/HCtFX4dCIiCfiSbLBbsiAZB/wxdSO0jVswwKAjWOisN5LGb0g6ALONtWg7sU7F84CBzREXAN7sqMgmKGkbE2XU6vaM=
 before_script:
   - composer install --no-progress
