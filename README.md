@@ -8,4 +8,3 @@ From handling translations to useful datasets you can use in your products like 
 * [Feature overview](Features.md)
 * [Developers](Developers.md)
 * [Guides](Guides.md)
-* [Commerce](Commerce.md)
