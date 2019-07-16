@@ -1,13 +1,13 @@
 template:
-    url: https://github.com/CouscousPHP/Template-Light.git
-
+  url: https://github.com/nstack-io/couscous-template.git
+  index: index.md
 # Base URL of the published website
 baseUrl: https://nstack-io.github.io/documentation/
 
 # Used to link to the GitHub project
 github:
-    user: nstack-io
-    repo: documentation
+  user: nstack-io
+  repo: documentation
 
 branch: master
 
@@ -16,13 +16,34 @@ subTitle: Backend as a service
 
 # The left menu bar
 menu:
-  items:
-    home:
-      text: Home
-      absoluteUrl: https://nstack-io.github.io/documentation/index.html
-    developers:
-      text: Developers
-      absoluteUrl: https://nstack-io.github.io/documentation/developers.html
+  sections:
+    main:
+      name: Documentation
+      items:
+        home:
+          text: Home page
+          relativeUrl: index.html
+        api-doc:
+          text: API doc
+          absoluteUrl: https://nodes-agency-1.postman.co/collections/12675-6191fda7-9251-4027-bf72-232022e02044?version=latest&workspace=55441cf0-95b9-4e87-9372-c7cbf2e3e04d
+        sdk:
+          text: SDKs
+          relativeUrl: docs/sdks.html
+        app-open:
+          text: App open
+          relativeUrl: docs/app-open.html
     guides:
-      text: Guides
-      absoluteUrl: https://nstack-io.github.io/documentation/guides.html
+      name: Guides
+      items:
+        getting-started:
+          text: Getting started
+          relativeUrl: docs/guides/getting-started.html
+        user-management:
+          text: User management
+          relativeUrl: docs/guides/user-management.html
+        localize-beginners:
+          text: Localize for beginners
+          relativeUrl: docs/guides/localize-for-beginners.html
+        localize-experts:
+          text: Localize for experts
+          relativeUrl: docs/guides/localize-for-experts.html

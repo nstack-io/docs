@@ -31,23 +31,23 @@ See the [Getting started](Getting_started.md) guide for information on how to ac
 
 After logging in, assuming you have just one project, you will be presented with the following screen. If you have access to multiple projects, you’ll have to select a project first. Press the “Localize” button to access the translation feature of NStack.
 
-![NStack main screen, translate highlighted](../images/Guides/TranslateForBeginners/nstack_main_translate.png)
+![NStack main screen, translate highlighted](../../images/Guides/TranslateForBeginners/nstack_main_translate.png)
 
 ## Editing values
 
 To edit translations for a language, press the Magnifying Glass icon on the platform you wish to edit. Clicking the magnifying glass icon will present you with a screen showing all translations for the app. NStack creates some default values out of the box, mostly error messages and user notifications. These values are present in all projects, and the keys should not be changed.
 
-![Translate platforms](../images/Guides/TranslateForBeginners/translate_platforms.png)
+![Translate platforms](../../images/Guides/TranslateForBeginners/translate_platforms.png)
 
 On the left side if the screen, a list of current sections are listed, and on the right side, all translation values stored in the section are listed. The section “All” contains all translations, regardless of what section they belong to.
 
-![Translations screen](../images/Guides/TranslateForBeginners/translations.png)
+![Translations screen](../../images/Guides/TranslateForBeginners/translations.png)
 
 ### Editing a value
 
 To edit a value, press the row containing the value you want to edit. Do not press the pencil icon, as that edits the key, which could end up hindering the apps access to that key, as the app refers to the key to extract the value from NStack. Press “Update” when you are satisfied with your edit.
 
-![Update value](../images/Guides/TranslateForBeginners/update_value.png)
+![Update value](../../images/Guides/TranslateForBeginners/update_value.png)
 
 Edited values does not immediately take effect in the app, but is read next time the app is restarted. To force a refresh of the translation values, restart the app.
 
@@ -55,4 +55,4 @@ Edited values does not immediately take effect in the app, but is read next time
 
 The following shows an example of an in-app screen, with some of the corresponding values in NStack. Changing the values in NStack will change the value in the app.
 
-![Translation example](../images/Guides/TranslateForBeginners/translation_example.png)
+![Translation example](../../images/Guides/TranslateForBeginners/translation_example.png)

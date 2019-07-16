@@ -17,7 +17,7 @@ Every consuming platform of NStack bundles a local version of the current Locali
 
 Once running the NStack client also caches received translations from the App Open call and overwrites the bundled language on every app start.
 
-![App open sequence](images/HowItWorks/App_Open_Sequence.png)
+![App open sequence](../images/HowItWorks/App_Open_Sequence.png)
 
 ### Publish CDN / App Open V2
 Around June 2019, we introduced CDN hosting of language translations. It serves two purposes:
@@ -61,7 +61,7 @@ A version can be added as follows:
 Let's make an example. We launched 1.0 a year back, we now want people to upgrade to 2.0 because of breaking API or similar.
 
 We make a force update version entry in NStack:
-![WEB version control configuration](images/HowItWorks/WEB_Version_Control.png)
+![WEB version control configuration](../images/HowItWorks/WEB_Version_Control.png)
 
 What will happen for users on version 1.0:
-![App Open Sequence version control](images/HowItWorks/App_Open_Sequence_version.png)
+![App Open Sequence version control](../images/HowItWorks/App_Open_Sequence_version.png)
