@@ -25,7 +25,7 @@ menu:
           relativeUrl: index.html
         features:
           text: Features
-          relativeUrl: features.html
+          relativeUrl: docs/features.html
         api-doc:
           text: API doc
           absoluteUrl: https://nodes-agency-1.postman.co/collections/12675-6191fda7-9251-4027-bf72-232022e02044?version=latest&workspace=55441cf0-95b9-4e87-9372-c7cbf2e3e04d
