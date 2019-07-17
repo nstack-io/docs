@@ -19,3 +19,8 @@ script:
 deploy:
   provider: pages
   github_token: "$GH_TOKEN"
+  deployment_file: true
+  skip_cleanup: true
+  repo: github.com/nstack-io/documentation
+  target_branch: gh-pages
+  project_name: NStack - documentation
