@@ -14,4 +14,4 @@ env:
 before_script:
   - composer install --no-progress
 script:
-  - vendor/bin/couscous travis-auto-deploy --php-version 5.6 --branch master
+  - vendor/bin/couscous travis-auto-deploy --php-version 5.6 --branch gh-pages
