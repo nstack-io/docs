@@ -1,7 +1,11 @@
-# NStack: How it works
+# App open explained
 
-## Localization
-NStack's main functionality is based on the API call App Open. 
+NStack's have a feature called App open, which enable apps to pull info from several features in one API request
+
+ - Localize
+ - Version control
+ - Messages
+ - Rate reminder 
 
 ### The short story
 
