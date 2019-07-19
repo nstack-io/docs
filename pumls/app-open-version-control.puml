@@ -1,0 +1,29 @@
+@startuml App_Open_Sequence
+!includeurl dependencies/C4_Container.puml
+skinparam sequenceMessageAlign center
+skinparam defaultFontName Roboto
+
+
+actor User
+entity NStackClient
+entity NStackAPI
+entity AppStoreOrGooglePlay
+
+
+
+User -> NStackClient            : Starts app
+NStackClient -> NStackAPI       : Sends AppOpen data:\n\n...\n<b>old_version = 1.0 \nversion = 1.0</b>
+NStackAPI -> NStackClient       : Sends back "newer_version" data with "state":"force", link to App Store / Google Play
+NStackClient -> User            : Shows update prompt and blocks other user interaction
+User -> AppStoreOrGooglePlay    : Opens App Store or Google Play
+AppStoreOrGooglePlay -> User    : Updates app to version 2.0
+User -> NStackClient            : Starts app again
+NStackClient -> NStackAPI       : Sends AppOpen data:\n\n...\nold_version = 1.0 \n<b>version = 2.0</b>
+NStackAPI -> NStackClient       : Sends back "new_in_version" data with changelog " - New version"
+NStackClient -> NStackClient    : Sets old_version to 2.0
+NStackClient -> User            : Shows Changelog to user
+User -> NStackClient            : User later starts app again
+NStackClient -> NStackAPI       : Sends AppOpen data:\n\n...\n<b>old_version = 2.0</b> \nversion = 2.0
+NStackAPI -> NStackClient       : Sends back no version control data, since we're on the newest version
+
+@enduml

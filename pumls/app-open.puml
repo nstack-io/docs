@@ -1,0 +1,53 @@
+@startuml C4_Elements
+!includeurl dependencies/C4_Container.puml
+skinparam sequenceMessageAlign center
+skinparam defaultFontName Roboto
+
+Person(personAlias, "User")
+Person(developer, "Developer")
+
+System_Boundary(c5, "Bitrise"){
+    Container(bitriseBuildTools, "Build tools", "", "Creates build time translation cache")
+}
+
+System_Boundary(c1, "Client"){
+    Container(nstackClient, "NStack Client", "", "App Open")
+    ContainerDb(languageCache, "Runtime cache", "", "Recently fetched translations in runtime")
+    ContainerDb(buildTimeCache, "Build cache", "", "Translations bundled with build")
+}
+
+System_Boundary(c2, "NStack API"){
+    Container(nstackServer, "App Open", "", "Contains version control and a translate block with best fit Translation")
+    System_Boundary(c3, "V2 API"){
+        Container(appOpenV2, "App Open V2", "", "Localize index of languages + CDN urls")
+    }
+}
+
+System_Boundary(c4, "Vapor Cloud"){
+    ContainerDb(publishCDN, "Publish CDN", "", "Simple CDN hosting published json files")
+}
+
+' Builds app
+Rel(developer, bitriseBuildTools, "Triggers build")
+Rel(bitriseBuildTools, buildTimeCache, "Embeds translation dump into app")
+
+' Open app
+Rel(personAlias, nstackClient, "Starts app")
+
+' Client checks state
+Rel(languageCache, nstackClient, "Updates Translation from runtime cache")
+Rel(nstackClient, buildTimeCache, "Fallbacks to build time cache")
+
+' Client contacts server
+Rel(nstackClient, appOpenV2, "App open call", "last_updated, guid, platform, ")
+Rel(nstackClient, nstackServer, "App open call", "last_updated, guid, platform, ")
+
+' Response from App Open
+Rel(appOpenV2, nstackClient, "App open v2 response", "Version control + Language list containing urls to published translations and direct links to NStack translations")
+Rel(appOpenV2, nstackClient, "App open response", "Best fit translation returned + version control")
+Rel(nstackClient, publishCDN, "Fetch published translation")
+Rel(publishCDN, languageCache, "Saves into runtime cache")
+Rel(appOpenV2, languageCache, "Saves into runtime cache")
+Rel(nstackServer, languageCache, "Saves into runtime cache")
+
+@enduml
