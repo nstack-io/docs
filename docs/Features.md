@@ -44,9 +44,9 @@ This way the PM or the client can change any text in the project straight from t
 
 ### Responses
 The responses feature is very **versatile** and can be used as an **alternative** for **custom API's** for simple apps/websites that mainly use **static content**.  
-Using Responses(and collections) can **replace** a simple **API** and can **save** 100's of hours of development time on the right project.
+Using Responses(and collections) can **replace** a simple **API** and can **save** hundreds of hours of development time on the right project.
 
-Using responses for static content can save many hours when the client wants to change some of that content, instead of having a developer change all the hard coded content and make a new build and have QA release it, instead the client/PM can change the content them selfs in NStack. No new build needed, no developer or QA time needed.
+Using responses for static content can save many hours when the client wants to change some of that content, instead of having a developer change all the hard coded content and make a new build and have QA release it, the client/PM can change the content themself in NStack. No new build needed, no developer or QA time needed.
 
 **Use cases:**
 
@@ -82,7 +82,7 @@ On the **right project** with the **right planning** this feature can be very **
 * ...
 
 ### Files
-The files feature allows you to **store** all kinds of **files** ( images, pdf's, ...) that can then be easily retrieved by anyone with the required access.  
+The files feature allows you to **store** all kinds of **files** (images, pdf's, ...) that can then be easily retrieved by anyone with the required access.  
 This can be very useful to host **static images** like backgrounds or header images.
 The files are accessible through **URL** so this can be used on **any platform**.
 
@@ -103,8 +103,8 @@ The files are accessible through **URL** so this can be used on **any platform**
 * ...
 
 ## Notify user
-All of the following features can be active at the same time so they can conflict with each other, to not disturb the user only 1 message will be shown per app open.  
-The priority for each popup will be as followed:
+All of the following features can be active at the same time so they can conflict with each other. To not disturb the user only 1 message will be shown per app open.  
+The priority for each popup will be as follows:
 
 **iOS:**
 
@@ -133,7 +133,7 @@ There are a few ways you can configure how the user should interact and be infor
 	![iOS version control](../images/FeatureOverview/iOS/iOS_version_control.png)
 	
 
-* 'Force" - The user will be prompted with the update dialog on app open, Which they **cannot close**. They are forced to update the app.
+* "Force" - The user will be prompted with the update dialog on app open, Which they **cannot close**. They are forced to update the app.
 	* When selecting "Yes" the **App store** updates screen will be opened.
 	
 	![iOS version control force](../images/FeatureOverview/iOS/iOS_version_control_force.png)
@@ -159,7 +159,7 @@ The title and button texts used in the popups can be configured in the **localis
 
 
 ### Messages
-Using the Messages feature of NStack can be a great tool for **informing your user** about technical difficulties, new sales or actions, etc  
+Using the Messages feature of NStack can be a great tool for **informing your user** about technical difficulties, new sales or actions, etc.
 This message is shown to the user **on app launch**.
 You can configure how often the user will see the message, currently 2 options are available:
 
@@ -293,7 +293,7 @@ The logs include:
 * Push provider (e.g.: Firebase, urban-airship)
 * Key: App key in fcm/ urban-airship
 * Message: included in the push notification
-* Succeeded: if the push was send or not
+* Succeeded: if the push was sent or not
 * Type (e.g: standard, friend-request, taxi-arrived)
 * UserID: The user ID used by the project
 * Relation: Similar to type but more general (e.g.: Booking, Company, ...)
@@ -319,7 +319,7 @@ When you have collected some feedback from users you have the following feature
 
 ### UGC: Results
 The results feature was originally used to aggregate the results of a survey but can be used to collect any kind of question answers.
-Along side collecting the result, on the NStack website you can see a nice overview of all the results and even see them in graphs.
+Alongside collecting the result, on the NStack website you can see a nice overview of all the results and even see them in graphs.
 
 The results include the following properties:
 
