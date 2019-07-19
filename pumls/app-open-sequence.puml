@@ -1,0 +1,38 @@
+@startuml App_Open_Sequence
+!includeurl dependencies/C4_Container.puml
+skinparam sequenceMessageAlign center
+skinparam defaultFontName Roboto
+
+
+actor User
+entity NStackClient
+database RuntimeCache
+database BuildBundle
+entity NStackAPI
+database NStackDB
+entity PublishCDN
+entity AppStoreOrGooglePlay
+
+
+
+User -> NStackClient            : Starts app
+NStackClient -> NStackClient    : Generates GUID (first launch)\n\nSets <b>Accept-Language</b> header to device Locale settings\n\nSets <b>last_updated</b> to unix time 0 (first launch)
+NStackClient -> RuntimeCache    : Checks for any locally cached translations
+RuntimeCache -> BuildBundle      : Fallbacks to translations bundled with the app at build time
+RuntimeCache -> NStackClient    : Updates Translation to recently cached translations
+NStackClient -> User            : First UI shown to user with Translations\n\nWe usually block the user on a splash here
+NStackClient -> NStackAPI       : Sends AppOpen data \n(last_updated, platform, guid, version, old_version)\nIncluding <b>Accept-Language</b> header
+NStackAPI -> NStackDB           : Checks if any versions are set up to be updated\n(including links to AppStore / Google Play)
+NStackAPI -> NStackDB           : Checks if Translations(Localize) is updated since last_updated
+NStackDB -> NStackAPI           : Merges all Languages with should_update flags + \nlinks to PublishCDN / direct links to NStack translations.\n\nVersion control is also included if any updates are necessary
+NStackAPI -> NStackClient       : Returns merged data in App Open Response
+NStackClient <-> PublishCDN     : Fetches each Language with the given Translation URL if updates are needed
+NStackClient <-> NStackAPI      : Fetches each Language with the given Translation URL if updates are needed
+NStackClient -> RuntimeCache    : Stores all translations for next app start
+NStackClient -> NStackClient    : Sets last_updated to now, so we can check for \nupdated Translations since then
+NStackClient -> NStackClient    : Sets old_version to version
+NStackClient -> User            : Any following UI are using updated Translations.\n\n<b>If Version Control is sending updates, show Update popup</b>
+User -> AppStoreOrGooglePlay    : Opens App Store or Google Play and updates App (we hope), if Version Control is showing a popup
+
+
+@enduml
