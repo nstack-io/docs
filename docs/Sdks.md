@@ -2,7 +2,7 @@
 
 * [iOS](https://github.com/nodes-ios/NStackSDK)
 * [Android](https://github.com/nodes-android/nstack-kotlin)
-* [PHP](https://github.com/nodes-projects/nstack-laravel)
+* [PHP](https://github.com/nodes-php/nstack)
 * [Vapor](https://github.com/nodes-vapor/nstack)
 
 1
