@@ -6,9 +6,9 @@ You can open NStack with access directly to one application
 
 The url is build by
 
-`https://nstack.io/deeplin/{appplicationId}/{masterKay`
+`https://nstack.io/deeplin/{appplicationId}/{masterKey}`
 
-When a user is clicking the url following steps will happen
+When an user is clicking the url, following steps will happen:
 
 1) Check if user is logged, else ask them to login
 2) Prompt user that they are about to login to the specific app
