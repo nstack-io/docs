@@ -35,6 +35,9 @@ menu:
         app-open:
           text: App open
           relativeUrl: docs/app-open.html
+        deeplink:
+          text: Deeplink
+          relativeUrl: docs/deeplink.html
     guides:
       name: Guides
       items:
