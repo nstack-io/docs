@@ -42,7 +42,7 @@ If the login is successful, you will be presented with NStacks main screen.
 ## Useful information
 
 ### API keys
-The API keys are used for setting up the [sdk's](Developers.md) and connecting to the api for this particular application.  
+The API keys are used for setting up the [sdk's](/documentation/docs/sdks.html) and connecting to the api for this particular application.  
 You can find them on the selected application page
 
 ![API key button](../../images/Guides/GettingStarted/API_Keys_Button.png)
@@ -51,7 +51,7 @@ You can find them on the selected application page
 
 ### Users
 In the user section you can manage what users have access to the application and what role/ access level they have.  
-See the [user management guide](User_management.md) for more information
+See the [user management guide](/documentation/docs/guides/user-management.html) for more information
 
 ![Users button](../../images/Guides/GettingStarted/Users_Button.png)
 
