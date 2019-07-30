@@ -53,3 +53,12 @@ menu:
         localize-experts:
           text: Localize for experts
           relativeUrl: docs/guides/localize-for-experts.html
+    features:
+      name: Features
+      items:
+        files:
+          text: Files
+          relativeUrl: docs/features/files.html
+        messages:
+          text: Messages
+          relativeUrl: docs/features/messages.html
