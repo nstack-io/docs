@@ -1,6 +1,6 @@
 # Application roles
 
-- First item
-- Second item
-- Third item
-- Fourth items
+ - First item
+ - Second item
+ - Third item
+ - Fourth items
