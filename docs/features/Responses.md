@@ -1,1 +1,13 @@
-#Responses
+# Responses
+
+The responses feature is very **versatile** and can be used as an **alternative** for **custom API's** for simple apps/websites that mainly use **static content**.  
+Using Responses(and collections) can **replace** a simple **API** and can **save** hundreds of hours of development time on the right project.
+
+Using responses for static content can save many hours when the client wants to change some of that content, instead of having a developer change all the hard coded content and make a new build and have QA release it, the client/PM can change the content themself in NStack. No new build needed, no developer or QA time needed.
+
+**Use cases:**
+
+- Store static content
+- Store default configurations
+- ...
+

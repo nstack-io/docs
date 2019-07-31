@@ -54,32 +54,7 @@ Using responses for static content can save many hours when the client wants to 
 * Store default configurations
 * ...
 
-### Collections
-The collection feature can be seen as a **more structured** version of the **responses** feature, and in turn is also very **versatile** and a good **alternative** for **custom API's** for simple apps/websites.
-
-In the collection feature you can **define** a **template** (e.g.: A Product which has a title, description and price), using this model you can **add collections** and **single** Products to be stored.
-
-An **example** could be:
-
-You have defined you **"Product"** template, a product should have a **title**, **description** and **price**.  
-Using this template you can setup certain **collections**:
-
-* All products
-* Available products
-* Products on sale
-
-But you can also define a **single** product based on the **template**, an example for that could be "Product of the day", "Most popular product", ...
-
-A generic product is just **1 example** of what the collections could be used for and you can of course use **more templates** at the **same time**.  
-On the **right project** with the **right planning** this feature can be very **powerful**. 
-
-**Use cases:**
-
-* Store a list of All product/articles
-* Store a list of available products/ articles
-* Feature the "Product of the day" 
-* Store an apps default configuration along with some premade configurations 
-* ...
+* 
 
 ### Files
 The files feature allows you to **store** all kinds of **files** (images, pdf's, ...) that can then be easily retrieved by anyone with the required access.  
@@ -132,7 +107,6 @@ There are a few ways you can configure how the user should interact and be infor
 	
 	![iOS version control](../images/FeatureOverview/iOS/iOS_version_control.png)
 	
-
 * "Force" - The user will be prompted with the update dialog on app open, Which they **cannot close**. They are forced to update the app.
 	* When selecting "Yes" the **App store** updates screen will be opened.
 	
@@ -166,7 +140,7 @@ You can configure how often the user will see the message, currently 2 options a
 * "Show always" - Shows the message on **very** app launch
 * "Show once" - Shows the message **once** on app launch and will not be shown again after the user presses "OK".  
 (TODO: Add android screenshots)  
-	![iOS message](../images/FeatureOverview/iOS/iOS_message.png)
+	![iOS message](../../images/FeatureOverview/iOS/iOS_message.png)
 
 ### Rate reminders
 Rate reminders ask the user to **rate** the app on the platform specific **store**.  

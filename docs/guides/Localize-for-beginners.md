@@ -25,7 +25,7 @@ NStack is designed to store text values for multiple apps, with multiple platfor
 ## Getting started
 ### Accessing NStack
 
-See the [Getting started](Getting_started.md) guide for information on how to access NStack.
+See the [Getting started](/docs/guides/getting-started.html) guide for information on how to access NStack.
 
 ## Accessing the Localize system
 

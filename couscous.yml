@@ -23,9 +23,6 @@ menu:
         home:
           text: Home page
           relativeUrl: index.html
-        features:
-          text: Features
-          relativeUrl: docs/features.html
         api-doc:
           text: API
           absoluteUrl: docs/api.html
@@ -53,3 +50,43 @@ menu:
         localize-experts:
           text: Localize for experts
           relativeUrl: docs/guides/localize-for-experts.html
+    features:
+      name: Features
+      items:
+        collections:
+          text: Collections
+          relativeUrl: docs/features/collections.html
+        dashboard:
+          text: Dashboard
+          relativeUrl: docs/features/dashboards.html
+        feedback:
+          text: Feedback
+          relativeUrl: docs/features/feedback.html
+        files:
+          text: Files
+          relativeUrl: docs/features/files.html
+        geographics:
+          text: Geographics
+          relativeUrl: docs/features/geographic.html
+        localize:
+          text: Localize
+          relativeUrl: docs/features/Localize.html
+        messages:
+          text: Messages
+          relativeUrl: docs/features/messages.html
+        pushlogs:
+          text: Push logs
+          relativeUrl: docs/features/push-logs.html
+        ratereminder:
+          text: Rate-reminder
+          relativeUrl: docs/features/rate-reminder.html
+        responses:
+          text: Responses
+          relativeUrl: docs/features/responses.html
+        validators:
+          text: Validators
+          relativeUrl: docs/features/validators.html
+        versioncontrol:
+          text: Version-control
+          relativeUrl: docs/features/version-control.html
+
