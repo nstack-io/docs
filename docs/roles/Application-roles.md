@@ -8,3 +8,7 @@ Each role have features from roles below + what is listed together with role!
  
 - user, full access to all features of application
 
+- First item
+- Second item
+- Third item
+- Fourth item
