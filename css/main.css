@@ -48,6 +48,8 @@ header.navbar {
 @media (min-width: 768px) {
     #sidebar {
         position:fixed;
+        overflow-y: scroll;
+        height: 100%;
     }
 }
 @media (max-width: 960px) {
