@@ -1,5 +1,13 @@
 # Geographic
 
+- [Continents](#continents)
+- [Countries](#countries)
+- [Time zones](#time-zones)
+- [Languages](#languages)
+- [IP's](#ips)
+
+
+
 **Note: The following datasets are global, meaning changing it in 1 project will change it for all projects.**
 
 Encourage the developers to use these datasets in appropriate use cases, these datasets discourage hardcoding this data in the app or using a 3rd party datasets/libraries.
