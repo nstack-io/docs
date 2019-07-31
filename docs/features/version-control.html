@@ -63,11 +63,6 @@
                                         </a>
                                     </li>
                                                                     <li class="">
-                                        <a href="https://nstack-io.github.io/documentation/docs/features.html">
-                                            Features
-                                        </a>
-                                    </li>
-                                                                    <li class="">
                                         <a href="docs/api.html">
                                             API
                                         </a>
@@ -114,12 +109,114 @@
                                         </a>
                                     </li>
                                                             </ul>
+                                                    <p class="text-muted">
+                                Features
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/collections.html">
+                                            Collections
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/dashboards.html">
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/feedback.html">
+                                            Feedback
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/files.html">
+                                            Files
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/geographic.html">
+                                            Geographics
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/Localize.html">
+                                            Localize
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/messages.html">
+                                            Messages
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/push-logs.html">
+                                            Push logs
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/rate-reminder.html">
+                                            Rate-reminder
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/responses.html">
+                                            Responses
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/validators.html">
+                                            Validators
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nstack-io.github.io/documentation/docs/features/version-control.html">
+                                            Version-control
+                                        </a>
+                                    </li>
+                                                            </ul>
                         
                     </nav>
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="version-control">Version-control</h1>
+                    <h1 id="version-control">Version control</h1>
+<p>(TODO: Add android screenshots)</p>
+<p>Using the version control feature of NStack you can inform the user that a <strong>new version</strong> of the app is <strong>available</strong>.<br />
+There are a few ways you can configure how the user should interact and be informed about the new version:</p>
+<p><strong>Update mode:</strong></p>
+<ul>
+<li>
+<p>&quot;Off&quot; - The user will <strong>not</strong> be prompted with the update dialog.</p>
+</li>
+<li>
+<p>&quot;On&quot; - The user will be prompted with the update dialog on app open. But can <strong>decide</strong> to say no to the update, 24h later they will see the dialog again.</p>
+<ul>
+<li>When selecting &quot;Yes&quot; the <strong>App Store</strong> will be opened on the apps page where the user can <strong>update</strong> the app.</li>
+<li>When selecting &quot;No&quot; the dialog will be <strong>dismissed</strong> and the app resumes as normal.</li>
+</ul>
+<p><img src="../../images/FeatureOverview/iOS/iOS_version_control.png" alt="iOS version control" /></p>
+</li>
+<li>
+<p>&quot;Force&quot; - The user will be prompted with the update dialog on app open, Which they <strong>cannot close</strong>. They are forced to update the app.</p>
+<ul>
+<li>When selecting &quot;Yes&quot; the <strong>App store</strong> updates screen will be opened.</li>
+</ul>
+<p><img src="../../images/FeatureOverview/iOS/iOS_version_control_force.png" alt="iOS version control force" /></p>
+</li>
+</ul>
+<p><strong>New in version:</strong></p>
+<ul>
+<li>&quot;Yes&quot; - If the app has been <strong>auto-updated</strong>, we will show a dialog with the <strong>change log</strong> on the next app open.<br />
+<img src="../../images/FeatureOverview/iOS/iOS_version_control_auto_update.png" alt="iOS version control auto update" /></li>
+<li>&quot;No&quot; - No dialog will be shown after an auto-update.</li>
+</ul>
+<p><strong>Change log:</strong></p>
+<p>In the change log you can list all the <strong>new features</strong>, bug fixes or UI updates that are present in the new app and need to be presented to the user.</p>
+<p><strong>File(Android):</strong></p>
+<p>You can upload a file to the new version, this is mainly used when <strong>releasing</strong> an Android app <strong>outside</strong> of the <strong>Google play</strong> store using a .apk file.</p>
+<p><strong>Text:</strong></p>
+<p>The title and button texts used in the popups can be configured in the <strong>localisation</strong> section of the app on the <strong>&quot;Nstack(system)&quot; platform</strong>.</p>
                 </section>
 
             </div>

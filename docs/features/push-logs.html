@@ -180,11 +180,20 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="validators">Validators</h1>
-<h4 id="phone-number">Phone number</h4>
-<p>The phone number validator <strong>validates</strong> if a given phone number has the <strong>right amount of digits</strong> according to the <strong>origin countries</strong> standard.</p>
-<h4 id="email">Email</h4>
-<p>The email validator is not only a <strong>validator</strong> for the <strong>structure</strong> of the email address, but also checks for <strong>common mistakes</strong> (e.g.: typing .con instead .com) and can return a warning if there seems to be a common mistake. </p>
+                    <h1 id="ugc-push-logs">UGC: Push logs</h1>
+<p>The push logs features allows the <strong>backend</strong> responsible for sending out push notifications to <strong>log</strong> all the <strong>notifications</strong> it sends out.<br />
+These logs can be seen on the NStack website and can be <strong>easily sorted</strong>.</p>
+<p>These logs can be very <strong>useful</strong> if anything goes wrong in in terms of push notifications, this is traditionally <strong>very hard to debug</strong> and figure out what went wrong, with these logs we should have a better idea on what was send and if it succeeded or not and can <strong>save many hours debugging</strong>.</p>
+<p>The logs include:</p>
+<ul>
+<li>Push provider (e.g.: Firebase, urban-airship)</li>
+<li>Key: App key in fcm/ urban-airship</li>
+<li>Message: included in the push notification</li>
+<li>Succeeded: if the push was sent or not</li>
+<li>Type (e.g: standard, friend-request, taxi-arrived)</li>
+<li>UserID: The user ID used by the project</li>
+<li>Relation: Similar to type but more general (e.g.: Booking, Company, ...)</li>
+</ul>
                 </section>
 
             </div>
