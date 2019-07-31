@@ -11,10 +11,10 @@ User roles
 Company roles
  - owner, can invite/remove admins, delete company
  - admin, can invite/remove users, edit company
- - user 
+ - user, full access to all features for all apps 
  
 Application roles
  - owner, can invite/remove admins, delete app
  - admin, can invite/remove users, edit app
- - user 
+ - user, full access to all features
 
