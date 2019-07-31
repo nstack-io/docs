@@ -1,8 +1,6 @@
-# Roles
+# Application roles
 
 Each role have features from roles below + what is listed together with role!
-
-Application roles
 
  - owner, can invite/remove admins, delete app
  

@@ -1,20 +1,9 @@
 # Roles
 
-Each role have features from roles below + what is listed together with role!
+We have roles to 3 different entities in the system
 
-User roles
- - developer, can access failed jobs, roles
- - super-admin, read/write all companies / apps
- - admin, can create companies / apps
- - user, only access to invited companies/apps 
- 
-Company roles
- - owner, can invite/remove admins, delete company
- - admin, can invite/remove users, edit company
- - user, full access to all features for all apps 
- 
-Application roles
- - owner, can invite/remove admins, delete app
- - admin, can invite/remove users, edit app
- - user, full access to all features
+[Global](./user-roles.md)
 
+[Company roles](./company-roles.md)
+
+[Application roles](./application-roles.md)
