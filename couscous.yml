@@ -56,6 +56,9 @@ menu:
         collections:
           text: Collections
           relativeUrl: docs/features/collections.html
+        dashboard:
+          text: Dashboard
+          relativeUrl: docs/features/dashboards.html
         feedback:
           text: Feedback
           relativeUrl: docs/features/feedback.html
