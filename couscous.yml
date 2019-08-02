@@ -70,7 +70,7 @@ menu:
           relativeUrl: docs/features/geographic.html
         localize:
           text: Localize
-          relativeUrl: docs/features/Localize.html
+          relativeUrl: docs/features/localize.html
         messages:
           text: Messages
           relativeUrl: docs/features/messages.html

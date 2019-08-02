@@ -14,18 +14,18 @@ There are a few ways you can configure how the user should interact and be infor
   - When selecting "Yes" the **App Store** will be opened on the apps page where the user can **update** the app.
   - When selecting "No" the dialog will be **dismissed** and the app resumes as normal.
 
-  ![iOS version control](../../images/FeatureOverview/iOS/iOS_version_control.png)
+  ![iOS version control](https://nstack-io.github.io/documentation/images/FeatureOverview/iOS/iOS_version_control.png)
 
 - "Force" - The user will be prompted with the update dialog on app open, Which they **cannot close**. They are forced to update the app.
 
   - When selecting "Yes" the **App store** updates screen will be opened.
 
-  ![iOS version control force](../../images/FeatureOverview/iOS/iOS_version_control_force.png)
+  ![iOS version control force](https://nstack-io.github.io/documentation/images/FeatureOverview/iOS/iOS_version_control_force.png)
 
 **New in version:**
 
 - "Yes" - If the app has been **auto-updated**, we will show a dialog with the **change log** on the next app open.  
-  ![iOS version control auto update](../../images/FeatureOverview/iOS/iOS_version_control_auto_update.png)
+  ![iOS version control auto update](https://nstack-io.github.io/documentation/images/FeatureOverview/iOS/iOS_version_control_auto_update.png)
 - "No" - No dialog will be shown after an auto-update.
 
 **Change log:**
