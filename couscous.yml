@@ -1,5 +1,6 @@
 template:
-  url: https://github.com/nstack-io/couscous-template.git
+  # url: https://github.com/nstack-io/couscous-template.git
+  directory: website/
   index: index.md
 # Base URL of the published website
 baseUrl: https://nstack-io.github.io/documentation/
@@ -35,21 +36,108 @@ menu:
         deeplink:
           text: Deeplink
           relativeUrl: docs/deeplink.html
-    guides:
-      name: Guides
+    guides-for-non-devs:
+      name: Documentation for non developers
       items:
         getting-started:
           text: Getting started
-          relativeUrl: docs/guides/getting-started.html
+          relativeUrl: docs/guides/Non-devs/getting-started.html
         user-management:
           text: User management
-          relativeUrl: docs/guides/user-management.html
+          relativeUrl: docs/guides/Non-devs/user-management.html
         localize-beginners:
           text: Localize for beginners
-          relativeUrl: docs/guides/localize-for-beginners.html
+          relativeUrl: docs/guides/Non-devs/localize-for-beginners.html
         localize-experts:
           text: Localize for experts
-          relativeUrl: docs/guides/localize-for-experts.html
+          relativeUrl: docs/guides/Non-devs/localize-for-experts.html
+        collections:
+          text: Collections
+          relativeUrl: docs/guides/Non-devs/Collections.html
+        responses:
+          text: Responses
+          relativeUrl: docs/guides/Non-devs/Responses.html
+    ios-guides:
+      name: iOS
+      items:
+        Installation:
+         text: iOS - Installation
+         relativeUrl: docs/guides/iOS/iOS.html
+        Localization:
+         text: iOS - Localize
+         relativeUrl: docs/guides/iOS/iOS-Localize.html
+        Responses:
+          text: iOS - Responses
+          relativeUrl: docs/guides/iOS/iOS-Responses.html
+        Collections:
+           text: iOS - Collections
+           relativeUrl: docs/guides/iOS/iOS-Collections.html
+        Files:
+           text: iOS - Files
+           relativeUrl: docs/guides/iOS/iOS-Files.html
+        Version-Control:
+           text: iOS - Version Control
+           relativeUrl: docs/guides/iOS/iOS-Version-Control.html
+        Messages:
+           text: iOS - Messages
+           relativeUrl: docs/guides/iOS/iOS-Messages.html
+        Rate-reminder:
+           text: iOS - Rate reminder
+           relativeUrl: docs/guides/iOS/iOS-Rate-Reminder.html
+        Geography:
+           text: iOS - Geography
+           relativeUrl: docs/guides/iOS/iOS-Geography.html
+        Validation:
+           text: iOS - Validation
+           relativeUrl: docs/guides/iOS/iOS-Validators.html
+    android-guides:
+       name: Android
+       items:
+         Installation:
+           text: Android - Installation
+           relativeUrl: docs/guides/Android/Android-Installation.html
+         Localize:
+           text: Android - Localize
+           relativeUrl: docs/guides/Android/Android-Localize.html
+         Activity-Setup:
+            text: Android - Activity Setup
+            relativeUrl: docs/guides/Android/Android-Activity-Setup.html
+         App-Open:
+            text: Android - App Open
+            relativeUrl: docs/guides/Android/Android-App-Open.html
+         Version-Control:
+            text: Android - Version Control
+            relativeUrl: docs/guides/Android/Android-Version-Control.html
+         Collections:
+            text: Android - Collections
+            relativeUrl: docs/guides/Android/Android-Collections.html
+    php-guides:
+       name: PHP
+       items:
+         PHP-Installation:
+           text: PHP - Installation
+           relativeUrl: docs/guides/PHP/PHP-Installation.html
+    laravel-guides:
+       name: Laravel
+       items:
+         Laravel-Installation:
+            text: Laravel - Installation
+            relativeUrl: docs/guides/Laravel/Laravel-Installation.html
+    vapor-guides:
+      name: Vapor
+      items:
+         Vapor-Installation:
+           text: Vapor - Installation
+           relativeUrl: docs/guides/Vapor/Vapor-Installation.html
+         Vapor-Localize:
+           text: Vapor - Localize
+           relativeUrl: docs/guides/Vapor/Vapor-Localize.html
+         Vapor-Version-Control:
+           text: Vapor - Version Control
+           relativeUrl: docs/guides/Vapor/Vapor-Version-Control.html
+         Vapor-Responses:
+           text: Vapor - Responses
+           relativeUrl: docs/guides/Vapor/Vapor-Responses.html
     features:
       name: Features
       items:

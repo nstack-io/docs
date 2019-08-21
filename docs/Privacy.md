@@ -13,9 +13,9 @@ Email: ldn@nodesagency.com
 
 Below, we’ve elaborated on our policies, what information is being collected, their purposes, and what third parties have access to them. These are divided into three chapters;
 
-1\. Privacy,
+1\. Cookies
 
-2\. Cookies,
+2\.  Privacy
 
 3\. Newsletter
 
@@ -28,7 +28,7 @@ When you visit our website, information about you is collected that is used to c
 If you do not wish, that this collection of information endure, you should delete your cookies in your browser and avoid further use of this website. Below we have elaborated on what information is collected, their purposes and which third parties have access to them.
 
 **cookies**  
-The website uses “cookies”, which is a text file that is stored on your computer, mobile or mobile. Similarly for the purpose of recognizing it, remembering settings, performing statistics, and targeting ads. Cookies can not contain malicious code such as virus.
+The website uses “cookies”, which is a text file that is stored on your computer, mobile or tablet. Similarly for the purpose of recognizing it, remembering settings, performing statistics, and targeting ads. Cookies can not contain malicious code such as virus.
 
 It is possible to delete or block cookies. See the guide: http://minecookies.org/cookiehandtering
 
@@ -44,7 +44,7 @@ Privacy: Personal Data Collection
 **In general**  
 Personal data collection is any kind of information that may be attributed to you to some extent. When using our website, we collect and process a variety of such information. This happens for example. by accessing content if you sign up for our newsletter, participate in competitions or surveys, register yourself as a user or subscriber, and otherwise use of services or make purchases through the website.
 
-We typically collect and process the following types of information: A unique ID and technical information about your computer, tablet or mobile phone, your IP number, geographic location, and which pages you click (interests). To the extent that you explicitly consent to this and even enter the information, you will also be treated: Name, phone number, email, address, and payment information. This will typically be associated with the creation of login or purchase.
+We typically collect and process the following types of information: A unique ID and technical information about your computer, tablet or mobile phone, your IP address, geographic location, and which pages you click (interests). To the extent that you explicitly consent to this and even enter the information, you will also be treated: Name, phone number, email, address, and payment information. This will typically be associated with the creation of login or purchase.
 
 **Security**  
 We have taken technical and organizational measures against the fact that your information is accidentally or illegally deleted, published, lost, impaired or comes to the knowledge of a 3rd person, misused or otherwise treated in violation of the law.
@@ -76,7 +76,7 @@ The content of our newsletter consists of the latest trends, analysis, guides, a
 **Use of personal information**  
 Personal information such as email and name collected in connection with the newsletter, download, purchase or download of e-books etc. will never be disclosed to third parties. This will only be done if you have given us a written permission for this. This permission must be obtained separately. Therefore, in such cases, we will contact you directly (this permission is therefore not covered by the above and the following conditions and must therefore be collected separately).
 
-Information collected in connection with registration, purchase, download or participation in eg. events, seminars, webinars, survey, etc. Only used to gain more knowledge of site users, through anonymous data obtained from third parties (e.g., Google). Which helps to ensure that you only receive relevant content and to offer the best user experience.
+Information collected in connection with registration, purchase, download or participation in eg. events, seminars, webinars, survey, etc. is only used to gain more knowledge of site users, through anonymous data obtained from third parties (e.g., Google). Which helps to ensure that you only receive relevant content and to offer the best user experience.
 
 This knowledge is used to improve current products, services and technologies as well as display of content that is customized so that this is always relevant to users.
 

@@ -1,6 +1,6 @@
 # App open explained
 
-NStack's have a feature called App open, which enable apps to pull info from several features in one API request
+NStack has a feature called App open, which enable apps to pull info from several features in one API request
 
  - Localize
  - Version control
