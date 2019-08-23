@@ -1,3 +1,7 @@
+---
+currentMenu: Laravel-Installation
+---
+
 ## 📦 Installation
 
 To install this package you will need:

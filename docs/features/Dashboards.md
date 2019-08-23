@@ -1,3 +1,7 @@
+---
+currentMenu:  features-dashboard
+---
+
 #Dashboards
 
 

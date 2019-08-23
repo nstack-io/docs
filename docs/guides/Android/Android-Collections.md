@@ -1,4 +1,9 @@
+---
+currentMenu: android-Collections
+---
+
 ## Collections on Android
+
 The purpose of the Collections feature in NStack is to enable you, as a client, to be able to control different data sets that are shown in the app.
 
 In your application, you can obtain your collections either by using method with callback, or use power of Kotlin Coroutines with the `suspend` method.

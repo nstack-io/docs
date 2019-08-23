@@ -1,3 +1,7 @@
+---
+currentMenu: home
+---
+
 ## Introduction
 [NStack](https://nstack.io/) is Nodes' "Backend as a Service" product that enables clients to manage many aspects of their products by themselves.
 

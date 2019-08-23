@@ -1,4 +1,9 @@
+---
+currentMenu: android-App-Open
+---
+
 ## App Open
+
 NStack's have a feature called App open, which enable apps to pull info from several features in one API request, 
 
 You can learn more about it [here](../../app-open.html).

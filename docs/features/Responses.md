@@ -1,3 +1,7 @@
+---
+currentMenu:  features-responses
+---
+
 # Responses
 
 The responses feature is very **versatile** and can be used as an **alternative** for **custom API's** for simple apps/websites that mainly use **static content**.  
@@ -13,5 +17,6 @@ Using responses for static content can save many hours when the client wants to 
 You can find examples on how to implement **Responses** for the following platforms:
 
 * [iOS](../../docs/guides/iOS/iOS-Responses.html)
+* [Vapor](../../docs/guides/Vapor/Vapor-Responses.html)
 
 A guide about **Responses** can be found [here](../../docs/guides/Non-devs/Responses.html)

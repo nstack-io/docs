@@ -1,3 +1,7 @@
+---
+currentMenu: app-open
+---
+
 # App open explained
 
 NStack has a feature called App open, which enable apps to pull info from several features in one API request
@@ -12,8 +16,10 @@ NStack has a feature called App open, which enable apps to pull info from severa
 1. Send phone language, current version to NStack and when the localization was last updated
 2. NStack finds best fit language based on language and returns it if the server version is newer than the phone's version
 3. NStack checks if Version control has any updates enabled for the received version (i.e. 1.0.0) 
-4. NStack returns all of this in App Open response
-5. Phone uses newest translation, updates last updated, shows any Version control dialog if necessary
+4. NStack checks if there is a Rate reminder set up
+5. NStack checks if there are any Messages to retrieve
+6. NStack returns all of this in App Open response
+7. Phone uses newest translation, updates last updated, shows any Version control dialog if necessary
 
 ### The long story
 
@@ -65,7 +71,9 @@ A version can be added as follows:
 Let's make an example. We launched 1.0 a year back, we now want people to upgrade to 2.0 because of breaking API or similar.
 
 We make a force update version entry in NStack:
+
 ![WEB version control configuration](../images/HowItWorks/WEB_Version_Control.png)
 
 What will happen for users on version 1.0:
+
 ![App Open Sequence version control](../images/HowItWorks/App_Open_Sequence_version.png)

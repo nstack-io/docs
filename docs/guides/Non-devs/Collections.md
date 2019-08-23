@@ -1,3 +1,7 @@
+---
+currentMenu: collections
+---
+
 # NStack Guide - Collections
 
 * [Overview](#overview)

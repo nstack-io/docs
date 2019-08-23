@@ -1,3 +1,7 @@
+---
+currentMenu: ios-Messages
+---
+
 ## Messages on iOS
 
 Messages shows the user a custom message when the app is launched, for example warning them about a server outage.

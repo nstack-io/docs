@@ -1,3 +1,7 @@
+---
+currentMenu:  features-localize
+---
+
 # Localize
 
 Localize is the most used feature of NStack and can/**should** be used **in all apps**.  
@@ -15,7 +19,9 @@ You can find examples on how to implement **Localize** for the following platfor
 
 * [iOS](../../docs/guides/iOS/iOS-Localize.html)
 * [Android](../../docs/guides/Android/Android-Localize.html)
+* [Vapor](../../docs/guides/Vapor/Vapor-Localize.html)
 
 There are 2 guides about **Localize**:
 * [beginner](../../docs/guides/Non-devs/Localize-for-beginners.html)
 * [expert](../../docs/guides/Non-devs/Localize-for-experts.html)
+

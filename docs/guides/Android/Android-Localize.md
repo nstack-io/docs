@@ -1,3 +1,7 @@
+---
+currentMenu: android-Localize
+---
+
 ## Localize on Android
 
 Read more about **Localization** in the [*Feature/Localization*](../../features/localize.html) section.

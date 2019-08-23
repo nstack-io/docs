@@ -1,3 +1,7 @@
+---
+currentMenu: Vapor-Responses
+---
+
 ## Responses on Vapor
 
 NStack can be used to store JSON responses. To make use of this feature you can use the `ResponseController`.

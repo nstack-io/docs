@@ -1,3 +1,7 @@
+---
+currentMenu:  features-feedback
+---
+
 # UGC: Feedback
 
 The **feedback** feature is intended for **collecting** user **feedback** in **one place** where it can be easily accessible.

@@ -1,3 +1,7 @@
+---
+currentMenu: localize-beginners
+---
+
 # NStack Guide - Localize for Beginners
 
 * [Overview](#overview)	

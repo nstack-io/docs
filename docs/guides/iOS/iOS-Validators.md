@@ -1,3 +1,7 @@
+---
+currentMenu: ios-Validation
+---
+
 ## Validation on iOS
 
 NStack makes it possible to validate the syntax and domain of an email, just use:

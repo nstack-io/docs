@@ -1,13 +1,17 @@
+---
+currentMenu: sdk
+---
+
 # SDKs
 
 NStack has SDKs for different platforms. In the GitHub repos you will information on how to install and use the SDKs. 
 
 The same information is also available here, so you don't have to leave the documnetation
 
-* **iOS**
+* **iOS - Swift** 
   * [GitHub](https://github.com/nstack-io/ios-sdk)
   * [Installation](../docs/guides/iOS/iOS.html)
-* **Android**
+* **Android - Kotlin**
   * [GitHub](https://github.com/nstack-io/android-sdk)
   * [Installation](../docs/guides/Android/Android-Installation.html)
 * **PHP**

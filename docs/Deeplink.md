@@ -1,3 +1,7 @@
+---
+currentMenu: deeplink
+---
+
 # Deeplink
 
 You can open the NStack website with direct access to one specific application

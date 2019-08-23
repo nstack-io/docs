@@ -72,7 +72,7 @@
                                             SDKs
                                         </a>
                                     </li>
-                                                                    <li class="">
+                                                                    <li class="active">
                                         <a href="/docs/app-open.html">
                                             App open
                                         </a>
@@ -210,6 +210,16 @@
                                             Android - Collections
                                         </a>
                                     </li>
+                                                                    <li class="">
+                                        <a href="/docs/guides/Android/Android-Rate-Reminder.html">
+                                            Android - Rate reminder
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/docs/guides/Android/Android-Messages.html">
+                                            Android - Messages
+                                        </a>
+                                    </li>
                                                             </ul>
                                                     <p class="text-muted">
                                 PHP
@@ -295,6 +305,11 @@
                                         </a>
                                     </li>
                                                                     <li class="">
+                                        <a href="/docs/guides/Non-devs/Master-App.html">
+                                            Master App
+                                        </a>
+                                    </li>
+                                                                    <li class="">
                                         <a href="/docs/features/messages.html">
                                             Messages
                                         </a>
@@ -343,6 +358,8 @@
 <li>Send phone language, current version to NStack and when the localization was last updated</li>
 <li>NStack finds best fit language based on language and returns it if the server version is newer than the phone's version</li>
 <li>NStack checks if Version control has any updates enabled for the received version (i.e. 1.0.0) </li>
+<li>NStack checks if there is a Rate reminder set up</li>
+<li>NStack checks if there are any Messages to retrieve</li>
 <li>NStack returns all of this in App Open response</li>
 <li>Phone uses newest translation, updates last updated, shows any Version control dialog if necessary</li>
 </ol>
@@ -383,10 +400,10 @@
 <li>You can specify a changelog that will be showed on next app launch</li>
 </ol>
 <p>Let's make an example. We launched 1.0 a year back, we now want people to upgrade to 2.0 because of breaking API or similar.</p>
-<p>We make a force update version entry in NStack:
-<img src="../images/HowItWorks/WEB_Version_Control.png" alt="WEB version control configuration" /></p>
-<p>What will happen for users on version 1.0:
-<img src="../images/HowItWorks/App_Open_Sequence_version.png" alt="App Open Sequence version control" /></p>
+<p>We make a force update version entry in NStack:</p>
+<p><img src="../images/HowItWorks/WEB_Version_Control.png" alt="WEB version control configuration" /></p>
+<p>What will happen for users on version 1.0:</p>
+<p><img src="../images/HowItWorks/App_Open_Sequence_version.png" alt="App Open Sequence version control" /></p>
                 </section>
 
             </div>

@@ -1,4 +1,9 @@
+---
+currentMenu: android-Activity-Setup
+---
+
 ## Activity Setup
+
 Add this to whatever activity you are trying to use NStack in
 
 ```kotlin

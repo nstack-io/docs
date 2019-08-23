@@ -1,3 +1,7 @@
+---
+currentMenu:  features-collections
+---
+
 # Collections
 
 The collections feature can be seen as a **more structured** version of the **responses** feature, and in turn it can be very **versatile** and a good **alternative** for **custom APIs** for simple apps/websites.

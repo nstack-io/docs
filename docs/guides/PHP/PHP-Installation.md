@@ -1,3 +1,7 @@
+---
+currentMenu: PHP-Installation
+---
+
 ## 📦 Installation
 
 To install this package you will need:

@@ -1,4 +1,9 @@
+---
+currentMenu: ios-Localization
+---
+
 ## Localization on iOS
+
 To use nstack for translations, you need to install the [nstack translations generator](https://github.com/nodes-ios/nstack-translations-generator). 
 
 After that, all translations will be available through the tr-variable. 
@@ -42,3 +47,10 @@ echo "Clean build. Getting translations..."
 touch "${DERIVED_FILE_DIR}/TranslationsGenerator.lock" # create lock file
 fi
 ~~~
+
+The Translation Manager picks the language translation based on the phone's selected language and region, e.g. en-DK (where the phone is in English, but the region is Denmark), in case there are at least two languages defined for that specific application. 
+
+> If there is only one language defined in the NStack web console, the application will use that language
+
+On every launch of the mobile app, NStack checks to see if there are new translations available and it updates the translation file in the app's bundle. In the case of no Internet connection, the Translation Manager will use the default language specified in NStack (this default language translation is shipped with app, it exists since NStack was added in the development process).
+

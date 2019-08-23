@@ -1,3 +1,7 @@
+---
+currentMenu: getting-started
+---
+
 # NStack guide - Getting started
 
 * [Creating a new application](#creating-a-new-application)

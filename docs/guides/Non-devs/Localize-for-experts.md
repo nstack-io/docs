@@ -1,3 +1,7 @@
+---
+currentMenu: localize-experts
+---
+
 # NStack guide - Localize for Experts
 
 * [Overview](#overview)

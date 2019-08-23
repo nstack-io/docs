@@ -1,3 +1,7 @@
+---
+currentMenu: Vapor-Localize
+---
+
 ## Localize on Vapor
 
 Read more about **Localization** in the [*Feature/Localization*](../../features/localize.html) section.

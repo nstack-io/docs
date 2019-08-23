@@ -1,3 +1,7 @@
+---
+currentMenu: ios-Collections
+---
+
 ## Collections on iOS
 Collections is a more structured version of Responses and can be used as an alternative to an simple read API.
 

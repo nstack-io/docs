@@ -1,3 +1,7 @@
+---
+currentMenu: Vapor-Installation
+---
+
 ## 📦 Installation
 
 ### Package.swift

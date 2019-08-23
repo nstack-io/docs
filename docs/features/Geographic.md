@@ -1,3 +1,7 @@
+---
+currentMenu:  features-geographics
+---
+
 # Geographic
 
 - [Continents](#continents)
@@ -112,4 +116,7 @@ Each IP range has the following properties available:
   **Warning: **
   **This is not 100% accurate. **
   **When traveling outside their country, the user can be assigned an IP address belonging to his home country, not one from the country he is in roaming.**
-- ...
+
+You can find examples on how to implement **Geographic** for the following platforms:
+
+- [iOS](../../docs/guides/iOS/iOS-Geography.html)

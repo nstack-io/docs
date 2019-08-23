@@ -1,3 +1,7 @@
+---
+currentMenu: ios-Installation
+---
+
 ## 📝 Requirements
 
 * iOS 8.0+ / tvOS 9.0+ / macOS 10.10+ / watchOS 2.0+

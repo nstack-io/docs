@@ -1,6 +1,6 @@
 template:
-  # url: https://github.com/nstack-io/couscous-template.git
-  directory: website/
+  url: https://github.com/nstack-io/couscous-template.git
+  # directory: website/
   index: index.md
 # Base URL of the published website
 baseUrl: https://nstack-io.github.io/documentation/
@@ -16,7 +16,7 @@ title: NStack
 subTitle: Developers
 
 # The left menu bar
-menu:
+menu: 
   sections:
     main:
       name: Documentation
@@ -60,57 +60,63 @@ menu:
     ios-guides:
       name: iOS
       items:
-        Installation:
+        ios-Installation:
          text: iOS - Installation
          relativeUrl: docs/guides/iOS/iOS.html
-        Localization:
+        ios-Localization:
          text: iOS - Localize
          relativeUrl: docs/guides/iOS/iOS-Localize.html
-        Responses:
+        ios-Responses:
           text: iOS - Responses
           relativeUrl: docs/guides/iOS/iOS-Responses.html
-        Collections:
+        ios-Collections:
            text: iOS - Collections
            relativeUrl: docs/guides/iOS/iOS-Collections.html
-        Files:
+        ios-Files:
            text: iOS - Files
            relativeUrl: docs/guides/iOS/iOS-Files.html
-        Version-Control:
+        ios-Version-Control:
            text: iOS - Version Control
            relativeUrl: docs/guides/iOS/iOS-Version-Control.html
-        Messages:
+        ios-Messages:
            text: iOS - Messages
            relativeUrl: docs/guides/iOS/iOS-Messages.html
-        Rate-reminder:
+        ios-Rate-reminder:
            text: iOS - Rate reminder
            relativeUrl: docs/guides/iOS/iOS-Rate-Reminder.html
-        Geography:
+        ios-Geography:
            text: iOS - Geography
            relativeUrl: docs/guides/iOS/iOS-Geography.html
-        Validation:
+        ios-Validation:
            text: iOS - Validation
            relativeUrl: docs/guides/iOS/iOS-Validators.html
     android-guides:
        name: Android
        items:
-         Installation:
+         android-Installation:
            text: Android - Installation
            relativeUrl: docs/guides/Android/Android-Installation.html
-         Localize:
+         android-Localize:
            text: Android - Localize
            relativeUrl: docs/guides/Android/Android-Localize.html
-         Activity-Setup:
+         android-Activity-Setup:
             text: Android - Activity Setup
             relativeUrl: docs/guides/Android/Android-Activity-Setup.html
-         App-Open:
+         android-App-Open:
             text: Android - App Open
             relativeUrl: docs/guides/Android/Android-App-Open.html
-         Version-Control:
+         android-Version-Control:
             text: Android - Version Control
             relativeUrl: docs/guides/Android/Android-Version-Control.html
-         Collections:
+         android-Collections:
             text: Android - Collections
             relativeUrl: docs/guides/Android/Android-Collections.html
+         android-Rate-Reminder:
+            text: Android - Rate reminder
+            relativeUrl: docs/guides/Android/Android-Rate-Reminder.html
+         android-Messages:
+            text: Android - Messages
+            relativeUrl: docs/guides/Android/Android-Messages.html
     php-guides:
        name: PHP
        items:
@@ -141,40 +147,50 @@ menu:
     features:
       name: Features
       items:
-        collections:
+        features-collections:
           text: Collections
           relativeUrl: docs/features/collections.html
-        dashboard:
+        features-dashboard:
           text: Dashboard
           relativeUrl: docs/features/dashboards.html
-        feedback:
+        features-feedback:
           text: Feedback
           relativeUrl: docs/features/feedback.html
-        files:
+        features-files:
           text: Files
           relativeUrl: docs/features/files.html
-        geographics:
+        features-geographics:
           text: Geographics
           relativeUrl: docs/features/geographic.html
-        localize:
+        features-localize:
           text: Localize
           relativeUrl: docs/features/localize.html
-        messages:
+        feature-master-app:
+          text: Master App
+          relativeUrl: docs/guides/Non-devs/Master-App.html
+        features-messages:
           text: Messages
           relativeUrl: docs/features/messages.html
-        pushlogs:
+        features-pushlogs:
           text: Push logs
           relativeUrl: docs/features/push-logs.html
-        ratereminder:
+        features-ratereminder:
           text: Rate-reminder
           relativeUrl: docs/features/rate-reminder.html
-        responses:
+        features-responses:
           text: Responses
           relativeUrl: docs/features/responses.html
-        validators:
+        features-validators:
           text: Validators
           relativeUrl: docs/features/validators.html
-        versioncontrol:
+        features-versioncontrol:
           text: Version-control
           relativeUrl: docs/features/version-control.html
-
+        # features-theEnd:
+        #    text: "A"
+        # features-theEnd:
+        #    text: "B"
+        # features-theEnd:
+        #    text: "C"
+        # features-theEnd:
+        #    text: "_"

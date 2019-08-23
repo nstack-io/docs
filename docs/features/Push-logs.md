@@ -1,3 +1,7 @@
+---
+currentMenu:  features-pushlogs
+---
+
 # UGC: Push logs
 
 The push logs feature allows the **backend** responsible for sending out push notifications to **log** all the **notifications** it sends out.  

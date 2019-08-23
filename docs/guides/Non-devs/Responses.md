@@ -1,3 +1,7 @@
+---
+currentMenu: responses
+---
+
 # NStack guide - Responses
 
 * [Overview](#overview)

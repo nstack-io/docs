@@ -129,7 +129,7 @@
                                             iOS - Installation
                                         </a>
                                     </li>
-                                                                    <li class="">
+                                                                    <li class="active">
                                         <a href="/docs/guides/iOS/iOS-Localize.html">
                                             iOS - Localize
                                         </a>
@@ -208,6 +208,16 @@
                                                                     <li class="">
                                         <a href="/docs/guides/Android/Android-Collections.html">
                                             Android - Collections
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/docs/guides/Android/Android-Rate-Reminder.html">
+                                            Android - Rate reminder
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="/docs/guides/Android/Android-Messages.html">
+                                            Android - Messages
                                         </a>
                                     </li>
                                                             </ul>
@@ -295,6 +305,11 @@
                                         </a>
                                     </li>
                                                                     <li class="">
+                                        <a href="/docs/guides/Non-devs/Master-App.html">
+                                            Master App
+                                        </a>
+                                    </li>
+                                                                    <li class="">
                                         <a href="/docs/features/messages.html">
                                             Messages
                                         </a>
@@ -361,6 +376,11 @@ echo "Clean build. Getting translations..."
 "${TL_GEN_PATH}/Contents/MacOS/nstack-translations-generator" -plist "${TL_CONFIG_PATH}" -output "${TL_OUT_PATH}" -standalone
 touch "${DERIVED_FILE_DIR}/TranslationsGenerator.lock" # create lock file
 fi</code></pre>
+<p>The Translation Manager picks the language translation based on the phone's selected language and region, e.g. en-DK (where the phone is in English, but the region is Denmark), in case there are at least two languages defined for that specific application. </p>
+<blockquote>
+<p>If there is only one language defined in the NStack web console, the application will use that language</p>
+</blockquote>
+<p>On every launch of the mobile app, NStack checks to see if there are new translations available and it updates the translation file in the app's bundle. In the case of no Internet connection, the Translation Manager will use the default language specified in NStack (this default language translation is shipped with app, it exists since NStack was added in the development process).</p>
                 </section>
 
             </div>

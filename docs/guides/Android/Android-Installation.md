@@ -1,3 +1,7 @@
+---
+currentMenu: android-Installation
+---
+
 ## 📦 Installation
 
 1. Open `build.gradle` file located in your project folder

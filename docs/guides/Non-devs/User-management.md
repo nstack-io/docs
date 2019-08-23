@@ -1,3 +1,7 @@
+---
+currentMenu: user-management
+---
+
 # NStack guide - User management
 
 * [Overview](#overview)

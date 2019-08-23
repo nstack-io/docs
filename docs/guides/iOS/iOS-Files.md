@@ -1,3 +1,7 @@
+---
+currentMenu: ios-Files
+---
+
 ## Files on iOS
 With files you can retrieve files defined on the NStack web console using a normal get request.
 The files functionality has not been implemented in the sdk.

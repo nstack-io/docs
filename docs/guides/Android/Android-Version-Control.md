@@ -1,4 +1,9 @@
+---
+currentMenu: android-Version-Control
+---
+
 ## Version Control on Android
+
 Version control will send the result from `appOpen` to the listener for the application to handle.
 Now it's up to the app to decide how you want to handle the app update status, meaning you must provide your own way to inform the user about the update (i.e. your custom dialog and e.t.c)
 

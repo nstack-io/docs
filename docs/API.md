@@ -1,3 +1,7 @@
+---
+currentMenu: api-doc
+---
+
 # API getting started
 
 Find the API documentation here:

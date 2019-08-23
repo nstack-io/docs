@@ -1,3 +1,7 @@
+---
+currentMenu: Vapor-Version-Control
+---
+
 ## Version Control on Vapor 
 
 NStack has the ability to retrieve the latest version for a certain platform. You can achieve that with the `getLatestVersion(for platform: Platforms) -> Future<UpdateVersion?>` method, e.g.:

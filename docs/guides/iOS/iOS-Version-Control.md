@@ -1,3 +1,7 @@
+---
+currentMenu: ios-Version-Control
+---
+
 ## Version control on iOS
 
 Version control informs the user when a new version is available and what new changes are available.
