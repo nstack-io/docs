@@ -20,9 +20,5 @@ On iOS this is done by showing Apple's build in rating popup.
 
 You can find examples on how to implement **Rate Reminder** for the following platforms:
 
-* [iOS](../../docs/guides/iOS/iOS-Rate-Reminder.html)
-* [Android](../../docs/guides/Android/Android-Rate-Reminder.html)
-
-Android**
-
-(TODO: Check on Android/ add screenshot) Not implemented?
+* [iOS](../../docs/guides/iOS/ios-rate-reminder.html)
+* [Android](../../docs/guides/Android/android-rate-reminder.html)

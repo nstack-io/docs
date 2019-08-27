@@ -31,7 +31,7 @@ On the **right project** with the **right planning** this feature can be very **
 
 You can find examples on how to implement **Collections** for the following platforms:
 
-* [iOS](../../docs/guides/iOS/iOS-Collections.html)
-* [Android](../../docs/guides/Android/Android-Collections.html)
+* [iOS](../../docs/guides/iOS/ios-collections.html)
+* [Android](../../docs/guides/Android/android-collections.html)
 
-You can read a guide about **Collections** [here](../../docs/guides/Non-devs/Collections.html)
+You can read a guide about **Collections** [here](../../docs/guides/Non-devs/collections.html)

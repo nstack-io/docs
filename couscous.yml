@@ -53,100 +53,100 @@ menu:
           relativeUrl: docs/guides/Non-devs/localize-for-experts.html
         master-app:
           text: Master app
-          relativeUrl: docs/guides/Non-devs/Master-App.html
+          relativeUrl: docs/guides/Non-devs/master-app.html
         collections:
           text: Collections
-          relativeUrl: docs/guides/Non-devs/Collections.html
+          relativeUrl: docs/guides/Non-devs/collections.html
         responses:
           text: Responses
-          relativeUrl: docs/guides/Non-devs/Responses.html
+          relativeUrl: docs/guides/Non-devs/responses.html
     ios-guides:
       name: iOS
       items:
         ios-Installation:
          text: iOS - Installation
-         relativeUrl: docs/guides/iOS/iOS.html
+         relativeUrl: docs/guides/iOS/ios.html
         ios-Localization:
          text: iOS - Localize
-         relativeUrl: docs/guides/iOS/iOS-Localize.html
+         relativeUrl: docs/guides/iOS/ios-localize.html
         ios-Responses:
           text: iOS - Responses
-          relativeUrl: docs/guides/iOS/iOS-Responses.html
+          relativeUrl: docs/guides/iOS/ios-responses.html
         ios-Collections:
            text: iOS - Collections
-           relativeUrl: docs/guides/iOS/iOS-Collections.html
+           relativeUrl: docs/guides/iOS/ios-collections.html
         ios-Files:
            text: iOS - Files
-           relativeUrl: docs/guides/iOS/iOS-Files.html
+           relativeUrl: docs/guides/iOS/ios-files.html
         ios-Version-Control:
            text: iOS - Version Control
-           relativeUrl: docs/guides/iOS/iOS-Version-Control.html
+           relativeUrl: docs/guides/iOS/ios-version-control.html
         ios-Messages:
            text: iOS - Messages
-           relativeUrl: docs/guides/iOS/iOS-Messages.html
+           relativeUrl: docs/guides/iOS/ios-messages.html
         ios-Rate-reminder:
            text: iOS - Rate reminder
-           relativeUrl: docs/guides/iOS/iOS-Rate-Reminder.html
+           relativeUrl: docs/guides/iOS/ios-rate-reminder.html
         ios-Geography:
            text: iOS - Geography
-           relativeUrl: docs/guides/iOS/iOS-Geography.html
+           relativeUrl: docs/guides/iOS/ios-geography.html
         ios-Validation:
            text: iOS - Validation
-           relativeUrl: docs/guides/iOS/iOS-Validators.html
+           relativeUrl: docs/guides/iOS/ios-validators.html
     android-guides:
        name: Android
        items:
          android-Installation:
            text: Android - Installation
-           relativeUrl: docs/guides/Android/Android-Installation.html
+           relativeUrl: docs/guides/Android/android-installation.html
          android-Localize:
            text: Android - Localize
-           relativeUrl: docs/guides/Android/Android-Localize.html
+           relativeUrl: docs/guides/Android/android-localize.html
          android-Activity-Setup:
             text: Android - Activity Setup
-            relativeUrl: docs/guides/Android/Android-Activity-Setup.html
+            relativeUrl: docs/guides/Android/android-activity-setup.html
          android-App-Open:
             text: Android - App Open
-            relativeUrl: docs/guides/Android/Android-App-Open.html
+            relativeUrl: docs/guides/Android/android-app-open.html
          android-Version-Control:
             text: Android - Version Control
-            relativeUrl: docs/guides/Android/Android-Version-Control.html
+            relativeUrl: docs/guides/Android/android-version-control.html
          android-Collections:
             text: Android - Collections
-            relativeUrl: docs/guides/Android/Android-Collections.html
+            relativeUrl: docs/guides/Android/android-collections.html
          android-Rate-Reminder:
             text: Android - Rate reminder
-            relativeUrl: docs/guides/Android/Android-Rate-Reminder.html
+            relativeUrl: docs/guides/Android/android-rate-reminder.html
          android-Messages:
             text: Android - Messages
-            relativeUrl: docs/guides/Android/Android-Messages.html
+            relativeUrl: docs/guides/Android/android-messages.html
     php-guides:
        name: PHP
        items:
          PHP-Installation:
            text: PHP - Installation
-           relativeUrl: docs/guides/PHP/PHP-Installation.html
+           relativeUrl: docs/guides/PHP/php-installation.html
     laravel-guides:
        name: Laravel
        items:
          Laravel-Installation:
             text: Laravel - Installation
-            relativeUrl: docs/guides/Laravel/Laravel-Installation.html
+            relativeUrl: docs/guides/Laravel/laravel-installation.html
     vapor-guides:
       name: Vapor
       items:
          Vapor-Installation:
            text: Vapor - Installation
-           relativeUrl: docs/guides/Vapor/Vapor-Installation.html
+           relativeUrl: docs/guides/Vapor/vapor-installation.html
          Vapor-Localize:
            text: Vapor - Localize
-           relativeUrl: docs/guides/Vapor/Vapor-Localize.html
+           relativeUrl: docs/guides/Vapor/vapor-localize.html
          Vapor-Version-Control:
            text: Vapor - Version Control
-           relativeUrl: docs/guides/Vapor/Vapor-Version-Control.html
+           relativeUrl: docs/guides/Vapor/vapor-version-control.html
          Vapor-Responses:
            text: Vapor - Responses
-           relativeUrl: docs/guides/Vapor/Vapor-Responses.html
+           relativeUrl: docs/guides/Vapor/vapor-responses.html
     features:
       name: Features
       items:
@@ -170,7 +170,7 @@ menu:
           relativeUrl: docs/features/localize.html
         feature-master-app:
           text: Master App
-          relativeUrl: docs/guides/Non-devs/Master-App.html
+          relativeUrl: docs/guides/Non-devs/master-app.html
         features-messages:
           text: Messages
           relativeUrl: docs/features/messages.html

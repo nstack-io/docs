@@ -29,13 +29,13 @@ NStack is designed to store text values for multiple apps, with multiple platfor
 ## Getting started
 ### Accessing NStack
 
-See the [Getting started](/docs/guides/getting-started.html) guide for information on how to access NStack.
+See the [Getting started](../docs/guides/getting-started.html) guide for information on how to access NStack.
 
 ## Accessing the Localize system
 
 After logging in, assuming you have just one project, you will be presented with the following screen. If you have access to multiple projects, you’ll have to select a project first. Press the “Localize” button to access the translation feature of NStack.
 
-![NStack main screen, translate highlighted](/images/Guides/TranslateForBeginners/nstack_main_translate2.png)
+![NStack main screen, translate highlighted](../images/Guides/TranslateForBeginners/nstack_main_translate2.png)
 
 ## Editing values
 

@@ -16,7 +16,7 @@ Using responses for static content can save many hours when the client wants to 
 
 You can find examples on how to implement **Responses** for the following platforms:
 
-* [iOS](../../docs/guides/iOS/iOS-Responses.html)
-* [Vapor](../../docs/guides/Vapor/Vapor-Responses.html)
+* [iOS](../../docs/guides/iOS/ios-responses.html)
+* [Vapor](../../docs/guides/Vapor/vapor-responses.html)
 
-A guide about **Responses** can be found [here](../../docs/guides/Non-devs/Responses.html)
+A guide about **Responses** can be found [here](../../docs/guides/Non-devs/responses.html)

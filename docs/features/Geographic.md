@@ -119,4 +119,4 @@ Each IP range has the following properties available:
 
 You can find examples on how to implement **Geographic** for the following platforms:
 
-- [iOS](../../docs/guides/iOS/iOS-Geography.html)
+- [iOS](../../docs/guides/iOS/ios-geography.html)

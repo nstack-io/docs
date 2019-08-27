@@ -25,4 +25,4 @@ The files are accessible through an **URL** so this can be used on **any platfor
 
 You can find examples on how to implement **Files** for the following platforms:
 
-- [iOS](../../docs/guides/iOS/iOS-Files.html)
+- [iOS](../../docs/guides/iOS/ios-files.html)
