@@ -12,8 +12,8 @@ As stated above, the children apps will inherit sections / keys / apps from the 
 
 The **Master app** function is accesable from NStack app's main screen. 
 
-![companies](../images/Guides/MasterApp/companies.png)
+![companies](../../images/Guides/MasterApp/companies.png)
 
 From the new screen that is dispalyed on screen, in the upper-right corner the option for **Sync - Master app** appears.
 
-![sync_master](../images/Guides/MasterApp/sync_master.png)
+![sync_master](../../images/Guides/MasterApp/sync_master.png)
