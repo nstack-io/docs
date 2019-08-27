@@ -1,3 +1,7 @@
+---
+currentMenu: master-app
+---
+
 ## Master app
 
 The **Master app** function of NStack can be used in the situation of white labelling applications. 

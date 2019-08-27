@@ -36,7 +36,7 @@ See the [Getting started](/docs/guides/getting-started.html) guide for informati
 
 To manage users, you will have to add them to your company. This is done by accessing the menu via the three dots in the upper right corner. Click “Companies” to see a list of companies you have access to. Usually there will be only one company in this list. 
 
-![NStack menu](../../images/Guides/UserManagement/nstack-menu.png)
+![NStack menu](/images/Guides/UserManagement/nstack-menu2.png)
 
 To manage the users of that company, press the user icon.
 

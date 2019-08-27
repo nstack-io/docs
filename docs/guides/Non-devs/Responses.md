@@ -21,13 +21,13 @@ See the [Getting started](Getting_started.md) guide for more info on accessing N
 
 ### Guide overview
 
-The purpose of this guide is to present the Responses feature of NStack and one of it's possible use cases. The guide does not cover any other aspects of NStack, for information on other features or more use cases for responses, refer to the [feature overview](../Features.md) or the other [guides](../Guides.md).
+The purpose of this guide is to present the Responses feature of NStack and one of it's possible use cases. The guide does not cover any other aspects of NStack, for information on other features or more use cases for responses, refer to the [feature overview](../../features/collections.html).
 
 ## Accessing the Responses system
 
 After logging in, assuming you have just one project, you will be presented with the following screen. If you have access to multiple projects, you'll have to select a project first. Press the "Responses" button to access the Responses feature of NStack.
 
-![select_responses](/images/Guides/Responses/select_responses.png)
+![select_responses](/images/Guides/Responses/select_responses2.png)
 
 ## Adding a new response
 

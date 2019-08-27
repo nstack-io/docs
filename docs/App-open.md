@@ -77,3 +77,29 @@ We make a force update version entry in NStack:
 What will happen for users on version 1.0:
 
 ![App Open Sequence version control](../images/HowItWorks/App_Open_Sequence_version.png)
+
+## Messages
+
+**Messages** can be access from the *Notify* section, of the NStack web console. In the beginning, it gives an overview of current messages based on the desired platform.
+
+![Messages_Create](../images/HowItWorks/Messages_Create.png)
+
+To create a **Message**, the **Create** button is located in the upper right corner of the page. When creating a message, you can specify the platform and how often to show message, together with the content of the message.
+
+![Messages_Create](../images/HowItWorks/Messages_Create.png)
+
+The following diagram shows the flow of the **Message**.
+
+![App_Open_Messages](../images/HowItWorks/App_Open_Messages.png)
+
+Read more about **Messages** in [*Features/Messages*](../../features/messages.html)
+
+## Rate reminder
+
+**Rate reminder** can be access from the *Notify* section of the NStack web console. 
+
+The follwoing diagram shows how the flow of the **Rate reminder**.
+
+![App_Open_Rate_Reminder](/images/HowItWorks/App_Open_Rate_Reminder.png)
+
+Read more about **Rate Reminder** in [*Features/Rate Reminder*](../../features/rate-reminder.html)

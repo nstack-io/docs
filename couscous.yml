@@ -51,6 +51,9 @@ menu:
         localize-experts:
           text: Localize for experts
           relativeUrl: docs/guides/Non-devs/localize-for-experts.html
+        master-app:
+          text: Master app
+          relativeUrl: docs/guides/Non-devs/Master-App.html
         collections:
           text: Collections
           relativeUrl: docs/guides/Non-devs/Collections.html

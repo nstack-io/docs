@@ -24,3 +24,4 @@ The same information is also available here, so you don't have to leave the docu
   * [GitHub](https://github.com/nodes-vapor/nstack)
   * [Installation](../docs/guides/Vapor/Vapor-Installation.html)
 
+> If the SDK you are looking for is missing, then the recommended way to use **NStack** for your need is to use the provided RESTful API. The documentation can be found [here](https://documenter.getpostman.com/view/12675/S1a8yjgk)

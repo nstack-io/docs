@@ -41,7 +41,7 @@ If the form is filled out correctly, you will be presented with the following sc
 
 If the login is successful, you will be presented with NStacks main screen.
 
-![NStack main screen](../../images/Guides/GettingStarted/nstack_main.png)
+![NStack main screen](/images/Guides/GettingStarted/nstack_main2.png)
 
 ## Useful information
 
