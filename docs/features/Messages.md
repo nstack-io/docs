@@ -15,8 +15,8 @@ You can configure how often the user will see the message, currently 2 options a
 
 You can find examples on how to implement **Messages** for the following platforms:
 
-- [iOS](../../docs/guides/iOS/iOS-Messages.html)
-- [Android](../../docs/guides/Android/Android-Messages.html)
+- [iOS](../../docs/guides/iOS/ios-messages.html)
+- [Android](../../docs/guides/Android/android-messages.html)
 
 (TODO: Add android screenshots)  
   ![iOS message](https://nstack-io.github.io/documentation/images/FeatureOverview/iOS/iOS_message.png)
@@ -25,9 +25,9 @@ You can find examples on how to implement **Messages** for the following platfor
 
 **Messages** can be access from the *Notify* section, of the NStack web console. In the beginning, it gives an overview of current messages based on the desired platform.
 
-![Messages_Create](/images/HowItWorks/Messages_Create.png)
+![Messages_Create](../images/HowItWorks/Messages_Create.png)
 
 To create a **Message**, the **Create** button is located in the upper right corner of the page. When creating a message, you can specify the platform and how often to show message, together with the content of the message.
 
-![Messages_Create](/images/HowItWorks/Messages_Create.png)
+![Messages_Create](../images/HowItWorks/Messages_Create.png)
 

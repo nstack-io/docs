@@ -100,6 +100,6 @@ Read more about **Messages** in [*Features/Messages*](../../features/messages.ht
 
 The follwoing diagram shows how the flow of the **Rate reminder**.
 
-![App_Open_Rate_Reminder](/images/HowItWorks/App_Open_Rate_Reminder.png)
+![App_Open_Rate_Reminder](../images/HowItWorks/App_Open_Rate_Reminder.png)
 
 Read more about **Rate Reminder** in [*Features/Rate Reminder*](../../features/rate-reminder.html)

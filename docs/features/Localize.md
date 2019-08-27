@@ -17,11 +17,11 @@ This way the PM or the client can change any text in the project straight from t
 
 You can find examples on how to implement **Localize** for the following platforms:
 
-* [iOS](../../docs/guides/iOS/iOS-Localize.html)
-* [Android](../../docs/guides/Android/Android-Localize.html)
-* [Vapor](../../docs/guides/Vapor/Vapor-Localize.html)
+* [iOS](../../docs/guides/iOS/ios-localize.html)
+* [Android](../../docs/guides/Android/android-localize.html)
+* [Vapor](../../docs/guides/Vapor/vapor-localize.html)
 
 There are 2 guides about **Localize**:
-* [beginner](../../docs/guides/Non-devs/Localize-for-beginners.html)
-* [expert](../../docs/guides/Non-devs/Localize-for-experts.html)
+* [beginner](../../docs/guides/Non-devs/localize-for-beginners.html)
+* [expert](../../docs/guides/Non-devs/localize-for-experts.html)
 

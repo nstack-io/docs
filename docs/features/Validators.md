@@ -16,4 +16,4 @@ The email validator is not only a **validator** for the **structure** of the ema
 
 You can find examples on how to implement **Validators** for the following platforms:
 
-- [iOS](../../docs/guides/iOS/iOS-Validators.html)
+- [iOS](../../docs/guides/iOS/ios-validators.html)

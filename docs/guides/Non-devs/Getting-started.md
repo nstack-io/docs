@@ -41,12 +41,12 @@ If the form is filled out correctly, you will be presented with the following sc
 
 If the login is successful, you will be presented with NStacks main screen.
 
-![NStack main screen](/images/Guides/GettingStarted/nstack_main2.png)
+![NStack main screen](../images/Guides/GettingStarted/nstack_main2.png)
 
 ## Useful information
 
 ### API keys
-The API keys are used for setting up the [sdk's](/docs/sdks.html) and connecting to the api for this particular application.  
+The API keys are used for setting up the [sdk's](../docs/sdks.html) and connecting to the api for this particular application.  
 You can find them on the selected application page
 
 ![API key button](../../images/Guides/GettingStarted/API_Keys_Button.png)
@@ -55,7 +55,7 @@ You can find them on the selected application page
 
 ### Users
 In the user section you can manage what users have access to the application and what role/ access level they have.  
-See the [user management guide](/docs/guides/user-management.html) for more information
+See the [user management guide](../docs/guides/user-management.html) for more information
 
 ![Users button](../../images/Guides/GettingStarted/Users_Button.png)
 

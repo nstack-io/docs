@@ -44,6 +44,6 @@ The title and button texts used in the popups can be configured in the **localis
 
 You can find examples on how to implement **Version Control** for the following platforms:
 
-- [iOS](../../docs/guides/iOS/iOS-Version-Control.html)
-- [Android](../../docs/guides/Android/Android-Version-Control.html)
-- [Vapor](../../docs/guides/Vapor/Vapor-Version-Control.html)
+- [iOS](../../docs/guides/iOS/ios-version-control.html)
+- [Android](../../docs/guides/Android/android-version-control.html)
+- [Vapor](../../docs/guides/Vapor/vapor-version-control.html)
