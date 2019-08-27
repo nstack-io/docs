@@ -1,9 +1,13 @@
+---
+currentMenu:  features-pushlogs
+---
+
 # UGC: Push logs
 
-The push logs features allows the **backend** responsible for sending out push notifications to **log** all the **notifications** it sends out.  
+The push logs feature allows the **backend** responsible for sending out push notifications to **log** all the **notifications** it sends out.  
 These logs can be seen on the NStack website and can be **easily sorted**.
 
-These logs can be very **useful** if anything goes wrong in in terms of push notifications, this is traditionally **very hard to debug** and figure out what went wrong, with these logs we should have a better idea on what was send and if it succeeded or not and can **save many hours debugging**.
+These logs can be very **useful** if anything goes wrong in terms of push notifications, this is traditionally **very hard to debug** and figure out what went wrong, with these logs we should have a better idea on what was send and if it succeeded or not and can **save many hours debugging**.
 
 The logs include:
 

@@ -1,3 +1,7 @@
+---
+currentMenu:  features-ratereminder
+---
+
 # Rate reminders
 
 Rate reminders ask the user to **rate** the app on the platform specific **store**.  
@@ -12,6 +16,13 @@ On iOS this is done by showing Apple's build in rating popup.
 ![iOS rate reminder](https://nstack-io.github.io/documentation/images/FeatureOverview/iOS/iOS_rate_reminder.png)
 ![iOS rate reminder starred](https://nstack-io.github.io/documentation/images/FeatureOverview/iOS/iOS_rate_reminder_starred.png)
 
-**Android**
+
+
+You can find examples on how to implement **Rate Reminder** for the following platforms:
+
+* [iOS](../../docs/guides/iOS/iOS-Rate-Reminder.html)
+* [Android](../../docs/guides/Android/Android-Rate-Reminder.html)
+
+Android**
 
 (TODO: Check on Android/ add screenshot) Not implemented?

@@ -1,14 +1,18 @@
+---
+currentMenu: deeplink
+---
+
 # Deeplink
 
-You can open NStack with access directly to one application
+You can open the NStack website with direct access to one specific application
 
 ![App open sequence](../images/Deeplink/deeplink1.png)
 
-The url is build by
+The url needed looks like this
 
-`https://nstack.io/deeplin/{appplicationId}/{masterKey}`
+`https://nstack.io/deeplink/{appplicationId}/{masterKey}`
 
-When an user is clicking the url, following steps will happen:
+When an user is clicking the url, the following steps will happen:
 
 1) Check if user is logged, else ask them to login
 

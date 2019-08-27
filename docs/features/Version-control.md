@@ -1,6 +1,8 @@
-# Version control
+---
+currentMenu:  features-versioncontrol
+---
 
-(TODO: Add android screenshots)
+# Version control
 
 Using the version control feature of NStack you can inform the user that a **new version** of the app is **available**.  
 There are a few ways you can configure how the user should interact and be informed about the new version:
@@ -32,10 +34,16 @@ There are a few ways you can configure how the user should interact and be infor
 
 In the change log you can list all the **new features**, bug fixes or UI updates that are present in the new app and need to be presented to the user.
 
-**File(Android):**
+**File (Android):**
 
 You can upload a file to the new version, this is mainly used when **releasing** an Android app **outside** of the **Google play** store using a .apk file.
 
 **Text:**
 
 The title and button texts used in the popups can be configured in the **localisation** section of the app on the **"Nstack(system)" platform**.
+
+You can find examples on how to implement **Version Control** for the following platforms:
+
+- [iOS](../../docs/guides/iOS/iOS-Version-Control.html)
+- [Android](../../docs/guides/Android/Android-Version-Control.html)
+- [Vapor](../../docs/guides/Vapor/Vapor-Version-Control.html)

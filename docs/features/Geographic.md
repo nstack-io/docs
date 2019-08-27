@@ -1,3 +1,7 @@
+---
+currentMenu:  features-geographics
+---
+
 # Geographic
 
 - [Continents](#continents)
@@ -10,12 +14,13 @@
 
 **Note: The following datasets are global, meaning changing it in 1 project will change it for all projects.**
 
-Encourage the developers to use these datasets in appropriate use cases, these datasets discourage hardcoding this data in the app or using a 3rd party datasets/libraries.
-It also gives us more flexibility to update the data without a new app release should something change.
+Encourage the developers to use these datasets in the appropriate use cases. These datasets discourage hardcoding this data in the app or using a 3rd party datasets/libraries.
+It also gives us more flexibility to update the data without a new app release, if something should change.
 
 ### Continents
 
-The continents dataset includes the 7 continents, for each continent the following properties are available:
+The continents dataset includes the 7 continents. 
+Each continent has the following properties available:
 
 - Name
 - Code
@@ -29,7 +34,8 @@ The continents dataset includes the 7 continents, for each continent the followi
 
 ### Countries
 
-The countries dataset includes around 250 countries, for each country the following properties are available:
+The countries dataset includes around 250 countries. 
+Each country has the following properties available:
 
 - Country code
 - ISO code
@@ -54,7 +60,8 @@ The countries dataset includes around 250 countries, for each country the follow
 
 ### Time zones
 
-The timezones dataset includes over 500 timezones, for each timezone the following properties are available:
+The timezones dataset includes over 500 timezones. 
+Each timezone has the following properties available:
 
 - Name
 - Abbreviation
@@ -67,14 +74,15 @@ The timezones dataset includes over 500 timezones, for each timezone the followi
 - Check the offset from UTC for a certain timezone
 - ...
 
-*Notes:*
+*Remarks:*
 
 - *As there are so many timezones using this as a reference might a bit overkill.*
-- *Many languages/platform have a build in way of handling/Referencing timezones, discuss with the developer what is needed/possible.*
+- *Many languages/platform have a build in way of handling/referencing timezones, discuss with the developer what is needed/possible.*
 
 ### Languages
 
-The languages dataset includes over 50 languages, for each language the following properties are available:
+The languages dataset includes over 50 languages. 
+Each language has the following properties available:
 
 - Name
 - Locale ( [language abbreviation] - [area] e.g.: en-Gb, en-US. Both english but different areas )
@@ -85,9 +93,10 @@ The languages dataset includes over 50 languages, for each language the followin
 - Show a list of languages
 - ...
 
-### IP's
+### IP addresses
 
-The enormous IP dataset includes over 10 million IPs, for each IP range the following properties are available: 
+The enormous IP dataset includes over 10 million IPs. 
+Each IP range has the following properties available: 
 
 - Start of range
 - End of range
@@ -104,5 +113,10 @@ The enormous IP dataset includes over 10 million IPs, for each IP range the foll
 - Use as a fallback when the user denied the location permissions
   Using this dataset as a reference we can see in what area the user is without relying on the device.
   This is useful in cases where the location of the user doesn't need to be accurate, where just a city is accurate enough.  
-  **Warning: This is not 100% accurate, When traveling a IP address of the users home country can still be in use.**
-- ...
+  **Warning: **
+  **This is not 100% accurate. **
+  **When traveling outside their country, the user can be assigned an IP address belonging to his home country, not one from the country he is in roaming.**
+
+You can find examples on how to implement **Geographic** for the following platforms:
+
+- [iOS](../../docs/guides/iOS/iOS-Geography.html)

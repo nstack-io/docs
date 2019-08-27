@@ -1,8 +1,12 @@
+---
+currentMenu:  features-collections
+---
+
 # Collections
 
-The collection feature can be seen as a **more structured** version of the **responses** feature, and in turn is also very **versatile** and a good **alternative** for **custom API's** for simple apps/websites.
+The collections feature can be seen as a **more structured** version of the **responses** feature, and in turn it can be very **versatile** and a good **alternative** for **custom APIs** for simple apps/websites.
 
-In the collection feature you can **define** a **template** (e.g.: A Product which has a title, description and price), using this model you can **add collections** and **single** Products to be stored.
+In the collections feature you can **define** a **template** (e.g.: A Product which has a title, description and price), using this model you can **add collections** and **single** Products to be stored.
 
 An **example** could be:
 
@@ -24,4 +28,10 @@ On the **right project** with the **right planning** this feature can be very **
 - Store a list of available products/ articles
 - Feature the "Product of the day" 
 - Store an apps default configuration along with some premade configurations 
-- ...
+
+You can find examples on how to implement **Collections** for the following platforms:
+
+* [iOS](../../docs/guides/iOS/iOS-Collections.html)
+* [Android](../../docs/guides/Android/Android-Collections.html)
+
+You can read a guide about **Collections** [here](../../docs/guides/Non-devs/Collections.html)

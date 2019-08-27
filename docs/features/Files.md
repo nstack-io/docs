@@ -1,8 +1,12 @@
+---
+currentMenu:  features-files
+---
+
 # Files
 
-The files feature allows you to **store** all kinds of **files** (images, pdf's, ...) that can then be easily retrieved by anyone with the required access.  
+The files feature allows you to **store** all kinds of **files** (images, pdf's, ...) that can then be easily retrieved by anyone with the proper access.  
 This can be very useful to host **static images** like backgrounds or header images.
-The files are accessible through **URL** so this can be used on **any platform**.
+The files are accessible through an **URL** so this can be used on **any platform**.
 
 **Access settings:**
 
@@ -18,4 +22,7 @@ The files are accessible through **URL** so this can be used on **any platform**
 - Background image
 - Header image
 - PDF file with terms of service
-- ...
+
+You can find examples on how to implement **Files** for the following platforms:
+
+- [iOS](../../docs/guides/iOS/iOS-Files.html)

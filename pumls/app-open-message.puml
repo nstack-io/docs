@@ -1,0 +1,22 @@
+@startuml App_Open_Sequence
+!includeurl dependencies/C4_Container.puml
+skinparam sequenceMessageAlign center
+skinparam defaultFontName Roboto
+
+
+actor User
+entity NStackClient
+entity NStackAPI
+database NStackDB
+
+User -> NStackClient            : Starts app
+NStackClient -> NStackAPI       : Sends AppOpen data \n(last_updated, platform, guid, version, old_version)\nIncluding <b>Accept-Language</b> header \n Checks to see if there is a <b> Message</b> for the client's platform, in the App Open process
+NStackAPI -> NStackDB			: Checks to see if there is a <b> Message</b> for the client's platform
+NStackDB -> NStackAPI			: Returns the <b>Message</b> to be sent out
+NStackAPI -> NStackClient		: Returns the <b>Message</b> to the client
+NStackClient -> User			: The <b> specific Message</b> is displayed to the user, according to the <b>show_settings parameter</b>
+User -> NStackClient			: The user aknowledges/dismisses the <b> specific Message</b>
+NStackClient -> NStackAPI		: The <b> specific Message</b> is marked as read through a <b>POST</b> request \n <b>{{nstackUrl}}/api/v2/notify/messages/views</b>
+NStackAPI -> NStackDB			: The <b> specific Message</b> is marked as read in the NStackDB. \n It can be shown again or not, depending on the <b>show_setting parameter</b>
+
+@enduml
