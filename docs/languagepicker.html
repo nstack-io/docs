@@ -210,7 +210,7 @@
 	                                        </a>
 										<!--  -->
                                     </li>
-                                                                    <li class="active">
+                                                                    <li class="">
 										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/iOS/ios-rate-reminder.html">
 	                                            iOS - Rate reminder
@@ -456,14 +456,23 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h2 id="rate-reminder-on-ios">Rate Reminder on iOS</h2>
-<p>Rate reminder shows the user Apple's build in rate reminder after the user has launched the app a certain amount of times.</p>
-<p>You don't have to do anything to use the rate reminder feature, just include the NStack sdk in your project. See <a href="../../guides/iOS/ios.html"><strong>iOS - Installation</strong></a> on how to install NStack for iOS.</p>
-<p>To enable the rate reminder configure it on the NStack web console. See <a href="../../guides/Non-devs/getting-started.html"><strong>Getting Started</strong></a> on how to create a new application on the NStack web console.</p>
-<blockquote>
-<p><strong>NOTE:</strong> This feature is not yet supported on macOS and watchOS.</p>
-</blockquote>
-<p>Read more about <strong>Rate Reminder</strong> in <a href="../../features/rate-reminder.html"><em>Features/Rate Reminder</em></a></p>
+                    <h1 id="language-picker">Language picker</h1>
+<p>According to standard following options can be passed in</p>
+<ul>
+<li><code>fr-CH;q=0.9, fr;q=0.8, en;q=0.7</code> (order list)</li>
+<li><code>fr-CH</code> (on specific with language-COUNTRY)</li>
+<li><code>fr</code> (one unspecific)</li>
+</ul>
+<h1 id="list-full-match">list-full-match</h1>
+<p>Loop through all passed options, but only accept full match</p>
+<h1 id="list-language-match">list-language-match</h1>
+<p>Loop through all passed options, accept full match and language match</p>
+<p>fx if fr-CH is passed in but does not exist, but fr-FR does. It picks that over next item in list and thereby fallback language</p>
+<h1 id="single-full-match">single-full-match</h1>
+<p>Only look at first item in list, accept full match </p>
+<h1 id="single-language-match">single-language-match</h1>
+<p>Only look at first item in list, accept full match and language match</p>
+<p>fx if fr-CH is passed in but does not exist, but fr-FR does. It picks that over next item in list and thereby fallback language</p>
                 </section>
 
             </div>
