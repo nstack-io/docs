@@ -27,6 +27,9 @@ menu:
         api-doc:
           text: API
           relativeUrl: docs/api.html
+        language-picker:
+          text: Language picker
+          relativeUrl: docs/language-picker.html
         sdk:
           text: SDKs
           relativeUrl: docs/sdks.html
