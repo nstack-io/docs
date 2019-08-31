@@ -17,7 +17,7 @@ language match or full match
 
 Full match: Looking at a match on the entire locale
 
-`where locale = {locale} *`
+`where locale = {locale} %`
 
 That means passed locale `fr` can find a language with locale `fr-FR`
 but if passed locale is `fr-CH` it WILL NOT find a language with locale `fr-FR`
@@ -35,15 +35,15 @@ Example:
 
 Languages: da-DK (fallback), en-UK, fr-FR 
 
-| Accept-Language Header         | Picked locale |
-| ------------------------------ | --------------|
-| fr-FR                          | fr-FR         |
-| fr-CH                          | da-DK         |
-| fr                             | fr-FR         |
-| fr-CH;q=0.9, en-UK;q=0.8       | en-UK         |
-| fr-CH;q=0.9, en-US;q=0.8       | da-DK         |
-| fr-CH;q=0.9, en;q=0.8          | en-UK         |
-| sv-SV;q=0.9, en;q=0.8          | da-DK         |
+| Accept-Language Header              | Picked locale    |
+| ----------------------------------- | -----------------|
+| fr-FR                               | fr-FR            |
+| fr-CH                               | da-DK            |
+| fr                                  | fr-FR            |
+| fr-CH;q=0.9, en-UK;q=0.8            | en-UK            |
+| fr-CH;q=0.9, en-US;q=0.8            | da-DK            |
+| fr-CH;q=0.9, en;q=0.8               | en-UK            |
+| sv-SV;q=0.9, en;q=0.8               | da-DK            |
 
 #list-language-match
 
