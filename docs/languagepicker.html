@@ -469,7 +469,7 @@
 Single: Only look at first locale in the list</p>
 <p>language match or full match</p>
 <p>Full match: Looking at a match on the entire locale</p>
-<p><code>where locale = {locale} *</code></p>
+<p><code>where locale = {locale} %</code></p>
 <p>That means passed locale <code>fr</code> can find a language with locale <code>fr-FR</code>
 but if passed locale is <code>fr-CH</code> it WILL NOT find a language with locale <code>fr-FR</code></p>
 <p>Language match: First look for full match, else cut out the language from locale (<code>fr-CH</code> =&gt; <code>fr</code>) and look for any language starting with locale <code>fr</code></p>
