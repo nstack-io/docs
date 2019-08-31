@@ -2,9 +2,9 @@
 
 According to standard following options can be passed in
 
- - `fr-CH;q=0.9, fr;q=0.8, en;q=0.7` (order list)
- - `fr-CH` (on specific with language-COUNTRY)
- - `fr` (one unspecific)
+ - `fr-CH;q=0.9, fr;q=0.8, en;q=0.7` (ordered list or types below)
+ - `fr-CH` (on specific with format: `language-COUNTRY`)
+ - `fr` (one unspecific format: `language`)
 
 The different configs consist of 2 different things
 
