@@ -464,10 +464,10 @@
 <li><code>fr</code> (one unspecific)</li>
 </ul>
 <p>The different configs consist of 2 different things</p>
-<p>list or single:</p>
+<h3 id="list-or-single">list or single:</h3>
 <p>List: loop through the entire list of locales
 Single: Only look at first locale in the list</p>
-<p>language match or full match</p>
+<h3 id="language-match-or-full-match">language match or full match</h3>
 <p>Full match: Looking at a match on the entire locale</p>
 <p><code>where locale = {locale} %</code></p>
 <p>That means passed locale <code>fr</code> can find a language with locale <code>fr-FR</code>
@@ -475,7 +475,7 @@ but if passed locale is <code>fr-CH</code> it WILL NOT find a language with loca
 <p>Language match: First look for full match, else cut out the language from locale (<code>fr-CH</code> =&gt; <code>fr</code>) and look for any language starting with locale <code>fr</code></p>
 <p>That means passed locale <code>fr</code> can find a language with locale <code>fr-FR</code>
 and if passed locale is <code>fr-CH</code> it WILL find a language with locale <code>fr-FR</code></p>
-<h1 id="list-full-match">list-full-match</h1>
+<h2 id="list-full-match">list-full-match</h2>
 <p>Loop through all passed options, but only accept full match</p>
 <p>Example: </p>
 <p>Languages: da-DK (fallback), en-UK, fr-FR </p>
@@ -517,7 +517,7 @@ and if passed locale is <code>fr-CH</code> it WILL find a language with locale <
 </tr>
 </tbody>
 </table>
-<h1 id="list-language-match">list-language-match</h1>
+<h2 id="list-language-match">list-language-match</h2>
 <p>Loop through all passed options, accept full match and language match</p>
 <p>Example: </p>
 <p>Languages: da-DK (fallback), en-UK, fr-FR </p>
@@ -559,7 +559,7 @@ and if passed locale is <code>fr-CH</code> it WILL find a language with locale <
 </tr>
 </tbody>
 </table>
-<h1 id="single-full-match">single-full-match</h1>
+<h2 id="single-full-match">single-full-match</h2>
 <p>Only look at first item in list, accept full match</p>
 <table>
 <thead>
@@ -599,7 +599,7 @@ and if passed locale is <code>fr-CH</code> it WILL find a language with locale <
 </tr>
 </tbody>
 </table>
-<h1 id="single-language-match">single-language-match</h1>
+<h2 id="single-language-match">single-language-match</h2>
 <p>Only look at first item in list, accept full match and language match</p>
 <table>
 <thead>
