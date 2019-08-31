@@ -463,16 +463,182 @@
 <li><code>fr-CH</code> (on specific with language-COUNTRY)</li>
 <li><code>fr</code> (one unspecific)</li>
 </ul>
+<p>The different configs consist of 2 different things</p>
+<p>list or single:</p>
+<p>List: loop through the entire list of locales
+Single: Only look at first locale in the list</p>
+<p>language match or full match</p>
+<p>Full match: Looking at a match on the entire locale</p>
+<p><code>where locale = {locale} *</code></p>
+<p>That means passed locale <code>fr</code> can find a language with locale <code>fr-FR</code>
+but if passed locale is <code>fr-CH</code> it WILL NOT find a language with locale <code>fr-FR</code></p>
+<p>Language match: First look for full match, else cut out the language from locale (<code>fr-CH</code> =&gt; <code>fr</code>) and look for any language starting with locale <code>fr</code></p>
+<p>That means passed locale <code>fr</code> can find a language with locale <code>fr-FR</code>
+and if passed locale is <code>fr-CH</code> it WILL find a language with locale <code>fr-FR</code></p>
 <h1 id="list-full-match">list-full-match</h1>
 <p>Loop through all passed options, but only accept full match</p>
+<p>Example: </p>
+<p>Languages: da-DK (fallback), en-UK, fr-FR </p>
+<table>
+<thead>
+<tr>
+<th>Accept-Language Header</th>
+<th>Picked locale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fr-FR</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH</td>
+<td>da-DK</td>
+</tr>
+<tr>
+<td>fr</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en-UK;q=0.8</td>
+<td>en-UK</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en-US;q=0.8</td>
+<td>da-DK</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en;q=0.8</td>
+<td>en-UK</td>
+</tr>
+<tr>
+<td>sv-SV;q=0.9, en;q=0.8</td>
+<td>da-DK</td>
+</tr>
+</tbody>
+</table>
 <h1 id="list-language-match">list-language-match</h1>
 <p>Loop through all passed options, accept full match and language match</p>
-<p>fx if fr-CH is passed in but does not exist, but fr-FR does. It picks that over next item in list and thereby fallback language</p>
+<p>Example: </p>
+<p>Languages: da-DK (fallback), en-UK, fr-FR </p>
+<table>
+<thead>
+<tr>
+<th>Accept-Language Header</th>
+<th>Picked locale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fr-FR</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en-UK;q=0.8</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en-US;q=0.8</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en;q=0.8</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>sv-SV;q=0.9, en;q=0.8</td>
+<td>en-UK</td>
+</tr>
+</tbody>
+</table>
 <h1 id="single-full-match">single-full-match</h1>
-<p>Only look at first item in list, accept full match </p>
+<p>Only look at first item in list, accept full match</p>
+<table>
+<thead>
+<tr>
+<th>Accept-Language Header</th>
+<th>Picked locale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fr-FR</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH</td>
+<td>da-DK</td>
+</tr>
+<tr>
+<td>fr</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en-UK;q=0.8</td>
+<td>da-DK</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en-US;q=0.8</td>
+<td>da-DK</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en;q=0.8</td>
+<td>da-DK</td>
+</tr>
+<tr>
+<td>sv-SV;q=0.9, en;q=0.8</td>
+<td>da-DK</td>
+</tr>
+</tbody>
+</table>
 <h1 id="single-language-match">single-language-match</h1>
 <p>Only look at first item in list, accept full match and language match</p>
-<p>fx if fr-CH is passed in but does not exist, but fr-FR does. It picks that over next item in list and thereby fallback language</p>
+<table>
+<thead>
+<tr>
+<th>Accept-Language Header</th>
+<th>Picked locale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fr-FR</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en-UK;q=0.8</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en-US;q=0.8</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>fr-CH;q=0.9, en;q=0.8</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>sv-SV;q=0.9, en;q=0.8</td>
+<td>da-DK</td>
+</tr>
+</tbody>
+</table>
                 </section>
 
             </div>
