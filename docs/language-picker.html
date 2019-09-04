@@ -72,7 +72,7 @@
 	                                        </a>
 										<!--  -->
                                     </li>
-                                                                    <li class="">
+                                                                    <li class="active">
 										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/language-picker.html">
 	                                            Language picker
@@ -138,6 +138,13 @@
 										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Non-devs/master-app.html">
 	                                            Master app
+	                                        </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Non-devs/export-localizations.html">
+	                                            Export Localizations
 	                                        </a>
 										<!--  -->
                                     </li>
@@ -457,32 +464,67 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h1 id="language-picker">Language picker</h1>
-<p>According to standard following options can be passed in</p>
+<p>A locale is a set of parameters that defines the user's language, region and any special variant preferences that the user wants to see in their user interface. Usually a locale identifier consists of at least a language code and a country/region code.</p>
+<blockquote>
+<p>Examples:</p>
 <ul>
 <li><code>fr-CH;q=0.9, fr;q=0.8, en;q=0.7</code> (ordered list or types below)</li>
 <li><code>fr-CH</code> (on specific with format: <code>language-COUNTRY</code>)</li>
-<li><code>fr</code> (one unspecific format: <code>language</code>)</li>
+<li><code>fr</code> (one unspecific format: <code>language</code>, with no region)</li>
 </ul>
-<p>The different configs consist of 2 different things</p>
+</blockquote>
+<p>The way the locale works on Android and iOS is slightly different.</p>
+<h2 id="ios">iOS</h2>
+<p>The <code>Language picker</code> is initiliased as well in the <code>App Open</code> sequence.
+The <code>NStack SDK</code> fetches the phone's preffered languages together with their locale. </p>
+<blockquote>
+<p>Examples:  user can have his phone in English, but the region/locale can be set to Denmark/Spain/Sweden and not necessarily to US or UK.</p>
+</blockquote>
+<p>Based on the setting chosen in <code>Localize language picker setting</code>, NStack will sent back the localization that matches what was sent from the phone, but also what is set up on the NStack web console.</p>
+<p>The issue with iOS is: there is a preffered languages list. The language at the top of the list is the language that the device is on and all system installed apps will be shown in that language, together with apps that have localization for that language, while the other languages are selected by the user in the order of his/her preferences. (There are cases where the preferred languages list contains only one language and that is it).</p>
+<blockquote>
+<p>Example: The NStack application has localization for 2 languages: English and Danish. English is made the default language.</p>
+<p>An iOS user has his device set up with preffered languages. If his top most language is Danish and then English, then the localization coming from back from NStack will be in Danish. If it is the other way around (English &gt; Danish), the localization will be in English.</p>
+<p>If the user has Russian/Swedish/Spanish as his top preffered language and English / Danish are not on the list, then the localization will be in English (the default language in NStack). If he has any of the two languages in his list (English / Danish), then the localization will be in that language (English / Danish)</p>
+<p>In the preffered languages list that iOS has, the region is the one the device is set up to use. There can be a device that has the following languages as preffered: English, Danish, Italian, Spanish and the region set up to Denmark. When the NStack client sends the list of languages, all of them will have DK as country.</p>
+<p>The above example takes into consideration only the device's language, not the region. If the region is required to be taken into consideration, then NStack will try and match the language + the region and provide the appropiate localization. If it cannot find any match, it will provide the default localization. </p>
+</blockquote>
+<h2 id="android">Android</h2>
+<p>The <code>Language picker</code> is initiliased as well in the <code>App Open</code> sequence.
+The <code>NStack SDK</code> fetches the phone's preffered languages together with their locale. </p>
+<blockquote>
+<p>Examples:  user can have his phone in English, but the region/locale can be set to Denmark/Spain/Sweden and not necessarily to US or UK.</p>
+</blockquote>
+<p>Based on the setting chosen in <code>Localize language picker setting</code>, NStack will sent back the localization that matches what was sent from the phone, but also what is set up on the NStack web console.</p>
+<p>The Android platform makes it much easier to pick a language.</p>
+<h2><code>Localize language picker setting</code></h2>
+<p>The different configurations consist of 2 different options:</p>
 <h3 id="list-or-single">list or single:</h3>
-<p>List: loop through the entire list of locales
-Single: Only look at first locale in the list</p>
+<ul>
+<li><strong>List</strong>: loop through the entire list of locales</li>
+<li><strong>Single</strong>: Only look at first locale in the list</li>
+</ul>
 <h3 id="language-match-or-full-match">language match or full match</h3>
-<p>Full match: Looking at a match on the entire locale</p>
+<ul>
+<li>
+<p><strong>Full match</strong>: Looking at a match on the entire locale</p>
 <p><code>where locale = {locale} %</code></p>
-<p>That means passed locale <code>fr</code> can find a language with locale <code>fr-FR</code>
-but if passed locale is <code>fr-CH</code> it WILL NOT find a language with locale <code>fr-FR</code></p>
-<p>Language match: First look for full match, else cut out the language from locale (<code>fr-CH</code> =&gt; <code>fr</code>) and look for any language starting with locale <code>fr</code></p>
-<p>That means passed locale <code>fr</code> can find a language with locale <code>fr-FR</code>
-and if passed locale is <code>fr-CH</code> it WILL find a language with locale <code>fr-FR</code></p>
+<p>If the passed locale is <code>fr</code> it can find a language with locale <code>fr-FR</code>
+If passed locale is <code>fr-CH</code> it WILL NOT find a language with locale <code>fr-FR</code></p>
+</li>
+<li>
+<p><strong>Language match</strong>: First look for full match, else extract the language from locale (<code>fr-CH</code> =&gt; <code>fr</code>) and look for any language starting with locale <code>fr</code></p>
+<p>If the passed locale is <code>fr</code> it can find a language with locale <code>fr-FR</code>
+If passed locale is <code>fr-CH</code> it WILL find a language with locale <code>fr-FR</code></p>
+</li>
+</ul>
 <h2 id="list-full-match">list-full-match</h2>
-<p>Loop through all passed options, but only accept full match</p>
-<p>Example: </p>
-<p>Languages: da-DK (fallback), en-UK, fr-FR </p>
+<p><code>Loop through all passed options, but only accept full match</code></p>
+<p>Example: Languages: da-DK (fallback), en-UK, fr-FR </p>
 <table>
 <thead>
 <tr>
-<th>Accept-Language Header</th>
+<th>Accept-Language Header  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
 <th>Picked locale</th>
 </tr>
 </thead>
@@ -518,13 +560,12 @@ and if passed locale is <code>fr-CH</code> it WILL find a language with locale <
 </tbody>
 </table>
 <h2 id="list-language-match">list-language-match</h2>
-<p>Loop through all passed options, accept full match and language match</p>
-<p>Example: </p>
-<p>Languages: da-DK (fallback), en-UK, fr-FR </p>
+<p><code>Loop through all passed options, accept full match and language match</code></p>
+<p>Example:  Languages: da-DK (fallback), en-UK, fr-FR </p>
 <table>
 <thead>
 <tr>
-<th>Accept-Language Header</th>
+<th>Accept-Language Header  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
 <th>Picked locale</th>
 </tr>
 </thead>
@@ -560,11 +601,11 @@ and if passed locale is <code>fr-CH</code> it WILL find a language with locale <
 </tbody>
 </table>
 <h2 id="single-full-match">single-full-match</h2>
-<p>Only look at first item in list, accept full match</p>
+<p><code>Only look at first item in list, accept full match</code></p>
 <table>
 <thead>
 <tr>
-<th>Accept-Language Header</th>
+<th>Accept-Language Header   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
 <th>Picked locale</th>
 </tr>
 </thead>
@@ -600,11 +641,11 @@ and if passed locale is <code>fr-CH</code> it WILL find a language with locale <
 </tbody>
 </table>
 <h2 id="single-language-match">single-language-match</h2>
-<p>Only look at first item in list, accept full match and language match</p>
+<p><code>Only look at first item in list, accept full match and language match</code></p>
 <table>
 <thead>
 <tr>
-<th>Accept-Language Header</th>
+<th>Accept-Language Header  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
 <th>Picked locale</th>
 </tr>
 </thead>
@@ -639,6 +680,7 @@ and if passed locale is <code>fr-CH</code> it WILL find a language with locale <
 </tr>
 </tbody>
 </table>
+<hr />
                 </section>
 
             </div>
