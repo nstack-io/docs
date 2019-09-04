@@ -1,0 +1,29 @@
+@startuml nstack-ios
+!include https://raw.githubusercontent.com/nodesagency/plantuml-resources/master/themes/THEME_NAME.iuml
+!includeurl dependencies/C4_Container.puml
+skinparam sequenceMessageAlign center
+skinparam defaultFontName Roboto
+
+
+actor User
+entity NStackClient
+entity NStackAPI
+database NStackDB
+
+User -> NStackClient            : Starts app
+
+NStackClient -> NStackAPI       : Sends AppOpen data \n(last_updated, platform, guid, version, old_version)\n Including <b>Accept-Language</b> header
+
+NStackAPI -> NStackDB			: Checks to see if the app has been opened <b>X number of times</b>, as set in the NStack Web Console
+
+NStackDB -> NStackAPI			: Returns the <b>Rate reminder</b> to be sent out
+
+NStackAPI -> NStackClient		: Returns the <b>Rate reminder</b> to the client as part of the <b> App Open process </b>
+
+NStackClient -> User			: The <b>Rate reminder dialog</b> is displayed to the user
+
+NStackClient -> NStackClient	: <b> It is up to the developre to construct the rate dialog </b>
+
+User -> NStackClient			: The user aknowledges/dismisses the <b>Rate reminder</b>
+
+@enduml

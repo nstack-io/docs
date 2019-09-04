@@ -57,6 +57,9 @@ menu:
         master-app:
           text: Master app
           relativeUrl: docs/guides/Non-devs/master-app.html
+        excel-export:
+          text: Export Localizations
+          relativeUrl: docs/guides/Non-devs/export-localizations.html
         collections:
           text: Collections
           relativeUrl: docs/guides/Non-devs/collections.html
