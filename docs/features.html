@@ -472,6 +472,7 @@
 <li><a href="#responses">Responses</a></li>
 <li><a href="#collections">Collections</a></li>
 <li><a href="#files">Files</a></li>
+<li><a href="#scropper">Scropper</a></li>
 </ul></li>
 <li><a href="#notify-user">Notify User</a>
 <ul>
@@ -491,7 +492,6 @@
 <ul>
 <li><a href="#ugc-push-logs">UGC: Push logs</a> </li>
 <li><a href="#ugc-feedback">UGC: Feedback</a></li>
-<li><a href="#ugc-results">UGC: Results</a></li>
 <li><a href="#validators">Validators</a>
 <ul>
 <li><a href="#phone-number">Phone number</a></li>
@@ -553,6 +553,11 @@ The files are accessible through <strong>URL</strong> so this can be used on <st
 <li>PDF file with terms of service</li>
 <li>...</li>
 </ul>
+<h3 id="scropper">Scropper</h3>
+<p>New in 2.3.0</p>
+<p>A feature to find a focal point in an image via machine learning. The focal point will indidate where in the image the important things are.</p>
+<p><strong>Use cases:</strong></p>
+<p>Auto crop image to many aspect ratios. Eg: in a CMS when saving new image</p>
 <h2 id="notify-user">Notify user</h2>
 <p>All of the following features can be active at the same time so they can conflict with each other. To not disturb the user only 1 message will be shown per app open.<br />
 The priority for each popup will be as follows:</p>
@@ -748,23 +753,6 @@ Using the feedback feature the user can send feedback with the following propert
 <ul>
 <li>Assign a person</li>
 <li>Set a status (options: Created, Assigned, Progress, Done and Skipped)</li>
-</ul>
-<h3 id="ugc-results">UGC: Results</h3>
-<p>The results feature was originally used to aggregate the results of a survey but can be used to collect any kind of question answers.
-Alongside collecting the result, on the NStack website you can see a nice overview of all the results and even see them in graphs.</p>
-<p>The results include the following properties:</p>
-<ul>
-<li>Key: Can be used as the question but can be given any value.</li>
-<li>User: Name or id of the user sending the result.</li>
-<li>Answer: The answer given to a certain question.</li>
-<li>Points: If can be used if the answer has a numeric value and a text value.</li>
-<li>Tag: Any tags you would want to include.</li>
-</ul>
-<p><strong>Use cases:</strong></p>
-<ul>
-<li>Surveys</li>
-<li>Periodic questions</li>
-<li>...</li>
 </ul>
 <h3 id="validators">Validators</h3>
 <h4 id="phone-number">Phone number</h4>
