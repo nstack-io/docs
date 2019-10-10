@@ -5,6 +5,7 @@
 	* [Responses](#responses)
 	* [Collections](#collections)
 	* [Files](#files)
+	* [Scropper](#scropper)
 * [Notify User](#notify-user)
 	* [Version control](#version-control)
 	* [Messages](#messages) 
@@ -18,7 +19,6 @@
 * [Misc](#misc)
 	* [UGC: Push logs](#ugc-push-logs) 
 	* [UGC: Feedback](#ugc-feedback)
-	* [UGC: Results](#ugc-results)
 	* [Validators](#validators)
 		*  [Phone number](#phone-number)
 		*  [Email](#email)
@@ -76,6 +76,15 @@ The files are accessible through **URL** so this can be used on **any platform**
 * Header image
 * PDF file with terms of service
 * ...
+
+### Scropper
+New in 2.3.0
+
+A feature to find a focal point in an image via machine learning. The focal point will indidate where in the image the important things are.
+
+**Use cases:**
+
+Auto crop image to many aspect ratios. Eg: in a CMS when saving new image
 
 ## Notify user
 All of the following features can be active at the same time so they can conflict with each other. To not disturb the user only 1 message will be shown per app open.  
@@ -289,25 +298,6 @@ When you have collected some feedback from users you have the following feature
 
 * Assign a person
 * Set a status (options: Created, Assigned, Progress, Done and Skipped)
-
-
-### UGC: Results
-The results feature was originally used to aggregate the results of a survey but can be used to collect any kind of question answers.
-Alongside collecting the result, on the NStack website you can see a nice overview of all the results and even see them in graphs.
-
-The results include the following properties:
-
-* Key: Can be used as the question but can be given any value.
-* User: Name or id of the user sending the result.
-* Answer: The answer given to a certain question.
-* Points: If can be used if the answer has a numeric value and a text value.
-* Tag: Any tags you would want to include.
-
-**Use cases:**
-
-* Surveys
-* Periodic questions
-* ...
 
 ### Validators
 #### Phone number
