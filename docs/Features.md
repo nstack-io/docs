@@ -153,7 +153,7 @@ You can configure how often the user will see the message, currently 2 options a
 
 ### Rate reminders
 Rate reminders ask the user to **rate** the app on the platform specific **store**.
-You can define rate reminder events and assign points to them. App is responsible for reporting events to nstack backend. App can check if it can show rate reminder dialog. Once the amount of points from events reach a certain threashold backend is going to allow app to show the dialog. Once app has permission from backend to show the dialog the app has to show rate reminder (using nstack sdk). When rate reminder dialog is shown the app should take user to the store page if user's response is positive, or to feedback screen if it's negative.
+You can define rate reminder events and assign points to them. App is responsible for reporting events to NStack backend. App can check if it can show rate reminder dialog. Once the amount of points from events reach a certain threashold backend is going to allow app to show the dialog. Once app has permission from backend to show the dialog the app has to show rate reminder (using NStack SDK). When rate reminder dialog is shown the app should take user to the store page if user's response is positive, or to feedback screen if it's negative.
 
 **iOS**
 

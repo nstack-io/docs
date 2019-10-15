@@ -6,7 +6,7 @@ currentMenu: android-Rate-Reminder
 
 NStack gradle plugin will generate rate reminder actions. For this it requires `RateReminderActions.kt` file to be created.
 
-`./gralew generateRateReminderActions` will create `RateReminderActions` with methods which send events to nstack backend. App should call those methods when an event happens.
+`./gradlew generateRateReminderActions` will create `RateReminderActions` with methods which send events to NStack backend. App should call those methods when an event happens.
 
 App can check if dialog should be shown by calling `NStack.RateReminder.shouldShow()`. If the method returns true then the app should call `NStack.RateReminder.show(context)` in order to show the dialog. Dialog's text can be set before calling the method and the dialog can be styled by passing a style via `ContextThemeWrapper`. `show` method will return user's answer. If the answer is positive the app should take the user to the playstore page. If it's negative the app should go to feedback screen.
 
