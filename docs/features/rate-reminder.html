@@ -457,6 +457,20 @@
 	                                        </a>
 										<!--  -->
                                     </li>
+                                                                    <li class="">
+										<!--  -->
+	                                        <a href="https://nstack-io.github.io/documentation/docs/features/terms.html">
+	                                            Terms
+	                                        </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+	                                        <a href="https://nstack-io.github.io/documentation/docs/features/scropper.html">
+	                                            Scropper
+	                                        </a>
+										<!--  -->
+                                    </li>
                                                             </ul>
                         
                     </nav>
@@ -466,6 +480,16 @@
                     <h1 id="rate-reminders">Rate reminders</h1>
 <p>Rate reminders ask the user to <strong>rate</strong> the app on the platform specific <strong>store</strong>.
 You can define rate reminder events and assign points to them. App is responsible for reporting events to NStack backend. App can check if it can show rate reminder dialog. Once the amount of points from events reach a certain threashold backend is going to allow app to show the dialog. Once app has permission from backend to show the dialog the app has to show rate reminder (using NStack SDK). When rate reminder dialog is shown the app should take user to the store page if user's response is positive, or to feedback screen if it's negative.</p>
+<p>You can pretty much define a point system with +/- points &quot;events&quot;, delays &amp; required points to trigger rating reminder, example could be:
+A taxi app we create following events</p>
+<ul>
+<li>+50 points on app open</li>
+<li>+500 points on completed trip and rated 5 stars</li>
+<li>+100 points on completed trip, no rating</li>
+<li>-250 points on driver cancelling before pickup</li>
+</ul>
+<p>Trigger at 500 points with 30 days delay (Delay means, if they click &quot;Not now&quot; they get asked again after 30 days)</p>
+<p>This means that should only be asking the user to rate the app, at a happy moment</p>
 <p><strong>iOS</strong></p>
 <p>On iOS this is done by showing Apple's build in rating popup.<br />
 <em>&quot;You should be aware that the prompt will only be displayed to a user a maximum of <strong>three</strong> times within a <strong>365-day period</strong>.&quot;</em> - <a href="https://developer.apple.com/documentation/storekit/skstorereviewcontroller/requesting_app_store_reviews">Apple docs</a></p>
