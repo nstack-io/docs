@@ -478,11 +478,43 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h1 id="scropper">Scropper</h1>
+<p>(S)mart Cropper</p>
 <p>New in 2.3.0</p>
 <p>A feature to find a focal point in an image via machine learning.
 The focal point will indicate where in the image the important things are.</p>
 <p><strong>Use cases:</strong></p>
 <p>Auto crop image to many aspect ratios. Eg: in a CMS when saving new image</p>
+<p><strong>Usages</strong></p>
+<p>Scropper takes an image as input and outputs coordinates for the focal points baesd on high contrast, and a bounding box around any faces (if any) in the image. </p>
+<ul>
+<li>Scropper only works with <code>.jpeg</code> or <code>.png</code> images for now.</li>
+<li>When sending a GET request with a URL to an image, the path must be directly to a readable image, e.g, this path <code>https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=934&amp;q=80</code> won't  work, while this path <code>https://www.abc.net.au/news/image/8281460-3x2-700x467.jpg</code> will work. </li>
+<li>The first call to Scropper will be slow (15-20s wait) while Lambda spins up. </li>
+<li>Latency is a function of image size. Right now there are no limits. Expect approximately 1s latency for a 1MB image.</li>
+</ul>
+<h3 id="output">Output</h3>
+<p>Scropper outputs two things:</p>
+<p>1) The relative position of the focal point in the image represented by distance from top-left corner in percent on the x-axis and y-axis on the image. This will always be there.</p>
+<p>2) A bounding box around faces. This will be empty if there are no detected faces in the image.</p>
+<h3 id="example-output">Example output <strong>without</strong> face</h3>
+<pre><code>{
+    "xaxis": 0.61125,
+    "yaxis": 0.4977168949771689,
+    "face_bb": []
+}</code></pre>
+<h3 id="example-output-1">Example output <strong>with</strong> face</h3>
+<pre><code>{
+    "xaxis": 0.4828571428571429,
+    "yaxis": 0.8736616702355461,
+    "face_bb": [
+        {
+            "left": 0.30857142857142855,
+            "top": 0.30406852248394006,
+            "right": 0.6271428571428571,
+            "bottom": 0.7815845824411135
+        }
+    ]
+}</code></pre>
                 </section>
 
             </div>
