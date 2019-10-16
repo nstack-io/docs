@@ -4,7 +4,7 @@ currentMenu: ios-Localization
 
 ## Localization on iOS
 
-To use nstack for translations, you need to install the [nstack translations generator](https://github.com/nodes-ios/nstack-translations-generator). 
+To use NStack for translations, you need to install the [NStack translations generator](https://github.com/nodes-ios/nstack-translations-generator). 
 
 After that, all translations will be available through the tr-variable. 
 

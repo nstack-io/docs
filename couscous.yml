@@ -195,6 +195,12 @@ menu:
         features-versioncontrol:
           text: Version-control
           relativeUrl: docs/features/version-control.html
+        features-terms:
+          text: Terms
+          relativeUrl: docs/features/terms.html
+        features-scropper:
+          text: Scropper
+          relativeUrl: docs/features/scropper.html
         # features-theEnd:
         #    text: "A"
         # features-theEnd:
