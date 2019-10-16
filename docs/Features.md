@@ -152,9 +152,8 @@ You can configure how often the user will see the message, currently 2 options a
 	![iOS message](../../images/FeatureOverview/iOS/iOS_message.png)
 
 ### Rate reminders
-Rate reminders ask the user to **rate** the app on the platform specific **store**.  
-You can currently only configure the rate reminder based on the amount of times the user has **opened** the **app**.
-The popup is shown **on app launch** when the required amount of app openings has been met.
+Rate reminders ask the user to **rate** the app on the platform specific **store**.
+You can define rate reminder events and assign points to them. App is responsible for reporting events to NStack backend. App can check if it can show rate reminder dialog. Once the amount of points from events reach a certain threashold backend is going to allow app to show the dialog. Once app has permission from backend to show the dialog the app has to show rate reminder (using NStack SDK). When rate reminder dialog is shown the app should take user to the store page if user's response is positive, or to feedback screen if it's negative.
 
 **iOS**
 
@@ -166,7 +165,7 @@ On iOS this is done by showing Apple's build in rating popup.
 
 **Android**
 
-(TODO: Check on Android/ add screenshot) Not implemented?
+NStack sdk will show default alert dialog which can be styled by passing a theme to it with `ContextThemeWrapper`
 
 ## Geographic
 **Note: The following datasets are global, meaning changing it in 1 project will change it for all projects.**

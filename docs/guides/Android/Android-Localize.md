@@ -38,7 +38,7 @@ nstack:textOff="sectionName_keyName"
 nstack:contentDescription="sectionName_keyName"
 ```
 
-The following field should be used to set the nstack key `nstack:key="keyGoesHere"`
+The following field should be used to set the NStack key `nstack:key="keyGoesHere"`
 
 When entering the key the following format should be used `sectionName_keyName`
 
