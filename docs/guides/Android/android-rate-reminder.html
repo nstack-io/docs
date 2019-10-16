@@ -464,33 +464,34 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h2 id="rate-reminder-on-android">Rate Reminder on Android</h2>
-<p>The rate reminder is informed thought the <code>rateReminder``onAppUpdateListener</code> on the . It indicates if a message asking the user to rate the app shall be displayed. The variable contains the information that should be displayed like body text, title, buttons labels, etc.</p>
-<pre><code class="language-kotlin">NStack.onAppUpdateListener = { appUpdate -&gt;
-        appUpdate.rateReminder?.let { showRateReminderDialog(it) }
+<p>NStack gradle plugin will generate rate reminder actions. For this it requires <code>RateReminderActions.kt</code> file to be created.</p>
+<p><code>./gradlew generateRateReminderActions</code> will create <code>RateReminderActions</code> with methods which send events to NStack backend. App should call those methods when an event happens.</p>
+<p>App can check if dialog should be shown by calling <code>NStack.RateReminder.shouldShow()</code>. If the method returns true then the app should call <code>NStack.RateReminder.show(context)</code> in order to show the dialog. Dialog's text can be set before calling the method and the dialog can be styled by passing a style via <code>ContextThemeWrapper</code>. <code>show</code> method will return user's answer. If the answer is positive the app should take the user to the playstore page. If it's negative the app should go to feedback screen.</p>
+<pre><code class="language-kotlin">
+// call relevent methods when corresponding events happen
+RateReminderActions.orderReceived()
+RateReminderActions.paymentDeclined()
+// etc
+
+// ...
+
+launch(Dispatchers.Main) {
+    if (withContext(Dispatchers.IO) { NStack.RateReminder.shouldShow() }) {
+        val answer = NStack.RateReminder.apply {
+            title = Translation.rate.title
+            message = Translation.rate.message
+            yesButton = Translation.rate.yesButton
+            noButton = Translation.rate.noButton
+            skipButton = Translation.rate.skipButton
+        }.show(ContextThemeWrapper(context, R.style.customDialog))
+        when (answer) {
+            RateReminderAnswer.POSITIVE -&gt; // take user to the playstore page
+            RateReminderAnswer.NEGATIVE -&gt; // take user to the feedback screen
+            RateReminderAnswer.SKIP -&gt; // do nothing?
+        }
+    }
 }
-fun Activity.showRateReminderDialog(rateReminder: RateReminder) {
-        AlertDialog.Builder(this)
-                .setMessage(rateReminder.body)
-                .setTitle(rateReminder.title)
-                .setCancelable(false)
-                .setPositiveButton(rateReminder.yesButton) { dialog, _ -&gt;
-                    NStack.onRateReminderAction(true)
-                    dialog.dismiss()
-                }
-                .setNegativeButton(rateReminder.noButton) { dialog, _ -&gt;
-                    NStack.onRateReminderAction(false)
-                    dialog.dismiss()
-                }
-                .setNeutralButton(rateReminder.laterButton) { dialog, _ -&gt;
-                    dialog.dismiss()
-                }
-                .show()
-}</code></pre>
-<blockquote>
-<p>The example above shows how to use the Rate reminder in a simple Alert Dialog.</p>
-<p>Note: the NStack Rate Reminder feature has no UI. </p>
-<p>It is up to the developer to create an appropiate UI element to show the user the rate reminder.</p>
-</blockquote>
+</code></pre>
 <p>Read more about <strong>Rate Reminder</strong> in <a href="../../features/rate-reminder.html"><em>Features/Rate Reminder</em></a></p>
                 </section>
 
