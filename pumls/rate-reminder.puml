@@ -1,26 +1,49 @@
-@startuml App_Open_Sequence
-!includeurl dependencies/C4_Container.puml
-skinparam sequenceMessageAlign center
-skinparam defaultFontName Roboto
+@startuml
 
+!include https://raw.githubusercontent.com/nodesagency/plantuml-resources/master/themes/NodesTheme.iuml
+
+title Rate Reminder
 
 actor User
-entity NStackClient
-entity NStackAPI
-database NStackDB
-entity AppStoreOrGooglePlay
+entity app
+entity "NStack SDK"
+entity "NStack Backend"
 
-User -> NStackClient            : Starts app
-NStackClient -> NStackAPI       : Sends AppOpen data \n(last_updated, platform, guid, version, old_version)\nIncluding <b>Accept-Language</b> header
-NStackAPI -> NStackDB			: Checks to see if the app has been opened <b>X number of times</b>, as set in the NStack Web Console
-NStackDB -> NStackAPI			: Returns the <b>Rate reminder</b> to be sent out
-NStackAPI -> NStackClient		: Returns the <b>Rate reminder</b> to the client as part of the <b> App Open process </b>
-NStackClient -> User			: The <b>Rate reminder dialog</b> is displayed to the user
-NStackClient -> NStackClient	: <b> It is up to the developre to construct the rate dialog </b>
-User -> NStackClient			: The user aknowledges/dismisses the <b>Rate reminder</b>
-User -> AppStoreOrGooglePlay    : Opens App Store or Google Play for the user to rate the app
-AppStoreOrGooglePlay ->	User	: The User comes back to the NStackClient app
-NStackClient -> NStackAPI		: The <b>Rate reminder</b> is marked as read through a <b>POST</b> request \n <b> {{nstackUrl}}/api/v2/notify/rate_reminder/views </b>
-NStackAPI -> NStackDB			: The <b>Rate reminder</b> is marked as read in the NStackDB so it will not be shown in subsequent app openings.
+User -> app: interacts
+app -> "NStack SDK": calls RateReminder.action
+"NStack SDK" -> "NStack Backend": sends action
+
+note over "NStack Backend": Is points from received actions\nreach defined threashold\nthe app will be able\nto show rate reminder
+
+app -> "NStack SDK": should rate reminder be shown?
+"NStack SDK" -> "NStack Backend": should rate reminder be shown?
+
+alt points from actions reached threashold
+    "NStack Backend" -> "NStack SDK": 200
+else
+    "NStack Backend" -> "NStack SDK": 445
+end
+
+alt 200
+    "NStack SDK" -> app: true
+else
+    "NStack SDK" -> app: false
+end
+
+alt should show rate reminder
+    app -> "NStack SDK": calls RateReminder.show
+    "NStack SDK" -> User: shows rate reminder dialog
+    User -> "NStack SDK": selects an option from dialog
+    "NStack SDK" -> "NStack Backend": selected option
+    "NStack SDK" -> app: selected option
+    alt user pressed positive button (action "positive")
+        app -> User: redirects to play store
+    else user pressed negative button (action "negative")
+        app -> User: redirects to feedback screen
+        User -> app: feedback
+        app -> "NStack SDK": calls Feedback.send
+        "NStack SDK" -> "NStack Backend": feedback
+    end
+end
 
 @enduml
