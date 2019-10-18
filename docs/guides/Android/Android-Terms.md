@@ -16,7 +16,7 @@ NStack additionally provides a helper function to access a locally cached versio
 
 ### Terms Details
 
-To present Terms content in your app use `NStack.Terms.getTermsDetails()`. This function will serve the latest available `TermsDetails` from NStack:
+To present Terms content in your app use `NStack.Terms.getTermsDetails()`. This function will serve the latest available `TermsDetails` from NStack.
 
 ```kotlin
 when (val result = NStack.Terms.getTermsDetails(
