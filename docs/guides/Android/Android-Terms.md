@@ -19,11 +19,12 @@ NStack additionally provides a helper function to access a locally cached versio
 To present Terms content in your app use `NStack.Terms.getTermsDetails()`. This function will serve the latest available `TermsDetails` from NStack:
 
 ```kotlin
-NStack.Terms.getTermsDetails(
-        termsID = 1,
-        onSuccess = {},
-        onError = {}
-)
+when (val result = NStack.Terms.getTermsDetails(
+        termsID = 1
+)) {
+    is Result.Success -> {}
+    is Result.Error -> {}
+}
 ```
 
 
@@ -32,10 +33,11 @@ NStack.Terms.getTermsDetails(
 NStack let's you mark a version of terms as viewed via `NStack.Terms.setTermsViewed()`. This function will set `TermsDetails.hasViewed` to `true` for the current app instance. 
 
 ```kotlin
-NStack.Terms.setTermsViewed(
+when (val result = NStack.Terms.setTermsViewed(
         versionID = 1,
-        userID = "1",
-        onSuccess = {},
-        onError = {}
-)
+        userID = "1"
+)) {
+    is Result.Success -> {}
+    is Result.Error -> {}
+}
 ```
