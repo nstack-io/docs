@@ -471,6 +471,13 @@
 	                                        </a>
 										<!--  -->
                                     </li>
+                                                                    <li class="">
+										<!--  -->
+	                                        <a href="https://nstack-io.github.io/documentation/docs/features/stagger.html">
+	                                            Stagger
+	                                        </a>
+										<!--  -->
+                                    </li>
                                                             </ul>
                         
                     </nav>
@@ -482,19 +489,18 @@
 This can be used to include a &quot;Send us feedback&quot; section in the settings screen of the project.
 Using the feedback feature the user can send feedback with the following properties:</p>
 <ul>
-<li>Operating system (iOS, Android, web)</li>
-<li>App version</li>
-<li>Device</li>
+<li>Operating system (13.1, 4.4, etc)</li>
+<li>Platform (ios, android, web, other)</li>
+<li>App version (1.00, 4.1, 0.81staging)</li>
+<li>Device (iPhone 10, Samsung S7)</li>
 <li>User's name</li>
 <li>User's email</li>
 <li>Message</li>
 <li>An image</li>
+<li>Meta</li>
+<li>Breadcrumbs</li>
 </ul>
 <p>When you have collected some feedback from users you have the following feature</p>
-<ul>
-<li>Assign a person</li>
-<li>Set a status (options: Created, Assigned, Progress, Done and Skipped)</li>
-</ul>
 <blockquote>
 <p>The NStack SDK (no matter the platform) does not have the <strong>Feeback</strong> feature implemented as a method.</p>
 <p>To use it, make a POST request to <a href="https://nstack.io/api/v2/ugc/feedbacks">https://nstack.io/api/v2/ugc/feedbacks</a>. </p>
