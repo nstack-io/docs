@@ -31,29 +31,3 @@ Scropper outputs two things:
 
 2) A bounding box around faces. This will be empty if there are no detected faces in the image.
 
-### Example output **without** face
-
-```
-{
-    "xaxis": 0.61125,
-    "yaxis": 0.4977168949771689,
-    "face_bb": []
-}
-```
-
-### Example output **with** face
-
-```
-{
-    "xaxis": 0.4828571428571429,
-    "yaxis": 0.8736616702355461,
-    "face_bb": [
-        {
-            "left": 0.30857142857142855,
-            "top": 0.30406852248394006,
-            "right": 0.6271428571428571,
-            "bottom": 0.7815845824411135
-        }
-    ]
-}
-```

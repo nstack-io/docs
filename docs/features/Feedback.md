@@ -8,18 +8,19 @@ The **feedback** feature is intended for **collecting** user **feedback** in **o
 This can be used to include a "Send us feedback" section in the settings screen of the project.
 Using the feedback feature the user can send feedback with the following properties:
 
-- Operating system (iOS, Android, web)
-- App version
-- Device
+- Operating system (13.1, 4.4, etc)
+- Platform (ios, android, web, other)
+- App version (1.00, 4.1, 0.81staging)
+- Device (iPhone 10, Samsung S7)
 - User's name
 - User's email
 - Message
 - An image
+- Meta
+- Breadcrumbs
 
 When you have collected some feedback from users you have the following feature
 
-- Assign a person
-- Set a status (options: Created, Assigned, Progress, Done and Skipped)
 
 > The NStack SDK (no matter the platform) does not have the **Feeback** feature implemented as a method.
 >
