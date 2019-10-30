@@ -486,26 +486,50 @@
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h1 id="gdpr">GDPR</h1>
 <h2 id="what-data-is-stored">What data is stored</h2>
-<p>As a general note, NStack only stores General Personal Data - Rec.26; Art.4(1), so no sensitive data nor criminal offence related data. <br/><br/>
-In MySql NStack DB, the only personal data we store is related to the backend users (names, passwords, tokens used within Nstack, roles they have within the applications that use Nstack, when they joined, photos) and of the ones that provide feedback (email, name, device they've sent the feedback from)<br/><br/>
-In Elastic, as personal inf, we store an approximate location data (lat and long) deducted from the ip addresses we get from the requests.<br /><br />The same personal inf (lat and long), are send through the Pusher.</p>
-<h2 id="where-is-it-stored">Where is it stored</h2>
-<p>Storing DB:</p>
+<p>As a general note, NStack only stores General Personal Data - Rec.26; Art.4(1), so no sensitive data nor criminal offence related data</p>
+<p><strong>User management</strong> module, is storing user data, to be able to login users and give access to applications / companies inside NStack</p>
 <ul>
-<li>MySql (The personal data that is specified above)</li>
-<li>Elastic (The requests data).<br/><br/>
-The data that is stored by Nstack comes via:</li>
+<li>Name (Required)</li>
+<li>Email (Required)</li>
+<li>Password (hashed) (Required)</li>
+<li>Profile image (Optional)</li>
+<li>Invitations and permissions to access applications / companies inside NStack</li>
+</ul>
+<p><strong>Feedback</strong> module, has options to store user data. But it is completely optional</p>
+<ul>
+<li>Name</li>
+<li>Email</li>
+<li>Meta</li>
+</ul>
+<p><strong>Terms</strong> module, has option to store an &quot;identifier&quot; to fx reference a view of a terms and conditions to a user. This identifier can have a userId to antoher DB or some other primary key</p>
+<h2 id="where-is-it-stored">Where is it stored</h2>
+<p>NStack have 4 databases. All are hosted on Amazons datacenter &quot;eu-west-1&quot; in Ireland.</p>
+<ul>
+<li>
+<p>MySQL via AWS RDS: All persistent data to run the platform: users, permissions, content, user generated content etc</p>
+</li>
+<li>
+<p>Elastic search via cloud.elastic on AWS: Requests are stored for statistics. As personal inf, we store an approximate location data (lat and long) deducted from the ip addresses we get from the requests (IP is not stored)</p>
+</li>
+<li>
+<p>Redis via AWS. Used for caching on top of MySQL</p>
+</li>
+<li>AWS S3 file storage. 2 buckets for private and public files. All public files are served via CDN imginx or vapor.cloud</li>
+</ul>
+<p>The data that is stored by Nstack comes via:</p>
+<ul>
 <li>Nstack RESTful API using secure data transfer (HTTPS using TLS) so that all collected data is encrypted while in transit from the app to the API.</li>
-<li>An Admin dashboard for the backend users <br/><br/>
-Some of the data is reaching following services:</li>
-<li>Mailgun</li>
-<li>Pusher (for interacting with Pusher Channels HTTP API.)</li>
-<li>Amazon S3<br/><br/>
-The server side framework used (Laravel) is currently running on LTS (Long Term Solution) version 5.5.</li>
+<li>An Admin dashboard for serving html pages also using HTTPs/TLS</li>
+</ul>
+<p>Some of the data is reaching following services:</p>
+<ul>
+<li>Mailgun (Invitation &amp; Reset password)</li>
+<li>Pusher (Socket connection for app open requests to dashboard module)</li>
 </ul>
 <h2 id="data-retention-schedule">Data retention schedule</h2>
-<p>All the request's data is kept in Elastic for 6 months. <br/>
-The Backend users information are soft deleted, so the above specified data are not deleted fully, but only marked as unavailable.</p>
+<p>All the request's data in in  is kept for 6 months.</p>
+<p>The Backend users information are soft deleted, so the above specified data are not deleted fully, but only marked as unavailable.</p>
+<p>If you wish to get your user/company/application hard deleted. Please contact us via gdpr@nstack.io</p>
                 </section>
 
             </div>
