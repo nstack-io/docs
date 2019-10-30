@@ -2,7 +2,7 @@
 ## What data is stored
 As a general note, NStack only stores General Personal Data - Rec.26; Art.4(1), so no sensitive data nor criminal offence related data
 
-**User management** module, is storing user data, to be able to login users and give access to applications / companies inside NStack
+### `User management` module, is storing user data, to be able to login users and give access to applications / companies inside NStack
 
  - Name (Required)
  - Email (Required)
@@ -10,13 +10,13 @@ As a general note, NStack only stores General Personal Data - Rec.26; Art.4(1), 
  - Profile image (Optional)
  - Invitations and permissions to access applications / companies inside NStack
  
-**Feedback** module, has options to store user data. But it is completely optional
+### `Feedback` module, has options to store user data. But it is completely optional
  
  - Name
  - Email
  - Meta
  
-**Terms** module, has option to store an "identifier" to fx reference a view of a terms and conditions to a user. This identifier can have a userId to antoher DB or some other primary key
+### `Terms` module, has option to store an "identifier" to fx reference a view of a terms and conditions to a user. This identifier can have a userId to antoher DB or some other primary key
  
 
 ## Where is it stored
