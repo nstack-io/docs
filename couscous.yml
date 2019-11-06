@@ -22,7 +22,7 @@ menu:
       name: Documentation
       items:
         home:
-          text: Home page
+          text: Introduction
           relativeUrl: index.html
         api-doc:
           text: API
