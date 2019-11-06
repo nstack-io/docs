@@ -485,25 +485,20 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h2 id="version-control-on-android">Version Control on Android</h2>
-<p>Version control will send the result from <code>appOpen</code> to the listener for the application to handle.
-Now it's up to the app to decide how you want to handle the app update status, meaning you must provide your own way to inform the user about the update (i.e. your custom dialog and e.t.c)</p>
-<blockquote>
-<p><strong>Warning: You should set this before <code>appOpen</code></strong></p>
-</blockquote>
-<pre><code class="language-kotlin">NStack.onAppUpdateListener = { appUpdate -&gt;
-    when (appUpdate.state) {
-        AppUpdateState.NONE      -&gt; {
-            // Do nothing because there is no update
-        }
-        AppUpdateState.UPDATE    -&gt; {
-            // Show a user a dialog that is dismissible
-        }
-        AppUpdateState.FORCE     -&gt; {
-            // Show the user an undismissable dialog
-        }
-        AppUpdateState.CHANGELOG -&gt; {
-            // Show change log (Not yet implemented because its never used)
-        }
+<p>Version control information is part of the result from <code>appOpen</code>.
+It is up to the app to decide how to handle the app update status, meaning you must provide your own way to inform the user about the update (i.e. your custom dialog and e.t.c).</p>
+<pre><code class="language-kotlin">when (appOpenResult.value.data.update.state) {
+    AppUpdateState.NONE -&gt; {
+        // Do nothing because there is no update
+    }
+    AppUpdateState.UPDATE -&gt; {
+        // Show a user a dialog that is dismissible
+    }
+    AppUpdateState.FORCE -&gt; {
+        // Show the user an undismissable dialog
+    }
+    AppUpdateState.CHANGELOG -&gt; {
+        // Show change log (Not yet implemented because its never used)
     }
 }</code></pre>
 <p>Read more about <strong>Version control</strong> in <a href="../../features/version-control.html"><em>Features/Version-control</em></a></p>
