@@ -1,5 +1,6 @@
 body {
-    font-size: 19px;
+    font-size: 14px;
+    font-family: Roboto,Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;;
 }
 
 main {
@@ -10,11 +11,19 @@ section {
     margin-bottom: 50px;
 }
 
+section p, section h1, section h2, section h3, section h4, section blockquote {
+    padding-left: 24px;
+    max-width: 80%;
+}
+
 h1, h2, h3, h4 {
     color: #36EF80;
+    margin: 25px 0px;
+    
 }
 h3 {
-    font-size: 23px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 li {
@@ -26,22 +35,34 @@ img {
 }
 
 header.navbar {
-    opacity: 0.9;
+    opacity: 1.0;
+    box-shadow: 5px 10px #DD000000;
 }
+
+.nav li a {
+    padding: 5px 15px;
+}
+
+.nav-pills {
+    font-weight: 600;
+    font-size: 14px;
+}
+
 .navbar .navbar-brand {
     font-size: 28px;
+    font-weight: 800;
     height: auto;
     line-height: 50px;
     margin-left: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 0px;
     color: #36EF80;
 }
 .navbar a.navbar-brand:hover {
     color: #36EF80;
 }
 .navbar .navbar-brand small {
-    font-size: 18px;
-    font-weight: 300;
+    font-size: 16px;
+    font-weight: 800;
     margin-left: 10px;
     color: white;
 }
@@ -76,11 +97,12 @@ header.navbar {
 }
 
 pre {
-    padding: 0;
+    padding: 8px;
     border-color: #3D5166;
     background-color: #1D2B3A;
     border-radius: 4px;
     margin: 15px;
+    font-size: 12px;
 }
 pre code {
     border: none;
@@ -88,6 +110,7 @@ pre code {
 }
 
 code {
+    font-family: "Roboto Mono", "Fira Code", mono;
     font-size: 85%;
     padding: 4px 4px 1px;
     margin: 0 4px;
