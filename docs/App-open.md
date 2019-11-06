@@ -98,8 +98,16 @@ Read more about **Messages** in [*Features/Messages*](../../features/messages.ht
 
 **Rate reminder** can be access from the *Notify* section of the NStack web console. 
 
-The follwoing diagram shows how the flow of the **Rate reminder**.
+The following diagram shows the flow of the **Rate reminder**.
 
 ![App_Open_Rate_Reminder](../images/HowItWorks/App_Open_Rate_Reminder.png)
 
 Read more about **Rate Reminder** in [*Features/Rate Reminder*](../../features/rate-reminder.html)
+
+## Terms
+
+The following diagram shows the flow of **Terms**.
+
+![App_Open_Terms](../images/HowItWorks/App_Open_Terms.png)
+
+Read more about **Terms** in [*Features/Terms*](../../features/terms.html)

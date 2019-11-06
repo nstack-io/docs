@@ -1,0 +1,39 @@
+@startuml App_Open_Sequence
+!includeurl dependencies/C4_Container.puml
+skinparam sequenceMessageAlign center
+skinparam defaultFontName Roboto
+
+
+actor User
+entity App
+entity NStackClient
+entity NStackAPI
+database NStackDB
+
+User -> App                     : Starts app
+App -> NStackClient             : NStack.appOpen()
+NStackClient -> NStackAPI       : Sends AppOpen data \n(last_updated, platform, guid, version, old_version)\nIncluding <b>Accept-Language</b> header
+NStackAPI -> NStackDB			: Checks for newly available terms for provided guid
+NStackDB -> NStackAPI			: Returns a list of terms which are not yet viewed by guid
+NStackAPI -> NStackClient		: Returns the terms to the client as part of the <b>App Open process</b>
+NStackClient -> App             : AppOpenResult
+App -> User	                    : It is up to the developer to notify users about new terms
+
+User -> App			            : Opens terms
+App -> NStackClient             : NStack.Terms.getTermsDetails(termsID)
+NStackClient -> NStackAPI       : Requests latest terms details for terms-id and guid including Accept-Language header
+NStackAPI -> NStackDB			: Checks for latest terms for provided terms-id and guid
+NStackDB -> NStackAPI			: Returns newest terms with has_viewed state based on guid
+NStackAPI -> NStackClient		: Returns the terms details to the client
+NStackClient -> App             : TermsDetailsResult
+App -> User                 	: It is up to the developer to present terms details
+
+User -> App			            : Acknowledges terms
+App -> NStackClient             : NStack.setTermsViewed(versionID, userID)
+NStackClient -> NStackAPI       : Requests to store a 'View' for provided term_version_id, identifier, locale and guid
+NStackAPI -> NStackDB			: Stores a `View` for provided term_version_id, identifier and guid
+NStackDB -> NStackAPI			: Returns success or error
+NStackAPI -> NStackClient		: Returns success or error
+NStackClient -> App             : Result
+App -> User                 	: It is up to the developer to present terms as acknowledged
+@enduml
