@@ -11,9 +11,19 @@ section {
     margin-bottom: 50px;
 }
 
-section p, section h1, section h2, section h3, section h4, section blockquote {
+section p, section h1, section h2, section h3, section h4 {
     padding-left: 24px;
     max-width: 80%;
+}
+
+section table {
+    margin-top: 16px;
+    margin-left: 24px;
+}
+
+section blockquote {
+    margin-left: 24px;
+    font-size: 14px;
 }
 
 h1, h2, h3, h4 {
@@ -110,7 +120,7 @@ pre code {
 }
 
 code {
-    font-family: "Roboto Mono", "Fira Code", mono;
+    font-family: "Roboto Mono", "Fira Code", "Droid Sans Mono", "Menlo", monospace;
     font-size: 85%;
     padding: 4px 4px 1px;
     margin: 0 4px;
