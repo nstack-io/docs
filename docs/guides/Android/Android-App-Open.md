@@ -4,16 +4,17 @@ currentMenu: android-App-Open
 
 ## App Open
 
-NStack's have a feature called App open, which enable apps to pull info from several features in one API request, 
+You can use App Open to pull information for several features in a single API call. 
+If you aren't already familiar with App Open, you can learn more about it [here](../../app-open.html).
 
-You can learn more about it [here](../../app-open.html).
+The simplest way to activate App Open is to make the following call:
 
-Minimal setup of this feature will only require to add this line:
 ```kotlin
 NStack.appOpen()
 ```
 
-Additionaly, if you care about the outcome or want to run code afterwards, you can use following function:
+Additionaly, if you care about the outcome or want to run some code after the operation is done, you can use the following function:
+
 ```kotlin
   GlobalScope.launch {
       withContext(Dispatchers.IO) {
