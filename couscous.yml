@@ -39,6 +39,65 @@ menu:
         deeplink:
           text: Deeplink
           relativeUrl: docs/deeplink.html
+    features:
+      name: Features
+      items:
+        features-collections:
+          text: Collections
+          relativeUrl: docs/features/collections.html
+        features-dashboard:
+          text: Dashboard
+          relativeUrl: docs/features/dashboards.html
+        features-feedback:
+          text: Feedback
+          relativeUrl: docs/features/feedback.html
+        features-files:
+          text: Files
+          relativeUrl: docs/features/files.html
+        features-geographics:
+          text: Geographics
+          relativeUrl: docs/features/geographic.html
+        features-localize:
+          text: Localize
+          relativeUrl: docs/features/localize.html
+        feature-master-app:
+          text: Master App
+          relativeUrl: docs/guides/Non-devs/master-app.html
+        features-messages:
+          text: Messages
+          relativeUrl: docs/features/messages.html
+        features-pushlogs:
+          text: Push logs
+          relativeUrl: docs/features/push-logs.html
+        features-ratereminder:
+          text: Rate-reminder
+          relativeUrl: docs/features/rate-reminder.html
+        features-responses:
+          text: Responses
+          relativeUrl: docs/features/responses.html
+        features-validators:
+          text: Validators
+          relativeUrl: docs/features/validators.html
+        features-versioncontrol:
+          text: Version-control
+          relativeUrl: docs/features/version-control.html
+        features-terms:
+          text: Terms
+          relativeUrl: docs/features/terms.html
+        features-scropper:
+          text: Scropper
+          relativeUrl: docs/features/scropper.html
+        features-stagger:
+          text: Stagger
+          relativeUrl: docs/features/stagger.html
+        # features-theEnd:
+        #    text: "A"
+        # features-theEnd:
+        #    text: "B"
+        # features-theEnd:
+        #    text: "C"
+        # features-theEnd:
+        #    text: "_"
     guides-for-non-devs:
       name: Documentation for non developers
       items:
@@ -153,62 +212,3 @@ menu:
          Vapor-Responses:
            text: Vapor - Responses
            relativeUrl: docs/guides/Vapor/vapor-responses.html
-    features:
-      name: Features
-      items:
-        features-collections:
-          text: Collections
-          relativeUrl: docs/features/collections.html
-        features-dashboard:
-          text: Dashboard
-          relativeUrl: docs/features/dashboards.html
-        features-feedback:
-          text: Feedback
-          relativeUrl: docs/features/feedback.html
-        features-files:
-          text: Files
-          relativeUrl: docs/features/files.html
-        features-geographics:
-          text: Geographics
-          relativeUrl: docs/features/geographic.html
-        features-localize:
-          text: Localize
-          relativeUrl: docs/features/localize.html
-        feature-master-app:
-          text: Master App
-          relativeUrl: docs/guides/Non-devs/master-app.html
-        features-messages:
-          text: Messages
-          relativeUrl: docs/features/messages.html
-        features-pushlogs:
-          text: Push logs
-          relativeUrl: docs/features/push-logs.html
-        features-ratereminder:
-          text: Rate-reminder
-          relativeUrl: docs/features/rate-reminder.html
-        features-responses:
-          text: Responses
-          relativeUrl: docs/features/responses.html
-        features-validators:
-          text: Validators
-          relativeUrl: docs/features/validators.html
-        features-versioncontrol:
-          text: Version-control
-          relativeUrl: docs/features/version-control.html
-        features-terms:
-          text: Terms
-          relativeUrl: docs/features/terms.html
-        features-scropper:
-          text: Scropper
-          relativeUrl: docs/features/scropper.html
-        features-stagger:
-          text: Stagger
-          relativeUrl: docs/features/stagger.html
-        # features-theEnd:
-        #    text: "A"
-        # features-theEnd:
-        #    text: "B"
-        # features-theEnd:
-        #    text: "C"
-        # features-theEnd:
-        #    text: "_"
