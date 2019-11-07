@@ -4,7 +4,7 @@ currentMenu: api-doc
 
 # API 
 
-The NStack API is open and you are welcome to build your own tools in case none of our open-source SDKs fits your needs. Also, we'd love if you decide on building your own NStack SDK so please let us know if you do so! 
+The NStack API is open and you are welcome to build your own tools in case none of our open-source SDKs fits your needs. Also, we'd love if you'd decide on building your own NStack SDK so please let us know if you do so! 
 
 The full API documentation is available here:
 [API Documentation](https://documenter.getpostman.com/view/12675/S1a8yjgk)
