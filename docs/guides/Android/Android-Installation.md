@@ -2,18 +2,37 @@
 currentMenu: android-Installation
 ---
 
-## 📦 Installation
+## 📦 Installation  
 
-1. Open the `build.gradle` file of the module you plan to use NStack in
-2. Add the NStack SDK dependency and sync your project
+1\. Open the `build.gradle` file of the module you plan to use NStack in
+
+2\. Add the NStack SDK dependency and sync your project
 
 ``` groovy
 dependencies {
-    implementation "dk.nodes.nstack:nstack-kotlin:3.0.5"
+    ...
+    
+    implementation "dk.nodes.nstack:nstack-kotlin:<LATEST_VERSION>"
 }
 ```
 
-3. After the synchronisation is complete, you can start configuring the NStack SDK
+3\. Add the translation plugin to your root project's `build.gradle` file:
+
+``` groovy
+dependencies { 
+    ...
+    
+    classpath "dk.nodes.nstack:translation:<LATEST_VERSION>"
+}
+```
+
+Replace `<LATEST_VERSION>` in both places with the latest library version. You can find the latest version in the badge below (remove the `v` when adding the version to your gradle files).
+
+<br />
+![NStack Badge](https://img.shields.io/maven-central/v/dk.nodes.nstack/nstack-kotlin.svg)  
+
+<br />
+4\. After the synchronisation is complete, you can start configuring the NStack SDK
 
 ## Dependencies
 
@@ -64,6 +83,7 @@ class MyApplication : Application() {
    }
 }
 ```
+
 You can also set several **optional** parameters if you need more control:
 
 ``` kotlin
@@ -76,12 +96,11 @@ NStack.setRefreshPeriod(60, TimeUnit.MINUTES)
 
 > Warning: In almost every instance you want to set these optional methods before NStack is initialized
 
-
 ## Activity configuration
 
-You have to attach NStack to each activity you're planning on using it in. 
+You have to attach NStack to each activity you're planning on using it in.
 
-```kotlin
+``` kotlin
 override fun attachBaseContext(newBase: Context) {
     super.attachBaseContext(NStackBaseContext(newBase))
 }
