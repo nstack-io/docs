@@ -4,25 +4,19 @@ currentMenu: android-Collections
 
 ## Collections on Android
 
-The purpose of the Collections feature in NStack is to enable you, as a client, to be able to control different data sets that are shown in the app.
+Collections allow your Android app to display your project-specific datasets managed through the NStack CMS. 
 
-In your application, you can obtain your collections either by using method with callback, or use power of Kotlin Coroutines with the `suspend` method.
+You can obtain your collection using the `getCollectionResponse(...)` suspend function with a [slug](https://en.wikipedia.org/wiki/Clean_URL#Slug) of your specific collection:
 
-Example using callback method:
-```kotlin
-  NStack.getCollectionResponse("slug",
-      onSuccess = { response: String -> doSomething(response) },
-      onError = {error: Exception -> handleError(error) }
-  )
-```
-Example with `Coroutines`:
-```kotlin
+``` kotlin
 GlobalScope.launch {
     withContext(Dispatchers.IO) {
-      val response: String? = NStack.getCollectionResponse("slug")
+      val response: String? = NStack.getCollectionResponse("your-slug-here")
+      
       doSomething(response)
   }
 }
 ```
 
-Read a more detailed explanation about **Collections** in [*Features/Collections*](../../features/collections.html)
+Read a more detailed explanation about **Collections** [here](../../features/collections.html).
+
