@@ -201,6 +201,9 @@ menu:
         features-scropper:
           text: Scropper
           relativeUrl: docs/features/scropper.html
+        features-stagger:
+          text: Stagger
+          relativeUrl: docs/features/stagger.html
         # features-theEnd:
         #    text: "A"
         # features-theEnd:
