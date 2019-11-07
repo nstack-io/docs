@@ -22,7 +22,7 @@ Using the feedback feature the user can send feedback with the following propert
 
 When you have collected some feedback from users you have the following feature
 
-You can find examples on how to implement **Collections** for the following platforms:
+You can find examples on how to implement **Feedback** for the following platforms:
 
 * [Android](../../docs/guides/Android/android-feedback.html)
 
