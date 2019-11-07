@@ -108,9 +108,6 @@ menu:
          android-Localize:
            text: Android - Localize
            relativeUrl: docs/guides/Android/android-localize.html
-         android-Activity-Setup:
-            text: Android - Activity Setup
-            relativeUrl: docs/guides/Android/android-activity-setup.html
          android-App-Open:
             text: Android - App Open
             relativeUrl: docs/guides/Android/android-app-open.html

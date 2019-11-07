@@ -4,7 +4,7 @@ currentMenu: android-Installation
 
 ## 📦 Installation
 
-1. Open `build.gradle` file located in your project folder
+1. Open the `build.gradle` file of the module you plan to use NStack in
 2. Add the NStack SDK dependency and sync your project
 
 ``` groovy
@@ -13,7 +13,7 @@ dependencies {
 }
 ```
 
-3. After synchronisation is complete, you can start using the NStack SDK
+3. After the synchronisation is complete, you can start configuring the NStack SDK
 
 ## Dependencies
 
@@ -75,4 +75,17 @@ NStack.setRefreshPeriod(60, TimeUnit.MINUTES)
 ```
 
 > Warning: In almost every instance you want to set these optional methods before NStack is initialized
+
+
+## Activity configuration
+
+You have to attach NStack to each activity you're planning on using it in. 
+
+```kotlin
+override fun attachBaseContext(newBase: Context) {
+    super.attachBaseContext(NStackBaseContext(newBase))
+}
+```
+
+Please note the `NStackBaseContext` wrapper being attached in the snippet.
 
