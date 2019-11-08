@@ -260,13 +260,6 @@
                                     </li>
                                                                     <li class="">
 										<!--  -->
-	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-activity-setup.html">
-	                                            Android - Activity Setup
-	                                        </a>
-										<!--  -->
-                                    </li>
-                                                                    <li class="">
-										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-app-open.html">
 	                                            Android - App Open
 	                                        </a>
@@ -297,6 +290,13 @@
 										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-messages.html">
 	                                            Android - Messages
+	                                        </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-terms.html">
+	                                            Android - Terms
 	                                        </a>
 										<!--  -->
                                     </li>
@@ -484,65 +484,82 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h2 id="-installation">📦 Installation</h2>
-<ol>
-<li>Open <code>build.gradle</code> file located in your project folder</li>
-<li>Add the NStack SDK dependency and sync your project
-<pre><code class="language-groovy">dependencies {
-implementation "dk.nodes.nstack:nstack-kotlin:3.0.5"
-}</code></pre></li>
-<li>After synchronisation is complete, you can start using the NStack SDK</li>
-</ol>
-<h2 id="dependencies">Dependencies</h2>
+                    <h2 id="-requirements">📝 Requirements</h2>
 <ul>
-<li>okhttp 3.8.0</li>
+<li>Android SDK 21 </li>
+<li>Kotlin 1.3+</li>
+<li>AndroidX</li>
 </ul>
+<h2 id="-installation">📦 Installation</h2>
+<p>1. Open the <code>build.gradle</code> file of the module you plan to use NStack in</p>
+<p>2. Add the NStack SDK dependency and sync your project</p>
+<pre><code class="language-groovy">dependencies {
+    ...
+
+    implementation "dk.nodes.nstack:nstack-kotlin:&lt;LATEST_VERSION&gt;"
+}</code></pre>
+<p>3. Add the translation plugin to your root project's <code>build.gradle</code> file:</p>
+<pre><code class="language-groovy">dependencies { 
+    ...
+
+    classpath "dk.nodes.nstack:translation:&lt;LATEST_VERSION&gt;"
+}</code></pre>
+<p>Replace <code>&lt;LATEST_VERSION&gt;</code> in both places with the latest library version. You can find the latest version in the badge below (remove the <code>v</code> when adding the version to your gradle files).</p>
+<p><br />
+<img src="https://img.shields.io/maven-central/v/dk.nodes.nstack/nstack-kotlin.svg" alt="NStack Badge" />  </p>
+<p><br />
+4. After the synchronisation is complete, you can start configuring the NStack SDK</p>
 <h2 id="-configuration">⚒ Configuration</h2>
-<p>In order to use the NStack SDK you have to initilize and configure it first.</p>
-<p>In order to connect the NStack API with your application you will need <code>ApplicationId</code>, <code>REST API Key</code>. </p>
-<p>For more information how to get these keys checkout our  <a href="https://nstack-io.github.io/documentation/docs/guides/getting-started.html">Getting Start Guide</a>.</p>
-<p>Put the <code>ApplicationId</code>, <code>REST API Key</code> keys as meta-data in your <code>AndroidManifest.xml</code> like so:</p>
-<pre><code class="language-xml">&lt;application&gt;
-       &lt;meta-data
-           android:name="dk.nodes.nstack.appId"
-           android:value="your application Id"
-           tools:replace="android:value" /&gt;
+<p>In order to use the NStack SDK, you have to initilize and configure it first. The NStack API requires an application ID and an API key. For more information on how to obtain these, please read our <a href="https://nstack-io.github.io/documentation/docs/guides/getting-started.html">Getting Started Guide</a>.</p>
+<p>Once you have the keys, put them in your <code>AndroidManifest.xml</code> together with the environment name. Since it is highly likely you will have multiple environment names based on your build type or variant, you might want to set the environment name for each using <a href="https://developer.android.com/studio/build/manifest-build-variables">manifest placeholders</a> rather than directly.</p>
+<pre><code class="language-xml">&lt;application ...&gt;
 
-       &lt;meta-data
-           android:name="dk.nodes.nstack.apiKey"
-           android:value="your REST API key"
-           tools:replace="android:value" /&gt;
+        &lt;meta-data
+            android:name="dk.nodes.nstack.appId"
+            android:value="&lt;YOUR APPLICATION ID&gt;"
+            tools:replace="android:value" /&gt;
 
-       &lt;meta-data
-          android:name="dk.nodes.nstack.env"
-          android:value="staging"
-          tools:replace="android:value" /&gt;
+        &lt;meta-data
+            android:name="dk.nodes.nstack.apiKey"
+            android:value="&lt;YOUR REST API KEY&gt;"
+            tools:replace="android:value" /&gt;
 
-          ....
+        &lt;meta-data
+            android:name="dk.nodes.nstack.env"
+            android:value="&lt;YOUR ENVIRONMENT NAME&gt;"
+            tools:replace="android:value" /&gt;
+
+        ...
 
 &lt;/application/&gt;</code></pre>
-<blockquote>
-<p>You can also put these values into your <code>build.gradle</code> and use placeholders in the manifest</p>
-</blockquote>
-<p>Best place to initialise the SDK will be in you Application's <code>onCreate()</code> method as it requires your application's <code>Context</code>. </p>
-<p><code>Application</code> is the class for maintaining global application state. </p>
-<p>Here is a basic SDK initialisation example:</p>
+<p>We recommend initializing the SDK inside your <a href="https://developer.android.com/reference/kotlin/android/app/Application.html">application</a>'s <code>onCreate()</code> method. You must also use the application context at this step:</p>
 <pre><code class="language-kotlin">class MyApplication : Application() {
    override fun onCreate(){
-     super.onCreate()
-     // Specify your Translation class where translation string will be stored
-     NStack.translationClass = Translation::class.java
-     // initilize the SDK
-     NStack.init(this)
+        super.onCreate()
 
+        // Specify the class that will hold your translations. 
+        // It is regenerated at build time and you will use it to access your strings.
+        NStack.translationClass = Translation::class.java
+
+        // initilize the SDK with the application object
+        NStack.init(this)
    }
 }</code></pre>
-<p>There also <strong>optional</strong> parameters you could make use of while using NStack SDK:</p>
-<pre><code class="language-kotlin">NStack.debugMode = true - Enables debug mode for the library (Outputs messages to log)
-NStack.setRefreshPeriod(60, TimeUnit.MINUTES) - Allows you to set the period for how often NStack should check for updates</code></pre>
+<p>You can also set several <strong>optional</strong> parameters if you need more control:</p>
+<pre><code class="language-kotlin">// Enable debug mode for the library (outputs messages to log)
+NStack.debugMode = true 
+
+// Set a refresh period for NStack to check for updates
+NStack.setRefreshPeriod(60, TimeUnit.MINUTES) </code></pre>
 <blockquote>
 <p>Warning: In almost every instance you want to set these optional methods before NStack is initialized</p>
 </blockquote>
+<h2 id="activity-configuration">Activity configuration</h2>
+<p>You have to attach NStack to each activity you're planning on using it in.</p>
+<pre><code class="language-kotlin">override fun attachBaseContext(newBase: Context) {
+    super.attachBaseContext(NStackBaseContext(newBase))
+}</code></pre>
+<p>Please note the <code>NStackBaseContext</code> wrapper being attached in the snippet.</p>
                 </section>
 
             </div>

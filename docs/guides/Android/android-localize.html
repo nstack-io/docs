@@ -260,13 +260,6 @@
                                     </li>
                                                                     <li class="">
 										<!--  -->
-	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-activity-setup.html">
-	                                            Android - Activity Setup
-	                                        </a>
-										<!--  -->
-                                    </li>
-                                                                    <li class="">
-										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-app-open.html">
 	                                            Android - App Open
 	                                        </a>
@@ -297,6 +290,13 @@
 										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-messages.html">
 	                                            Android - Messages
+	                                        </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-terms.html">
+	                                            Android - Terms
 	                                        </a>
 										<!--  -->
                                     </li>
@@ -487,7 +487,7 @@
                     <h2 id="localize-on-android">Localize on Android</h2>
 <p>Read more about <strong>Localization</strong> in the <a href="../../features/localize.html"><em>Feature/Localization</em></a> section.</p>
 <h2 id="xml-translation">Xml Translation</h2>
-<p>Starting with version <code>2.1.0</code> NStack-Kotlin now supports XML based translations embedded in the Android namespace.</p>
+<p>Starting with version <code>2.1.0</code> , NStack for Android supports XML-based translations embedded in the Android namespace.</p>
 <pre><code class="language-XML">android:text="{sectionName_keyName}"
 android:hint="{sectionName_keyName}"
 android:description="{sectionName_keyName}"
@@ -497,7 +497,7 @@ android:contentDescription="{sectionName_keyName}"</code></pre>
 <p>The method from 2.0.2+ is still supported as follows:</p>
 <pre><code class="language-XML">xmlns:nstack="http://schemas.android.com/apk/res-auto"
 tools:ignore="MissingPrefix"</code></pre>
-<p>Before starting with the XML translations be sure to add the following block to the root of the layout you are using.</p>
+<p>Before starting with the XML translations, be sure to add the following block to the root of the layout you are using.</p>
 <pre><code class="language-XML">nstack:key="sectionName_keyName"
 nstack:text="sectionName_keyName"
 nstack:hint="sectionName_keyName"
@@ -505,36 +505,36 @@ nstack:description="sectionName_keyName"
 nstack:textOn="sectionName_keyName"
 nstack:textOff="sectionName_keyName"
 nstack:contentDescription="sectionName_keyName"</code></pre>
-<p>The following field should be used to set the NStack key <code>nstack:key="keyGoesHere"</code></p>
-<p>When entering the key the following format should be used <code>sectionName_keyName</code></p>
+<p>The following field should be used to set the NStack key: <code>nstack:key="keyGoesHere"</code> </p>
+<p>The following format should be used when entering the key: <code>sectionName_keyName</code> </p>
 <p>If you're using the NStack Gradle plugin, a <code>nstack_keys.xml</code> should be generated containing all available keys. It is suggested that you reference those keys when using this feature</p>
-<h4 id="queuing-manual-translations">Queuing Manual Translations</h4>
+<h4 id="queueing-manual-translations">Queueing Manual Translations</h4>
 <p>Once you have that setup you can trigger the translation via the following method:</p>
 <pre><code class="language-kotlin">NStack.translate()</code></pre>
 <blockquote>
 <p><strong>Note: Running this command is optional as the views get their translation added as they are added</strong></p>
 </blockquote>
 <h4 id="clearing-view-cache">Clearing View Cache</h4>
-<p>If for whatever reason you need to clear the translate view cache, you can trigger that view the following method:</p>
+<p>If for whatever reason you need to clear the translation view cache, you can trigger that using the following method:</p>
 <pre><code class="language-kotlin">NStack.clearViewCache()</code></pre>
 <h2 id="language-selection">Language Selection</h2>
+<p>You can get an <code>Arraylist&lt;Locale&gt;</code> of all available languages using the following property:</p>
 <pre><code class="language-kotlin">NStack.availableLanguages</code></pre>
-<p>Provides an <code>Arraylist&lt;Locale&gt;</code> of all available languages</p>
+<p>You can get a <code>HashMap&lt;Locale, JSONObject&gt;</code> of all available languages where the locale is the key and the language JSON object is the value:</p>
 <pre><code class="language-kotlin">NStack.languages</code></pre>
-<p>Provides an <code>HashMap&lt;Locale, JSONObject&gt;</code> of all available languages as the key and the language json object as the value</p>
+<p>You can simply select a language by setting the <code>language</code> variable to one of the provided locales:</p>
 <pre><code class="language-kotlin">NStack.language = selectedLocale</code></pre>
-<p>Using any of the provided locales you are able to select a language simply by setting the <code>language</code> variable in NStack</p>
+<p>You can also set the language using a locale string. The format must follow either the <code>language-country</code> or <code>language_country</code> form or otherwise it will not do anything.</p>
 <pre><code class="language-kotlin">NStack.setLanguageByString("en-gb")</code></pre>
-<p>Allows you to set the language by string. The format must follow either the <code>language-country</code> or <code>language_country</code> format otherwise it will not do anything.</p>
 <h2 id="language-listeners">Language Listeners</h2>
-<p>If you interested in locale changes events, NStack allows you set up a <code>LanguageListener</code>:</p>
-<pre><code class="language-kotlin">NStack.addLanguageChangeListener{ locale: Locale -&gt;
+<p>If you want to be notified when a language is changed, NStack allows you set up a <code>LanguageListener</code> with the new locale as the incoming argument:</p>
+<pre><code class="language-kotlin">NStack.addLanguageChangeListener { locale: Locale -&gt;
   // Your code
 }</code></pre>
-<p>Adds a listener to NStack that will trigger every time the language is changed (returns the new locale)</p>
+<p>Additionally, if you'd like to be notified when the list of available languages changes you can use the following listener:</p>
 <pre><code class="language-kotlin">NStack.addLanguagesChangeListener {
+  // Your code
 }</code></pre>
-<p>This listener should trigger every time the available languages change</p>
                 </section>
 
             </div>

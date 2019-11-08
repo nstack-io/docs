@@ -260,13 +260,6 @@
                                     </li>
                                                                     <li class="">
 										<!--  -->
-	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-activity-setup.html">
-	                                            Android - Activity Setup
-	                                        </a>
-										<!--  -->
-                                    </li>
-                                                                    <li class="">
-										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-app-open.html">
 	                                            Android - App Open
 	                                        </a>
@@ -297,6 +290,13 @@
 										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-messages.html">
 	                                            Android - Messages
+	                                        </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-terms.html">
+	                                            Android - Terms
 	                                        </a>
 										<!--  -->
                                     </li>
@@ -485,11 +485,12 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h2 id="messages-on-android">Messages on Android</h2>
-<p>The message is informed thought the <code>message</code> on the <code>onAppUpdateListener</code> . </p>
-<p>It indicates if a message shall be displayed. The variable contains the information that should be displayed.</p>
+<p>In order to receive messages, you'll need to register an <code>OnAppUpdateListener</code> with the SDK. When you receive an update containing a message, you can access it through the <code>message</code> property. If the property is <code>null</code>, no new message has been received.   </p>
+<p>If the <code>message</code> is not null, you can display the contained data to the user. </p>
 <pre><code class="language-kotlin">NStack.onAppUpdateListener = { appUpdate -&gt;
         appUpdate.message?.let { showMessageDialog(it) }
 }
+
 fun Activity.showMessageDialog(message: Message) {
     AlertDialog.Builder(this)
         .setMessage(message.message)

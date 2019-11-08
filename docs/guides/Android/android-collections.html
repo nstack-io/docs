@@ -260,13 +260,6 @@
                                     </li>
                                                                     <li class="">
 										<!--  -->
-	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-activity-setup.html">
-	                                            Android - Activity Setup
-	                                        </a>
-										<!--  -->
-                                    </li>
-                                                                    <li class="">
-										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-app-open.html">
 	                                            Android - App Open
 	                                        </a>
@@ -297,6 +290,13 @@
 										<!--  -->
 	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-messages.html">
 	                                            Android - Messages
+	                                        </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+	                                        <a href="https://nstack-io.github.io/documentation/docs/guides/Android/android-terms.html">
+	                                            Android - Terms
 	                                        </a>
 										<!--  -->
                                     </li>
@@ -485,21 +485,16 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h2 id="collections-on-android">Collections on Android</h2>
-<p>The purpose of the Collections feature in NStack is to enable you, as a client, to be able to control different data sets that are shown in the app.</p>
-<p>In your application, you can obtain your collections either by using method with callback, or use power of Kotlin Coroutines with the <code>suspend</code> method.</p>
-<p>Example using callback method:</p>
-<pre><code class="language-kotlin">  NStack.getCollectionResponse("slug",
-      onSuccess = { response: String -&gt; doSomething(response) },
-      onError = {error: Exception -&gt; handleError(error) }
-  )</code></pre>
-<p>Example with <code>Coroutines</code>:</p>
+<p>Collections allow your Android app to display your project-specific datasets managed through the NStack CMS. </p>
+<p>You can obtain your collection using the <code>getCollectionResponse(...)</code> suspend function and passing a <a href="https://en.wikipedia.org/wiki/Clean_URL#Slug">slug</a> representing that collection:</p>
 <pre><code class="language-kotlin">GlobalScope.launch {
     withContext(Dispatchers.IO) {
-      val response: String? = NStack.getCollectionResponse("slug")
+      val response: String? = NStack.getCollectionResponse("your-slug-here")
+
       doSomething(response)
   }
 }</code></pre>
-<p>Read a more detailed explanation about <strong>Collections</strong> in <a href="../../features/collections.html"><em>Features/Collections</em></a></p>
+<p>Read a more detailed explanation about <strong>Collections</strong> in <a href="../../features/collections.html"><em>Features/Collections</em></a>.</p>
                 </section>
 
             </div>
