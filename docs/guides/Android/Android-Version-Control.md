@@ -4,22 +4,22 @@ currentMenu: android-Version-Control
 
 ## Version Control on Android
 
-Version control information is part of the result from `appOpen`.
-It is up to the app to decide how to handle the app update status, meaning you must provide your own way to inform the user about the update (i.e. your custom dialog and e.t.c).
+When `appOpen` returns successfully (see [Android - App Open](/docs/guides/Android/android-app-open.html)) you will get the version control data as part of the result. It is up to you to handle this result, so you need to implement your own update feedback to the user (e.g. a customized dialog).
 
-```kotlin
+``` kotlin
 when (appOpenResult.value.data.update.state) {
     AppUpdateState.NONE -> {
-        // Do nothing because there is no update
+        // There is no update, you will probably want to keep this empty
     }
     AppUpdateState.UPDATE -> {
-        // Show a user a dialog that is dismissible
+        // An update is available that does not require the user to switch to it immediately
     }
     AppUpdateState.FORCE -> {
-        // Show the user an undismissable dialog
+        // A mandatory update is available and users should be forced to install the new app before being able to use it again 
+        // (e.g. show a non-dismissive dialog at app start)
     }
     AppUpdateState.CHANGELOG -> {
-        // Show change log (Not yet implemented because its never used)
+        // Display the change log (not implemented in yet)
     }
 }
 ```
