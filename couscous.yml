@@ -123,6 +123,9 @@ menu:
          android-Messages:
             text: Android - Messages
             relativeUrl: docs/guides/Android/android-messages.html
+         android-Terms:
+            text: Android - Terms
+            relativeUrl: docs/guides/Android/android-terms.html
     php-guides:
        name: PHP
        items:
