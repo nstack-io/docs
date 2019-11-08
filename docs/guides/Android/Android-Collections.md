@@ -18,5 +18,5 @@ GlobalScope.launch {
 }
 ```
 
-Read a more detailed explanation about **Collections** [here](../../features/collections.html).
+Read a more detailed explanation about **Collections** in [*Features/Collections*](../../features/collections.html).
 
