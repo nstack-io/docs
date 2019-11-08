@@ -2,6 +2,12 @@
 currentMenu: android-Installation
 ---
 
+## 📝 Requirements
+
+* Android SDK 21 
+* Kotlin 1.3+
+* AndroidX
+
 ## 📦 Installation  
 
 1\. Open the `build.gradle` file of the module you plan to use NStack in
@@ -33,10 +39,6 @@ Replace `<LATEST_VERSION>` in both places with the latest library version. You c
 
 <br />
 4\. After the synchronisation is complete, you can start configuring the NStack SDK
-
-## Dependencies
-
-* okhttp 3.8.0
 
 ## ⚒ Configuration
 
