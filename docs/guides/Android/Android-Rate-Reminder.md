@@ -4,11 +4,15 @@ currentMenu: android-Rate-Reminder
 
 ## Rate Reminder on Android
 
-NStack gradle plugin will generate rate reminder actions. For this it requires `RateReminderActions.kt` file to be created.
+In order to use reminder actions, you should create an empty `RateReminderActions.kt` file in your project. NStack will then generate the code necessary.
 
-`./gradlew generateRateReminderActions` will create `RateReminderActions` with methods which send events to NStack backend. App should call those methods when an event happens.
+Calling `./gradlew generateRateReminderActions` in your project folder will generate a `RateReminderActions` class in the mentioned file. Inside the class, the SDK will also generate methods for the actions you specified in the NStack backend. You should call these methods in your app's events that match the actions you defined. 
 
-App can check if dialog should be shown by calling `NStack.RateReminder.shouldShow()`. If the method returns true then the app should call `NStack.RateReminder.show(context)` in order to show the dialog. Dialog's text can be set before calling the method and the dialog can be styled by passing a style via `ContextThemeWrapper`. `show` method will return user's answer. If the answer is positive the app should take the user to the playstore page. If it's negative the app should go to feedback screen.
+Your app should call `NStack.RateReminder.shouldShow()` to decide if it should ask the user to give a rating. If the method returns `true`, the app should call `NStack.RateReminder.show(context)` in order to show the rating dialog. 
+
+You can customize the text of the dialog before calling this method (see example below). The visual style of the dialog can also be adjusted by passing a style via `ContextThemeWrapper`. 
+
+The `show` method displays the dialog and returns the user's answer. In general, you'd want to take the user to rate the app in the Play Store after a positive answer, or show some appropriate feedback if you receive a negative one (e.g. a screen saying you're sorry about their experience with the option of sending feedback).
 
 ```kotlin
 
@@ -21,6 +25,7 @@ RateReminderActions.paymentDeclined()
 
 launch(Dispatchers.Main) {
     if (withContext(Dispatchers.IO) { NStack.RateReminder.shouldShow() }) {
+
         val answer = NStack.RateReminder.apply {
             title = Translation.rate.title
             message = Translation.rate.message
@@ -28,6 +33,7 @@ launch(Dispatchers.Main) {
             noButton = Translation.rate.noButton
             skipButton = Translation.rate.skipButton
         }.show(ContextThemeWrapper(context, R.style.customDialog))
+
         when (answer) {
             RateReminderAnswer.POSITIVE -> // take user to the playstore page
             RateReminderAnswer.NEGATIVE -> // take user to the feedback screen

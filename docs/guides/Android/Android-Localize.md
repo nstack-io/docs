@@ -8,9 +8,9 @@ Read more about **Localization** in the [*Feature/Localization*](../../features/
 
 ## Xml Translation
 
-Starting with version `2.1.0` NStack-Kotlin now supports XML based translations embedded in the Android namespace.
+Starting with version `2.1.0` , NStack for Android supports XML-based translations embedded in the Android namespace.
 
-```XML
+``` XML
 android:text="{sectionName_keyName}"
 android:hint="{sectionName_keyName}"
 android:description="{sectionName_keyName}"
@@ -21,14 +21,14 @@ android:contentDescription="{sectionName_keyName}"
 
 The method from 2.0.2+ is still supported as follows:
 
-```XML
+``` XML
 xmlns:nstack="http://schemas.android.com/apk/res-auto"
 tools:ignore="MissingPrefix"
 ```
 
-Before starting with the XML translations be sure to add the following block to the root of the layout you are using.
+Before starting with the XML translations, be sure to add the following block to the root of the layout you are using.
 
-```XML
+``` XML
 nstack:key="sectionName_keyName"
 nstack:text="sectionName_keyName"
 nstack:hint="sectionName_keyName"
@@ -38,17 +38,17 @@ nstack:textOff="sectionName_keyName"
 nstack:contentDescription="sectionName_keyName"
 ```
 
-The following field should be used to set the NStack key `nstack:key="keyGoesHere"`
+The following field should be used to set the NStack key: `nstack:key="keyGoesHere"` 
 
-When entering the key the following format should be used `sectionName_keyName`
+The following format should be used when entering the key: `sectionName_keyName` 
 
 If you're using the NStack Gradle plugin, a `nstack_keys.xml` should be generated containing all available keys. It is suggested that you reference those keys when using this feature
 
-#### Queuing Manual Translations
+#### Queueing Manual Translations
 
 Once you have that setup you can trigger the translation via the following method:
 
-```kotlin
+``` kotlin
 NStack.translate()
 ```
 
@@ -56,54 +56,53 @@ NStack.translate()
 
 #### Clearing View Cache
 
-If for whatever reason you need to clear the translate view cache, you can trigger that view the following method:
+If for whatever reason you need to clear the translation view cache, you can trigger that using the following method:
 
-```kotlin
+``` kotlin
 NStack.clearViewCache()
 ```
 
-
-
 ## Language Selection
 
-```kotlin
+
+You can get an `Arraylist<Locale>` of all available languages using the following property:
+
+``` kotlin
 NStack.availableLanguages
 ```
-Provides an `Arraylist<Locale>` of all available languages
 
-```kotlin
+You can get a `HashMap<Locale, JSONObject>` of all available languages where the locale is the key and the language JSON object is the value:
+
+``` kotlin
 NStack.languages
 ```
-Provides an `HashMap<Locale, JSONObject>` of all available languages as the key and the language json object as the value
 
-```kotlin
+You can simply select a language by setting the `language` variable to one of the provided locales:
+
+``` kotlin
 NStack.language = selectedLocale
 ```
 
-Using any of the provided locales you are able to select a language simply by setting the `language` variable in NStack
+You can also set the language using a locale string. The format must follow either the `language-country` or `language_country` form or otherwise it will not do anything.
 
-```kotlin
+``` kotlin
 NStack.setLanguageByString("en-gb")
 ```
 
-Allows you to set the language by string. The format must follow either the `language-country` or `language_country` format otherwise it will not do anything.
-
-
-
 ## Language Listeners
-If you interested in locale changes events, NStack allows you set up a `LanguageListener`:
-```kotlin
-NStack.addLanguageChangeListener{ locale: Locale ->
+
+If you want to be notified when a language is changed, NStack allows you set up a `LanguageListener` with the new locale as the incoming argument:
+
+``` kotlin
+NStack.addLanguageChangeListener { locale: Locale ->
   // Your code
 }
 ```
 
-Adds a listener to NStack that will trigger every time the language is changed (returns the new locale)
+Additionally, if you'd like to be notified when the list of available languages changes you can use the following listener:
 
-
-```kotlin
+``` kotlin
 NStack.addLanguagesChangeListener {
+  // Your code
 }
 ```
-
-This listener should trigger every time the available languages change
