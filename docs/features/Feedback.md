@@ -26,7 +26,7 @@ You can find examples on how to implement **Feedback** for the following platfor
 
 * [Android](../../docs/guides/Android/android-feedback.html)
 
-> Currently only NStack Android SDK provides the **Feeback** feature.
+> Currently only NStack Android SDK provides the **Feedback** feature.
 >
 > To use it on other platforms, make a POST request to https://nstack.io/api/v2/ugc/feedbacks. 
 >
