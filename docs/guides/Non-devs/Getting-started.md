@@ -27,21 +27,21 @@ That's it! You now have access to all the features NStack has to offer.
 
 NStack is accessed by getting an invite to the system by email. Your contact person at Nodes will be responsible for sending you an invite. The email will look like the one inserted below.
 
-![Invite email](../../images/Guides/GettingStarted/invite_email.png)
+![Invite email](../../images/Guides/GettingStarted/invite_email.png)  {.screenshot}
 
 After clicking the link, you will be presented with a screen, prompting you for a name and a password. Fill out the form as requested and submit your information.
 
-![NStack invitation](../../images/Guides/GettingStarted/nstack_invitation.png)
+![NStack invitation](../../images/Guides/GettingStarted/nstack_invitation.png)  {.screenshot}
 
 If the form is filled out correctly, you will be presented with the following screen. Click the link to continue to NStack, where you will be prompted to enter the login information you just entered.
 
-![NStack invitation accepted](../../images/Guides/GettingStarted/nstack_invitation_accepted.png)
+![NStack invitation accepted](../../images/Guides/GettingStarted/nstack_invitation_accepted.png) {.screenshot}
 
-![NStack login](../../images/Guides/GettingStarted/nstack_login.png)
+![NStack login](../../images/Guides/GettingStarted/nstack_login.png) {.screenshot}
 
 If the login is successful, you will be presented with NStacks main screen.
 
-![NStack main screen](../../images/Guides/GettingStarted/nstack_main2.png)
+![NStack main screen](../../images/Guides/GettingStarted/nstack_main2.png) {.screenshot}
 
 ## Useful information
 

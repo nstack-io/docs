@@ -10,13 +10,13 @@ The exportation of localizations can be useful if someone would like to work off
 
 To access the `Export localizations` feature, you have to go to the `Localize` option from the app overview
 
-![export1](../../images/Guides/Export/export1.png)
+![export1](../../images/Guides/Export/export1.png) {.screenshot}
 
 As it can be seen in the screenshot, this particular app has only one platform defined - `Mobile` . You will need to press on `Platforms`
 
 > If there are more platforms defined for the application, then all the platforms are listed in this step.
 
-![export2](../../images/Guides/Export/export2.png)
+![export2](../../images/Guides/Export/export2.png) {.screenshot}
 
 When the `Platforms` screen is shown, for each platform, there is a button, under `Actions` called `Import/Export` and when you click on it you will be presented with 3 options:
 
@@ -24,4 +24,4 @@ When the `Platforms` screen is shown, for each platform, there is a button, unde
 * `Download as Json`
 * `Download as Excel`
 
-![export3](../../images/Guides/Export/export3.png)
+![export3](../../images/Guides/Export/export3.png) {.screenshot}
