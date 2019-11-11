@@ -29,8 +29,8 @@ section blockquote {
 h1, h2, h3, h4 {
     color: #36EF80;
     margin: 25px 0px;
-    
 }
+
 h3 {
     font-size: 20px;
     font-weight: bold;
@@ -42,6 +42,24 @@ li {
 
 img {
     max-width: 100%;
+    box-shadow: 0px 10px 20px #00000088;
+    border: 1px solid #FFFFFF22;
+    border-radius: 12px;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+img.uml {
+    padding: 20px;
+    background: white;
+}
+
+img.screenshot {
+    border: none; 
+    border-radius: 0px;
+    box-shadow: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 header.navbar {
