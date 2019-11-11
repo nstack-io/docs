@@ -36,7 +36,7 @@ The purpose of this guide is to present the Collections feature of NStack and on
 
 After logging in, assuming you have just one project, you will be presented with the following screen. If you have access to multiple projects, you'll have to select a project first. Press the "Collections" button to access the Collections feature of NStack.
 
-![Select Collections](../../images/Guides/Collections/select_collections2.png)
+![Select Collections](../../images/Guides/Collections/select_collections2.png) {.screenshot}
 
 ## Templates
 
