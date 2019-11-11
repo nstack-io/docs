@@ -182,6 +182,9 @@ menu:
          android-Messages:
             text: Android - Messages
             relativeUrl: docs/guides/Android/android-messages.html
+         android-Feedback:
+            text: Android - Feedback
+            relativeUrl: docs/guides/Android/android-feedback.html
          android-Terms:
             text: Android - Terms
             relativeUrl: docs/guides/Android/android-terms.html

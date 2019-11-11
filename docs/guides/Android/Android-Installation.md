@@ -35,7 +35,7 @@ dependencies {
 Replace `<LATEST_VERSION>` in both places with the latest library version. You can find the latest version in the badge below (remove the `v` when adding the version to your gradle files).
 
 <br />
-![NStack Badge](https://img.shields.io/maven-central/v/dk.nodes.nstack/nstack-kotlin.svg)  
+![NStack Badge](https://img.shields.io/maven-central/v/dk.nodes.nstack/nstack-kotlin.svg)
 
 <br />
 4\. After the synchronisation is complete, you can start configuring the NStack SDK

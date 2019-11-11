@@ -27,7 +27,7 @@ The purpose of this guide is to present the Responses feature of NStack and one 
 
 After logging in, assuming you have just one project, you will be presented with the following screen. If you have access to multiple projects, you'll have to select a project first. Press the "Responses" button to access the Responses feature of NStack.
 
-![select_responses](../../images/Guides/Responses/select_responses2.png)
+![select_responses](../../images/Guides/Responses/select_responses2.png) {.screenshot}
 
 ## Adding a new response
 
