@@ -21,3 +21,14 @@ let completion: (NStack.Result<Product>) -> Void = { result in
 NStack.sharedInstance.fetchCollectionResponse(for: id, completion: completion)
 ~~~~
 
+Version 4.0.x changed the way to get a Response from the NStack:
+~~~~swift
+NStack.sharedInstance.contentManager?.fetchCollectionResponse(for: "id of slug as Int", completion: { (result: <Result<T, Error>>) in
+				switch result {
+        case .success(let response):
+            completion(.success(response))
+        case .failure(let error):
+            completion(.failure(error))
+        }
+    })
+~~~~

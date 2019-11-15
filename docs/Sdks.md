@@ -4,7 +4,7 @@ currentMenu: sdk
 
 # SDKs
 
-NStack has SDKs for different platforms. In the GitHub repos you will information on how to install and use the SDKs. 
+NStack has SDKs for different platforms. In the GitHub repos you will find information on how to install and use the SDKs. 
 
 The same information is also available here, so you don't have to leave the documnetation
 
