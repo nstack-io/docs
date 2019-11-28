@@ -55,7 +55,7 @@ This introduced a small change to the App Open call. Instead of providing the la
             },
 ```
 
-Notice the url is a direct link to localize resource, which means the language was updated, but not published, so it's hitting NStack directly. If it was published, we would see the CDN url.
+Notice the url is a direct link to the localize resource, which means the language was updated, but not published, so it's hitting NStack directly. If it was published, we would see the CDN url.
 
 "should_update" is marked as true, which means that language should be locally cached and used from now on.
 

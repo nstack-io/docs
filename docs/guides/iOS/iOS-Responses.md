@@ -19,3 +19,16 @@ NStack.sharedInstance.getContentResponse(id) { (data, error) in
 }
 ~~~~
 
+Version 4.0.x changed the way to get a Response from the NStack:
+~~~~swift
+NStack.sharedInstance.contentManager?.getContentResponse("name of slug", completion: { (result: Result<T, Error>>) -> Void in
+        switch result {
+        case .success(let response):
+            completion(.success(response))
+        case .failure(let error):
+            completion(.failure(error))
+        }
+    })
+~~~~
+
+
