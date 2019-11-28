@@ -502,6 +502,15 @@
 
   // Use data
 }</code></pre>
+<p>Version 4.0.x changed the way to get a Response from the NStack:</p>
+<pre><code class="language-swift">NStack.sharedInstance.contentManager?.getContentResponse("name of slug", completion: { (result: Result&lt;T, Error&gt;&gt;) -&gt; Void in
+        switch result {
+        case .success(let response):
+            completion(.success(response))
+        case .failure(let error):
+            completion(.failure(error))
+        }
+    })</code></pre>
                 </section>
 
             </div>
