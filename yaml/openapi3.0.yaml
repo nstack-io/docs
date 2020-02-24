@@ -21481,9 +21481,9 @@ components:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/Data4'
+          $ref: '#/components/schemas/AppOpenData'
         meta:
-          $ref: '#/components/schemas/Meta3'
+          $ref: '#/components/schemas/AppOpenMeta'
       example:
         data:
           count: 74
@@ -21559,8 +21559,8 @@ components:
           last_updated: '"2019-06-15T14:29:50+00:00"'
         meta:
           accept_Language: null
-    Data4:
-      title: Data4
+    AppOpenData:
+      title: AppOpenData
       required:
       - count
       - update
@@ -21568,6 +21568,7 @@ components:
       - platform
       - created_at
       - last_updated
+      - rate_reminder
       type: object
       properties:
         count:
@@ -21580,6 +21581,8 @@ components:
           items:
             $ref: '#/components/schemas/Localize'
           description: ''
+        rate_reminder:
+          $ref: '#/components/schemas/RateReminder'
         platform:
           type: string
         created_at:
@@ -21763,8 +21766,8 @@ components:
           direction: LRM
           is_default: false
           is_best_fit: false
-    Meta3:
-      title: Meta3
+    AppOpenMeta:
+      title: AppOpenMeta
       required:
       - accept_Language
       type: object
@@ -22446,6 +22449,28 @@ components:
       example:
         submitBtn: Upload file
         title: Import
+    RateReminder:
+      title: RateReminder
+      required:
+      - title
+      - body
+      - yesBtn
+      - laterBtn
+      - noBtn
+      - link
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        yesBtn:
+          type: string
+        laterBtn:
+          type: string
+        noBtn:
+          type: string
+        link:
+          type: string
 tags:
 - name: Scropper
 - name: Stagger
