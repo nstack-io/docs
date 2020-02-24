@@ -61,6 +61,10 @@ paths:
         200:
           description: ''
           headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scropper'
       deprecated: false
   /api/v2/stagger:
     post:
@@ -22471,6 +22475,28 @@ components:
           type: string
         link:
           type: string
+    Scropper:
+      title: Get focal point
+      properties:
+        xaxis:
+          type: number
+        yaxis:
+          type: number
+        face_bb:
+          type: array
+          items:
+            $ref: '#/components/schemas/FaceBb'
+    FaceBb:
+      title: FaceBb
+      properties:
+        bottom:
+          type: number
+        left:
+          type: number
+        right:
+          type: number
+        top:
+          type: number
 tags:
 - name: Scropper
 - name: Stagger
