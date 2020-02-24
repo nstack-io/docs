@@ -9,7 +9,7 @@ info:
   contact: {}
   version: '1.0'
 servers:
-- url: http://nstack.test/api/v2/content
+- url: https://nstack-staging.vapor.cloud
   variables: {}
 paths:
   /api/v2/scropper:
@@ -22477,26 +22477,41 @@ components:
           type: string
     Scropper:
       title: Get focal point
+      required:
+        - xaxis
+        - yaxis
+        - face_bb
       properties:
         xaxis:
           type: number
+          format: double
         yaxis:
           type: number
+          format: double
         face_bb:
           type: array
           items:
             $ref: '#/components/schemas/FaceBb'
     FaceBb:
       title: FaceBb
+      required:
+        - top
+        - bottom
+        - left
+        - right
       properties:
         bottom:
           type: number
+          format: double
         left:
           type: number
+          format: double
         right:
           type: number
+          format: double
         top:
           type: number
+          format: double
 tags:
 - name: Scropper
 - name: Stagger
