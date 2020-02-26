@@ -7491,7 +7491,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AppopenV2'
+                $ref: '#/components/schemas/AppOpen'
               example:
                 data:
                   count: 74
@@ -7744,7 +7744,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AppopenV2'
+                $ref: '#/components/schemas/AppOpen'
               example:
                 data:
                   count: 74
@@ -21509,8 +21509,8 @@ components:
         request: {}
         response: {}
         user_id: 1
-    AppopenV2:
-      title: AppopenV2
+    AppOpen:
+      title: App Open
       required:
         - data
         - meta
