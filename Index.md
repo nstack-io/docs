@@ -64,6 +64,6 @@ Take a look at the _Features_ section to the left to see what else we've got for
 
 ## Getting started
 1. [Create your application on NStack](.../../docs/guides/Non-devs/getting-started.html)
-2. [Add the SDK to your project](/docs/Sdks.html) See the SDK's documentation on how to implement for your specific platform.
+2. [Add the SDK to your project](.../../docs/sdks.html) See the SDK's documentation on how to implement for your specific platform.
 3. Checkout Guides for the features you want to use
 4. Checkout SDK documention on how to implement the required features
