@@ -6,8 +6,16 @@ currentMenu: api-doc
 
 The NStack API is open and you are welcome to build your own tools in case none of our open-source SDKs fits your needs. If you were to build your own SDK around NStack, we woud love to hear from you and curious to see what you built.
 
-The full API documentation is available here:
-[API Documentation](https://documenter.getpostman.com/view/12675/S1a8yjgk)
+The full API documentation is available:
+
+[Postman collection](https://documenter.getpostman.com/view/12675/S1a8yjgk)
+
+[Open Api 3.0](https://raw.githubusercontent.com/nstack-io/documentation/master/yaml/openapi3.0.yaml)*
+
+[Swagger 2.0](https://raw.githubusercontent.com/nstack-io/documentation/master/yaml/swagger2.0json.json)*
+
+\* Work in progress
+
 
 ## Q & A
 
