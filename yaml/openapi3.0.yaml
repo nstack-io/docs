@@ -6467,6 +6467,7 @@ paths:
           description: ''
           headers: {}
         404:
+          description: 'Entity not found'
       deprecated: false
   /api/v1/geographic/countries:
     get:
