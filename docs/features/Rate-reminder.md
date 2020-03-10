@@ -50,7 +50,9 @@ Ratereminders V2 has the following endpoints:
 # GUID
 
 RateReminder requires every device to use a guid. If you are using the NStack SDK, the SDK will generate one for you. If you are implementing RateReminders without the SDK you will have to generate your own unique ID.
-Remember to store your ID if you are not using the SDK. 
+Remember to store your ID if you are not using the SDK, so the app does not generate a new every time the user opens the app. 
+
+[read more about guid](API.md#what-is-a-guid)
 
 # Authentication headers
 all calls require the 2 authentication headers "X-Application-Id" and "X-Rest-Api-Key". These are automatically generated and can be found on nstack.io in your application.
