@@ -116,7 +116,7 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-  /api/v2/content/collections/1:
+  /api/v2/content/collections/{collection_id}:
     get:
       tags:
         - Collections
@@ -145,16 +145,6 @@ paths:
 
         `collection_id` (int) **required** _ID of content collection_
 
-
-        #### Response codes(s)
-
-        `200` OK
-
-
-        `404` Entity not found
-
-
-        `500` Internal server error _Please read response message_
       operationId: View
       parameters:
         - name: X-Application-Id
@@ -171,12 +161,24 @@ paths:
           style: simple
           schema:
             type: string
+        - name: collection_id
+          required: true
+          in: path
+          description: 'Collection ID'
+          style: simple
+          schema:
+            type: integer
+            format: int32
       responses:
         200:
-          description: ''
+          description: 'OK'
           headers: {}
+        404:
+          description: 'Entity not found'
+        500:
+          description: 'Internal server error _Please read response message_'
       deprecated: false
-  /api/v2/content/collections/1/items:
+  /api/v2/content/collections/{collection_id}/items:
     post:
       tags:
         - Collections
@@ -209,23 +211,6 @@ paths:
 
 
         `All required keys`
-
-
-        #### Response codes(s)
-
-        `200` OK
-
-
-        `401` Collectio does not have write access for api
-
-
-        `404` Entity not found
-
-
-        `412` Precondition failed _Please read response message_
-
-
-        `500` Internal server error _Please read response message_
       operationId: Createitem
       parameters:
         - name: X-Application-Id
@@ -242,6 +227,13 @@ paths:
           style: simple
           schema:
             type: string
+        - name: collection_id
+          in: path
+          description: 'Collection Id'
+          style: simple
+          schema:
+            type: integer
+            format: int32
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -277,10 +269,18 @@ paths:
         x-send-file-in-body: false
       responses:
         200:
-          description: ''
+          description: 'OK'
           headers: {}
+        401:
+          description: 'Collection does not have write access for api'
+        404:
+          description: 'Entity not found'
+        412:
+          description: 'Precondition failed _Please read response message_'
+        500:
+          description: 'Internal server error _Please read response message_'
       deprecated: false
-  /api/v2/content/collections/1/items/13:
+  /api/v2/content/collections/{collection_id/items/{item_id}:
     delete:
       tags:
         - Collections
@@ -302,12 +302,24 @@ paths:
           style: simple
           schema:
             type: string
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
       responses:
         200:
           description: ''
           headers: {}
       deprecated: false
-  /api/v2/content/collections/1/items/14/update:
+  /api/v2/content/collections/{collection_id}/items/{item_id}/update:
     post:
       tags:
         - Collections
@@ -336,6 +348,18 @@ paths:
           style: simple
           schema:
             type: string
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -374,7 +398,7 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-  /api/v2/content/collections/1/items/5:
+  /api/v2/content/collections/{collection_id}/items/{item_id}:
     get:
       tags:
         - Collections
@@ -396,12 +420,28 @@ paths:
           style: simple
           schema:
             type: string
+        - name: collection_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: item_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
       responses:
         200:
           description: ''
           headers: {}
+        401:
+          description: 'Collection does not have write access for api'
+        445:
+          description: 'Entity not found'
       deprecated: false
-  /api/v1/content/collections/1:
+  /api/v1/content/collections/{collection_id}:
     get:
       tags:
         - Collections
@@ -456,12 +496,20 @@ paths:
           style: simple
           schema:
             type: string
+        - name: collection_id
+          in: path
+          description: 'Collection ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
       responses:
         200:
           description: ''
           headers: {}
-      deprecated: false
-  /api/v1/content/collections/1/items:
+      deprecated: true
+  /api/v1/content/collections/{collection_id}/items:
     post:
       tags:
         - Collections
@@ -483,6 +531,14 @@ paths:
           style: simple
           schema:
             type: string
+        - name: collection_id
+          in: path
+          description: 'Collection ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -520,8 +576,34 @@ paths:
         200:
           description: ''
           headers: {}
-      deprecated: false
-  /api/v1/content/collections/1/items/13:
+      deprecated: true
+  /api/v1/content/collections/{collection_id}/items/{item_id}:
+    get:
+      tags:
+        - Collections
+      summary: Viewitem1
+      description: "Create a new item to a array type collection\n#### Request details\nMethod: `GET`\n\nURL: `api/v1/content/responses/{collection_id}/items{item_id}`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`collection_id` (int) **required** _ID of content collection_\n\n`item_id` (int) **required** _ID of content collection item_\n\n#### Response codes(s)\n`200` OK\n\n`401` Collection does not have write access for api \n`445` Entity not found\n"
+      operationId: Viewitem1
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: true
     delete:
       tags:
         - Collections
@@ -543,12 +625,28 @@ paths:
           style: simple
           schema:
             type: string
+        - name: collection_id
+          in: path
+          description: 'Collection ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+        - name: item_id
+          in: path
+          description: 'Item ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
       responses:
         200:
           description: ''
           headers: {}
-      deprecated: false
-  /api/v1/content/collections/1/items/14/update:
+      deprecated: true
+  /api/v1/content/collections/{collection_id}/items/{item_id}/update:
     post:
       tags:
         - Collections
@@ -577,6 +675,22 @@ paths:
           style: simple
           schema:
             type: string
+        - name: collection_id
+          in: path
+          description: 'Collection ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+        - name: item_id
+          in: path
+          description: 'Item ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -614,34 +728,8 @@ paths:
         200:
           description: ''
           headers: {}
-      deprecated: false
-  /api/v1/content/collections/1/items/5:
-    get:
-      tags:
-        - Collections
-      summary: Viewitem1
-      description: "Create a new item to a array type collection\n#### Request details\nMethod: `GET`\n\nURL: `api/v1/content/responses/{collection_id}/items{item_id}`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`collection_id` (int) **required** _ID of content collection_\n\n`item_id` (int) **required** _ID of content collection item_\n\n#### Response codes(s)\n`200` OK\n\n`401` Collection does not have write access for api \n`445` Entity not found\n"
-      operationId: Viewitem1
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-      responses:
-        200:
-          description: ''
-          headers: {}
-      deprecated: false
+      deprecated:  true
+
   /api/v2/content/responses/15:
     get:
       tags:
@@ -785,7 +873,7 @@ paths:
         200:
           description: ''
           headers: {}
-      deprecated: false
+      deprecated: true
   /api/v2/content/files:
     post:
       tags:
@@ -6378,6 +6466,8 @@ paths:
         200:
           description: ''
           headers: {}
+        404:
+          description: 'Entity not found'
       deprecated: false
   /api/v1/geographic/countries:
     get:
