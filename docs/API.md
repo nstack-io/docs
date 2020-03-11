@@ -20,7 +20,14 @@ The full API documentation is available:
 ## Q & A
 
 #### What is a GUID?
-A GUID is a unique identifier of your current installation. It should be generated **once** and used in all future requests related to the same installation.
+A GUID (Globally unique identifier) is a unique identifier. It should be generated **once** and used in all future requests from the device.
+
+The Nstack SDK will handle creation and storing of the guid on the device.  If you are using the API instead of the SDK  you can create your own GUID/UUID by using the UUID class in java (Universally Unique Identifier).
+
+val uuid = UUID.randomUUID().toString() 
+
+It is important that you only generate it once and store it otherwise features like ratereminder will not work. 
+
 
 #### Should I use the NStack SDKs or access the API directly? 
 Always prefer the available SDKs. If there is something the API offers that is not available in the SDK and you would like to use, please notify us and we will look into it. You are also very welcome to contribute to features and fixes to the codebase of the SDK for your platform. 
