@@ -80,7 +80,7 @@ What will happen for users on version 1.0:
 
 ## Messages
 
-**Messages** can be access from the *Notify* section, of the NStack web console. In the beginning, it gives an overview of current messages based on the desired platform.
+**Messages** can be access from the NStack web console. In the beginning, it gives an overview of current messages based on the desired platform.
 
 ![Messages_Create](../images/HowItWorks/Messages_Create.png)
 
@@ -96,7 +96,7 @@ Read more about **Messages** in [*Features/Messages*](../../features/messages.ht
 
 ## Rate reminder
 
-**Rate reminder** can be access from the *Notify* section of the NStack web console. 
+**Rate reminder** can be access from the NStack web console. 
 
 The following diagram shows the flow of the **Rate reminder**.
 
