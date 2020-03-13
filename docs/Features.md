@@ -26,21 +26,57 @@
 ## Introduction
 This document describes what features are available in NStack and what use cases they can be used for. Use this as a reference when you are not sure what a certain feature can be used for or if you want to refresh you mind on what amazing things NStack can do.
 
-NStack includes many features that facilitate and speed up development and project management and we should try to use it to its fullest. Don't reinvent the wheel!
+NStack includes many features that facilitate and speed up development and project management and we should try to use it to its fullest. Do not reinvent the wheel!
 
 ## Content
 ### Localize
-Localize is the most used feature of NStack and can/**should** be used **in all apps**.  
+Localize is the most used feature of NStack and **should** be used **in all apps**.  
 Localize is a way to **manage** all the **text** on all the platforms, it manages **translations** and allows you to **update text** on apps **without** having to **release** a **new version**.  
 This way the PM or the client can change any text in the project straight from the NStack website.
 
-**Use cases:**
+Localize also supports multiple languages, by fetching the best available language based on the users current device language.
 
-* Button titles
-* Screen titles
-* Base urls (Useful when the backend is not stable yet or the app is working with a beta api for the time being)
-* URLs for terms of service
-* ...
+When App open is called Nstack returns an array of languages:
+
+ "localize": [
+            {
+                "id": 918,
+                "url": "https://cdn-raw.vapor.cloud/nstack/data/localize-publish/publish-918-2EHivFJg_Z8FsP6UirX.json",
+                "last_updated_at": "2020-03-05T13:43:29+00:00",
+                "should_update": true,
+                "language": {
+                    "id": 6,
+                    "name": "Danish",
+                    "locale": "da-DK",
+                    "direction": "LRM",
+                    "is_default": false,
+                    "is_best_fit": false
+                }
+            },
+            {
+                "id": 1031,
+                "url": "https://cdn-raw.vapor.cloud/nstack/data/localize-publish/publish-1031-JeHXMlhF_3zVtT3mxQ0.json",
+                "last_updated_at": "2020-03-05T13:43:44+00:00",
+                "should_update": true,
+                "language": {
+                    "id": 53,
+                    "name": "English (DK)",
+                    "locale": "en-DK",
+                    "direction": "LRM",
+                    "is_default": true,
+                    "is_best_fit": true
+                }
+            }
+        ]
+
+The url is a link to translations as json. The SDK will update the translation class with the new strings.
+
+When building the app it will generated with the current translations. That mean every new install of the app will have the translation class that it was build with to begin with.
+
+You can find a platform specific guides here: [Android](../docs/guides/Android/Android-Localize.md)  and [iOS](../docs/guides/iOS/iOS-Localize.md)
+  
+The translation strings can be accessed using the translation class and can used in both XML and programatically.
+ 
 
 ### Responses
 The responses feature is very **versatile** and can be used as an **alternative** for **custom API's** for simple apps/websites that mainly use **static content**.  
@@ -164,6 +200,8 @@ On iOS this is done by showing Apple's build in rating popup.
 ![iOS rate reminder starred](../images/FeatureOverview/iOS/iOS_rate_reminder_starred.png)
 
 **Android**
+
+[Android rate reminder](../guides/Android/Android-Rate-Reminder.md)
 
 NStack sdk will show default alert dialog which can be styled by passing a theme to it with `ContextThemeWrapper`
 
