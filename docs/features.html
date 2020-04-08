@@ -529,20 +529,48 @@
 </ul>
 <h2 id="introduction">Introduction</h2>
 <p>This document describes what features are available in NStack and what use cases they can be used for. Use this as a reference when you are not sure what a certain feature can be used for or if you want to refresh you mind on what amazing things NStack can do.</p>
-<p>NStack includes many features that facilitate and speed up development and project management and we should try to use it to its fullest. Don't reinvent the wheel!</p>
+<p>NStack includes many features that facilitate and speed up development and project management and we should try to use it to its fullest. Do not reinvent the wheel!</p>
 <h2 id="content">Content</h2>
 <h3 id="localize">Localize</h3>
-<p>Localize is the most used feature of NStack and can/<strong>should</strong> be used <strong>in all apps</strong>.<br />
+<p>Localize is the most used feature of NStack and <strong>should</strong> be used <strong>in all apps</strong>.<br />
 Localize is a way to <strong>manage</strong> all the <strong>text</strong> on all the platforms, it manages <strong>translations</strong> and allows you to <strong>update text</strong> on apps <strong>without</strong> having to <strong>release</strong> a <strong>new version</strong>.<br />
 This way the PM or the client can change any text in the project straight from the NStack website.</p>
-<p><strong>Use cases:</strong></p>
-<ul>
-<li>Button titles</li>
-<li>Screen titles</li>
-<li>Base urls (Useful when the backend is not stable yet or the app is working with a beta api for the time being)</li>
-<li>URLs for terms of service</li>
-<li>...</li>
-</ul>
+<p>Localize also supports multiple languages, by fetching the best available language based on the users current device language.</p>
+<p>When App open is called Nstack returns an array of languages:</p>
+<p>&quot;localize&quot;: [
+{
+&quot;id&quot;: 918,
+&quot;url&quot;: &quot;<a href="https://cdn-raw.vapor.cloud/nstack/data/localize-publish/publish-918-2EHivFJg_Z8FsP6UirX.json">https://cdn-raw.vapor.cloud/nstack/data/localize-publish/publish-918-2EHivFJg_Z8FsP6UirX.json</a>&quot;,
+&quot;last_updated_at&quot;: &quot;2020-03-05T13:43:29+00:00&quot;,
+&quot;should_update&quot;: true,
+&quot;language&quot;: {
+&quot;id&quot;: 6,
+&quot;name&quot;: &quot;Danish&quot;,
+&quot;locale&quot;: &quot;da-DK&quot;,
+&quot;direction&quot;: &quot;LRM&quot;,
+&quot;is_default&quot;: false,
+&quot;is_best_fit&quot;: false
+}
+},
+{
+&quot;id&quot;: 1031,
+&quot;url&quot;: &quot;<a href="https://cdn-raw.vapor.cloud/nstack/data/localize-publish/publish-1031-JeHXMlhF_3zVtT3mxQ0.json">https://cdn-raw.vapor.cloud/nstack/data/localize-publish/publish-1031-JeHXMlhF_3zVtT3mxQ0.json</a>&quot;,
+&quot;last_updated_at&quot;: &quot;2020-03-05T13:43:44+00:00&quot;,
+&quot;should_update&quot;: true,
+&quot;language&quot;: {
+&quot;id&quot;: 53,
+&quot;name&quot;: &quot;English (DK)&quot;,
+&quot;locale&quot;: &quot;en-DK&quot;,
+&quot;direction&quot;: &quot;LRM&quot;,
+&quot;is_default&quot;: true,
+&quot;is_best_fit&quot;: true
+}
+}
+]</p>
+<p>The url is a link to translations as json. The SDK will update the translation class with the new strings.</p>
+<p>When building the app it will generated with the current translations. That mean every new install of the app will have the translation class that it was build with to begin with.</p>
+<p>You can find a platform specific guides here: <a href="../docs/guides/Android/android-localize.html">Android</a>  and <a href="../docs/guides/iOS/ios-localize.html">iOS</a></p>
+<p>The translation strings can be accessed using the translation class and can used in both XML and programatically.</p>
 <h3 id="responses">Responses</h3>
 <p>The responses feature is very <strong>versatile</strong> and can be used as an <strong>alternative</strong> for <strong>custom API's</strong> for simple apps/websites that mainly use <strong>static content</strong>.<br />
 Using Responses(and collections) can <strong>replace</strong> a simple <strong>API</strong> and can <strong>save</strong> hundreds of hours of development time on the right project.</p>
@@ -654,6 +682,7 @@ You can define rate reminder events and assign points to them. App is responsibl
 <p><img src="../images/FeatureOverview/iOS/iOS_rate_reminder.png" alt="iOS rate reminder" />
 <img src="../images/FeatureOverview/iOS/iOS_rate_reminder_starred.png" alt="iOS rate reminder starred" /></p>
 <p><strong>Android</strong></p>
+<p><a href="../guides/Android/android-rate-reminder.html">Android rate reminder</a></p>
 <p>NStack sdk will show default alert dialog which can be styled by passing a theme to it with <code>ContextThemeWrapper</code></p>
 <h2 id="geographic">Geographic</h2>
 <p><strong>Note: The following datasets are global, meaning changing it in 1 project will change it for all projects.</strong></p>

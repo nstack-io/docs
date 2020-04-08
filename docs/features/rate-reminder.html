@@ -516,6 +516,95 @@ A taxi app we create following events</p>
 <li><a href="../../docs/guides/iOS/ios-rate-reminder.html">iOS</a></li>
 <li><a href="../../docs/guides/Android/android-rate-reminder.html">Android</a></li>
 </ul>
+<h1 id="version-2">Version 2</h1>
+<p>Ratereminders V2 has the following endpoints:</p>
+<ul>
+<li>[GET] Show</li>
+<li>[GET] Actions</li>
+<li>[Post] Action Events</li>
+<li>[Post] Answer</li>
+</ul>
+<h1 id="guid">GUID</h1>
+<p>RateReminder requires every device to use a guid. If you are using the NStack SDK, the SDK will generate one for you. If you are implementing RateReminders without the SDK you will have to generate your own unique ID.
+Remember to store your ID if you are not using the SDK, so the app does not generate a new every time the user opens the app. </p>
+<p><a href="api.html#what-is-a-guid">read more about guid</a></p>
+<h1 id="authentication-headers">Authentication headers</h1>
+<p>all calls require the 2 authentication headers &quot;X-Application-Id&quot; and &quot;X-Rest-Api-Key&quot;. These are automatically generated and can be found on nstack.io in your application.</p>
+<p>For Post requests &quot;Content-Type&quot; - &quot;application/json&quot;  should be included.</p>
+<h1 id="get-show">[GET] Show</h1>
+<p>api/v2/notify/rate_reminder_v2?guid={{guid}}</p>
+<p>The request will return 200 or 404.</p>
+<p>200: You should prompt your user for a rating</p>
+<p>{
+&quot;data&quot;: {
+&quot;id&quot;: 22,
+&quot;points_to_trigger&quot;: 26,
+&quot;days_delay_on_skip&quot;: 0,
+&quot;localization&quot;: {
+&quot;title&quot;: null,
+&quot;body&quot;: null,
+&quot;yesBtn&quot;: null,
+&quot;laterBtn&quot;: null,
+&quot;noBtn&quot;: null
+},
+&quot;points&quot;: 50
+}
+}</p>
+<ul>
+<li>&quot;id&quot;: The ID for your rating. You will need to store it, as it required to post the users answer.</li>
+<li>&quot;points_to_trigger&quot;: Amount of points required to show the rating - this can be changed on nstack.io</li>
+<li>&quot;days_delay_on_skip&quot;: Amount of days a user will wait after pressing skip - this can be changed on nstack.io</li>
+<li>&quot;localization&quot;: The translations to use when showing the  rating dialog. This can be setup on nstack.io. If you are not using the SDK you can also just use your own translations.</li>
+<li>&quot;points&quot;: The users current amount of points </li>
+</ul>
+<p>404: You should not prompt the user for a rating</p>
+<p>Will also return a message why the rate dialog should not be shown. This is mainly intended for debugging, you should not show it to the user. </p>
+<p>{
+&quot;message&quot;: &quot;Not yet, missing points - points: 0&quot;
+}</p>
+<p>Note if a user has already answered this will also return 404
+{
+&quot;message&quot;: &quot;Already answered&quot;
+}</p>
+<h1 id="get-actions">[GET] Actions</h1>
+<p>api/v2/notify/rate_reminder_v2/actions</p>
+<p>returns a list of the available actions:
+{
+&quot;data&quot;: [
+&quot;appstart&quot;,
+&quot;readarticle&quot;
+]
+}</p>
+<h1 id="post-action-events">[POST] Action Events</h1>
+<p>api/v2/notify/rate_reminder_v2/events</p>
+<p>Body:
+{
+&quot;guid&quot;: &quot;test-test-test7&quot;,
+&quot;action&quot;: &quot;appstart&quot;
+}</p>
+<p>A succesfull response wil return:</p>
+<p>{
+&quot;guid&quot;: &quot;test-test-test7&quot;,
+&quot;points&quot;: 10,
+&quot;action_id&quot;: 13,
+&quot;updated_at&quot;: &quot;2020-03-06 11:28:25&quot;,
+&quot;created_at&quot;: &quot;2020-03-06 11:28:25&quot;,
+&quot;id&quot;: 343
+}</p>
+<p>If you try to call an action is not available the call will return 412.</p>
+<h1 id="post-action-events-1">[POST] Action Events</h1>
+<p>api/v2/notify/rate_reminder_v2/{{ratereminderid}}/answers</p>
+<ul>
+<li>Ratereminderid you can get from SHOW</li>
+</ul>
+<p>POST Body</p>
+<p>{
+&quot;guid&quot;: &quot;test-test-test7&quot;,
+&quot;answer&quot;: &quot;skip&quot;
+}</p>
+<p>Answers: can be: &quot;positive&quot;, &quot;negative&quot; or &quot;skip&quot;.</p>
+<p><em>Note</em>  if the user skips the dialog but rate the app another way you can call  answers again with &quot;positive&quot; or &quot;negative&quot; to ensure that the user will not prompted again to rate the app. you can <em>not</em> enable it again by setting the answer to skip.</p>
+<p>If the user clicks negative, it would be normally be a good idea to get the user <a href="feedback.html">feedback</a></p>
                 </section>
 
             </div>
