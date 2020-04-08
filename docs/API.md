@@ -10,12 +10,9 @@ The full API documentation is available:
 
 [Postman collection](https://documenter.getpostman.com/view/12675/S1a8yjgk)
 
-[NSpec]
+[Render Open API in NSpec](https://nspec.like.st/deeplink?org=nodes-projects&repo=eauction-laravel&path=docs%2Fapi-doc.yaml)
 
-[Open Api 3.0](https://raw.githubusercontent.com/nstack-io/documentation/master/yaml/openapi3.0.yaml)*
-
-\* Work in progress
-
+[Raw as Open Api 3.0](https://raw.githubusercontent.com/nstack-io/docs/master/api/2-0/openapi-3-0.yaml)*
 
 ## Q & A
 
