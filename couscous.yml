@@ -3,7 +3,7 @@ template:
   # directory: website/
   index: index.md
 # Base URL of the published website
-baseUrl: https://nstack-io.github.io/documentation/
+baseUrl: https://nstack-io.github.io/docs/
 
 # Used to link to the GitHub project
 github:
