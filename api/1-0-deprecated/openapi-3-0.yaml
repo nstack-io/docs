@@ -1,0 +1,1991 @@
+openapi: 3.0.0
+info:
+  title: API
+  description: >-
+    This is the public API for nstack.io
+
+
+    Setup an application and use Application-Id and Rest-Api-Key
+  contact: {}
+  version: '2.5'
+servers:
+  - url: https://nstack-staging.vapor.cloud
+    variables: {}
+paths:
+  /api/v1/content/collections/{collection_id}:
+    get:
+      tags:
+        - Collections
+      summary: View1
+      description: >-
+        Get a default type of content collection
+
+
+        #### Request details
+
+        Method: `GET`
+
+
+        URL: `api/v1/content/responses/{collection_id}`
+
+
+        #### Headers
+
+        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
+
+
+        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
+
+
+        #### URL Parameters
+
+        `collection_id` (int) **required** _ID of content collection_
+
+
+        #### Response codes(s)
+
+        `200` OK
+
+
+        `445` Entity not found
+
+
+        `500` Internal server error _Please read response message_
+      operationId: View1
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: collection_id
+          in: path
+          description: 'Collection ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: true
+  /api/v1/content/collections/{collection_id}/items:
+    post:
+      tags:
+        - Collections
+      summary: Createitem1
+      description: "Create a new item to a array type collection\n#### Request details\nMethod: `POST`\n\nURL: `api/v1/content/responses/{collection_id}/items`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`collection_id` (int) **required** _ID of content collection_\n\n#### Post params\n\n`All required keys`\n\n#### Response codes(s)\n`200` OK\n\n`401` Collectio does not have write access for api \n\n`412` Precondition failed _Please read response message_\n\n`445` Entity not found\n\n`500` Internal server error _Please read response message_"
+      operationId: Createitem1
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: collection_id
+          in: path
+          description: 'Collection ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - k0int
+                - key1string
+                - key2float
+                - key3wysiwygsim
+                - key4asset
+                - key5boolean
+                - key6wysiwygadvanced
+              type: object
+              properties:
+                k0int:
+                  type: integer
+                  format: int32
+                key1string:
+                  type: string
+                key2float:
+                  type: number
+                  format: double
+                key3wysiwygsim:
+                  type: string
+                key4asset:
+                  type: string
+                key5boolean:
+                  type: boolean
+                key6wysiwygadvanced:
+                  type: string
+        required: false
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: true
+  /api/v1/content/collections/{collectionId}/items/{itemId}:
+    get:
+      tags:
+        - Collections
+      summary: Viewitem1
+      description: "Create a new item to a array type collection\n#### Request details\nMethod: `GET`\n\nURL: `api/v1/content/responses/{collection_id}/items{item_id}`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`collection_id` (int) **required** _ID of content collection_\n\n`item_id` (int) **required** _ID of content collection item_\n\n#### Response codes(s)\n`200` OK\n\n`401` Collection does not have write access for api \n`445` Entity not found\n"
+      operationId: Viewitem1
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          description: Id of item
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+        - name: collectionId
+          in: path
+          required: true
+          description: Id of collection
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: true
+    delete:
+      tags:
+        - Collections
+      summary: Deleteitem1
+      description: "Create a new item to a array type collection\n#### Request details\nMethod: `DELETE`\n\nURL: `api/v1/content/responses/{collection_id}/items{item_id}`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`collection_id` (int) **required** _ID of content collection_\n\n`item_id` (int) **required** _ID of content collection item_\n\n#### Response codes(s)\n`200` OK\n\n`401` Collection does not have write access for api \n`445` Entity not found\n\n`500` Internal server error _Please read response message_"
+      operationId: Deleteitem1
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          description: Id of item
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+        - name: collectionId
+          in: path
+          required: true
+          description: Id of collection
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: collection_id
+          in: path
+          description: 'Collection ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+        - name: item_id
+          in: path
+          description: 'Item ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: true
+  /api/v1/content/collections/{collection_id}/items/{item_id}/update:
+    post:
+      tags:
+        - Collections
+      summary: Update1
+      description: "Create a new item to a array type collection\n#### Request details\nMethod: `POST`\n\nURL: `api/v1/content/responses/{collection_id}/items`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`collection_id` (int) **required** _ID of content collection_\n\n#### Post params\n\n`All required keys`\n\n#### Response codes(s)\n`200` OK\n\n`401` Collectio does not have write access for api \n\n`412` Precondition failed _Please read response message_\n\n`445` Entity not found\n\n`500` Internal server error _Please read response message_"
+      operationId: Update1
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: collection_id
+          in: path
+          description: 'Collection ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+        - name: item_id
+          in: path
+          description: 'Item ID'
+          required: true
+          style: simple
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - k0int
+                - key1string
+                - key2float
+                - key3wysiwygsim
+                - key4asset
+                - key5boolean
+                - key6wysiwygadvanced
+              type: object
+              properties:
+                k0int:
+                  type: integer
+                  format: int32
+                key1string:
+                  type: string
+                key2float:
+                  type: number
+                  format: double
+                key3wysiwygsim:
+                  type: string
+                key4asset:
+                  type: string
+                key5boolean:
+                  type: boolean
+                key6wysiwygadvanced:
+                  type: string
+        required: false
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated:  true
+  /api/v1/content/responses/{id}:
+    get:
+      tags:
+        - Responses
+      summary: Show1
+      description: >-
+        Get one response
+
+
+        #### Request details
+
+        Method: `GET`
+
+
+        URL: `api/v1/content/responses/{id_or_slug}`
+
+
+        #### Headers
+
+        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
+
+
+        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
+
+
+        #### URL Parameters
+
+        `id_or_slug` (string/int) **required** _ID or slug of content type [15, "terms", "about"]_
+
+
+        #### Query params
+
+        `data` (bool) **option** _defaul true - should the object be in data_
+
+
+        #### Response codes(s)
+
+        `200` OK
+
+
+        `445` Entity not found
+
+
+        `500` Internal server error _Please read response message_
+      operationId: Show1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+        - name: collectionId
+          in: path
+          required: true
+          description: Id of collection
+          schema:
+            type : integer
+            format: int64
+            minimum: 1
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: true
+  /api/v1/content/files:
+    post:
+      tags:
+        - Files
+      summary: Storewithpath
+      description: "Store a file with path\n\n#### Request details\nMethod: `POST`\n\nURL: `api/v1/content/files/path`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Post params\n`name` (string) **required** \n\n`tags` (string, comma seperated) **optional** \n\n`gone_at` (date-time 2019-01-01 00:00:00) **optional** \n\n`privacy` (string [public,public-cdn,private,private-password]) **required** \n\n`path` (string) **required** \n\n`mime` (string) **required** \n\n`size` (int) **required** \n\n#### Response codes(s)\n`200` OK\n\n`404` File in path not found\n\n`409` Path should start with applicationId\n\n`412` Validation error\n\n`500` Internal server error _Please read response message_"
+      operationId: Storewithpath
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - name
+                - tags
+                - gone_at
+              type: object
+              properties:
+                name:
+                  type: string
+                tags:
+                  type: string
+                gone_at:
+                  type: string
+        required: false
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/localize/mobile/languages:
+    get:
+      tags:
+        - Localize
+      summary: Indexlanguages1
+      description: "Get available languages for a platfom\n\n#### Request details\n\nMethod:    `GET`\n\nURL:    `/api/v1/translate/{platform-slug}/languages`\n\n#### Headers \n\n`X-Application-Id`\n\n`X-Rest-Api-Key`\n\n#### Query params\n`show_inactive_languages` (bool)\n\n#### URL Parameters\n`platform-slug` (string) **required**\n\n#### Response codes(s)\n\n`200` OK\n"
+      operationId: Indexlanguages1
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/localize/mobile/languages/best_fit:
+    get:
+      tags:
+        - Localize
+      summary: Languagebestfit1
+      description: "Get best fit language from accept-language header\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/translate/{platform-slug}/languages/best_fit`\n\n#### Headers \n`X-Application-Id`\n\n`X-Rest-Api-Key`\n\n`Accept-Language or X-Accept-Language`\n\n#### URL Parameters\n`platform-slug` (string) **required**\n\n#### Response codes(s)\n\n`200` OK\n"
+      operationId: Languagebestfit1
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/localize/mobile/keys:
+    get:
+      tags:
+        - Localize
+      summary: Keys
+      description: "#### Request details\n\nMethod:    `GET`\n\nURL:    `/api/translate/{platform-slug}/keys`\n\n#### Headers \n\n`X-Application-Id`\n\n`X-Rest-Api-Key`\n\n`Accept-Language or X-Accept-Language`\n\n#### Query params\n`section` (int/string) _id or slug_\n\n`all` (bool) _true_\n\n#### URL Params\n`platform-slug` (string) **required**\n\n#### Response codes(s)\n\n`200` OK\n"
+      operationId: Keys
+      parameters:
+        - name: all
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: boolean
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/localize/backend/keys/default:
+    get:
+      tags:
+        - Localize
+      summary: Keys&valuesforsection
+      description: Keys & values for section
+      operationId: Keys&valuesforsection
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers:
+            Cache-Control:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-cache
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Keep-Alive
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: 4278
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Tue, 04 Aug 2015 17:45:04 GMT
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5, max=100
+            Server:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Apache/2.4.12 (Ubuntu) OpenSSL/1.0.1
+          content:
+            application/json:
+              example:
+                data:
+                  default:
+                    actions: Actions
+                    active: Active
+                    add: Add
+                    cancel: Cancel
+                    confirmHeader: Warning!
+                    create: Create
+                    default: Default
+                    deleteModel: Delete {MODEL}
+                    deleteSuccess: '{MODEL} was deleted'
+                    edit: Edit
+                    editModel: Edit {MODEL}
+                    modelIsActive: '{MODEL} is active'
+                    modelIsDeactive: '{MODEL} is deactivated'
+                    name: Name
+                    noEntries: No entreis
+                    pick: Pick one
+                    saveSuccess: '{MODEL} successfully saved'
+                    slug: Slug
+                    update: Update
+                  translate_platforms:
+                    addNewModalHeader: Add a new platform
+                    deletePlatformModalText: This will delete the entire platforms with all the it's content. There is no restore functionality!!!
+                    inProductionModalTextActivate: This will set the platform in "production mode" which means  you can only add entries and modify values. All keys will stay
+                    inProductionModalTextDeactivate: Set the platform back in development mode, everything can be changed again. But that means it can affect the product
+                    inProductionTooltipActivate: Set platform in production
+                    inProductionTooltipDeactivate: Set out of production
+                    isInDevelopmentFlash: The platform is in developement
+                    isInProductionFlash: Platform is in production
+                    keysTooltip: Go to translate view
+                    platformLanguageTooltip: Connect languages to platform
+                    title: Platforms
+                  translate_default:
+                    autoRedirectToFirstPlatform: Auto redirected to first platform
+                    direction: Direction
+                    inProduction: In production
+                    key: Key
+                    keys: Keys
+                    language: Language
+                    languages: Languages
+                    locale: Locale
+                    lrm: Left to right
+                    platforms: Platforms
+                    rlm: Right to left
+                    section: Section
+                    sections: Sections
+                    theKey: The key
+                    theLanguage: The language
+                    thePlatform: The platform
+                    theSection: The section
+                    theTranslation: The translation
+                    translated: Translated
+                    translation: Translation
+                    value: Value
+                  errors:
+                    couldNotFindModelWithId: Could not find {MODEL} with the Id {ID}
+                    failedToDelete: Failed to delete, try again
+                    failedToSave: Failed to save, try again
+                    random: Error occurred. Try again
+                  translate_errors:
+                    noLanguageConnection: There is no language connected to the platform, please set one
+                    noLanguages: There is no languages added, please add one
+                    noPlatforms: There is no platforms please add one
+                    platformIsInProduction: The platform is in production. This action can't be done before setting it back in development mode
+                  translate_languages:
+                    deleteLanguageModalText: This will delete the language with all it's translated values. There is no restore functionality
+                    title: Languages
+                  translate_platform_languages:
+                    activeModalActivate: Set the connection active, means it can be used from the API
+                    activeModalDeactivate: Deactivate the connection. Will not be possible to access it from API until it's active again.
+                    activeTooltipActivate: Activate
+                    activeTooltipDeactivate: Deactivate
+                    addTitle: Add a new connection
+                    connection: Connection
+                    defaultModalText: This will set the language as default. All requests to non supported languages will default to this.
+                    defaultSavedSuccess: The connection is now default
+                    defaultTooltip: Mark as default
+                    exportTooltip: Export
+                    importTooltip: Import
+                    keysTooltip: Go to translate view
+                    setDefault: Mark as default
+                    test: In test
+                    testModalTextActivate: 'Setting the language in test mode means all keys in the API will get a # in front of value to check that all text is translated'
+                    testModalTextDeactivate: This will remove the test mode
+                    testSaveSuccessActivate: The connection is in test mode
+                    testSaveSuccessDeactivate: The connection is out of test mode
+                    testTooltipActivate: Set in test mode
+                    testTooltipDeactivate: Remove test mode
+                    theConnection: The connection
+                    title: Connect
+                  translate_main:
+                    addSectionBtn: Add section
+                    addSectionTitle: Add new section
+                    cacheFlushedSuccess: Cache flushed
+                    deleteKeyModalText: This will delete the key with all it's translated values
+                    deleteSectionEmptyKeysModelText: Delete the section?
+                    deleteSectionModalText: Decide if all the keys should be moved to default section or get deleted?
+                    flushCache: Flush cache
+                    updateValueModalTitle: Update value
+                  translate_import:
+                    submitBtn: Upload file
+                    title: Import
+      deprecated: false
+  /api/v1/notify/updates:
+    get:
+      tags:
+        - Version control
+      summary: Indexupdate1
+      description: "Get app updated\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/notify/updates`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters\n`platform` (string) **required** _[\"ios\", \"android\", \"windows\"]_\n\n`current_version` (string) **required** _Current version of app making the request_\n\n`last_version` (string) _[?]_\n\n`test` (bool) _Enable test mode, false equals production_\n\n#### Response codes\n`200` OK\n\n`412` Precondition failed"
+      operationId: Indexupdate1
+      parameters:
+        - name: platform
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: current_version
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: number
+            format: double
+        - name: last_version
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: number
+            format: double
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/notify/updates/views:
+    post:
+      tags:
+        - Version control
+      summary: Markupdateasseen1
+      description: "Register a view update\n\n#### Request details\nMethod:    `POST`\n\nURL:    `/api/v1/notify/updates/views`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Parameters\n`guid` (int) **required** _[?]_\n\n`update_id` (int) **required** _Id of update where view was updated_\n\n`answer` (string) **required** _[\"no\", \"yes\"]_\n\n`type` (string) **required** _[\"newer_version\", \"new_in_version\"]_\n \n#### Response codes\n`200` OK\n\n`412` Precondition failed"
+      operationId: Markupdateasseen1
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - guid
+                - update_id
+                - answer
+                - type
+              type: object
+              properties:
+                guid:
+                  type: integer
+                  format: int32
+                update_id:
+                  type: integer
+                  format: int32
+                answer:
+                  type: string
+                type:
+                  type: string
+        required: false
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/notify/messages:
+    get:
+      tags:
+        - Messages
+      summary: Messages1
+      description: "Get message\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/notify/messages`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters\n`platform` (string) **required** _[\"ios\", \"android\", \"windows\", \"web\"]_\n \n#### Response codes\n`200` OK\n\n`412` Precondition failed"
+      operationId: Messages1
+      parameters:
+        - name: platform
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers:
+            Server:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: nginx/1.15.8
+            Transfer-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: chunked
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Cache-Control:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-cache, private
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Wed, 03 Jul 2019 10:53:42 GMT
+          content:
+            application/json:
+              example:
+                data:
+                  id: 25
+                  message: >+
+                    windows
+
+                  show_setting: show_always
+      deprecated: false
+  /api/v1/notify/messages/views:
+    post:
+      tags:
+        - Messages
+      summary: Viewmessage
+      description: "Register a view update\n\n#### Request details\nMethod: `POST`\n\nURL: `/api/v1/notify/updates/views`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Parameters\n`guid` (int) **required** _[?]_\n\n`message_id` **required** _[?]_\n\n#### Response codes\n`200` OK\n\n`412` Precondition failed"
+      operationId: Viewmessage
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - guid
+                - message_id
+              type: object
+              properties:
+                guid:
+                  type: integer
+                  format: int32
+                message_id:
+                  type: integer
+                  format: int32
+        required: false
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/notify/rate_reminder:
+    get:
+      tags:
+        - Rate reminders
+      summary: GetShow1
+      description: "Get rate reminder\n\n#### Request details\nMethod: `GET`\n\nURL: `/api/v1/notify/rate_reminder`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`guid` (int?) **required** _[?]_\n\n`platform` (string) **required** _[is this used at all?]_\n\n#### Response codes\n`200` OK\n\n`412` Precondition failed\n\n`445` Entity not found"
+      operationId: GetShow1
+      parameters:
+        - name: platform
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: guid
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/notify/rate_reminder/views:
+    post:
+      tags:
+        - Rate reminders
+      summary: Markasseen1
+      description: "Post rate reminder\n\n#### Request details\nMethod: `POST`\n\nURL: `/api/v1/notify/rate_reminder/views`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`guid` (int?) **required** _[?]_\n\n`platform` (string) **required** _[is this used at all?]_\n\n`answer` (string) **required** _[\"yes\", \"no\", \"later\"]_\n\n#### Response codes\n`200` OK\n\n`412` Precondition failed\n\n`445` Entity not found"
+      operationId: Markasseen1
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - guid
+                - platform
+                - answer
+              type: object
+              properties:
+                guid:
+                  type: integer
+                  format: int32
+                platform:
+                  type: string
+                answer:
+                  type: string
+        required: false
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/geographic/continents:
+    get:
+      tags:
+        - Continents
+      summary: Index1
+      description: "Retrieve a list of valid continents on Earth\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/geographic/continents`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Response codes(s)\n`200` OK"
+      operationId: Index1
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/geographic/countries:
+    get:
+      tags:
+        - Countries
+      summary: GetIndex11
+      description: "Retrieve a list of valid countries on Earth\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/geographic/countries`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters (filters)\n`limit` (int) _Eg: [/api/geographic/countries?limit=1] Default limit is 500_\n\n`order_by_column` (string) _Eg; [/api/geographic/countries?order\\_by\\_column=name]_\n\n`order_by_direction` (string) _Eg; [/api/geographic/countries?order\\_by\\_direction=asc]_\n\n`search` (string) _Eg: [/api/geographic/countries?search=Andorra]_\n\n`fields` (string) _Eg: [/api/geographic/countries?fields=name,code]_\n\n`continents` (string) _Eg: [/api/geographic/countries?continents=EU,AF]_\n\n#### Response codes(s)\n`200` OK\n\n`412` Precondition failed _Invalid filters_\n"
+      operationId: GetIndex11
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/geographic/countries/1:
+    get:
+      tags:
+        - Countries
+      summary: GetShow11
+      description: >-
+        Retrieve details of a specific country on Earth
+
+
+        #### Request details
+
+        Method:    `GET`
+
+
+        URL:    `/api/v1/geographic/countries/{id}`
+
+
+        #### Headers
+
+        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
+
+
+        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
+
+
+        #### URL Parameters
+
+        `id` (int) **required** _Country id_
+
+
+        #### Response codes(s)
+
+        `200` OK
+
+
+        `445` Entity not found
+      operationId: GetShow11
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/geographic/languages:
+    get:
+      tags:
+        - Languages
+      summary: GetIndex112
+      description: "Retrieve a list of valid languages spoken by humans on Earth\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/geographic/languages`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters (filters)\n`limit` (int) _Eg: [/api/geographic/languages?limit=1] Default limit is 500_\n\n`search` (string) _Eg: [/api/geographic/languages?search=en]_\n\n`fields` (string) _Eg: [/api/geographic/languages?fields=name,locale]_\n\n#### Response codes(s)\n`200` OK\n\n`412` Precondition failed _Invalid filters_\n\n"
+      operationId: GetIndex112
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/geographic/ip-address:
+    get:
+      tags:
+        - IP Addresses
+      summary: GetShow112
+      description: "Retrieve details based on the requestee's ip address\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/geographic/ip-address`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters (filters)\n`ip` (string) _Eg: [1.2.3.4] Default is your own_\n\n#### Response codes(s)\n`200` OK\n\n`445` Entity not found"
+      operationId: GetShow112
+      parameters:
+        - name: ip
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/geographic/time_zones:
+    get:
+      tags:
+        - Time zones
+      summary: GetIndex1123
+      description: "Retrieve a list of valid timesones on Earth\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/geographic/timezones`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters (filters)\n`limit` (int) _Eg: [/api/geographic/timezones?limit=1] Default limit is 1000_\n\n`order` (string) _Eg: [/api/geographic/timezones?order=name:desc]_\n\n`search` (string) _[Eg: /api/geographic/timezones?search=Europe/Andorra]_\n\n`fields` (string) _[Eg: /api/geographic/timezones?fields=name,abbr]_\n\n#### Response codes(s)\n\n`200` OK\n\n`412` Precondition failed _Invalid filters_\n"
+      operationId: GetIndex1123
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/geographic/time_zones/1:
+    get:
+      tags:
+        - Time zones
+      summary: GetShow1123
+      description: "Retrieve details of a timezone\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/geographic/timezones/{id}`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Response codes(s)\n\n`200` OK\n\n`445` Entity not found"
+      operationId: GetShow1123
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/geographic/time_zones/by_lat_lng:
+    get:
+      tags:
+        - Time zones
+      summary: Showbylatlng1
+      description: "Retrieve details of a nearest timezone by lat lng\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/geographic/timezones/by_lat_lng`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters\n`lat_lng` (double,double) _Eg: 55.1231,12.1231_\n\n#### Response codes(s)\n\n`200` OK\n\n`412` Preconditions Failed (Missing ?lat_lng=)\n\n`445` Entity not found"
+      operationId: Showbylatlng1
+      parameters:
+        - name: lat_lng
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/ugc/feedbacks:
+    post:
+      tags:
+        - UGC
+      summary: PostFeedback
+      description: "#### Request details\n\nMethod:    `POST`\n\nURL:    `/api/v1/ugc/feedbacks`\n\n#### Headers \n\n`X-Application-Id`\n\n`X-Rest-Api-Key`\n\n#### Response codes(s)\n\n`200` OK\n\n`412` Validation failed\n\n#### Post params\n\n`os` (string) **optional**\n\n`app_version` (string) **optional**\n\n`device` (string) **optional**\n\n`name` (string) **optional**\n\n`email` (string) **optional**\n\n`message` (string) **optional**\n\n`image` (jpg,jpeg,png) **optional**"
+      operationId: PostFeedback
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - os
+                - device
+                - app_version
+                - name
+                - email
+                - message
+                - image
+              type: object
+              properties:
+                os:
+                  type: string
+                device:
+                  type: string
+                app_version:
+                  type: string
+                name:
+                  type: string
+                email:
+                  type: string
+                message:
+                  type: string
+                image:
+                  type: string
+        required: false
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/ugc/results:
+    post:
+      tags:
+        - UGC
+      summary: Result1
+      description: "#### Request details\nMethod:    `POST`\n\nURL:    `/api/v1/ugc/feedbacks`\n\n#### Headers \n`X-Application-Id`\n\n`X-Rest-Api-Key`\n\n#### Response codes(s)\n`200` OK\n\n`412` Validation failed\n\n#### Post params\n`key` (string) **required**\n\n`user` (string) **required**\n\n`answer` (string) **required**\n\n`points` (int) **required**\n\n`tag` (string) **required**\n"
+      operationId: Result1
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - key
+                - user
+                - answer
+                - points
+                - tag
+              type: object
+              properties:
+                key:
+                  type: string
+                user:
+                  type: string
+                answer:
+                  type: array
+                  items:
+                    type: integer
+                    format: int32
+                  description: ''
+                points:
+                  type: integer
+                  format: int32
+                tag:
+                  type: string
+        required: false
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/validator/email:
+    get:
+      tags:
+        - Validator
+      summary: Email1
+      description: >-
+        Validate email syntax
+
+        On top of a simple syntax validation, there is DNS check also
+
+
+
+        #### Request details
+
+        Method: `GET`
+
+
+        URL: `/api/v1/validator/email`
+
+
+        #### Headers
+
+        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
+
+
+        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
+
+
+        #### Query params
+
+        `email` (string) **required** _email to validate_
+
+
+        #### Response codes
+
+        `200` OK
+
+
+        `412` Precondition failed (missing or invalid email)
+      operationId: Email1
+      parameters:
+        - name: email
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/validator/phone:
+    get:
+      tags:
+        - Validator
+      summary: Phone1
+      description: >-
+        Validate phone number
+
+
+        #### Request details
+
+        Method: `GET`
+
+
+        URL: `/api/v1/validator/phone`
+
+
+        #### Headers
+
+        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
+
+
+        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
+
+
+        #### Query params
+
+        `phone` (string) **required** _email to validate_
+
+
+        `fallback_country_code` (string) _Eg: ["dk", "gb", ...] - default is dk_
+
+
+        `twilio` (bool) _Validate against Twilio - Paid service!_
+
+
+        `twilio_type` (string) _Eg: ["all", "mobile", "landline"]_
+
+
+        #### Response codes
+
+        `200` OK
+
+
+        `412` Precondition failed (missing or invalid email)
+      operationId: Phone1
+      parameters:
+        - name: phone
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+  /api/v1/open:
+    post:
+      tags:
+        - App open
+      summary: PostAppopen
+      description: >-
+        Registers an app-open.
+
+
+        _Deprecated, please use V2_
+
+
+        #### Request details
+
+        Method: `POST`
+
+
+        URL: `/api/v1/open`
+
+
+        #### Headers
+
+        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
+
+
+        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
+
+
+        `Accept-Language` (string) **Optional** _eg: da-DK_
+
+
+        #### Parameters
+
+        `platform` (string) **required** _The platform the app was opened from e.g. ["ios", "android", "windows", "web"]_
+
+
+        `guid` (string) **required** _[?]_
+
+
+        `version` (string) **required** _[?]_
+
+
+        `old_version` (string) _[?]_
+
+
+        `last_updated` (string) _A string parsable by php's [strtotime()](http://php.net/manual/en/function.strtotime.php)-function_
+
+
+        `test` (bool) _Enable test mode, false equals production (only works for version control)_
+
+
+        #### Response codes(s)
+
+        `201` Created
+
+
+        `412` Precondition failed
+
+
+        `445` Entity not found
+
+
+        `500` Internal server error _Please read response message_
+      operationId: PostAppopen
+      parameters:
+        - name: X-Application-Id
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: X-Rest-Api-Key
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - platform
+                - guid
+                - version
+                - old_version
+                - last_updated
+              type: object
+              properties:
+                platform:
+                  type: string
+                guid:
+                  type: string
+                version:
+                  type: string
+                old_version:
+                  type: string
+                last_updated:
+                  type: string
+        required: false
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    Indexlanguages:
+      title: Indexlanguages
+      required:
+        - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Datum'
+          description: ''
+      example:
+        data:
+          - id: 11
+            name: English (UK)
+            locale: en-GB
+            direction: LRM
+            is_default: true
+            is_best_fit: true
+          - id: 14
+            name: Spanish (Spain)
+            locale: es-ES
+            direction: LRM
+            is_default: false
+            is_best_fit: false
+          - id: 6
+            name: Danish
+            locale: da-DK
+            direction: LRM
+            is_default: false
+            is_best_fit: false
+    Datum:
+      title: Datum
+      required:
+        - id
+        - name
+        - locale
+        - direction
+        - is_default
+        - is_best_fit
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        locale:
+          type: string
+        direction:
+          type: string
+        is_default:
+          type: boolean
+        is_best_fit:
+          type: boolean
+      example:
+        id: 11
+        name: English (UK)
+        locale: en-GB
+        direction: LRM
+        is_default: true
+        is_best_fit: true
+    Languagebestfit:
+      title: Languagebestfit
+      required:
+        - data
+        - meta
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Data'
+        meta:
+          $ref: '#/components/schemas/Meta'
+      example:
+        data:
+          id: 11
+          name: English (UK)
+          locale: en-GB
+          direction: LRM
+          is_default: false
+          is_best_fit: false
+        meta:
+          Accept-Language: null
+    Data:
+      title: Data
+      required:
+        - id
+        - name
+        - locale
+        - direction
+        - is_default
+        - is_best_fit
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        locale:
+          type: string
+        direction:
+          type: string
+        is_default:
+          type: boolean
+        is_best_fit:
+          type: boolean
+      example:
+        id: 11
+        name: English (UK)
+        locale: en-GB
+        direction: LRM
+        is_default: false
+        is_best_fit: false
+    Meta:
+      title: Meta
+      required:
+        - Accept-Language
+      type: object
+      properties:
+        Accept-Language:
+          type: string
+      example:
+        Accept-Language: null
+    Indexresource:
+      title: Indexresource
+      required:
+        - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Data1'
+          description: ''
+      example:
+        data:
+          - id: 16
+            url: http://nodes-cdn-development.imgix.net/nstack/data/localize-publishes/publish-16-h4j9oHHi_IRrFIjA0B0.json
+            last_updated_at: 2019-07-05T08:12:35+00:00
+            should_update: true
+            language:
+              id: 11
+              name: English (UK)
+              locale: en-GB
+              direction: LRM
+              is_default: true
+              is_best_fit: true
+          - id: 249
+            url: http://nodes-cdn-development.imgix.net/nstack/data/localize-publishes/publish-249-ge7QmlAC_B3yiR4JJrf.json
+            last_updated_at: 2019-07-03T12:46:38+00:00
+            should_update: true
+            language:
+              id: 14
+              name: Spanish (Spain)
+              locale: es-ES
+              direction: LRM
+              is_default: false
+              is_best_fit: false
+          - id: 307
+            url: http://nstack.test/api/v2/content/localize/resources/307
+            last_updated_at: 2019-07-03T13:09:23+00:00
+            should_update: true
+            language:
+              id: 6
+              name: Danish
+              locale: da-DK
+              direction: LRM
+              is_default: false
+              is_best_fit: false
+    Data1:
+      title: Data1
+      required:
+        - id
+        - url
+        - last_updated_at
+        - should_update
+        - language
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        url:
+          type: string
+        last_updated_at:
+          type: string
+        should_update:
+          type: boolean
+        language:
+          $ref: '#/components/schemas/Language'
+      example:
+        id: 16
+        url: http://nodes-cdn-development.imgix.net/nstack/data/localize-publishes/publish-16-h4j9oHHi_IRrFIjA0B0.json
+        last_updated_at: 2019-07-05T08:12:35+00:00
+        should_update: true
+        language:
+          id: 11
+          name: English (UK)
+          locale: en-GB
+          direction: LRM
+          is_default: true
+          is_best_fit: true
+    Language:
+      title: Language
+      required:
+        - id
+        - name
+        - locale
+        - direction
+        - is_default
+        - is_best_fit
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        locale:
+          type: string
+        direction:
+          type: string
+        is_default:
+          type: boolean
+        is_best_fit:
+          type: boolean
+      example:
+        id: 11
+        name: English (UK)
+        locale: en-GB
+        direction: LRM
+        is_default: true
+        is_best_fit: true
+    Showresource:
+      title: Showresource
+      required:
+        - data
+        - meta
+      type: object
+      example:
+        data:
+          default:
+            ok: Ok
+            required: Required
+            cancel: Cancel
+            done: Done
+            male: Male
+            female: Female
+            errorRandomErrorAlertText: An error has occurred
+
+            next: __next
+            previous: __previous
+            skip: __skip
+            zhCN: __zhCN
+            ptBR: __ptBR
+          settings:
+            editProfile: Edit profile
+            title: Settings
+            findFacebookFriends: Find Facebook friends
+            pushNotifications: Push notifications
+            language: Language
+            appTour: App Tour
+            giveFeedback: Give feedback
+            terms: Terms & Conditions
+            version: Version
+          welcome:
+            skipButton: Skip
+            facebookButton: Continue with Facebook
+            twitterButton: Continue with Twitter
+            emailButton: Continue with email
+            twitterErrorAlert: An error occurred connecting to Twitter
+            facebookErrorAlert: An error occurred connecting to Facebook
+        meta:
+          language:
+            id: 11
+            name: English (UK)
+            locale: en-GB
+            direction: LRM
+            is_default: false
+            is_best_fit: false
+          platform:
+            id: 15
+            slug: mobile
+tags:
+  - name: Scropper
+  - name: Stagger
+  - name: Collections
+  - name: Responses
+  - name: Files
+  - name: Localize
+  - name: Dashboards
+  - name: Terms
+  - name: Version control
+  - name: Messages
+  - name: Rate reminders
+  - name: Rate reminders V2
+  - name: Continents
+  - name: Countries
+  - name: Languages
+  - name: IP Addresses
+  - name: Time zones
+  - name: UGC
+  - name: Validator
+  - name: App open
+  - name: Admin API
