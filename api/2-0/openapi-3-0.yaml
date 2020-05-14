@@ -9,7 +9,7 @@ info:
   contact: {}
   version: '2.5'
 servers:
-  - url: https://nstack-staging.vapor.cloud
+  - url: https://nstack.io
     variables: {}
 paths:
   /api/v2/scropper:
