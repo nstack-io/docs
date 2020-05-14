@@ -6,7 +6,7 @@ info:
 
 
     Setup an application and use Application-Id and Rest-Api-Key
-  contact: {}
+  contact: {help@nstack.io}
   version: '2.5'
 servers:
   - url: https://nstack.io
