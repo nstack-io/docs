@@ -1693,57 +1693,13 @@ paths:
       tags:
         - Version control
       summary: Markupdateasseen
-      description: "Register a view update"
-      operationId: Markupdateasseen
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            encoding: {}
-            schema:
-              required:
-                - guid
-                - update_id
-                - answer
-                - type
-              type: object
-              properties:
-                guid:
-                  type: integer
-                  format: int32
-                update_id:
-                  type: integer
-                  format: int32
-                answer:
-                  type: string
-                type:
-                  type: string
-        required: false
-        x-send-file-in-body: false
-      responses:
-        "200":
-          description: ''
-          headers: {}
+      description: Register a view update
   /api/v2/notify/messages:
     get:
       tags:
         - Messages
       summary: Messages
-      description: "Get message\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/notify/messages`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters\n`platform` (string) **required** _[\"ios\", \"android\", \"windows\", \"web\"]_\n \n#### Response codes\n`200` OK\n\n`412` Precondition failed"
+      description: Get message
       operationId: Messages
       parameters:
         - name: platform
@@ -1769,7 +1725,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+      "200":
           description: ''
           headers:
             Server:
