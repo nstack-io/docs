@@ -32,29 +32,29 @@ Here are some of the advantages NStack offers.
 
 ### Dynamic translations
 
-All [translations](/docs/features/localize.html) are entered into the NStack CMS on a per-project basis and pulled regularly by the consumers (i.e. your apps, frontend or backend). There are two significant advantages of this approach: 
+All [translations](.../../docs/features/localize.html) are entered into the NStack CMS on a per-project basis and pulled regularly by the consumers (i.e. your apps, frontend or backend). There are two significant advantages of this approach: 
 1. You handle all strings and translations in one place regardless of where they're used.
 2. There is no need to redeploy your apps if you want to change an existing string - the new one will appear at next app start!
 
 ### Version control / update reminders 
 
-[Version control](/docs/features/version-control.html) allows you to easily notify your users about a new app release they should update to. This is especially useful if you issued a critical update and want to block existing versions with an informative message. A more permissive scenario is also available, allowing users to get informed about the update but without being forced to apply it.  
+[Version control](.../../docs/features/version-control.html) allows you to easily notify your users about a new app release they should update to. This is especially useful if you issued a critical update and want to block existing versions with an informative message. A more permissive scenario is also available, allowing users to get informed about the update but without being forced to apply it.  
 
 ### Feedback 
 
-If you want your QA and test users to provide you with as much [feedback](/docs/features/feedback.html) as possible, you have to make it easy for them. The feedback feature allows them to quickly notify you about their discoveries simply by shaking the phone. 
+If you want your QA and test users to provide you with as much [feedback](.../../docs/features/feedback.html) as possible, you have to make it easy for them. The feedback feature allows them to quickly notify you about their discoveries simply by shaking the phone. 
 
 ### Store rating reminder (App Store / Google Play)
 
-NStack offers you a convenient and customizable solution for asking your users to rate your apps. Using a simple point system you can easily decide on the right moment to show the rating dialog. Read more [here](/docs/features/rate-reminder.html).
+NStack offers you a convenient and customizable solution for asking your users to rate your apps. Using a simple point system you can easily decide on the right moment to show the rating dialog. Read more [here](.../../docs/features/rate-reminder.html).
 
 ### Collections 
 
-In some cases you don't need a complete database solution to store data for your product. [Collections](/docs/features/collections.html) allow you to have a simple and editable dataset instead. 
+In some cases you don't need a complete database solution to store data for your product. [Collections](.../../docs/features/collections.html) allow you to have a simple and editable dataset instead. 
 
 ### Messages
 
-Contact your users with any information you deem important. The [messages](/docs/features/messages.html) feature makes it easy.
+Contact your users with any information you deem important. The [messages](.../../docs/features/messages.html) feature makes it easy.
 
 ### There's more! 
 
