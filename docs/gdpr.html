@@ -510,7 +510,7 @@
 </ul>
 <h3><code>Terms</code> module, has option to store an &quot;identifier&quot; to fx reference a view of a terms and conditions to a user. This identifier can have a userId to antoher DB or some other primary key</h3>
 <h2 id="where-is-it-stored">Where is it stored</h2>
-<p>NStack has 4 databases. All are hosted on Amazons datacenter &quot;eu-west-1&quot; in Ireland.</p>
+<h4 id="nstack-has-4-databases-all-are-hosted-on-amazons-datacenter-quoteu-west-1quot-in-ireland">NStack has 4 databases. All are hosted on Amazons datacenter &quot;eu-west-1&quot; in Ireland.</h4>
 <ul>
 <li>
 <p>MySQL via AWS RDS: All persistent data to run the platform: users, permissions, content, user generated content etc</p>
@@ -523,12 +523,12 @@
 </li>
 <li>AWS S3 file storage. 2 buckets for private and public files. All public files are served via CDN imginx or vapor.cloud</li>
 </ul>
-<p>The data that is stored by NStack comes via:</p>
+<h3 id="the-data-that-is-stored-by-nstack-comes-via">The data that is stored by NStack comes via:</h3>
 <ul>
 <li>NStack RESTful API using secure data transfer (HTTPS using TLS) so that all collected data is encrypted while in transit from the app to the API.</li>
 <li>An Admin dashboard for serving HTML pages also using HTTPS/TLS</li>
 </ul>
-<p>Some of the data is reaching the following services:</p>
+<h3 id="some-of-the-data-is-reaching-the-following-services">Some of the data is reaching the following services:</h3>
 <ul>
 <li>Mailgun (Invitation &amp; Reset password)</li>
 <li>Pusher (Socket connection for app open requests to dashboard module)</li>
