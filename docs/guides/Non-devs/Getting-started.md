@@ -55,7 +55,7 @@ You can find them on the selected application page
 
 ### Users
 In the user section you can manage what users have access to the application and what role/ access level they have.  
-See the [user management guide](../user-management.html) for more information
+See the [user management guide](user-management.html) for more information
 
 ![Users button](../../images/Guides/GettingStarted/Users_Button.png)
 
