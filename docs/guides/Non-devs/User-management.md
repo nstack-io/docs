@@ -29,7 +29,7 @@ In NStack, users belong to companies. On top of showing you how to access NStack
 ## Getting started
 ### Accessing NStack
 
-See the [Getting started](../docs/guides/getting-started.html) guide for information on how to access NStack.
+See the [Getting started](getting-started.html) guide for information on how to access NStack.
 
 ## User management
 ### Accessing user management
