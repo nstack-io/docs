@@ -19,9 +19,9 @@ You can find examples on how to implement **Messages** for the following platfor
 - [iOS](../../docs/guides/iOS/ios-messages.html)
 - [Android](../../docs/guides/Android/android-messages.html)
 
-![iOS message](https://nstack-io.github.io/documentation/images/FeatureOverview/iOS/iOS_message.png)
+![iOS message](../images/FeatureOverview/iOS/iOS_message.png)
 
-![Android message](https://nstack-io.github.io/documentation/images/FeatureOverview/Android/Android_message.png)
+![Android message](../../images/FeatureOverview/Android/Android_message.png)
 
 ## Set up
 
