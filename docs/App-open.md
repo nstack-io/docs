@@ -92,7 +92,7 @@ The following diagram shows the flow of the **Message**.
 
 ![App_Open_Messages](../images/HowItWorks/App_Open_Messages.png) {.uml}
 
-Read more about **Messages** in [*Features/Messages*](../../features/messages.html)
+Read more about **Messages** in [*Features/Messages*](features/messages.html)
 
 ## Rate reminder
 
@@ -102,7 +102,7 @@ The following diagram shows the flow of the **Rate reminder**.
 
 ![App_Open_Rate_Reminder](../images/HowItWorks/App_Open_Rate_Reminder.png) {.uml}
 
-Read more about **Rate Reminder** in [*Features/Rate Reminder*](../../features/rate-reminder.html)
+Read more about **Rate Reminder** in [*Features/Rate Reminder*](features/rate-reminder.html)
 
 ## Terms
 
@@ -110,4 +110,4 @@ The following diagram shows the flow of **Terms**.
 
 ![App_Open_Terms](../images/HowItWorks/App_Open_Terms.png) {.uml}
 
-Read more about **Terms** in [*Features/Terms*](../../features/terms.html)
+Read more about **Terms** in [*Features/Terms*](features/terms.html)
