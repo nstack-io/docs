@@ -15,7 +15,7 @@ You can simply request to show NStack's default feedback form by calling:
 NStack.Feedback.show(context, feedbackType)
 ```
 
-![android feedback from](https://nstack-io.github.io/documentation/docs/images/FeatureOverview/android/android_feedback.png)
+![android feedback from](../../images/FeatureOverview/android/android_feedback.png)
 
 NStack's feedback screen will respect your app's `Theme.MaterialComponents` theme.
 
