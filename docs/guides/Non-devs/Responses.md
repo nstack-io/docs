@@ -17,7 +17,7 @@ currentMenu: responses
 ### System overview
 
 The purpose of the Responses feature in NStack is to enable you, as a client, to be able to control certain information shown in the app. As the Responses feature is very versatile the usage of it depends on what it is used for in the app. The system is hosted on Nodes servers, and you gain access to the system by having a Nodes employee inviting you via email.
-See the [Getting started](Getting_started.md) guide for more info on accessing NStack.
+See the [Getting started](getting-started.html) guide for more info on accessing NStack.
 
 ### Guide overview
 
