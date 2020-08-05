@@ -4,7 +4,6 @@ info:
   description: >-
     This is the public API for nstack.io
 
-
     Setup an application and use Application-Id and Rest-Api-Key
   contact: {help@nstack.io}
   version: '2.5'
@@ -17,54 +16,65 @@ paths:
       tags:
         - Scropper
       summary: Getfocalpoint
-      description: "Get focal point on a image\n\n\n**Initial response time can be 15sec in case you hit a cold container**\n\n\n#### Request details\nMethod: `POST`\n\nURL: `api/v2/content/scropper`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Post params\n`url` (string) **required if no file, only jpg, png** \n\n`file` (file, max 30mb) **required if no url, only jpg, png** \n\n`data-center` (string) **optional, default: aws:ireland** **(Options: aws:ireland)** \n\n#### Response codes(s)\n`200` OK\n\n`412` Validation error\n\n`500` Internal server error _Please read response message_"
+      description: "Get focal point on a image\n\n\n**Initial response time can be 15sec in case you hit a cold container**\n\n\n####"
       operationId: Getfocalpoint
-      parameters:
+      Method: 'POST'
+      URL: 'api/v2/content/scropper'
+      Headers:
         - name: X-Application-Id
           in: header
-          description: ''
+          description: 'Required Application id from [Nstack](https://nstack.io) known as **nstackAppid**'
           required: true
           style: simple
           schema:
             type: string
         - name: X-Rest-Api-Key
           in: header
-          description: ''
+          description: 'Required Rest API key from [Nstack](https://nstack.io) known as **nstackRestKey**'
           required: true
           style: simple
           schema:
             type: string
         - name: Content-Type
           in: header
-          description: ''
+          description: 'application/x-www-form-urlencoded'
           required: true
           style: simple
           schema:
             type: string
-      requestBody:
+      postParams:
         content:
           application/x-www-form-urlencoded:
             encoding: {}
             schema:
               required:
-                - url
-                - data-center
+                - url  **required if no file, only jpg, png**
+                - file **required if no url, only jpg, png**
+                - data-center **optional, default is AWS Ireland(Options AWS Ireland)** 
               type: object
               properties:
                 url:
                   type: string
+                file:
+                  type: file, max 30mb
                 data-center:
                   type: string
         required: false
         x-send-file-in-body: false
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Scropper'
+        "403":
+        decription: 'Forbidden
+        "412":
+          description: 'Validation Error'
+        "500":
+          description: 'Internal Server Error _Please read response message_'
       deprecated: false
   /api/v2/stagger:
     post:
