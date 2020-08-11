@@ -40,8 +40,8 @@ Read more [AWS GDPR Centers](https://aws.amazon.com/compliance/gdpr-center/)
 
 ### Some of the data is reaching the following services:
 
-- Mailgun (Invitation & Reset password)
-- Pusher (Socket connection for app open requests to dashboard module)
+- Mailgun (Invitation & Reset password) [Read more](https://www.mailgun.com/gdpr)
+- Pusher (Socket connection for app open requests to dashboard module) [Read more](https://pusher.com/legal/data-protection)
 
 
 ## Data retention schedule
