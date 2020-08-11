@@ -31,6 +31,8 @@ As a general note, NStack only stores General Personal Data - Rec.26; Art.4(1), 
 
 - AWS S3 file storage. 2 buckets for private and public files. All public files are served via CDN imginx or vapor.cloud
 
+Read more [AWS GDPR Centers](https://aws.amazon.com/compliance/gdpr-center/)
+
 ### The data that is stored by NStack comes via:
 
 - NStack RESTful API using secure data transfer (HTTPS using TLS) so that all collected data is encrypted while in transit from the app to the API.
