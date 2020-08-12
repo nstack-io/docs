@@ -1,100 +1,73 @@
 openapi: 3.0.0
 info:
   title: API
-  description: >-
+  description: 
     This is the public API for nstack.io
-
-
+    
     Setup an application and use Application-Id and Rest-Api-Key
   contact: {help@nstack.io}
   version: '2.5'
+  security:
+      -ApiKeyAuth: []
+      AppId: []
+
+  
 servers:
   - url: https://nstack.io
     variables: {}
 paths:
   /api/v2/scropper:
     post:
+      summary: "Return the focal point of an image"
       tags:
         - Scropper
-      summary: Getfocalpoint
-      description: "Get focal point on a image\n\n\n**Initial response time can be 15sec in case you hit a cold container**\n\n\n#### Request details\nMethod: `POST`\n\nURL: `api/v2/content/scropper`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Post params\n`url` (string) **required if no file, only jpg, png** \n\n`file` (file, max 30mb) **required if no url, only jpg, png** \n\n`data-center` (string) **optional, default: aws:ireland** **(Options: aws:ireland)** \n\n#### Response codes(s)\n`200` OK\n\n`412` Validation error\n\n`500` Internal server error _Please read response message_"
-      operationId: Getfocalpoint
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      description: "**Get focal point on a image**\n\n\n_Initial response time can be 15sec in case you hit a cold container_\n\n\n####"
+      operationId: postGetFocalPoint
+      Method: 'POST'
+      URL: 'api/v2/content/scropper'
       requestBody:
         content:
-          application/x-www-form-urlencoded:
-            encoding: {}
+           application/x-www-form-urlencoded:
             schema:
-              required:
-                - url
-                - data-center
               type: object
               properties:
-                url:
-                  type: string
-                data-center:
-                  type: string
+                  url:
+                    type: string
+                    description: '**Required** if no file, only jpg, png'
+                    example: https://example.jpg
+                  file: 
+                    type: file
+                    description: '**Required** if no url, only jpg, png'
+                  data-center:
+                    type: string
+                    description: 'Optional, default is AWS: Ireland(Options AWS: Ireland)'
+                    example: aws:ireland
         required: false
-        x-send-file-in-body: false
+        x-send-file-in-body: false            
       responses:
-        "200":
-          description: ''
-          headers: {}
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Scropper'
-      deprecated: false
+          "200":
+            description: 'OK'
+            headers: {}
+            content:
+              application/json:
+                schema:
+                 -$ref: '#/components/schemas/Scropper'
+          "401":
+            description: 'Missing Application Credentials'
+          "403":
+            description: 'Forbidden'
+          "412":
+            description: 'Validation Error'
+          "500":
+            description: 'Internal Server Error _Please read response message_'
+          deprecated: false
   /api/v2/stagger:
     post:
+      summary: "Get a tag from a text"
       tags:
         - Stagger
-      summary: Gettag
-      description: "Get a tag from a text (Feedback / bug report)\n\n\n**Initial response time can be 15sec in case you hit a cold container**\n\n\n#### Request details\nMethod: `POST`\n\nURL: `api/v2/content/stagger`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Post params\n`text` (string) **required**\n\n`data-center` (string) **optional, default: aws:ireland** **(Options: aws:ireland)** \n\n#### Response codes(s)\n`200` OK\n\n`412` Validation error\n\n`500` Internal server error _Please read response message_"
-      operationId: Gettag
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      description: "Detect the language of the text, translate to english and find tag"
+      operationId: postGettag
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -102,155 +75,79 @@ paths:
             schema:
               required:
                 - text
-                - data-center
-              type: object
               properties:
                 text:
                   type: string
+                  description: 'The given text you would like to find a tag in'
+                  example: prisen er for høj
                 data-center:
                   type: string
+                  description: 'Optional, default is AWS: Ireland(Options AWS: Ireland)'
+                  example: aws:ireland
         required: false
         x-send-file-in-body: false
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "412":
+            description: 'Validation Error'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false          
   /api/v2/content/collections/{collectionId}:
     get:
       tags:
-        - Collections
+       - Collections
       summary: View
       description: >-
-        Get a default type of content collection
-
-
-        #### Request details
-
-        Method: `GET`
-
-
-        URL: `api/v2/content/responses/{collection_id}`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-        #### URL Parameters
-
-        `collection_id` (int) **required** _ID of content collection_
-
-      operationId: View
+        Get a id of content collection
+      operationId: getView
       parameters:
-        - name: collectionId
-          in: path
-          required: true
-          description: Parameter description in CommonMark or HTML.
-          schema:
-            type: integer
-            format: int64
-            minimum: 1
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: collection_id
-          required: true
-          in: path
-          description: 'Collection ID'
-          style: simple
-          schema:
-            type: integer
-            format: int32
+      - in: path
+        name: collectionId
+        required: true
+        description: 'Parameter description in CommonMark or HTML.'
+        schema:
+          type: integer
       responses:
         "200":
           description: 'OK'
           headers: {}
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
         "404":
           description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
         "500":
-          description: 'Internal server error _Please read response message_'
-      deprecated: false
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false   
   /api/v2/content/collections/{collectionId}/items:
     post:
       tags:
         - Collections
       summary: Createitem
       description: >-
-        Create a new item to a array type collection
-
-        #### Request details
-
-        Method: `POST`
-
-
-        URL: `api/v2/content/responses/{collection_id}/items`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-        #### URL Parameters
-
-        `collection_id` (int) **required** _ID of content collection_
-
-
-        #### Post params
-
-
-        `All required keys`
-      operationId: Createitem
+        Create a new item to a array type collection    
+      operationId: postCreateItem
       parameters:
         - name: collectionId
           in: path
-          required: true
-          description: Parameter description in CommonMark or HTML.
-          schema:
-            type: integer
-            format: int64
-            minimum: 1
-
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: collection_id
-          in: path
-          description: 'Collection Id'
+          description: 'Collection ID'
+          example: project/api/v2/content/collections/{1234}
           style: simple
           schema:
             type: integer
             format: int32
+          required: 
+            collection_id
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -264,7 +161,6 @@ paths:
                 - key4asset
                 - key5boolean
                 - key6wysiwygadvanced
-              type: object
               properties:
                 k0int:
                   type: integer
@@ -289,170 +185,58 @@ paths:
           description: 'OK'
           headers: {}
         "401":
-          description: 'Collection does not have write access for api'
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
         "404":
           description: 'Entity not found'
         "412":
-          description: 'Precondition failed _Please read response message_'
+            description: 'Validation Error'
         "500":
-          description: 'Internal server error _Please read response message_'
-      deprecated: false
-  /api/v2/content/collections/{collectionId/items/{itemId}:
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false   
+  /api/v2/content/collections/{collectionId}/items/{itemId}:
     delete:
       tags:
         - Collections
-      summary: Deleteitem
-      description: "Create a new item to a array type collection\n#### Request details\nMethod: `DELETE`\n\nURL: `api/v2/content/responses/{collection_id}/items{item_id}`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`collection_id` (int) **required** _ID of content collection_\n\n`item_id` (int) **required** _ID of content collection item_\n\n#### Response codes(s)\n`200` OK\n\n`401` Collection does not have write access for api \n\n`404` Entity not found\n\n`500` Internal server error _Please read response message_"
-      operationId: Deleteitem
+      summary: Delete item
+      description: 'Delete an item'
+      operationId: deleteItem
       parameters:
         - name: collectionId
           in: path
           required: true
-          description: collectionId
+          example: projectID
           schema:
             type: integer
-            format: int64
-            minimum: 1
         - name: itemId
           in: path
           required: true
-          description: itemId
+          example: itemID which is part of projectID
           schema:
-            type: integer
-            format: int64
-            minimum: 1
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: collection_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: item_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
+            type: integer      
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
-  /api/v2/content/collections/{collectionId}/items/{itemId}/update:
-    post:
-      tags:
-        - Collections
-      summary: Update
-      description: "Create a new item to a array type collection\n#### Request details\nMethod: `POST`\n\nURL: `api/v2/content/responses/{collection_id}/items`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`collection_id` (int) **required** _ID of content collection_\n\n#### Post params\n\n`All required keys`\n\n#### Response codes(s)\n`200` OK\n\n`401` Collectio does not have write access for api \n\n`404` Entity not found\n\n`412` Precondition failed _Please read response message_\n\n`500` Internal server error _Please read response message_"
-      operationId: Update
-      parameters:
-        - name: collectionId
-          in: path
-          required: true
-          description: collectionId
-          schema:
-            type: integer
-            format: int64
-            minimum: 1
-        - name: itemId
-          in: path
-          required: true
-          description: itemId
-          schema:
-            type: integer
-            format: int64
-            minimum: 1
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: collection_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: item_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            encoding: {}
-            schema:
-              required:
-                - k0int
-                - key1string
-                - key2float
-                - key3wysiwygsim
-                - key4asset
-                - key5boolean
-                - key6wysiwygadvanced
-              type: object
-              properties:
-                k0int:
-                  type: integer
-                  format: int32
-                key1string:
-                  type: string
-                key2float:
-                  type: number
-                  format: double
-                key3wysiwygsim:
-                  type: string
-                key4asset:
-                  type: string
-                key5boolean:
-                  type: boolean
-                key6wysiwygadvanced:
-                  type: string
-        required: false
-        x-send-file-in-body: false
-      responses:
-        "200":
-          description: ''
-          headers: {}
-      deprecated: false
-  /api/v2/content/collections/{collectionId}/items/{itemId}:
+        "204":
+          description: 'User was deleted.'
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false     
     get:
       tags:
         - Collections
-      summary: Viewitem
-      description: "Create a new item to a array type collection\n#### Request details\nMethod: `GET`\n\nURL: `api/v2/content/responses/{collection_id}/items{item_id}`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`collection_id` (int) **required** _ID of content collection_\n\n`item_id` (int) **required** _ID of content collection item_\n\n#### Response codes(s)\n`200` OK\n\n`401` Collection does not have write access for api \n`445` Entity not found"
+      summary: View item
+      description: 
       operationId: Viewitem
       parameters:
         - name: collectionId
@@ -461,152 +245,131 @@ paths:
           description: collectionId
           schema:
             type: integer
-            format: int64
-            minimum: 1
         - name: itemId
           in: path
           required: true
           description: itemId
           schema:
             type: integer
-            format: int64
-            minimum: 1
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: collection_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
-        - name: item_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int32
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
         "401":
           description: 'Collection does not have write access for api'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
         "445":
           description: 'Entity not found'
-      deprecated: false
-  /api/v2/content/responses/15:
+        "500":
+          description: 'Internal Server Error _Please read response message_'
+      deprecated: false     
+  /api/v2/content/collections/{collectionId}/items/{itemId}/update:
+    post:
+      tags:
+        - Collections
+      summary: Update
+      description: 'Update an item in the project'
+      operationId: getUpdateCollection
+      parameters:
+        - name: collectionId
+          in: path
+          required: true
+          description: the id of the collection
+          schema:
+            type: integer
+        - name: itemId
+          in: path
+          required: true
+          description: the id of the item you wish to update
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              properties:
+                key0int:
+                  type: integer
+                  format: int32
+                key1string:
+                  type: string
+                key2float:
+                  type: number
+                  format: double
+                key3wysiwygsim:
+                  type: string
+                key4asset:
+                  type: string
+                key5boolean:
+                  type: boolean
+                key6wysiwygadvanced:
+                  type: string
+        required: false
+        x-send-file-in-body: false
+      responses:
+        "200":
+          description: 'OK'
+          headers: {}
+        "401":
+            description: 'Collection does not have write access for api'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read the response message_'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false               
+  /api/v2/content/responses/{id_or_slug}:
     get:
       tags:
         - Responses
       summary: Show
       description: >-
-        Get one response
-
-
-        #### Request details
-
-        Method: `GET`
-
-
-        URL: `api/v2/content/responses/{id_or_slug}`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-        #### URL Parameters
-
-        `id_or_slug` (string/int) **required** _ID or slug of content type [15, "terms", "about"]_
-
-
-        #### Query params
-
-        `data` (bool) **option** _defaul true - should the object be in data_
-
-
-        #### Response codes(s)
-
-        `200` OK
-
-
-        `404` Entity not found
-
-
-        `500` Internal server error _Please read response message_
-      operationId: Show
+        Get one response    
+      operationId: getShowResponse
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
+        - name: id_or_slug
+          in: path
+          description: _**required** ID or slug of content type_ [15, "terms", "about"]
+          schema: 
+            type: 
+            - string/ integer
+        - name: data
+          in: form
           schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+             type: boolean           
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+          description: 'Collection does not have write access for api'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'
+      deprecated: false      
   /api/v2/content/files:
     post:
       tags:
         - Files
       summary: Store
-      description: "Store a file\n\n#### Request details\nMethod: `POST`\n\nURL: `api/v2/content/files`\n\n#### Headers\n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Post params\n`name` (string) **required** \n\n`tags` (string, comma seperated) **optional** \n\n`gone_at` (date-time 2019-01-01 00:00:00) **optional** \n\n`privacy` (string [public,public-cdn,private,private-password]) **required** \n\n`file` (file, max 30mb) **required** \n\n#### Response codes(s)\n`200` OK\n\n`412` Validation error\n\n`500` Internal server error _Please read response message_"
-      operationId: Store
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      description: "Store a file"
+      operationId: getStoreFile
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -614,11 +377,8 @@ paths:
             schema:
               required:
                 - name
-                - tags
-                - gone_at
                 - file
                 - privacy
-              type: object
               properties:
                 name:
                   type: string
@@ -634,34 +394,37 @@ paths:
         x-send-file-in-body: false
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+          description: 'Collection does not have write access for api'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'
+      deprecated: false            
   /api/v2/content/localize/mobile/languages:
     get:
       tags:
         - Localize
       summary: Indexlanguages
-      description: "Get available languages for a platfom\n\n#### Request details\n\nMethod:    `GET`\n\nURL:    `/api/v1/content/localize/{platform-slug}/languages`\n\n#### Headers \n\n`X-Application-Id`\n\n`X-Rest-Api-Key`\n\n#### Query params\n`show_inactive_languages` (bool)\n\n#### URL Parameters\n`platform-slug` (string) **required**\n\n#### Response codes(s)\n\n`200` OK\n\n`404` Entity not found"
-      operationId: Indexlanguages
+      description: "Get available languages for a platform"
+      operationId: getIndexlanguages
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+        - name: platform-slug
+          in: path
+          schema: 
+            type: 
+            - string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers:
             Server:
               content:
@@ -717,29 +480,32 @@ paths:
                     direction: LRM
                     is_default: false
                     is_best_fit: false
-      deprecated: false
+        "401":
+          description: 'Collection does not have write access for api'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'
+        deprecated: false      
   /api/v2/content/localize/mobile/languages/best_fit:
     get:
       tags:
         - Localize
       summary: Languagebestfit
-      description: "Get best fit language from accept-language header\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v1/content/localize/{platform-slug}/languages/best_fit`\n\n#### Headers \n`X-Application-Id`\n\n`X-Rest-Api-Key`\n\n`Accept-Language or X-Accept-Language`\n\n#### URL Parameters\n`platform-slug` (string) **required**\n\n#### Response codes(s)\n\n`200` OK\n\n`404` Entity not found"
-      operationId: Languagebestfit
+      description: "Get best fit language from accept-language header"
+      operationId: getLanguageBestFit
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+        - name: platform-slug
+          in: path
+          schema: 
+            type:  
+            - string
       responses:
         "200":
           description: ''
@@ -788,29 +554,33 @@ paths:
                   is_best_fit: false
                 meta:
                   Accept-Language: null
-      deprecated: false
+        "401":
+          description: 'Collection does not have write access for api'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'
+      deprecated: false        
   /api/v2/content/localize/resources/platforms/mobile:
     get:
       tags:
         - Localize
       summary: Indexresource
       description: "#### Request details\n\nMethod:    `GET`\n\nURL:    `/api/v2/content/localize/resources/platforms/{platformSlug}`\n\n### Url param\n\n`platformSlug` (string) **required** *eg: mobile, backend, web*\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n\n### Query\n\n`last_updated` (date time, ISO8601) **optional** *eg: 2019-06-21T08%3A35%3A24%2B00%3A00*\n - *Remember to url encode it*\n - *Set timestamp from last app open (when localization has been synced), this will calculate which localizations should be updated*\n\n`dev` (bool) **option, default false**\n - *if true, bypass publishes and only use newest resource (set of key/values)*\n\n\n#### Response codes(s)\n\n`200` OK\n\n`404` platform not found"
-      operationId: Indexresource
+      operationId: getIndexResource
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
+        - name: platform-slug
+          in: path
           required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+          schema: 
+            type: 
+            - string
       responses:
         "200":
           description: ''
@@ -882,31 +652,32 @@ paths:
                       direction: LRM
                       is_default: false
                       is_best_fit: false
-      deprecated: false
-  /api/v2/content/localize/resources/44:
+        "401":
+          description: 'Collection does not have write access for api'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'
+      deprecated: false          
+  /api/v2/content/localize/resources/{id}:
     get:
       tags:
         - Localize
       summary: Showresource
-      description: >-
-        #### Request details
-
-
-        Method:    `GET`
-
-
-        URL:    `/api/v2/content/localize/resources/{id}`
-
-
-        #### Response codes(s)
-
-
-        `200` OK
-
-
-        `404` Not found
-      operationId: Showresource
-      parameters: []
+      operationId: showResourceById
+      parameters: 
+        - in: path
+          name: id
+          description: show a resource in the project from the showResourceId
+          example: 1234
+          type: 
+            - integer
       responses:
         "200":
           description: ''
@@ -961,7 +732,7 @@ paths:
                     openLinkTitle: Open link?
                     openLinkMessage: This will open the link in a web browser outside of this app. Do you want to continue?
                     justNow: just now
-                    nity: World's Largest Tattoo Community
+                    nity: "World's Largest Tattoo Community"
                     google: Google
                     facebook: Facebook
                     twitter: Twitter
@@ -1004,29 +775,26 @@ paths:
                   platform:
                     id: 15
                     slug: mobile
-      deprecated: false
+        "401":
+          description: 'Collection does not have write access for api'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'
+      deprecated: false            
   /api/v2/content/localize/proposals:
     post:
       tags:
         - Localize
-      summary: Storeproposal
-      description: "#### Request details\n\nMethod:    `POST`\n\nURL:    `/api/v2/content/localize/proposals`\n\n#### Post params\n`key` (string) **required** \n\n`section` (string) **required** \n\n`value` (string) **required** \n\n`locale` (string) **required**  *eg: da-DK, en-GB*\n\n`platform` (string) **required** *eg: mobile, backend, web*\n\n#### Response codes(s)\n\n`201` Created\n\n`412` Preconitions failed"
-      operationId: Storeproposal
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      summary: Store proposal
+      description: Store the localize proposal      
+      operationId: storeProposal
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -1039,7 +807,6 @@ paths:
                 - platform
                 - guid
                 - section
-              type: object
               properties:
                 key:
                   type: string
@@ -1057,210 +824,188 @@ paths:
         x-send-file-in-body: false
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
+        "201":
+          description: Successfully created 
+        "401":
+          description: 'Collection does not have write access for api'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Preconditions failed'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'
       deprecated: false
     get:
       tags:
         - Localize
       summary: Indexproposal
-      description: >-
-        #### Request details
-
-
-        Method:    `GET`
-
-
-        URL:    `/api/v2/content/localize/proposals`
-
-
-        #### Post params
-
-        `state` (string) **optional, default unaccepted** *Options: unaccepted, accepted, all*
-
-
-        `guid` (string) **optional** shows if the proposal is deletable or not for the specified guid
-
-
-        #### Response codes(s)
-
-
-        `200` OK
+      description: get proposal by guid
       operationId: Indexproposal
       parameters:
-        - name: X-Application-Id
+        - name: state
           in: header
-          description: ''
-          required: true
+          description: '**optional, default unaccepted** *Options: unaccepted, accepted, all*'
           style: simple
           schema:
             type: string
-        - name: X-Rest-Api-Key
+        - name: guid
           in: header
-          description: ''
-          required: true
+          description: '**optional** _shows if the proposal is deletable or not for the specfied guid_'
           style: simple
           schema:
             type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
-  /api/v2/content/localize/proposals/9:
+        "401":
+          description: 'Collection does not have write access for api'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'      
+      deprecated: false      
+  /api/v2/content/localize/proposals/{proposalId}:
     delete:
       tags:
         - Localize
       summary: Deleteproposal
-      description: "Delete a specified proposal\n\n#### Request details\n\nMethod:    `DELETE`\n\nURL:    `{{nstackUrl}}/api/v2/content/localize/proposals/{{proposalId}}`\n\n#### Headers \n\n`X-Application-Id`\n\n`X-Rest-Api-Key`\n\n#### Query params\n`guid` (string) **required**\n\n#### URL Parameters\n`proposalId` (int) **required**\n\n#### Response codes(s)\n\n`200` OK\n\n`404` Entity not found\n\n`401` Invalid guid"
-      operationId: Deleteproposal
+      description: "Delete a specified proposal"
+      operationId: deleteProposal
       parameters:
         - name: guid
           in: query
-          description: ''
+          description: 'guid of the item to delete'
+          example: "aabc1234"
           required: true
           style: form
           explode: true
           schema:
             type: string
-        - name: X-Application-Id
-          in: header
-          description: ''
+        - name: proposalId
+          in: path
+          description: 'id of proposal to delete'
+          example: 1234
           required: true
-          style: simple
+          style: form
+          explode: true
           schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+            type: integer
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
-  /api/v2/content/dashboards/visualizations/visualization-5d0dbc254bc83:
+        "401":
+          description: 'Invalid guid'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'      
+      deprecated: false      
+  /api/v2/content/dashboards/visualizations/{key}:
     get:
       tags:
         - Dashboards
       summary: Visualization
-      description: "Get visualization\n\n#### Request details\nMethod: `GET`\n\nURL: `api/v2/content/dashboards/visualizations/{key}`\n\n#### URL Parameters\n`key` (string) **required**\n\n### Query parameters\n\n`mode` (string) **Optional** \n - standard (default), using cache data\n - fresh, force using fresh data\n - test, fake data\n\n#### Response codes(s)\n`200` OK\n\n`404` Entity not found"
-      operationId: Visualization
+      description: "Get visualization"
+      operationId: getVisualization
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
+        - name: key
+          in: path
+          description: 'id of visualization'
+          example: 1234
           required: true
           style: simple
           schema:
             type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          description: ''
-          required: true
+        - name: mode
+          in: query
+          description: '**Optional**  _standard (default)_'
+          example: standard
           style: simple
           schema:
             type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
-  /api/v2/content/dashboards/DAS-ad21e084-ae03-4486-a5ec-d837dfc56fd2:
+        "401":
+          description: 'Invalid guid'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'      
+      deprecated: false      
+  /api/v2/content/dashboards/{key}:
     get:
       tags:
         - Dashboards
       summary: Dashboard
-      description: "Get Dashboard\n\n#### Request details\nMethod: `GET`\n\nURL: `api/v2/content/dashboards/{key}`\n\n#### URL Parameters\n`key` (string) **required**\n\n`mode` (string) **Optional** \n - standard (default), using cache data\n - fresh, force using fresh data\n - test, fake data\n\n#### Response codes(s)\n`200` OK\n\n`404` Entity not found"
-      operationId: Dashboard
+      description: "Get Dashboard by key"
+      operationId: getDashboard
       parameters:
-        - name: X-Application-Id
+        - name: key
           in: header
-          description: ''
+          description: 'The key used to get Dashboard'
           required: true
           style: simple
           schema:
             type: string
-        - name: X-Rest-Api-Key
+        - name: mode
           in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: Content-Type
-          in: header
-          description: ''
-          required: true
+          description: '**Optional**  _standard (default)_'
           style: simple
           schema:
             type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+          description: 'Invalid guid'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'      
+      deprecated: false        
   /api/v2/content/terms:
     get:
       tags:
         - Terms
       summary: Index
-      description: >-
-        List all Terms
-
-
-        #### Request details
-
-        Method: `GET`
-
-
-        URL: `api/v2/content/terms`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-
-        #### Response codes(s)
-
-        `200` OK
-
-
-        `404` Entity not found
-
-
-        `500` Internal server error _Please read response message_
-      operationId: Index
+      description: List all Terms
+      operationId: getTerms
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
         - name: N-Meta
           in: header
           description: ''
@@ -1277,59 +1022,29 @@ paths:
             type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+          description: 'Invalid guid'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+          description: 'Internal Server Error _Please read response message_'      
+      deprecated: false          
   /api/v2/content/terms/some-terms-1/versions:
     get:
       tags:
         - Terms
-      summary: Indexversions
-      description: >-
-        List all Version
-
-
-        #### Request details
-
-        Method: `GET`
-
-
-        URL: `api/v2/content/terms/{slugOrId}/versions`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-        #### Response codes(s)
-
-        `200` OK
-
-
-        `404` Entity not found
-
-
-        `500` Internal server error _Please read response message_
-      operationId: Indexversions
+      summary: Index Versions
+      description: 'Get Index Versions'
+      operationId: getIndexVersions
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
         - name: N-Meta
           in: header
           description: ''
@@ -1346,59 +1061,29 @@ paths:
             type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false   
   /api/v2/content/terms/some-terms-1/versions/newest:
     get:
       tags:
         - Terms
-      summary: Newestversion
-      description: >-
-        List all Version
-
-
-        #### Request details
-
-        Method: `GET`
-
-
-        URL: `api/v2/content/terms/{slugOrId}/versions/newest`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-        #### Response codes(s)
-
-        `200` OK
-
-
-        `404` Entity not found
-
-
-        `500` Internal server error _Please read response message_
-      operationId: Newestversion
+      summary: getNewestVersion
+      description: List newest Version      
+      operationId: getNewestVersion
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
         - name: N-Meta
           in: header
           description: ''
@@ -1415,75 +1100,37 @@ paths:
             type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
-  /api/v2/content/terms/versions/5:
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false   
+  /api/v2/content/terms/versions/{id}:
     get:
       tags:
         - Terms
-      summary: Showversion
-      description: >-
-        List all Version
-
-
-        #### Request details
-
-        Method: `GET`
-
-
-        URL: `api/v2/content/terms/versions/{id}`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-        `Accept-Language` (string) **optional** _Set this to get best fit locale_
-
-
-        #### Query params
-
-        `guid` (string) **optional** _If you want `has_viewed` to be calculated_
-
-
-        #### Response codes(s)
-
-        `200` OK
-
-
-        `404` Entity not found
-
-
-        `500` Internal server error _Please read response message_
-      operationId: Showversion
+      summary: getShowVersion
+      description: Show version by id
+      operationId: getShowVersion
       parameters:
         - name: guid
           in: query
-          description: ''
-          required: true
+          description: '**optional** _If you want `has_viewed` to be calculated_'
+          example: 1234
           style: form
           explode: true
           schema:
             type: string
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
         - name: N-Meta
           in: header
           description: ''
@@ -1500,68 +1147,34 @@ paths:
             type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
-  /api/v2/content/terms/versions/views:
+        "204":
+          description: 'User was deleted.'
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Validation Error'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false 
+  /api/v2/content/terms/versions/{id}/views:
     post:
       tags:
         - Terms
       summary: StoreView
-      description: >-
-        Create a new View
-
-        #### Request details
-
-        Method: `POST`
-
-
-        URL: `/api/v2/content/terms/versions/{id}/views`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-        #### Post params
-
-        `term_version_id` (int) **required** _ID of Terms Version_
-
-
-        `guid` (string) **required** _GUID_
-
-
-        `identifier` (string) **required**
-
-
-        `locale` (string) **required**
-
-
-        #### Response codes(s)
-
-        `200` OK
-
-
-        `412` Precondition failed _Please read response message_
-
-
-        `500` Internal server error _Please read response message_
-      operationId: StoreView
+      description: Create a new View
+      operationId: postStoreView
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
+        - name: term_version_id
+          in: path
+          description: '**required** _ID of Terms Version_'
           required: true
           style: simple
           schema:
@@ -1590,11 +1203,9 @@ paths:
                 - guid
                 - identifier
                 - locale
-              type: object
               properties:
                 term_version_id:
                   type: integer
-                  format: int32
                 guid:
                   type: string
                 identifier:
@@ -1605,20 +1216,31 @@ paths:
         x-send-file-in-body: false
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false 
   /api/v2/notify/updates:
     get:
       tags:
         - Version control
       summary: Indexupdate
-      description: "Get app updated"
-      operationId: Indexupdate
+      description: "Update the application"
+      operationId: getIndexupdate
       parameters:
         - name: platform
           in: query
-          description: ''
+          description: '**required** ["ios", "android", "windows"]'
+          example: ios
           required: true
           style: form
           explode: true
@@ -1626,38 +1248,31 @@ paths:
             type: string
         - name: current_version
           in: query
-          description: ''
+          description: '**required** Current version of app making the request'
+          example: 2
           required: true
           style: form
           explode: true
           schema:
-            type: number
-            format: double
+            type: string
         - name: last_version
           in: query
           description: ''
-          required: true
+          example: 1
           style: form
           explode: true
           schema:
-            type: number
-            format: double
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
             type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
+        - name: test
+          in: query
+          description: 'Enable test mode, false equals production'
+          example: true
+          style: form
+          explode: true
           schema:
-            type: string
+            type: boolean
       responses:
-        "200:
+        "200":
           description: ''
           headers: {}
           content:
@@ -1687,45 +1302,82 @@ paths:
                     file_url:
                 new_in_version: false
                 new_in_versions: []
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false 
   /api/v2/notify/updates/views:
     post:
       tags:
         - Version control
-      summary: Markupdateasseen
+      summary: Update a view
       description: Register a view update
+      operationId: postUpdateView
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - guid
+                - update_id
+                - answer
+                - type
+              properties:
+                guid:
+                  type: integer
+                update_id:
+                  type: integer
+                  description: '**required** _Id of update where view was updated_'
+                answer:
+                  type: string
+                  description: '**required** [_"no", "yes"_]'
+                type:
+                  type: string
+                  description: '**required** ["_newer_version", "new_in_version_"]'
+        required: false
+        x-send-file-in-body: false
+      responses:
+        "200":
+          description: 'OK'
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false 
   /api/v2/notify/messages:
     get:
       tags:
         - Messages
       summary: Messages
       description: Get message
-      operationId: Messages
+      operationId: getMessages
       parameters:
         - name: platform
           in: query
-          description: ''
+          description: '**required** ["ios", "android", "windows"]'
           required: true
           style: form
           explode: true
           schema:
             type: string
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
       responses:
-      "200":
+        "200":
           description: ''
           headers:
             Server:
@@ -1767,66 +1419,25 @@ paths:
                   id: 25
                   message: >+
                     windows
-
                   show_setting: show_always
-      deprecated: false
-  /api/v2/notify/messages/views:
-    post:
-      tags:
-        - Messages
-      summary: Markasseen
-      description: "Register a view update"
-      operationId: Markasseen
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            encoding: {}
-            schema:
-              required:
-                - guid
-                - message_id
-              type: object
-              properties:
-                guid:
-                  type: integer
-                  format: int32
-                message_id:
-                  type: integer
-                  format: int32
-        required: false
-        x-send-file-in-body: false
-      responses:
-        "200":
-          description: ''
-          headers: {}
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MarkAsSeenResponse'
-
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false 
   /api/v2/notify/rate_reminder:
     get:
       tags:
         - Rate reminders
       summary: GetShow
-      description: "Get rate reminder\n\n#### Request details\nMethod: `GET`\n\nURL: `/api/v2/notify/rate_reminder`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`guid` (int?) **required** _[?]_\n\n`platform` (string) **required** _[is this used at all?]_\n\n#### Response codes\n`200` OK\n\n`412` Precondition failed\n\n`445` Entity not found"
-      operationId: GetShow
+      description: "Get rate reminder"
+      operationId: getRateReminder
       parameters:
         - name: platform
           in: query
@@ -1844,48 +1455,32 @@ paths:
           explode: true
           schema:
             type: integer
-            format: int32
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
       responses:
         "200":
           description: ''
           headers: {}
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+        deprecated: false 
       deprecated: false
   /api/v2/notify/rate_reminder/views:
     post:
       tags:
         - Rate reminders
       summary: PostMarkasseen
-      description: "Post rate reminder\n\n#### Request details\nMethod: `POST`\n\nURL: `/api/v2/notify/rate_reminder/views`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`guid` (int?) **required** _[?]_\n\n`platform` (string) **required** _[is this used at all?]_\n\n`answer` (string) **required** _[\"yes\", \"no\", \"later\"]_\n\n#### Response codes\n`200` OK\n\n`412` Precondition failed\n\n`445` Entity not found"
-      operationId: PostMarkasseen
+      description: "Post rate reminder"
+      operationId: postRateReminder
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -1895,11 +1490,9 @@ paths:
                 - guid
                 - platform
                 - answer
-              type: object
               properties:
                 guid:
                   type: integer
-                  format: int32
                 platform:
                   type: string
                 answer:
@@ -1908,16 +1501,28 @@ paths:
         x-send-file-in-body: false
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/notify/rate_reminder_v2:
     get:
       tags:
         - Rate reminders V2
-      summary: GetShow12
-      description: "Get rate reminder\n\n#### Request details\nMethod: `GET`\n\nURL: `/api/v2/notify/rate_reminder`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`guid` (int?) **required** _[?]_\n\n`platform` (string) **required** _[is this used at all?]_\n\n#### Response codes\n`200` OK\n\n`412` Precondition failed\n\n`445` Entity not found"
-      operationId: GetShow12
+      summary: Get rate reminder v2
+      description: "Get rate reminder"
+      operationId: getRateReminderV2
       parameters:
         - name: guid
           in: query
@@ -1927,14 +1532,7 @@ paths:
           explode: true
           schema:
             type: string
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
+        - name: platform
           in: header
           description: ''
           required: true
@@ -1943,31 +1541,28 @@ paths:
             type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/notify/rate_reminder_v2/events:
     post:
       tags:
         - Rate reminders V2
       summary: ActionEvents
-      description: "Post rate reminder\n\n#### Request details\nMethod: `POST`\n\nURL: `/api/v2/notify/rate_reminder/views`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`guid` (int?) **required** _[?]_\n\n`platform` (string) **required** _[is this used at all?]_\n\n`answer` (string) **required** _[\"yes\", \"no\", \"later\"]_\n\n#### Response codes\n`200` OK\n\n`412` Precondition failed\n\n`445` Entity not found"
-      operationId: ActionEvents
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      description: "Post rate reminder"
+      operationId: postActionEvents
       requestBody:
         description: ''
         content:
@@ -1981,31 +1576,28 @@ paths:
         x-send-file-in-body: false
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/notify/rate_reminder_v2/2/answers:
     post:
       tags:
         - Rate reminders V2
       summary: Answer
-      description: "Post rate reminder\n\n#### Request details\nMethod: `POST`\n\nURL: `/api/v2/notify/rate_reminder/views`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### URL Parameters\n`guid` (int?) **required** _[?]_\n\n`platform` (string) **required** _[is this used at all?]_\n\n`answer` (string) **required** _[\"yes\", \"no\", \"later\"]_\n\n#### Response codes\n`200` OK\n\n`412` Precondition failed\n\n`445` Entity not found"
-      operationId: Answer
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      description: "Post an answer"
+      operationId: postAnswer
       requestBody:
         description: ''
         content:
@@ -2019,256 +1611,317 @@ paths:
         x-send-file-in-body: false
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/notify/rate_reminder_v2/actions:
     get:
       tags:
         - Rate reminders V2
       summary: Actions
-      description: "Get rate reminder\n\n#### Request details\nMethod: `GET`\n\nURL: `/api/v2/notify/rate_reminder/actions`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Response codes\n`200` OK\n\n`445` Entity not found"
-      operationId: Actions
+      description: "Get rate reminder"
+      operationId: getActionsV2
       parameters:
-        - name: X-Application-Id
+        - name: action
           in: header
           description: ''
           required: true
           style: simple
           schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+              $ref: '#/components/schemas/ActionEventsRequest'
+              example:
+              guid: hasfdda-safsafad-asdasd-asdas
+              action: masiakla-tutaj
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/geographic/continents:
     get:
       tags:
         - Continents
-      summary: GetIndex
-      description: "Retrieve a list of valid continents on Earth\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v2/geographic/continents`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Response codes(s)\n`200` OK"
-      operationId: GetIndex
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      summary: Get a list of continents
+      description: "Retrieve a list of valid continents on Earth"
+      operationId: getIndex
       responses:
         "200":
           description: ''
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/geographic/continents/1:
     get:
       tags:
         - Continents
-      summary: GetShow123
-      description: "Retrieve a list of valid continents on Earth\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v2/geographic/continents/{id}`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Response codes(s)\n`200` OK\n\n`404` Not found"
-      operationId: GetShow123
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      summary: Get a list of continents
+      description: "Retrieve a list of valid continents on Earth"
+      operationId: getIndex1
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false   
   /api/v2/geographic/countries:
     get:
       tags:
         - Countries
       summary: GetIndex1
-      description: "Retrieve a list of valid countries on Earth\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v2/geographic/countries`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters (filters)\n`limit` (int) _Eg: [/api/geographic/countries?limit=1] Default limit is 500_\n\n`order_by_column` (string) _Eg; [/api/geographic/countries?order\\_by\\_column=name]_\n\n`order_by_direction` (string) _Eg; [/api/geographic/countries?order\\_by\\_direction=asc]_\n\n`search` (string) _Eg: [/api/geographic/countries?search=Andorra]_\n\n`fields` (string) _Eg: [/api/geographic/countries?fields=name,code]_\n\n`continents` (string) _Eg: [/api/geographic/countries?continents=EU,AF]_\n\n#### Response codes(s)\n`200` OK\n\n`412` Precondition failed _Invalid filters_"
-      operationId: GetIndex1
+      description: "Retrieve a list of valid countries on Earth"
+      operationId: getShowCountries
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
+        - name: limit
+          in: query
+          description: "_Eg: [/api/geographic/countries?limit=1] Default limit is 500_"
+          style: form
           required: true
+          explode: true
+          schema:
+            type: integer
+        - name: order_by_column
+          in: header
+          description: "_Eg; [/api/geographic/countries?order\\_by\\_column=name]_"
           style: simple
+          required: true
           schema:
             type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
+        - name: order_by_direction
+          in: query
+          description: " _Eg; [/api/geographic/countries?order\\_by\\_direction=asc]_"
+          style: form
           required: true
-          style: simple
+          explode: true
           schema:
             type: string
-      responses:
+        - name: search
+          in: header
+          description: "_Eg: [/api/geographic/countries?search=Andorra]"
+          style: simple
+          required: true
+          schema:
+            type: string 
+        - name: fields
+          in: query
+          description: "_Eg: [/api/geographic/countries?fields=name,code]_"
+          style: form
+          required: true
+          explode: true
+          schema:
+            type: string
+        - name: continents
+          in: header
+          description: "_Eg: [/api/geographic/countries?continents=EU,AF]_"
+          style: simple
+          required: true
+          schema:
+            type: string
+    responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
-  /api/v2/geographic/countries/4:
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+    deprecated: false       
+  /api/v2/geographic/countries/{id}:
     get:
       tags:
         - Countries
-      summary: GetShow1234
+      summary: Get details on country found by id
       description: >-
         Retrieve details of a specific country on Earth
-
-
-        #### Request details
-
-        Method:    `GET`
-
-
-        URL:    `/api/v2/geographic/countries/{id}`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-        #### URL Parameters
-
-        `id` (int) **required** _Country id_
-
-
-        #### Response codes(s)
-
-        `200` OK
-
-
-        `404` Entity not found
-      operationId: GetShow1234
+      operationId: getShowCountry
       parameters:
-        - name: X-Application-Id
+        - name: Id
           in: header
-          description: ''
+          description: '**required** _Country id_'
+          example: 45
           required: true
           style: simple
           schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+            type: integer
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
         "404":
           description: 'Entity not found'
-      deprecated: false
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/geographic/languages:
     get:
       tags:
         - Languages
-      summary: GetIndex12
-      description: "Retrieve a list of valid languages spoken by humans on Earth\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v2/geographic/languages`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters (filters)\n`limit` (int) _Eg: [/api/geographic/languages?limit=1] Default limit is 500_\n\n`search` (string) _Eg: [/api/geographic/languages?search=en]_\n\n`fields` (string) _Eg: [/api/geographic/languages?fields=name,locale]_\n\n#### Response codes(s)\n`200` OK\n\n`412` Precondition failed _Invalid filters_"
-      operationId: GetIndex12
+      summary: Get Language
+      description: "Retrieve a list of valid languages spoken by humans on Earth"
+      operationId: getLanguages
       parameters:
-        - name: X-Application-Id
+        - name: limit
           in: header
-          description: ''
+          description: " _Eg: [/api/geographic/languages?limit=1] Default limit is 500_"
+          required: true
+          style: simple
+          schema:
+            type: integer
+        - name: search
+          in: header
+          description: "_Eg: [/api/geographic/languages?search=en]_"
           required: true
           style: simple
           schema:
             type: string
-        - name: X-Rest-Api-Key
+        - name: fields
           in: header
-          description: ''
+          description: "_Eg: [/api/geographic/languages?fields=name,locale]_"
           required: true
-          style: simple
-          schema:
-            type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+          description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+          description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/geographic/ip-address:
     get:
       tags:
         - IP Addresses
       summary: GetShow12345
-      description: "Retrieve details based on the requestee's ip address\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v2/geographic/ip-address`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters (filters)\n`ip` (string) _Eg: [1.2.3.4] Default is your own_\n\n#### Response codes(s)\n`200` OK\n\n`404` Entity not found"
-      operationId: GetShow12345
+      description: "Retrieve details based on the requestee's ip address"
+      operationId: getDetailsByIp
       parameters:
         - name: ip
           in: query
-          description: ''
+          description: '_Eg: [1.2.3.4] Default is your own_'
+          example: project
           required: true
           style: form
           explode: true
           schema:
             type: string
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+            description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/geographic/time_zones:
     get:
       tags:
         - Time zones
       summary: GetIndex123
-      description: "Retrieve a list of valid timesones on Earth\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v2/geographic/timezones`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters (filters)\n`limit` (int) _Eg: [/api/geographic/timezones?limit=1] Default limit is 1000_\n\n`order` (string) _Eg: [/api/geographic/timezones?order=name:desc]_\n\n`search` (string) _[Eg: /api/geographic/timezones?search=Europe/Andorra]_\n\n`fields` (string) _[Eg: /api/geographic/timezones?fields=name,abbr]_\n\n#### Response codes(s)\n\n`200` OK\n\n`412` Precondition failed _Invalid filters_"
-      operationId: GetIndex123
+      description: "Retrieve a list of valid timesones on Earth"
+      operationId: getValidTimezones
       parameters:
-        - name: X-Application-Id
+        - name: limit
           in: header
-          description: ''
+          description: "_Eg: [/api/geographic/timezones?limit=1] Default limit is 1000_"
+          required: true
+          style: simple
+          schema:
+            type: integer
+        - name: order
+          in: header
+          description: "_Eg: [/api/geographic/timezones?order=name:desc]_"
           required: true
           style: simple
           schema:
             type: string
-        - name: X-Rest-Api-Key
+        - name: search
           in: header
-          description: ''
+          description: "_Eg: [/api/geographic/timezones?search=Europe/Andorra]_"
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: fields
+          in: header
+          description: "_Eg: [/api/geographic/timezones?fields=name,abbr]_"
           required: true
           style: simple
           schema:
@@ -2277,91 +1930,91 @@ paths:
         "200":
           description: ''
           headers: {}
-      deprecated: false
-  /api/v2/geographic/time_zones/1:
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+            description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
+  /api/v2/geographic/timezones/{id}:
     get:
       tags:
         - Time zones
       summary: GetShow123456
-      description: "Retrieve details of a timezone\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v2/geographic/timezones/{id}`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Response codes(s)\n\n`200` OK\n\n`445` Entity not found"
-      operationId: GetShow123456
+      description: "Retrieve details of a timezone by id"
+      operationId: getTimeZoneById
       parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
+        - name: id
+          in: path
+          description: 'Timezone id'
           required: true
           style: simple
           schema:
             type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+            description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/geographic/time_zones/by_lat_lng:
     get:
       tags:
         - Time zones
-      summary: Showbylatlng
-      description: "Retrieve details of a nearest timezone by lat lng\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v2/geographic/timezones/by_lat_lng`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n#### Query parameters\n`lat_lng` (double,double) _Eg: 55.1231,12.1231_\n\n#### Response codes(s)\n\n`200` OK\n\n`412` Preconditions Failed (Missing ?lat_lng=)\n\n`404` Entity not found"
-      operationId: Showbylatlng
+      summary: Show details by latitude and longitude
+      description: "Retrieve details of a nearest timezone by lat lng"
+      operationId: getShowbylatlng
       parameters:
         - name: lat_lng
           in: query
-          description: ''
+          description: '_Eg: 55.1231,12.1231_'
+          example: 55.1231,12.1231
           required: true
           style: form
           explode: true
           schema:
-            type: string
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+            type: double,double
       responses:
         "200":
-          description: ''
-          headers: {}
-      deprecated: false
+          description: 'OK'
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+            description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/ugc/feedbacks:
     post:
       tags:
         - UGC
       summary: Feedback
-      description: "#### Request details\n\nMethod:    `POST`\n\nURL:    `/api/v2/ugc/feedbacks`\n\n#### Headers \n\n`X-Application-Id`\n\n`X-Rest-Api-Key`\n\n#### Response codes(s)\n\n`200` OK\n\n`412` Validation failed\n\n#### Post params\n\n`type` (string: feedback, bug) **optional, default is feedback**\n\n`platform` (string: web, ios, android, unknown) **optional, default is unknown**\n\n`os` (string) **optional**\n\n`app_version` (string) **optional**\n\n`device` (string) **optional**\n\n`name` (string) **optional**\n\n`email` (string) **optional**\n\n`message` (string) **optional**\n\n`image` (jpg,jpeg,png) **optional**\n\n`meta` (array/dict, (full flexiable)) **optional**\n\n`breadcrumbs` (array, {event (required): string, timestamp (required): Y-m-d H:i:s, meta (optional): array) **optional**"
-      operationId: Feedback
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      description: "Request details"
+      operationId: getFeedback
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -2381,7 +2034,6 @@ paths:
                 - meta[key]
                 - breadcrumbs[0][event]
                 - breadcrumbs[0][timestamp]
-              type: object
               properties:
                 breadcrumbs[0][meta]:
                   type: string
@@ -2413,31 +2065,27 @@ paths:
         x-send-file-in-body: false
       responses:
         "200":
-          description: ''
-          headers: {}
-      deprecated: false
+          description: 'OK'
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+            description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/ugc/results:
     post:
       tags:
         - UGC
-      summary: Result
-      description: "#### Request details\nMethod:    `POST`\n\nURL:    `/api/v2/ugc/feedbacks`\n\n#### Headers \n`X-Application-Id`\n\n`X-Rest-Api-Key`\n\n#### Response codes(s)\n`200` OK\n\n`412` Validation failed\n\n#### Post params\n`key` (string) **required**\n\n`user` (string) **required**\n\n`answer` (string) **required**\n\n`points` (int) **required**\n\n`tag` (string) **required**"
-      operationId: Result
-      parameters:
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      summary: Get results
+      description: "Get results"
+      operationId: getFeedbackResult
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -2449,7 +2097,6 @@ paths:
                 - answer
                 - points
                 - tag
-              type: object
               properties:
                 key:
                   type: string
@@ -2470,78 +2117,146 @@ paths:
         x-send-file-in-body: false
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
-  
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+            description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
+  /api/v2/ugc/push-logs:
+    post:
+      tags:
+        - UGC
+      summary: Get push logs
+      description: "Get Push Logs"
+      operationId: getPushLogs
+      parameters:
+        - name: provider
+          in: header
+          description: "_Eg: fcm, urban-airship_"
+          example: fcm, urban-airship
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: key
+          in: header
+          description: "_Eg: App key in fcm / ua_"
+          example: App key in fcm / ua
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: type
+          in: header
+          description: "_Eg: standard, freind-request, taxi-arrived etc_"
+          example: standard, friend-request, taxi-arrived
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: succeeded
+          in: header
+          description: "_Eg: Did push get sent?_"
+          example: true
+          required: true
+          style: simple
+          schema:
+            type: boolean
+        - name: request
+          in: header
+          description: "_Eg: Insert everything passed to provider_"
+          example: Insert everything passed to provider
+          style: simple
+          schema:
+            type: json
+        - name: response
+          in: header
+          description: "_Eg: Insert everything received from provider_"
+          example: Insert everything received from provider
+          style: simple
+          schema:
+            type: json
+        - name: user_id
+          in: header
+          description: "_Eg: User id_"
+          example: 1213
+          style: simple
+          schema:
+            type: string/integer
+        - name: relation_type
+          in: header
+          description: "_Eg: Booking, Company etc_"
+          example: Booking
+          style: simple
+          schema:
+            type: string
+        - name: relation_id
+          in: header
+          description: "_Eg: Id of Booking, id of Company etc_"
+          example: 4144
+          style: simple
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: 'OK'
+          headers: {}
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+            description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false     
   /api/v2/validator/email:
     get:
       tags:
         - Validator
       summary: Email
-      description: >-
-        Validate email syntax
-
-        On top of a simple syntax validation, there is DNS check also
-
-
-
-        #### Request details
-
-        Method: `GET`
-
-
-        URL: `/api/v2/validator/email`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-        #### Query params
-
-        `email` (string) **required** _email to validate_
-
-
-        #### Response codes
-
-        `200` OK
-
-
-        `412` Precondition failed (missing or invalid email)
-      operationId: Email
+      description: "Validate email syntax"
+      operationId: getEmail
       parameters:
         - name: email
           in: query
-          description: ''
+          description: 'Email to validate'
           required: true
           style: form
           explode: true
           schema:
             type: string
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+            description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/validator/phone:
     get:
       tags:
@@ -2549,118 +2264,62 @@ paths:
       summary: Phone
       description: >-
         Validate phone number
-
-
-        #### Request details
-
-        Method: `GET`
-
-
-        URL: `/api/v2/validator/phone`
-
-
-        #### Headers
-
-        `X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_
-
-
-        `X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_
-
-
-        #### Query params
-
-        `phone` (string) **required** _email to validate_
-
-
-        `fallback_country_code` (string) _Eg: ["dk", "gb", ...] - default is dk_
-
-
-        `twilio` (bool) _Validate against Twilio - Paid service!_
-
-
-        `twilio_type` (string) _Eg: ["all", "mobile", "landline"]_
-
-
-        #### Response codes
-
-        `200` OK
-
-
-        `412` Precondition failed (missing or invalid email)
-      operationId: Phone
+      operationId: getPhone
       parameters:
         - name: phone
           in: query
-          description: ''
+          description: '**required** _Email to validate_'
           required: true
           style: form
           explode: true
           schema:
             type: integer
             format: int32
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
+        - name: fallback_country_code
+          in: query
+          description: "_Eg: [dk, gb, ...] - default is dk_"
+          example: dk
           style: simple
           schema:
             type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
+        - name: twilio
+          in: query
+          description: '_Validate against Twilio - Paid service!_'
+          example: false
           style: simple
           schema:
-            type: string
+            type: boolean
+        - name: twilio_type
+          in: query
+          description: '_Eg: ["all", "mobile", "landline"]_'
+          example: all
+          style: simple
+          schema:
+            type: string            
       responses:
         "200":
-          description: ''
+          description: 'OK'
           headers: {}
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+            description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false 
   /api/v2/open:
     post:
       tags:
         - App open
       summary: Appopen
-      description: "Retrieve a list of valid continents on Earth\n\n#### Request details\nMethod:    `GET`\n\nURL:    `/api/v2/open`\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n`N-Meta` (string) **required** _eg: android;production;1.2.3;4.4;Samsung S7_\n\n`Accept-Language` (string) **Optional** _eg: da-DK_\n\n### Form-data\n\n`platform` (string) **required** eg: ios/android/web\n\n`guid` (string) **required** `unique generated string` *eg: 9bc4b39a-0af5-4b54-a5a5-88ad334dbd4b*\n\n`version` (string) **required if not web** `format: xxx.yyy.zzz` *eg: 2.0.0 / 212.01.1*\n - *Current version of application*\n\n`old_version` (string) **required if not web** `format: xxx.yyy.zzz` *eg: 2.0.0 / 212.01.1*\n - *Previous version of application (Auto update can have happened)*\n\n`last_updated` (date time, ISO8601) **optional** *eg: 2019-06-15T14:29:50+00:00*\n - *Set timestamp from last app open (when localization has been synced), this will calculate which localizations should be updated*\n\n`dev` (bool) **option, default false**\n - *if true, bypass publishes and only use newest resource (set of key/values)*\n \n`test` (bool) **option, default false**\n - *if true, used the app version from \"test env\"\n \n\n#### Response codes(s)\n`200` OK"
-      operationId: Appopen
-      parameters:
-        - name: test
-          in: query
-          description: ''
-          required: true
-          style: form
-          explode: true
-          schema:
-            type: boolean
-        - name: X-Application-Id
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: X-Rest-Api-Key
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: Accept-Language
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
-        - name: N-Meta
-          in: header
-          description: ''
-          required: true
-          style: simple
-          schema:
-            type: string
+      description: ''
+      operationId: postAppopen
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -2672,18 +2331,32 @@ paths:
                 - version
                 - last_updated
                 - dev
-              type: object
               properties:
                 platform:
                   type: string
+                  description: '_Eg: ios/android/web_'
                 guid:
                   type: string
+                  description: '**required** `unique generated string` *Eg: 9bc4b39a-0af5-4b54-a5a5-88ad334dbd4b*'
                 version:
                   type: string
+                  description:  '**required if not web** `format: xxx.yyy.zzz` Previous version of application (Auto update can have happened)'
+                old_version:
+                  type: string
+                  description:  '**required if not web** `format: xxx.yyy.zzz` Previous version of application (Auto update can have happened)'
+                  example:  2.0.0 / 212.01.1
                 last_updated:
                   type: string
+                  description: 'Previous version of application (Auto update can have happened)'
+                  example: 2019-06-15T14:29:50+00:00
                 dev:
                   type: boolean
+                  description: 'if true, bypass publishes and only use newest resource (set of key/values)'
+                  example: false
+                test:
+                  type: boolean
+                  description: 'if true, used the app version from "test env'
+                  example: false
         required: false
         x-send-file-in-body: false
       responses:
@@ -2799,7 +2472,25 @@ paths:
                   last_updated: '"2019-06-15T14:29:50+00:00"'
                 meta:
                   accept_Language: null
-      deprecated: false
+        "401":
+            description: 'Missing Application Credentials'
+        "403":
+            description: 'Forbidden'
+        "404":
+            description: 'Entity not found'
+        "412":
+            description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Entity not found'
+        "500":
+            description: 'Internal Server Error _Please read response message_'
+      deprecated: false   
+      
+      
+      
+      
+      
+      
 components:
   schemas:
     Indexlanguages:
@@ -2872,9 +2563,9 @@ components:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/Data'
+         -$ref: '#/components/schemas/Data'
         meta:
-          $ref: '#/components/schemas/Meta'
+         -$ref: '#/components/schemas/Meta'
       example:
         data:
           id: 11
@@ -2926,7 +2617,6 @@ components:
           type: string
       example:
         Accept-Language: null
-
     Language:
       title: Language
       required:
@@ -2965,6 +2655,10 @@ components:
         - meta
       type: object
       properties:
+        data:
+         -$ref: '#/components/schemas/Data2'
+        meta:
+         -$ref: '#/components/schemas/Meta2'
       example:
         data:
           default:
@@ -2993,7 +2687,6 @@ components:
           platform:
             id: 15
             slug: mobile
-
     Platform:
       title: Platform
       required:
@@ -3015,6 +2708,8 @@ components:
         - data
       type: object
       properties:
+        data:
+          -ref: '#/components/schemas/Data3'
       example:
         data:
           id: 25
@@ -3155,6 +2850,8 @@ components:
           $ref: '#/components/schemas/Update'
         localize:
           type: array
+          items:
+            -ref: '#/components/schemas/Localize'
           description: ''
         rate_reminder:
           $ref: '#/components/schemas/RateReminder'
@@ -3274,6 +2971,8 @@ components:
           type: string
         link:
           type: string
+        translate:
+          -$ref: '#/components/schemas/Translate'
       example:
         state: yes
         last_id: 621
@@ -3425,7 +3124,36 @@ components:
             created:
               type: string
               format: 'date-time'
+    UnauthorizedError:
+        description: API key is missing or invalid
+        headers:
+          WWW_Authenticate:
+            schema:
+              type: string            
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-REST-API-KEY
+      description: '_Required Rest API key from_ [Nstack](https://nstack.io) _known as_ **nstackRestKey**'
+      required: true
+    AppId:  
+      type: apiKey
+      in: header
+      name: X-APPLICATION-ID
+      description: '_Required Application id from_ [Nstack](https://nstack.io) _known as_ **nstackAppid**'
+      required: true
 
+  
+
+     
+
+   
+
+
+    
+
+              
 tags:
   - name: Scropper
   - name: Stagger
