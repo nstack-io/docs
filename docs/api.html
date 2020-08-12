@@ -500,9 +500,9 @@
 <h2 id="q-amp-a">Q &amp; A</h2>
 <h4 id="what-is-a-guid">What is a GUID?</h4>
 <p>A GUID (Globally unique identifier) is a unique identifier. It should be generated <strong>once</strong> and used in all future requests from the device.</p>
-<p>The Nstack SDK will handle creation and storing of the guid on the device.  If you are using the API instead of the SDK  you can create your own GUID/UUID by using the UUID class in java (Universally Unique Identifier).</p>
-<p>val uuid = UUID.randomUUID().toString() </p>
-<p>It is important that you only generate it once and store it otherwise features like ratereminder will not work. </p>
+<p>The NStack SDK will handle creation and storing of the guid on the device.  If you are using the API instead of the SDK  you can create your own GUID/UUID by using the UUID class in java (Universally Unique Identifier).</p>
+<p><code>val uuid = UUID.randomUUID().toString()</code>  </p>
+<p>It is important that you only generate it once and store it otherwise features like Rate Reminder will not work. </p>
 <h4 id="should-i-use-the-nstack-sdks-or-access-the-api-directly">Should I use the NStack SDKs or access the API directly?</h4>
 <p>Always prefer the available SDKs. If there is something the API offers that is not available in the SDK and you would like to use, please notify us and we will look into it. You are also very welcome to contribute to features and fixes to the codebase of the SDK for your platform. </p>
 <p>Using the API directly is more complex and we are trying to reflect all API features inside the SDKs. However, it is still possible that a newer feature has not made it to the SDK just yet so in such rare cases you might need to rely on a direct call to the API. You will also need to rely on the API in case there is no SDK for your platform. If you are willing to start a new SDK in that case, please let us know and maybe we can help!</p>
