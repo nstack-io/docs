@@ -20,7 +20,7 @@ servers:
 paths:
   /api/v2/scropper:
     post:
-      summary: "Return the focal point of an image"
+      summary: "Return the focal point of an image."
       tags:
         - Scropper
       description: "**Get focal point on a image**\n\n\n_Initial response time can be 15sec in case you hit a cold container_\n\n\n####"
