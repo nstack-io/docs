@@ -410,7 +410,7 @@ paths:
           description: 'Entity not found'
         "500":
           description: 'Internal Server Error _Please read response message_'
-  /api/v2/content/localize/mobile/languages:
+  /api/v2/content/localize/{platform-slug}/languages:
     get:
       tags:
         - Localize
@@ -419,7 +419,7 @@ paths:
       operationId: getIndexlanguages
       parameters:
         - name: platform-slug
-          in: header
+          in: path
           required: true
           schema: 
             type: string
@@ -493,7 +493,7 @@ paths:
           description: 'Entity not found'
         "500":
           description: 'Internal Server Error _Please read response message_'
-  /api/v2/content/localize/mobile/languages/best_fit:
+  /api/v2/content/localize/{platform-slug}/languages/best_fit:
     get:
       tags:
         - Localize
@@ -502,7 +502,7 @@ paths:
       operationId: getLanguageBestFit
       parameters:
         - name: platform-slug
-          in: query
+          in: path
           required: true
           schema: 
             type:  string
@@ -566,7 +566,7 @@ paths:
           description: 'Entity not found'
         "500":
           description: 'Internal Server Error _Please read response message_'
-  /api/v2/content/localize/resources/platforms/mobile:
+  /api/v2/content/localize/resources/platforms/{platform-slug}:
     get:
       tags:
         - Localize
@@ -575,7 +575,7 @@ paths:
       operationId: getIndexResource
       parameters:
         - name: platform-slug
-          in: query
+          in: path
           required: true
           schema: 
             type: string
@@ -672,7 +672,7 @@ paths:
         - in: path
           name: id
           description: show a resource in the project from the showResourceId
-          example: 1234
+          example: 44
           required: true
           schema:
             type: integer
@@ -864,7 +864,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/IndexProposal'
+                $ref: '#/components/schemas/Data'
         "401":
           description: 'Collection does not have write access for api'
         "403":
@@ -1011,14 +1011,12 @@ paths:
         - name: N-Meta
           in: header
           description: ''
-          required: true
           style: simple
           schema:
             type: string
         - name: Accept-Language
           in: header
           description: ''
-          required: true
           style: simple
           schema:
             type: string
@@ -1060,14 +1058,12 @@ paths:
         - name: N-Meta
           in: header
           description: ''
-          required: true
           style: simple
           schema:
             type: string
         - name: Accept-Language
           in: header
           description: ''
-          required: true
           style: simple
           schema:
             type: string
@@ -1108,14 +1104,12 @@ paths:
         - name: N-Meta
           in: header
           description: ''
-          required: true
           style: simple
           schema:
             type: string
         - name: Accept-Language
           in: header
           description: ''
-          required: true
           style: simple
           schema:
             type: string
@@ -1158,14 +1152,12 @@ paths:
         - name: N-Meta
           in: header
           description: ''
-          required: true
           style: simple
           schema:
             type: string
         - name: Accept-Language
           in: header
           description: ''
-          required: true
           style: simple
           schema:
             type: string
@@ -1208,7 +1200,6 @@ paths:
         - name: N-Meta
           in: header
           description: ''
-          required: true
           style: simple
           schema:
             type: string
@@ -1383,7 +1374,7 @@ paths:
             description: 'Precondition failed _Please read response message_'
         "500":
             description: 'Internal Server Error _Please read response message_'
-  /api/v2/notify/messages:
+  /api/v1/notify/messages:
     get:
       tags:
         - Messages
@@ -1451,6 +1442,8 @@ paths:
           description: 'Entity not found'
         "412":
             description: 'Precondition failed _Please read response message_'
+        "445":
+            description: 'Message not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
   /api/v2/notify/rate_reminder:
@@ -1567,7 +1560,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RateReminder'
+                $ref: '#/components/schemas/RateReminderV2'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1662,14 +1655,16 @@ paths:
         - name: action
           in: header
           description: ''
-          required: true
           style: simple
           schema:
               $ref: '#/components/schemas/ActionEventsRequest'
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateReminder'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1758,7 +1753,6 @@ paths:
           in: query
           description: "_Eg: [/api/geographic/countries?limit=1] Default limit is 500_"
           style: form
-          required: true
           explode: true
           schema:
             type: integer
@@ -1766,14 +1760,12 @@ paths:
           in: header
           description: "_Eg; [/api/geographic/countries?order\\_by\\_column=name]_"
           style: simple
-          required: true
           schema:
             type: string
         - name: order_by_direction
           in: query
           description: " _Eg; [/api/geographic/countries?order\\_by\\_direction=asc]_"
           style: form
-          required: true
           explode: true
           schema:
             type: string
@@ -1781,14 +1773,12 @@ paths:
           in: header
           description: "_Eg: [/api/geographic/countries?search=Andorra]"
           style: simple
-          required: true
           schema:
             type: string 
         - name: fields
           in: query
           description: "_Eg: [/api/geographic/countries?fields=name,code]_"
           style: form
-          required: true
           explode: true
           schema:
             type: string
@@ -1796,7 +1786,6 @@ paths:
           in: header
           description: "_Eg: [/api/geographic/countries?continents=EU,AF]_"
           style: simple
-          required: true
           schema:
             type: string
       responses:
@@ -1866,21 +1855,18 @@ paths:
         - name: limit
           in: header
           description: " _Eg: [/api/geographic/languages?limit=1] Default limit is 500_"
-          required: true
           style: simple
           schema:
             type: integer
         - name: search
           in: header
           description: "_Eg: [/api/geographic/languages?search=en]_"
-          required: true
           style: simple
           schema:
             type: string
         - name: fields
           in: header
           description: "_Eg: [/api/geographic/languages?fields=name,locale]_"
-          required: true
           schema: 
             type: string
       responses:
@@ -1951,28 +1937,24 @@ paths:
         - name: limit
           in: header
           description: "_Eg: [/api/geographic/timezones?limit=1] Default limit is 1000_"
-          required: true
           style: simple
           schema:
             type: integer
         - name: order
           in: header
           description: "_Eg: [/api/geographic/timezones?order=name:desc]_"
-          required: true
           style: simple
           schema:
             type: string
         - name: search
           in: header
           description: "_Eg: [/api/geographic/timezones?search=Europe/Andorra]_"
-          required: true
           style: simple
           schema:
             type: string
         - name: fields
           in: header
           description: "_Eg: [/api/geographic/timezones?fields=name,abbr]_"
-          required: true
           style: simple
           schema:
             type: string
@@ -1996,7 +1978,7 @@ paths:
         "500":
             description: 'Internal Server Error _Please read response message_'
       deprecated: false 
-  /api/v2/geographic/timezones/{id}:
+  /api/v2/geographic/time_zones/{id}:
     get:
       tags:
         - Time zones
@@ -3224,7 +3206,7 @@ components:
       x-send-file-in-body: false
     IndexProposal:
       type: object
-      title: Localize Proposal
+      title: IndexProposal
       required:
         - key
         - value
@@ -3332,19 +3314,36 @@ components:
         coutries:
           type: array
           items:
-            $ref: '#/components/schemas/Countries'        
+            $ref: '#/components/schemas/Continent'        
     Continents:
       title: Continents
       required: 
         - id
-        - countries
+        - continent
       properties:
         id: 
           type: object
-        coutries:
+        continent:
           type: array
           items:
-            $ref: '#/components/schemas/Countries'
+            $ref: '#/components/schemas/Continent'
+    Continent:
+      title: Continent
+      required: 
+        - id
+        - name
+        - code
+        - image_url
+      properties: 
+        id:
+          type: integer
+        name: 
+          type: string
+        code: 
+          type: string
+        image_url:
+          type: 
+            string
     Countries:
       title: Countries
       required: 
@@ -3393,22 +3392,30 @@ components:
         countryid:
           type: array
           items:
-            $ref: '#/components/schemas/Country'       
+            $ref: '#/components/schemas/Timezone'       
     Timezone:
       title: Timezone
       required:
         - id
-        - timezoneId
-        - countryId
+        - name
+        - abbr
+        - offset_sec
+        - label
       properties:
         id:
           type: string
-        timezoneId:
+        name:
           type: string
-        countryid:
-          type: array
-          items:
-            $ref: '#/components/schemas/Country'
+        abbr:
+          type: string
+        offset_sec:
+          type: integer
+        label:
+          type: string
+          
+          
+          
+          
     User:
       title: User
       required:
@@ -3464,6 +3471,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Meta'
+    RateReminderV2:
+      title: Rate Reminder
+      properties:
+        id:
+          type: integer
+        poits_to_trigger: 
+          type: integer
+        days_delay_on_skip:
+          type: integer
+        localization: 
+            $ref: '#/components/schemas/RateReminder'
 
         
   securitySchemes:
