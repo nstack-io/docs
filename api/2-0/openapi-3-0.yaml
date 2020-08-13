@@ -8,20 +8,17 @@ info:
   version: '2.5'
 
 
-security: 
-      -ApiKeyAuth: []
-      AppId: []
-
   
 servers:
   - url: https://nstack.io
     variables: {}
-  - url: https://nstack.mock.nspec.io
-    variables: {}
+security: 
+    - AppId: []
+      ApiKey: []
 paths:
   /api/v2/scropper:
     post:
-      summary: "Return the focal point of an image."
+      summary: "Return the focal point of an image"
       tags:
         - Scropper
       description: "**Get focal point on a image**\n\n\n_Initial response time can be 15sec in case you hit a cold container_\n\n\n####"
@@ -110,13 +107,17 @@ paths:
       - in: path
         name: collectionId
         required: true
-        description: 'Parameter description in CommonMark or HTML.'
+        description: 'ID of content collection'
         schema:
           type: integer
       responses:
         "200":
-          description: 'OK'
-          headers: {}
+            description: 'OK'
+            headers: {}
+            content:
+              application/json:
+                schema:
+                 $ref: '#/components/schemas/CollectionResponse'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -230,7 +231,7 @@ paths:
       tags:
         - Collections
       summary: View item
-      description: 'Return a collection by c'
+      description: 'Return an item from a collection'
       operationId: Viewitem
       parameters:
         - name: collectionId
@@ -247,8 +248,12 @@ paths:
             type: integer
       responses:
         "200":
-          description: 'OK'
-          headers: {}
+            description: 'OK'
+            headers: {}
+            content:
+              application/json:
+                schema:
+                 $ref: '#/components/schemas/CollectionResponse'
         "401":
           description: 'Collection does not have write access for api'
         "403":
@@ -344,7 +349,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:  
+              schema:
+                $ref: '#/components/schemas/Platform'
         "401":
           description: 'Collection does not have write access for api'
         "403":
@@ -411,7 +419,7 @@ paths:
       operationId: getIndexlanguages
       parameters:
         - name: platform-slug
-          in: query
+          in: header
           required: true
           schema: 
             type: string
@@ -853,7 +861,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexProposal'
         "401":
           description: 'Collection does not have write access for api'
         "403":
@@ -931,7 +942,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Visualization'
         "401":
           description: 'Invalid guid'
         "403":
@@ -969,7 +983,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
         "401":
           description: 'Invalid guid'
         "403":
@@ -1008,7 +1025,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Terms'
         "401":
           description: 'Invalid guid'
         "403":
@@ -1022,14 +1042,21 @@ paths:
         "500":
           description: 'Internal Server Error _Please read response message_'      
       deprecated: false          
-  /api/v2/content/terms/some-terms-1/versions:
+  /api/v2/content/terms/{slugOrId}/versions:
     get:
       tags:
         - Terms
       summary: Index Versions
-      description: 'Get Index Versions'
+      description: 'Get Versions from slugOrId'
       operationId: getIndexVersions
       parameters:
+        - name: slugOrId
+          in: path
+          description: 'The id of the version'
+          required: true
+          style: simple
+          schema:
+            type: string 
         - name: N-Meta
           in: header
           description: ''
@@ -1047,7 +1074,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TermsByIndex'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1060,7 +1090,7 @@ paths:
           description: 'Entity not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
-  /api/v2/content/terms/some-terms-1/versions/newest:
+  /api/v2/content/terms/{slugOrId}/versions/newest:
     get:
       tags:
         - Terms
@@ -1068,6 +1098,13 @@ paths:
       description: List newest Version      
       operationId: getNewestVersion
       parameters:
+        - name: slugOrId
+          in: path
+          description: 'The id of the version'
+          required: true
+          style: simple
+          schema:
+            type: string      
         - name: N-Meta
           in: header
           description: ''
@@ -1085,7 +1122,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TermsByIndex'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1132,7 +1172,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TermsByGUID'
         "204":
           description: 'User was deleted.'
         "401":
@@ -1436,8 +1479,11 @@ paths:
             type: integer
       responses:
         "200":
-          description: ''
-          headers: {}
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateReminder'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1518,7 +1564,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateReminder'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1617,9 +1666,6 @@ paths:
           style: simple
           schema:
               $ref: '#/components/schemas/ActionEventsRequest'
-              example:
-              guid: hasfdda-safsafad-asdasd-asdas
-              action: masiakla-tutaj
       responses:
         "200":
           description: 'OK'
@@ -1646,8 +1692,11 @@ paths:
       operationId: getIndex
       responses:
         "200":
-          description: ''
-          headers: {}
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Continents'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1661,17 +1710,29 @@ paths:
         "500":
             description: 'Internal Server Error _Please read response message_'
       deprecated: false 
-  /api/v2/geographic/continents/1:
+  /api/v2/geographic/continents/{id}:
     get:
       tags:
         - Continents
-      summary: Get a list of continents
-      description: "Retrieve a list of valid continents on Earth"
-      operationId: getIndex1
+      summary: Get a continent by id
+      description: "Retrieve a continent by id"
+      operationId: getContinentById
+      parameters:
+        - name: id
+          in: path
+          description: '**required** _Continent id_'
+          example: 45
+          required: true
+          style: simple
+          schema:
+            type: integer
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContinentsById'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1741,7 +1802,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Countries'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1774,7 +1838,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1819,7 +1886,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Indexlanguages'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1837,7 +1907,7 @@ paths:
     get:
       tags:
         - IP Addresses
-      summary: GetShow12345
+      summary: Get summary from Ip
       description: "Retrieve details based on the requestee's ip address"
       operationId: getDetailsByIp
       parameters:
@@ -1853,7 +1923,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1905,8 +1978,11 @@ paths:
             type: string
       responses:
         "200":
-          description: ''
-          headers: {}
+          description: 'OK'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Timezones'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1938,7 +2014,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Timezone'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1972,6 +2051,10 @@ paths:
       responses:
         "200":
           description: 'OK'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimezonesByLatLng'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -2222,7 +2305,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -2278,7 +2364,10 @@ paths:
       responses:
         "200":
           description: 'OK'
-          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -2468,8 +2557,7 @@ paths:
       
       
       
-      
-      
+  
 components:
   schemas:
     Indexlanguages:
@@ -3098,17 +3186,298 @@ components:
             created:
               type: string
               format: 'date-time'
+    CollectionResponse:
+      title: Collection
+      required: 
+        - id
+        - item
+      properties:
+        id: 
+          type: object
+        item:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemResponse'
+    ItemResponse:
+      type: object
+      title: Item
+      required:
+          - itemId
+      properties:
+          itemId:
+            type: integer
+          itemValue0Int:
+            type: integer
+          itemValue1string:
+            type: string
+          itemValue2float:
+            type: number
+            format: double
+          itemValue3wysiwygsim:
+            type: string
+          itemValue4asset:
+            type: string
+          itemValue5boolean:
+            type: boolean
+          itemValue6wysiwygadvanced:
+            type: string
+      x-send-file-in-body: false
+    IndexProposal:
+      type: object
+      title: Localize Proposal
+      required:
+        - key
+        - value
+        - locale
+        - platform
+        - guid
+        - section
+      properties:
+                key:
+                  type: string
+                value:
+                  type: string
+                locale:
+                  type: string
+                platform:
+                  type: string
+                guid:
+                  type: string
+                section:
+                  type: string
+    Visualization:
+      type:
+        object
+      title: Visualization
+      required: 
+        - key
+      properties:
+        key:
+          type: string
+        mode: 
+          type: string
+    Dashboard:
+      type:
+        object
+      title: Dashboard
+      required: 
+        - key
+      properties:
+        key:
+          type: string
+        mode: 
+          type: string
+    Terms:
+      type:
+        object
+      title: Terms
+      required: 
+        - N-Meta
+        - Acceptable-Language
+      properties:
+        N-Meta:
+          type: object
+          items:
+            $ref: '#/components/schemas/Meta'
+        Acceptable-Language: 
+          type: string
+          items:
+            $ref: '#/components/schemas/Language'
+    TermsByIndex:
+      type:
+        object
+      title: Terms By index
+      required: 
+        - slugOrId
+        - N-Meta
+        - Acceptable-Language
+      properties:
+        slugOrId:
+          type: string
+        N-Meta:
+          type: object
+          items:
+            $ref: '#/components/schemas/Meta'
+        Acceptable-Language: 
+          type: string
+          items:
+            $ref: '#/components/schemas/Language'
+    TermsByGUID:
+      type:
+        object
+      title: Terms By guid
+      required: 
+        - slugOrId
+        - N-Meta
+        - Acceptable-Language
+      properties:
+        slugOrId:
+          type: string
+        N-Meta:
+          type: object
+          items:
+            $ref: '#/components/schemas/Meta'
+        Acceptable-Language: 
+          type: string
+          items:
+            $ref: '#/components/schemas/Language'
+    ContinentsById:
+      title: Continents By Id
+      required: 
+        - id
+        - countries
+      properties:
+        id: 
+          type: object
+        coutries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Countries'        
+    Continents:
+      title: Continents
+      required: 
+        - id
+        - countries
+      properties:
+        id: 
+          type: object
+        coutries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Countries'
+    Countries:
+      title: Countries
+      required: 
+        - id
+        - coutry
+      properties:
+        id: 
+          type: object
+        country:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+    Country:
+      title: Country
+      required:
+        - id
+        - countryId
+      properties:
+        id:
+          type: string
+        countryId:
+          type: string
+    Timezones:
+      title: Timezones
+      required: 
+        - id
+        - timezone
+      properties:
+        id: 
+          type: object
+        timezone:
+          type: array
+          items:
+            $ref: '#/components/schemas/Timezone'         
+    TimezonesByLatLng:
+      title: Timezones by Latitude and Longitude
+      required:
+        - id
+        - timezoneId
+        - countryId
+      properties:
+        id:
+          type: string
+        timezoneId:
+          type: string
+        countryid:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'       
+    Timezone:
+      title: Timezone
+      required:
+        - id
+        - timezoneId
+        - countryId
+      properties:
+        id:
+          type: string
+        timezoneId:
+          type: string
+        countryid:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+    User:
+      title: User
+      required:
+        - id
+        - email
+        - phone
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        phone:
+          type: integer
+    UGC:
+      title: User Generated comments
+      properties:
+        type:
+          type: string
+        platform:
+          type: string
+        os:
+          type: string
+        app_version:
+          type: string
+        device:
+          type: string
+        name: 
+          type: string
+        email:
+          type: string
+        message: 
+          type: string
+        image:
+          type: object
+          description: 'jpg, jpeg, png'
+        meta:
+          type: array
+          items:
+            $ref: '#/components/schemas/Meta'
+        breadcrumbs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Breadcrumb'
+    Breadcrumb:
+      title: Breadcrumb
+      properties:
+        event:
+          type: string
+        timestamp:
+          type: string
+          description: 'YYYY-MM-DD'
+        meta:   
+          type: array
+          items:
+            $ref: '#/components/schemas/Meta'
+
+        
   securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: X-REST-API-KEY
-      description: '_Required Rest API key from_ [Nstack](https://nstack.io) _known as_ **nstackRestKey**'
     AppId:  
       type: apiKey
       in: header
       name: X-APPLICATION-ID
       description: '_Required Application id from_ [Nstack](https://nstack.io) _known as_ **nstackAppid**'
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-REST-API-KEY
+      description: '_Required Rest API key from_ [Nstack](https://nstack.io) _known as_ **nstackRestKey**'
+
 
   
 
