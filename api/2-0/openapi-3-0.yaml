@@ -5,9 +5,10 @@ info:
     This is the public API for nstack.io
     
     Setup an application and use Application-Id and Rest-Api-Key
-  contact: {help@nstack.io}
   version: '2.5'
-  security:
+
+
+security: 
       -ApiKeyAuth: []
       AppId: []
 
@@ -25,8 +26,6 @@ paths:
         - Scropper
       description: "**Get focal point on a image**\n\n\n_Initial response time can be 15sec in case you hit a cold container_\n\n\n####"
       operationId: postGetFocalPoint
-      Method: 'POST'
-      URL: 'api/v2/content/scropper'
       requestBody:
         content:
            application/x-www-form-urlencoded:
@@ -53,7 +52,7 @@ paths:
             content:
               application/json:
                 schema:
-                 -$ref: '#/components/schemas/Scropper'
+                 $ref: '#/components/schemas/Scropper'
           "401":
             description: 'Missing Application Credentials'
           "403":
@@ -62,7 +61,6 @@ paths:
             description: 'Validation Error'
           "500":
             description: 'Internal Server Error _Please read response message_'
-          deprecated: false
   /api/v2/stagger:
     post:
       summary: "Get a tag from a text"
@@ -100,7 +98,6 @@ paths:
             description: 'Validation Error'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false          
   /api/v2/content/collections/{collectionId}:
     get:
       tags:
@@ -130,7 +127,6 @@ paths:
             description: 'Validation Error'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false   
   /api/v2/content/collections/{collectionId}/items:
     post:
       tags:
@@ -145,11 +141,9 @@ paths:
           description: 'Collection ID'
           example: project/api/v2/content/collections/{1234}
           style: simple
+          required: true
           schema:
             type: integer
-            format: int32
-          required: 
-            collection_id
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -196,7 +190,6 @@ paths:
             description: 'Validation Error'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false   
   /api/v2/content/collections/{collectionId}/items/{itemId}:
     delete:
       tags:
@@ -233,12 +226,11 @@ paths:
             description: 'Validation Error'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false     
     get:
       tags:
         - Collections
       summary: View item
-      description: 
+      description: 'Return a collection by c'
       operationId: Viewitem
       parameters:
         - name: collectionId
@@ -269,7 +261,6 @@ paths:
           description: 'Entity not found'
         "500":
           description: 'Internal Server Error _Please read response message_'
-      deprecated: false     
   /api/v2/content/collections/{collectionId}/items/{itemId}/update:
     post:
       tags:
@@ -328,7 +319,6 @@ paths:
             description: 'Precondition failed _Please read the response message_'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false               
   /api/v2/content/responses/{id_or_slug}:
     get:
       tags:
@@ -341,11 +331,14 @@ paths:
         - name: id_or_slug
           in: path
           description: _**required** ID or slug of content type_ [15, "terms", "about"]
+          required: true
           schema: 
-            type: 
-            - string/ integer
+            oneOf:
+              - type: string
+              - type: integer
         - name: data
-          in: form
+          description: 'default true - should the object be in data'
+          in: query
           schema:
              type: boolean           
       responses:
@@ -364,7 +357,6 @@ paths:
           description: 'Entity not found'
         "500":
           description: 'Internal Server Error _Please read response message_'
-      deprecated: false      
   /api/v2/content/files:
     post:
       tags:
@@ -410,7 +402,6 @@ paths:
           description: 'Entity not found'
         "500":
           description: 'Internal Server Error _Please read response message_'
-      deprecated: false            
   /api/v2/content/localize/mobile/languages:
     get:
       tags:
@@ -420,10 +411,10 @@ paths:
       operationId: getIndexlanguages
       parameters:
         - name: platform-slug
-          in: path
+          in: query
+          required: true
           schema: 
-            type: 
-            - string
+            type: string
       responses:
         "200":
           description: 'OK'
@@ -494,7 +485,6 @@ paths:
           description: 'Entity not found'
         "500":
           description: 'Internal Server Error _Please read response message_'
-        deprecated: false      
   /api/v2/content/localize/mobile/languages/best_fit:
     get:
       tags:
@@ -504,10 +494,10 @@ paths:
       operationId: getLanguageBestFit
       parameters:
         - name: platform-slug
-          in: path
+          in: query
+          required: true
           schema: 
-            type:  
-            - string
+            type:  string
       responses:
         "200":
           description: ''
@@ -568,21 +558,19 @@ paths:
           description: 'Entity not found'
         "500":
           description: 'Internal Server Error _Please read response message_'
-      deprecated: false        
   /api/v2/content/localize/resources/platforms/mobile:
     get:
       tags:
         - Localize
       summary: Indexresource
-      description: "#### Request details\n\nMethod:    `GET`\n\nURL:    `/api/v2/content/localize/resources/platforms/{platformSlug}`\n\n### Url param\n\n`platformSlug` (string) **required** *eg: mobile, backend, web*\n\n#### Headers \n`X-Application-Id` (string) **required** _Application ID from [NStack](https://nstack.io)_\n\n`X-Rest-Api-Key` (string) **required** _Rest API key from [NStack](https://nstack.io)_\n\n\n### Query\n\n`last_updated` (date time, ISO8601) **optional** *eg: 2019-06-21T08%3A35%3A24%2B00%3A00*\n - *Remember to url encode it*\n - *Set timestamp from last app open (when localization has been synced), this will calculate which localizations should be updated*\n\n`dev` (bool) **option, default false**\n - *if true, bypass publishes and only use newest resource (set of key/values)*\n\n\n#### Response codes(s)\n\n`200` OK\n\n`404` platform not found"
+      description: 'Request details'
       operationId: getIndexResource
       parameters:
         - name: platform-slug
-          in: path
+          in: query
           required: true
           schema: 
-            type: 
-            - string
+            type: string
       responses:
         "200":
           description: ''
@@ -666,7 +654,6 @@ paths:
           description: 'Entity not found'
         "500":
           description: 'Internal Server Error _Please read response message_'
-      deprecated: false          
   /api/v2/content/localize/resources/{id}:
     get:
       tags:
@@ -678,8 +665,9 @@ paths:
           name: id
           description: show a resource in the project from the showResourceId
           example: 1234
-          type: 
-            - integer
+          required: true
+          schema:
+            type: integer
       responses:
         "200":
           description: ''
@@ -878,7 +866,6 @@ paths:
           description: 'Entity not found'
         "500":
           description: 'Internal Server Error _Please read response message_'      
-      deprecated: false      
   /api/v2/content/localize/proposals/{proposalId}:
     delete:
       tags:
@@ -892,7 +879,6 @@ paths:
           description: 'guid of the item to delete'
           example: "aabc1234"
           required: true
-          style: form
           explode: true
           schema:
             type: string
@@ -901,7 +887,6 @@ paths:
           description: 'id of proposal to delete'
           example: 1234
           required: true
-          style: form
           explode: true
           schema:
             type: integer
@@ -935,14 +920,12 @@ paths:
           description: 'id of visualization'
           example: 1234
           required: true
-          style: simple
           schema:
             type: string
         - name: mode
           in: query
           description: '**Optional**  _standard (default)_'
           example: standard
-          style: simple
           schema:
             type: string
       responses:
@@ -971,7 +954,7 @@ paths:
       operationId: getDashboard
       parameters:
         - name: key
-          in: header
+          in: path
           description: 'The key used to get Dashboard'
           required: true
           style: simple
@@ -1077,7 +1060,6 @@ paths:
           description: 'Entity not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false   
   /api/v2/content/terms/some-terms-1/versions/newest:
     get:
       tags:
@@ -1116,8 +1098,7 @@ paths:
           description: 'Entity not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false   
-  /api/v2/content/terms/versions/{id}:
+  /api/v2/content/terms/versions/{guid}:
     get:
       tags:
         - Terms
@@ -1126,10 +1107,11 @@ paths:
       operationId: getShowVersion
       parameters:
         - name: guid
-          in: query
+          in: path
           description: '**optional** _If you want `has_viewed` to be calculated_'
           example: 1234
-          style: form
+          required: true
+          style: simple
           explode: true
           schema:
             type: string
@@ -1165,8 +1147,7 @@ paths:
           description: 'Entity not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false 
-  /api/v2/content/terms/versions/{id}/views:
+  /api/v2/content/terms/versions/{term_version_id}/views:
     post:
       tags:
         - Terms
@@ -1230,7 +1211,6 @@ paths:
             description: 'Precondition failed _Please read response message_'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false 
   /api/v2/notify/updates:
     get:
       tags:
@@ -1316,7 +1296,6 @@ paths:
           description: 'Entity not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false 
   /api/v2/notify/updates/views:
     post:
       tags:
@@ -1361,7 +1340,6 @@ paths:
             description: 'Precondition failed _Please read response message_'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false 
   /api/v2/notify/messages:
     get:
       tags:
@@ -1432,7 +1410,6 @@ paths:
             description: 'Precondition failed _Please read response message_'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false 
   /api/v2/notify/rate_reminder:
     get:
       tags:
@@ -1473,16 +1450,13 @@ paths:
             description: 'Entity not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
-        deprecated: false 
-      deprecated: false
   /api/v2/notify/rate_reminder/views:
     post:
       tags:
         - Rate reminders
-      summary: PostMarkasseen
+      summary: Post Mark as seen
       description: "Post rate reminder"
       operationId: postRateReminder
-      parameters:
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -1764,7 +1738,7 @@ paths:
           required: true
           schema:
             type: string
-    responses:
+      responses:
         "200":
           description: 'OK'
           headers: {}
@@ -1780,7 +1754,6 @@ paths:
           description: 'Entity not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
-    deprecated: false       
   /api/v2/geographic/countries/{id}:
     get:
       tags:
@@ -1790,8 +1763,8 @@ paths:
         Retrieve details of a specific country on Earth
       operationId: getShowCountry
       parameters:
-        - name: Id
-          in: header
+        - name: id
+          in: path
           description: '**required** _Country id_'
           example: 45
           required: true
@@ -1841,6 +1814,8 @@ paths:
           in: header
           description: "_Eg: [/api/geographic/languages?fields=name,locale]_"
           required: true
+          schema: 
+            type: string
       responses:
         "200":
           description: 'OK'
@@ -1993,7 +1968,7 @@ paths:
           style: form
           explode: true
           schema:
-            type: double,double
+            type: string
       responses:
         "200":
           description: 'OK'
@@ -2180,21 +2155,23 @@ paths:
           example: Insert everything passed to provider
           style: simple
           schema:
-            type: json
+            type: string
         - name: response
           in: header
           description: "_Eg: Insert everything received from provider_"
           example: Insert everything received from provider
           style: simple
           schema:
-            type: json
+            type: string
         - name: user_id
           in: header
           description: "_Eg: User id_"
           example: 1213
           style: simple
           schema:
-            type: string/integer
+            oneOf:
+              - type: string
+              - type: integer
         - name: relation_type
           in: header
           description: "_Eg: Booking, Company etc_"
@@ -2281,21 +2258,21 @@ paths:
           in: query
           description: "_Eg: [dk, gb, ...] - default is dk_"
           example: dk
-          style: simple
+          style: form
           schema:
             type: string
         - name: twilio
           in: query
           description: '_Validate against Twilio - Paid service!_'
           example: false
-          style: simple
+          style: form
           schema:
             type: boolean
         - name: twilio_type
           in: query
           description: '_Eg: ["all", "mobile", "landline"]_'
           example: all
-          style: simple
+          style: form
           schema:
             type: string            
       responses:
@@ -2565,9 +2542,9 @@ components:
       type: object
       properties:
         data:
-         -$ref: '#/components/schemas/Data'
+          $ref: '#/components/schemas/Data'
         meta:
-         -$ref: '#/components/schemas/Meta'
+          $ref: '#/components/schemas/Meta'
       example:
         data:
           id: 11
@@ -2658,9 +2635,9 @@ components:
       type: object
       properties:
         data:
-         -$ref: '#/components/schemas/Data2'
+          $ref: '#/components/schemas/Data'
         meta:
-         -$ref: '#/components/schemas/Meta2'
+          $ref: '#/components/schemas/Meta'
       example:
         data:
           default:
@@ -2711,7 +2688,7 @@ components:
       type: object
       properties:
         data:
-          -ref: '#/components/schemas/Data3'
+          $ref: '#/components/schemas/Data'
       example:
         data:
           id: 25
@@ -2850,11 +2827,6 @@ components:
           format: int32
         update:
           $ref: '#/components/schemas/Update'
-        localize:
-          type: array
-          items:
-            -ref: '#/components/schemas/Localize'
-          description: ''
         rate_reminder:
           $ref: '#/components/schemas/RateReminder'
         platform:
@@ -2974,7 +2946,7 @@ components:
         link:
           type: string
         translate:
-          -$ref: '#/components/schemas/Translate'
+          $ref: '#/components/schemas/TranslateImport'
       example:
         state: yes
         last_id: 621
@@ -3126,25 +3098,17 @@ components:
             created:
               type: string
               format: 'date-time'
-    UnauthorizedError:
-        description: API key is missing or invalid
-        headers:
-          WWW_Authenticate:
-            schema:
-              type: string            
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
       in: header
       name: X-REST-API-KEY
       description: '_Required Rest API key from_ [Nstack](https://nstack.io) _known as_ **nstackRestKey**'
-      required: true
     AppId:  
       type: apiKey
       in: header
       name: X-APPLICATION-ID
       description: '_Required Application id from_ [Nstack](https://nstack.io) _known as_ **nstackAppid**'
-      required: true
 
   
 
