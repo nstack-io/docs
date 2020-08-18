@@ -25,7 +25,7 @@ paths:
       operationId: postGetFocalPoint
       requestBody:
         content:
-          multipart/form-data:
+          application/x-www-form-urlencoded:
             schema:
               type: object
               properties:
@@ -109,16 +109,13 @@ paths:
         name: collectionId
         required: true
         description: 'ID of content collection'
+        example: 66
         schema:
           type: integer
       responses:
         "200":
-            description: 'OK'
-            headers: {}
-            content:
-              application/json:
-                schema:
-                 $ref: '#/components/schemas/CollectionResponse'
+          description: 'OK'
+          headers: {}
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -141,7 +138,7 @@ paths:
         - name: collectionId
           in: path
           description: 'Collection ID'
-          example: project/api/v2/content/collections/{1234}
+          example: 66
           style: simple
           required: true
           schema:
@@ -151,31 +148,7 @@ paths:
           application/x-www-form-urlencoded:
             encoding: {}
             schema:
-              required:
-                - k0int
-                - key1string
-                - key2float
-                - key3wysiwygsim
-                - key4asset
-                - key5boolean
-                - key6wysiwygadvanced
-              properties:
-                k0int:
-                  type: integer
-                  format: int32
-                key1string:
-                  type: string
-                key2float:
-                  type: number
-                  format: double
-                key3wysiwygsim:
-                  type: string
-                key4asset:
-                  type: string
-                key5boolean:
-                  type: boolean
-                key6wysiwygadvanced:
-                  type: string
+              $ref: '#/components/schemas/CollectionResponse'
         required: false
         x-send-file-in-body: false
       responses:
@@ -203,13 +176,13 @@ paths:
         - name: collectionId
           in: path
           required: true
-          example: projectID
+          example: 66
           schema:
             type: integer
         - name: itemId
           in: path
           required: true
-          example: itemID which is part of projectID
+          example: 489
           schema:
             type: integer      
       responses:
@@ -238,12 +211,14 @@ paths:
         - name: collectionId
           in: path
           required: true
+          example: 66
           description: collectionId
           schema:
             type: integer
         - name: itemId
           in: path
           required: true
+          example: 489
           description: itemId
           schema:
             type: integer
@@ -251,10 +226,6 @@ paths:
         "200":
             description: 'OK'
             headers: {}
-            content:
-              application/json:
-                schema:
-                 $ref: '#/components/schemas/CollectionResponse'
         "401":
           description: 'Collection does not have write access for api'
         "403":
@@ -344,6 +315,7 @@ paths:
               - type: integer
         - name: data
           description: 'default true - should the object be in data'
+          example: true
           in: query
           schema:
              type: boolean           
@@ -353,7 +325,7 @@ paths:
           content:
             application/json:  
               schema:
-                $ref: '#/components/schemas/Platform'
+                $ref: '#/components/schemas/Platforms'
         "401":
           description: 'Collection does not have write access for api'
         "403":
@@ -420,6 +392,7 @@ paths:
       operationId: getIndexlanguages
       parameters:
         - name: platform-slug
+          example: mobile
           in: path
           required: true
           schema: 
@@ -505,6 +478,7 @@ paths:
         - name: platform-slug
           in: path
           required: true
+          example: mobile
           schema: 
             type:  string
       responses:
@@ -582,75 +556,13 @@ paths:
             type: string
       responses:
         "200":
-          description: ''
-          headers:
-            Server:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: nginx/1.15.8
-            Transfer-Encoding:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: chunked
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: keep-alive
-            Cache-Control:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: no-cache, private
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: Tue, 13 Aug 2019 11:47:57 GMT
+          description: 'OK'
           content:
             application/json:
-              example:
-                data:
-                  - id: 16
-                    url: http://nodes-cdn-development.imgix.net/nstack/data/localize-publishes/publish-16-h4j9oHHi_IRrFIjA0B0.json
-                    last_updated_at: 2019-07-05T08:12:35+00:00
-                    should_update: true
-                    language:
-                      id: 11
-                      name: English (UK)
-                      locale: en-GB
-                      direction: LRM
-                      is_default: true
-                      is_best_fit: true
-                  - id: 249
-                    url: http://nodes-cdn-development.imgix.net/nstack/data/localize-publishes/publish-249-ge7QmlAC_B3yiR4JJrf.json
-                    last_updated_at: 2019-07-03T12:46:38+00:00
-                    should_update: true
-                    language:
-                      id: 14
-                      name: Spanish (Spain)
-                      locale: es-ES
-                      direction: LRM
-                      is_default: false
-                      is_best_fit: false
-                  - id: 307
-                    url: http://nstack.test/api/v2/content/localize/resources/307
-                    last_updated_at: 2019-07-03T13:09:23+00:00
-                    should_update: true
-                    language:
-                      id: 6
-                      name: Danish
-                      locale: da-DK
-                      direction: LRM
-                      is_default: false
-                      is_best_fit: false
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Localize'
         "401":
           description: 'Collection does not have write access for api'
         "403":
@@ -680,100 +592,10 @@ paths:
       responses:
         "200":
           description: ''
-          headers:
-            Server:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: nginx/1.15.8
-            Transfer-Encoding:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: chunked
-            Connection:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: keep-alive
-            Cache-Control:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: no-cache, private
-            Date:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: Tue, 13 Aug 2019 11:54:05 GMT
           content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Showresource'
-              example:
-                data:
-                  default:
-                    ok: Ok
-                    required: Required
-                    cancel: Cancel
-                    done: Done
-                    male: Male
-                    female: Female
-                    errorRandomErrorAlertText: An error has occurred
-                    ago: ago
-                    now: now
-                    open: Open
-                    openLinkTitle: Open link?
-                    openLinkMessage: This will open the link in a web browser outside of this app. Do you want to continue?
-                    justNow: just now
-                    nity: "World's Largest Tattoo Community"
-                    google: Google
-                    facebook: Facebook
-                    twitter: Twitter
-                    loginOrSignUpWithEmail: Log in or sign up with email
-                    terms: Terms
-                    youAgreeBySigningUp: By signing up, you agree to our Terms & Privacy Policy
-                    privacyPolicy: Privacy Policy
-                    continueWith: Continue with
-                    continueWithEmail: Or Continue with E-mail
-                  createUser1:
-                    title: Create account
-                    username: Username
-                    email: Email
-                    usernamePlaceholder: Type here
-                    emailPlaceholder: Type here
-                    signupButton: Sign up
-                    usernameNotAvailableAlertTitle: Username isn't available
-                    usernameNotAvailableAlertMessage: This username is already in use. Please try another username or variation.
-                    emailNotAvailableAlertMessage: This email is already in use. Please try another email or variation.
-                    emailNotAvailableAlertTitle: Email isn't available
-                    usernameAndEmailNotAvailableAlertMessage: This username and email are already in use. Please try another username and email or variation of these.
-                    describeTattooTitle: __describeTattooTitle
-                    describeTattooHint: __describeTattooHint
-                    requestNowButton: __requestNowButton
-                    contactInformationButton: __contactInformationButton
-                    bookingConfirmationTitle: __bookingConfirmationTitle
-                    bookingConfirmationSubtitle: __bookingConfirmationSubtitle
-                    bookingConfirmationButtonLabel: __bookingConfirmationButtonLabel
-                  endOfFeed:
-                    discoverMore: __discoverMore
-                    tattoos: __tattoos
-                meta:
-                  language:
-                    id: 11
-                    name: English (UK)
-                    locale: en-GB
-                    direction: LRM
-                    is_default: false
-                    is_best_fit: false
-                  platform:
-                    id: 15
-                    slug: mobile
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Showresource'
         "401":
           description: 'Collection does not have write access for api'
         "403":
@@ -850,6 +672,7 @@ paths:
         - name: state
           in: header
           description: '**optional, default unaccepted** *Options: unaccepted, accepted, all*'
+          example: unaccepted
           style: simple
           schema:
             type: string
@@ -865,7 +688,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Data'
+                $ref: '#/components/schemas/Datum'
         "401":
           description: 'Collection does not have write access for api'
         "403":
@@ -906,6 +729,10 @@ paths:
         "200":
           description: 'OK'
           headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexProposal'
         "401":
           description: 'Invalid guid'
         "403":
@@ -987,7 +814,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dashboard'
+                $ref: '#/components/schemas/DashboardById'
         "401":
           description: 'Invalid guid'
         "403":
@@ -1375,7 +1202,7 @@ paths:
             description: 'Precondition failed _Please read response message_'
         "500":
             description: 'Internal Server Error _Please read response message_'
-  /api/v1/notify/messages:
+  /api/v2/notify/messages:
     get:
       tags:
         - Messages
@@ -1429,12 +1256,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Messages'
-              example:
-                data:
-                  id: 25
-                  message: >+
-                    windows
-                  show_setting: show_always
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -1901,7 +1722,7 @@ paths:
         - name: ip
           in: query
           description: '_Eg: [1.2.3.4] Default is your own_'
-          example: project
+          example: 1.2.3.4
           required: true
           style: form
           explode: true
@@ -1990,6 +1811,7 @@ paths:
         - name: id
           in: path
           description: 'Timezone id'
+          example: 1
           required: true
           style: simple
           schema:
@@ -2037,7 +1859,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TimezonesByLatLng'
+                $ref: '#/components/schemas/TimezoneByLatLng'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -2291,7 +2113,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Validation'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -2350,7 +2172,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Validation'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -2613,7 +2435,7 @@ components:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/Data'
+          $ref: '#/components/schemas/Datum'
         meta:
           $ref: '#/components/schemas/Meta'
       example:
@@ -2626,37 +2448,6 @@ components:
           is_best_fit: false
         meta:
           Accept-Language: null
-    Data:
-      title: Data
-      required:
-        - id
-        - name
-        - locale
-        - direction
-        - is_default
-        - is_best_fit
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        locale:
-          type: string
-        direction:
-          type: string
-        is_default:
-          type: boolean
-        is_best_fit:
-          type: boolean
-      example:
-        id: 11
-        name: English (UK)
-        locale: en-GB
-        direction: LRM
-        is_default: false
-        is_best_fit: false
     Meta:
       title: Meta
       required:
@@ -2706,37 +2497,9 @@ components:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/Data'
+          $ref: '#/components/schemas/Datum'
         meta:
           $ref: '#/components/schemas/Meta'
-      example:
-        data:
-          default:
-            ok: Ok
-            required: Required
-            cancel: Cancel
-            done: Done
-            male: Male
-            female: Female
-            errorRandomErrorAlertText: An error has occurred
-            ago: ago
-            now: now
-            open: Open
-            openLinkTitle: Open link?
-            openLinkMessage: This will open the link in a web browser outside of this app. Do you want to continue?
-            justNow: just now
-            aMinuteAgo: 1m
-        meta:
-          language:
-            id: 11
-            name: English (UK)
-            locale: en-GB
-            direction: LRM
-            is_default: false
-            is_best_fit: false
-          platform:
-            id: 15
-            slug: mobile
     Platform:
       title: Platform
       required:
@@ -2749,9 +2512,11 @@ components:
           format: int32
         slug:
           type: string
-      example:
-        id: 15
-        slug: mobile
+    Platforms:
+      title: Platforms
+      type: array
+      items:
+          $ref: "#/components/schemas/Platform"
     Messages:
       title: Messages
       required:
@@ -2759,14 +2524,7 @@ components:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/Data'
-      example:
-        data:
-          id: 25
-          message: >+
-            windows
-
-          show_setting: show_always
+          $ref: '#/components/schemas/Message'
     ActionEventsRequest:
       title: ActionEventsRequest
       required:
@@ -3171,18 +2929,10 @@ components:
               format: 'date-time'
     CollectionResponse:
       title: Collection
-      required: 
-        - id
-        - item
-      properties:
-        id: 
-          type: object
-        item:
-          type: array
-          items:
-            $ref: '#/components/schemas/ItemResponse'
+      type: array
+      items:
+        $ref: '#/components/schemas/ItemResponse'
     ItemResponse:
-      type: object
       title: Item
       required:
           - itemId
@@ -3239,17 +2989,45 @@ components:
           type: string
         mode: 
           type: string
-    Dashboard:
-      type:
-        object
-      title: Dashboard
-      required: 
-        - key
+    DashboardById:
+      title: Dashboard by id
       properties:
-        key:
-          type: string
-        mode: 
-          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dashboard'
+    Dashboard:
+       title: Dashboard
+       properties: 
+         id:
+           type: integer
+         name: 
+           type: string
+         key:
+           type: string
+         theme:
+           type: string
+         logo_url:
+           type: string
+         items:
+          type: array
+          items: 
+            $ref: '#/components/schemas/DashboardData'
+    DashboardData: 
+      type: 
+        object
+      title: Dashboard Data
+      properties:
+        id:
+          type: integer
+        x:
+          type: integer
+        y:
+          type: integer
+        width:
+          type: integer
+        height:
+          type: integer
     Terms:
       type:
         object
@@ -3306,25 +3084,15 @@ components:
             $ref: '#/components/schemas/Language'
     ContinentsById:
       title: Continents By Id
-      required: 
-        - id
-        - countries
       properties:
-        id: 
-          type: object
-        coutries:
-          type: array
-          items:
+        data:
             $ref: '#/components/schemas/Continent'        
     Continents:
       title: Continents
       required: 
-        - id
         - continent
       properties:
-        id: 
-          type: object
-        continent:
+        data:
           type: array
           items:
             $ref: '#/components/schemas/Continent'
@@ -3347,13 +3115,8 @@ components:
             string
     Countries:
       title: Countries
-      required: 
-        - id
-        - coutry
       properties:
-        id: 
-          type: object
-        country:
+        data:
           type: array
           items:
             $ref: '#/components/schemas/Country'
@@ -3361,38 +3124,65 @@ components:
       title: Country
       required:
         - id
-        - countryId
+        - code
+        - code_iso
+        - name
+        - native
+        - phone
+        - continent
+        - capital
+        - capital_lat
+        - capital_lng
+        - currency
+        - currency_name
+        - language
+        - image_1_url
+        - image_2_url
+        - capital_timezone
       properties:
         id:
           type: string
-        countryId:
+        code:
           type: string
+        code_iso:
+          type: string
+        name:
+          type: string
+        native:
+          type: string
+        phone:
+          type: integer
+        continent:
+          type: string
+        capital:
+          type: string
+        capital_lat:
+          type: number
+          format: float
+        capital_lng:
+          type: number 
+          format: float
+        currency:
+          type: string
+        currency_name:
+          type: string
+        language: 
+          type: string
+        image_1_url:
+          type: string
+        image_2_url:
+          type: string
+        capital_timezone:
+            $ref: '#/components/schemas/Timezone'
     Timezones:
       title: Timezones
-      required: 
-        - id
-        - timezone
       properties:
-        id: 
-          type: object
-        timezone:
-          type: array
-          items:
+        data:
             $ref: '#/components/schemas/Timezone'         
-    TimezonesByLatLng:
-      title: Timezones by Latitude and Longitude
-      required:
-        - id
-        - timezoneId
-        - countryId
+    TimezoneByLatLng:
+      title: Timezone by Latitude and Longitude
       properties:
-        id:
-          type: string
-        timezoneId:
-          type: string
-        countryid:
-          type: array
-          items:
+        data:
             $ref: '#/components/schemas/Timezone'       
     Timezone:
       title: Timezone
@@ -3404,7 +3194,7 @@ components:
         - label
       properties:
         id:
-          type: string
+          type: integer
         name:
           type: string
         abbr:
@@ -3417,19 +3207,11 @@ components:
           
           
           
-    User:
+    Validation:
       title: User
-      required:
-        - id
-        - email
-        - phone
       properties:
-        id:
-          type: string
-        email:
-          type: string
-        phone:
-          type: integer
+        "ok":
+          type: boolean
     UGC:
       title: User Generated comments
       properties:
@@ -3483,8 +3265,75 @@ components:
           type: integer
         localization: 
             $ref: '#/components/schemas/RateReminder'
-
+    Collection:
+      title: Collection
+      required: 
+                - k0int
+                - key1string
+                - key2float
+                - key3wysiwygsim
+                - key4asset
+                - key5boolean
+                - key6wysiwygadvanced
+      properties:
+                k0int:
+                  type: integer
+                  format: int32
+                key1string:
+                  type: string
+                key2float:
+                  type: number
+                  format: double
+                key3wysiwygsim:
+                  type: string
+                key4asset:
+                  type: string
+                key5boolean:
+                  type: boolean
+                key6wysiwygadvanced:
+                  type: string        
+    Message:  
+      title: Message
+      properties:
+        id:
+          type: integer
+        message: 
+          type: string
+        show_setting: 
+          type: string
+        url:
+          type: string
+          nullable: true
+          example: null
+        localization:
+          $ref: '#/components/schemas/Localization'
+    Localization:
+      title: Localization
+      properties:
+        okBtn:
+          type: string
+          example: Ok
+        urlBtn:
+          type: string
+          example: Open URL
+    Localize:
+      title: Localize
+      properties:
+        id: 
+          type: integer
+        url: 
+          type: string
+        last_updated_at:
+          type: string
+        should_update:
+          type: boolean
+        language:
+          $ref: '#/components/schemas/Language'
         
+      
+
+
+
   securitySchemes:
     AppId:  
       type: apiKey
