@@ -15,6 +15,7 @@ servers:
 security: 
     - AppId: []
       ApiKey: []
+      
 paths:
   /api/v2/scropper:
     post:
@@ -303,8 +304,7 @@ paths:
       tags:
         - Responses
       summary: Show
-      description: >-
-        Get one response    
+      description: Get one response    
       operationId: getShowResponse
       parameters:
         - name: id_or_slug
@@ -312,9 +312,7 @@ paths:
           description: _**required** ID or slug of content type_ [15, "terms", "about"]
           required: true
           schema: 
-            oneOf:
-              - type: string
-              - type: integer
+            type: string
         - name: data
           description: 'default true - should the object be in data'
           example: true
@@ -327,7 +325,7 @@ paths:
           content:
             application/json:  
               schema:
-                $ref: '#/components/schemas/Platforms'
+                $ref: '#/components/schemas/TestResponses'
         "401":
           description: 'Collection does not have write access for api'
         "403":
@@ -872,7 +870,7 @@ paths:
         "500":
           description: 'Internal Server Error _Please read response message_'      
       deprecated: false          
-  /api/v2/content/terms/{slugOrId}/versions:
+  /api/v2/content/terms/{id}/versions:
     get:
       tags:
         - Terms
@@ -880,10 +878,19 @@ paths:
       description: 'Get Versions from slugOrId'
       operationId: getIndexVersions
       parameters:
-        - name: slugOrId
-          in: path
-          description: 'The id of the version'
+        - name: guid
+          in: query
+          description: 'The id of the version of the object'
+          example: 2
           required: true
+          style: simple
+          schema:
+            type: string 
+        - name: id
+          in: path
+          description: 'The Id of the object'
+          required: true
+          example: 9
           style: simple
           schema:
             type: string 
@@ -905,7 +912,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TermsByIndex'
+                $ref: '#/components/schemas/TermsResponse'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -918,7 +925,7 @@ paths:
           description: 'Entity not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
-  /api/v2/content/terms/{slugOrId}/versions/newest:
+  /api/v2/content/terms/{id}/versions/newest:
     get:
       tags:
         - Terms
@@ -926,9 +933,18 @@ paths:
       description: List newest Version      
       operationId: getNewestVersion
       parameters:
-        - name: slugOrId
+        - name: guid
+          in: query
+          description: 'The id of the version of the object'
+          required: true
+          example: 2
+          style: simple
+          schema:
+            type: string       
+        - name: id
           in: path
           description: 'The id of the version'
+          example: 9
           required: true
           style: simple
           schema:
@@ -941,7 +957,9 @@ paths:
             type: string
         - name: Accept-Language
           in: header
+          required: true
           description: ''
+          example: 1
           style: simple
           schema:
             type: string
@@ -951,7 +969,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TermsByIndex'
+                $ref: '#/components/schemas/TermsWithAccLanguage'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -964,7 +982,7 @@ paths:
           description: 'Entity not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
-  /api/v2/content/terms/versions/{guid}:
+  /api/v2/content/terms/versions/{id}:
     get:
       tags:
         - Terms
@@ -972,10 +990,18 @@ paths:
       description: Show version by id
       operationId: getShowVersion
       parameters:
-        - name: guid
+        - name: id
           in: path
-          description: '**optional** _If you want `has_viewed` to be calculated_'
-          example: 1234
+          description: 'The id of the object'
+          example: 9
+          required: true
+          style: simple
+          schema:
+            type: string  
+        - name: guid
+          in: query
+          description: 'the guid of the version of terms'
+          example: 2
           required: true
           style: simple
           explode: true
@@ -988,8 +1014,10 @@ paths:
           schema:
             type: string
         - name: Accept-Language
+          required: true
           in: header
           description: ''
+          example: 1
           style: simple
           schema:
             type: string
@@ -999,7 +1027,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TermsByGUID'
+                $ref: '#/components/schemas/TermsWithAccLanguage'
         "204":
           description: 'User was deleted.'
         "401":
@@ -2507,8 +2535,8 @@ components:
           $ref: '#/components/schemas/Datum'
         meta:
           $ref: '#/components/schemas/Meta'
-    Platform:
-      title: Platform
+    TestResponse:
+      title: Response
       required:
         - id
         - slug
@@ -2519,11 +2547,14 @@ components:
           format: int32
         slug:
           type: string
-    Platforms:
-      title: Platforms
-      type: array
-      items:
-          $ref: "#/components/schemas/Platform"
+    TestResponses:
+      title: Responses
+      required:
+        - data
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/TestResponse"
     Messages:
       title: Messages
       required:
@@ -3390,7 +3421,53 @@ components:
         required_ip:
           type: string
           example: 202.129.246.215
-     
+    TermsResponse:
+      title: Terms Response
+      
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Term'  
+    Term: 
+      title: Term
+      properties:
+        id:
+          type: integer
+        version:
+          type: string
+        version_name:
+          type: string
+        published_at:
+          type: string
+        has_viewed:
+          type: boolean
+    TermsWithAccLanguage:
+      title: Terms with acceptable language
+      properties:
+        data:
+          $ref: '#/components/schemas/TermLanguage'
+    TermLanguage:
+      title: Term with language
+      properties:
+        id:
+          type: integer
+        version:
+          type: string
+        version_name:
+          type: string
+        published_at:
+          type: string
+        has_viewed:
+          type: boolean
+        content:
+            $ref: '#/components/schemas/Content'
+    Content:
+      properties:
+          data:
+            type: string
+          locale:
+            type: string
         
       
 
@@ -3407,8 +3484,7 @@ components:
       in: header
       name: X-REST-API-KEY
       description: '_Required Rest API key from_ [Nstack](https://nstack.io) _known as_ **nstackRestKey**'
-
-
+      
   
 
      
