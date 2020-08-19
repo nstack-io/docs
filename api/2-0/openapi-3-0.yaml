@@ -31,16 +31,18 @@ paths:
               properties:
                   url:
                     type: string
+                    in: header
                     description: '**Required** if no file, only jpg, png'
                     example: https://example.jpg
                   file: 
                     type: string
                     format: binary
+                    in: header
                     description: '**Required** if no url, only jpg, png'
                   data-center:
                     type: string
                     description: 'Optional, default is AWS: Ireland(Options AWS: Ireland)'
-                    example: aws:ireland
+                    example: 'AWS: Ireland'
         required: false
         x-send-file-in-body: false            
       responses:
@@ -551,6 +553,7 @@ paths:
       parameters:
         - name: platform-slug
           in: path
+          example: mobile
           required: true
           schema: 
             type: string
@@ -757,7 +760,7 @@ paths:
         - name: key
           in: path
           description: 'id of visualization'
-          example: 1234
+          example: VIS-623d06a0-25e1-4f58-8a82-f5541cccee54
           required: true
           schema:
             type: string
@@ -798,6 +801,7 @@ paths:
         - name: key
           in: path
           description: 'The key used to get Dashboard'
+          example: DAS-8ddbde18-9d2a-4532-b114-aea3024a1635
           required: true
           style: simple
           schema:
@@ -1084,7 +1088,7 @@ paths:
         - name: platform
           in: query
           description: '**required** ["ios", "android", "windows"]'
-          example: ios
+          example: android
           required: true
           style: form
           explode: true
@@ -1213,6 +1217,7 @@ paths:
         - name: platform
           in: query
           description: '**required** ["ios", "android", "windows"]'
+          example: ios
           required: true
           style: form
           explode: true
@@ -1363,7 +1368,8 @@ paths:
       parameters:
         - name: guid
           in: query
-          description: ''
+          description: 'id of the rate reminder'
+          example: 236
           required: true
           style: form
           explode: true
@@ -1371,7 +1377,8 @@ paths:
             type: string
         - name: platform
           in: header
-          description: ''
+          description: 'which platform'
+          example: android
           required: true
           style: simple
           schema:
@@ -1734,7 +1741,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Country'
+                $ref: '#/components/schemas/IPResponse'
         "401":
             description: 'Missing Application Credentials'
         "403":
@@ -2527,6 +2534,7 @@ components:
           $ref: '#/components/schemas/Message'
     ActionEventsRequest:
       title: ActionEventsRequest
+      description: either guid or action
       required:
         - guid
         - action
@@ -2537,7 +2545,7 @@ components:
         action:
           type: string
       example:
-        guid: hasfdda-safsafad-asdasd-asdas
+        guid: 236
         action: masiakla-tutaj
     AnswerRequest:
       title: AnswerRequest
@@ -3329,6 +3337,60 @@ components:
           type: boolean
         language:
           $ref: '#/components/schemas/Language'
+    IPResponse:
+      title: IP Response
+      properties:
+        data:
+          $ref: '#/components/schemas/IpData'
+    IpData:
+      title: IP data
+      type: object
+      properties: 
+        id: 
+          type: integer
+          example: 8346961
+        ip_start:
+          type: string
+          example: 202.129.244.0
+        ip_end:
+          type: string
+          example: 202.129.247.255
+        country:
+          type: string
+          example: AU
+        state_prov:
+          type: string
+          example: Victoria
+        city:
+          type: string
+          example: Mount Beauty
+        lat:
+          type: number
+          format: float
+          example: -36.73628
+        lng:
+          type: number
+          format: float
+          example: 147.17531
+        time_zone_offset:
+          type: string 
+          example: 11
+        time_zone_name:
+          type: string
+          example: Australia/Melbourne
+        isp_name":
+          type: string
+          example: N/A
+        connection_type:
+          type: string
+          example: N/A
+        type:
+          type: string
+          example: ipv4
+        required_ip:
+          type: string
+          example: 202.129.246.215
+     
         
       
 
