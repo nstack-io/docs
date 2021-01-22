@@ -1042,7 +1042,7 @@ paths:
           description: 'Entity not found'
         "500":
             description: 'Internal Server Error _Please read response message_'
-  /api/v2/content/terms/versions/{term_version_id}/views:
+  /api/v2/content/terms/versions/views:
     post:
       tags:
         - Terms
@@ -1050,13 +1050,6 @@ paths:
       description: Create a new View
       operationId: postStoreView
       parameters:
-        - name: term_version_id
-          in: path
-          description: '**required** _ID of Terms Version_'
-          required: true
-          style: simple
-          schema:
-            type: string
         - name: N-Meta
           in: header
           description: ''
