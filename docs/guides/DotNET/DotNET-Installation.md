@@ -26,6 +26,7 @@ services.AddSingleton<NStackConfiguration>(r => new NStackConfiguration
 });
 services.AddTransient<INStackRepository, NStackRepository>();
 services.AddTransient<INStackLocalizeService, NStackLocalizeService>();
+services.AddTransient<INStackTermsService, NStackTermsService>();
 ```
 
 Best practice is to not hard code the configuration values but to fetch them from your application settings.
