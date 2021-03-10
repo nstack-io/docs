@@ -23,5 +23,8 @@ The same information is also available here, so you don't have to leave the docu
 * **Vapor**
   * [GitHub](https://github.com/nodes-vapor/nstack)
   * [Installation](../docs/guides/Vapor/vapor-installation.html)
+* **.NET**
+  * [GitHub](https://github.com/nstack-io/dotnetstandard-sdk)
+  * [Installation](../docs/guides/DotNET/dotnet-installation.html)
 
 > If the SDK you are looking for is missing, then the recommended way to use **NStack** for your need is to use the provided RESTful API. The documentation can be found [here](https://documenter.getpostman.com/view/12675/S1a8yjgk)
