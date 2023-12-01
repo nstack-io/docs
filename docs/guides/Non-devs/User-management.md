@@ -18,7 +18,7 @@ currentMenu: user-management
 ## Overview
 ### System overview
 
-The purpose of NStack is to enable you, as a client, to be able to control all text values in your app. The system is easily expandable, and allows you to maintain multiple languages for your app in one place. The system is hosted on Nodes servers, and you gain access to the system by having a Nodes employee inviting you via email.
+The purpose of NStack is to enable you, as a client, to be able to control all text values in your app. The system is easily expandable, and allows you to maintain multiple languages for your app in one place. The system is hosted on Monstarlab servers, and you gain access to the system by having a Monstarlab employee inviting you via email.
 
 ### Guide overview
 

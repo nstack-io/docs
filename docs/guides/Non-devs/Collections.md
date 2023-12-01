@@ -25,7 +25,7 @@ currentMenu: collections
 ## Overview
 ### System overview
 
-The purpose of the Collections feature in NStack is to enable you, as a client, to be able to control different data sets that are shown in the app. As the Collections feature is very versatile the usage of it depends in what it is used for in the app. The system is hosted on Nodes servers, and you gain access to the system by havnig a Nodes employee inviting you via email.
+The purpose of the Collections feature in NStack is to enable you, as a client, to be able to control different data sets that are shown in the app. As the Collections feature is very versatile the usage of it depends in what it is used for in the app. The system is hosted on Monstarlab servers, and you gain access to the system by havnig a Monstarlab employee inviting you via email.
 See the [Getting started](getting-started.html) guide for more info on accessing NStack.
 
 ### Guide overview

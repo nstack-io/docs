@@ -25,7 +25,7 @@ That's it! You now have access to all the features NStack has to offer.
 
 ## Accessing NStack
 
-NStack is accessed by getting an invite to the system by email. Your contact person at Nodes will be responsible for sending you an invite. The email will look like the one inserted below.
+NStack is accessed by getting an invite to the system by email. Your contact person at Monstarlab will be responsible for sending you an invite. The email will look like the one inserted below.
 
 ![Invite email](../../images/Guides/GettingStarted/invite_email.png)  {.screenshot}
 

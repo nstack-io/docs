@@ -3,13 +3,12 @@ Data Policy for Privacy, Cookies and Newsletter
 
 This website is owned and managed by:
 
-Nodes  
-174 North Gower Street  
-London | NW1 2NB  
-United Kingdom  
-+44 (0) 7935 792 014  
-Phone: +44 (0) 7935 792 014  
-Email: ldn@nodesagency.com
+Monstarlab
+Ebisu Prime Square Tower 4th Floor
+1-1-39 Hiroo, Shibuya-ku
+Tokyo, 150-0012
+Japan
+https://monstar-lab.com/global/contact
 
 Below, we’ve elaborated on our policies, what information is being collected, their purposes, and what third parties have access to them. These are divided into three chapters;
 
@@ -63,7 +62,7 @@ In addition, we use a number of third parties to store and process data. These o
 Disclosure of personal information such as name and e-mail, etc. will only happen if you consent to it. We only use computer users in the EU or in countries that can provide your information with adequate protection.
 
 **Insights and complaints**  
-You are entitled to know what personal information we are processing about you. You may also object to the use of information at any time. You may also revoke your consent to processing information about you. If the information processed about you is incorrect, you are entitled to correct or delete. Inquiry about this can be done at: ldn@nodesagency.com. If you would like to complain about our processing of your personal information, you also have the opportunity to contact the Data Inspectorate.
+You are entitled to know what personal information we are processing about you. You may also object to the use of information at any time. You may also revoke your consent to processing information about you. If the information processed about you is incorrect, you are entitled to correct or delete. Inquiry about this can be done at: MLEU.ldn@monstar-lab.com. If you would like to complain about our processing of your personal information, you also have the opportunity to contact the Data Inspectorate.
 
 Newsletter
 ----------
