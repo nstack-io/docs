@@ -491,55 +491,22 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="gdpr">GDPR</h1>
-<h2 id="what-data-is-stored">What data is stored</h2>
-<p>As a general note, NStack only stores General Personal Data - Rec.26; Art.4(1), so no sensitive data nor criminal offence related data</p>
-<h3><code>User management</code> module, is storing user data, to be able to login users and give access to applications / companies inside NStack</h3>
-<ul>
-<li>Name (Required)</li>
-<li>Email (Required)</li>
-<li>Password (hashed) (Required)</li>
-<li>Profile image (Optional)</li>
-<li>Invitations and permissions to access applications / companies inside NStack</li>
-</ul>
-<h3><code>Feedback</code> module, has options to store user data. But it is completely optional</h3>
-<ul>
-<li>Name</li>
-<li>Email</li>
-<li>Meta</li>
-</ul>
-<h3><code>Terms</code> module, has option to store an &quot;identifier&quot; to fx reference a view of a terms and conditions to a user. This identifier can have a userId to antoher DB or some other primary key</h3>
-<h2 id="where-is-it-stored">Where is it stored</h2>
-<h4 id="nstack-has-4-databases-all-are-hosted-on-amazons-datacenter-quoteu-west-1quot-in-ireland">NStack has 4 databases. All are hosted on Amazons datacenter &quot;eu-west-1&quot; in Ireland.</h4>
-<ul>
-<li>
-<p>MySQL via AWS RDS: All persistent data to run the platform: users, permissions, content, user generated content etc</p>
-</li>
-<li>
-<p>Elastic search via cloud.elastic on AWS: Requests are stored for statistics. As personal information, we store an approximate location data (lat and long) deducted from the ip addresses we get from the requests (IP is not stored)</p>
-</li>
-<li>
-<p>Redis via AWS. Used for caching on top of MySQL</p>
-</li>
-<li>
-<p>AWS S3 file storage. 2 buckets for private and public files. All public files are served via CDN imginx or vapor.cloud</p>
-</li>
-</ul>
-<p>Read more <a href="https://aws.amazon.com/compliance/gdpr-center/">AWS GDPR Centers</a></p>
-<h3 id="the-data-that-is-stored-by-nstack-comes-via">The data that is stored by NStack comes via:</h3>
-<ul>
-<li>NStack RESTful API using secure data transfer (HTTPS using TLS) so that all collected data is encrypted while in transit from the app to the API.</li>
-<li>An Admin dashboard for serving HTML pages also using HTTPS/TLS</li>
-</ul>
-<h3 id="some-of-the-data-is-reaching-the-following-services">Some of the data is reaching the following services:</h3>
-<ul>
-<li>Mailgun (Invitation &amp; Reset password) <a href="https://www.mailgun.com/gdpr">Read more</a></li>
-<li>Pusher (Socket connection for app open requests to dashboard module) <a href="https://pusher.com/legal/data-protection">Read more</a></li>
-</ul>
-<h2 id="data-retention-schedule">Data retention schedule</h2>
-<p>All the request's data is kept for 6 months.</p>
-<p>The Backend users information is soft deleted, so the above specified data is not deleted fully, but only marked as unavailable.</p>
-<p>If you wish to get your user/company/application hard deleted. Please contact us via gdpr@nstack.io</p>
+                    <p>The .NET SDK is available from the NuGet gallery and is written in .NET Standard, so it can be used in both .NET Framework, .NET Core, and .NET 5. The package is called <code>NStack.SDK</code>, you can install it by searching for it through the Visual Studio Package Manager or by running the following command in the Package Manager Console</p>
+<pre><code class="language-PowerShell">Install-Package NStack.SDK</code></pre>
+<p>Or if you're using the dotnet CLI, run the following command:</p>
+<pre><code class="language-PowerShell">dotnet add package NStack.SDK</code></pre>
+<h2 id="di-setup">DI setup</h2>
+<p>The SDK is built with DI support in mind and can be quickly set up in your <code>startup.cs</code> file in <code>ConfigureServices</code>:</p>
+<pre><code class="language-C#">services.AddSingleton&lt;NStackConfiguration&gt;(r =&gt; new NStackConfiguration
+{
+    ApiKey = "MyApiKey",
+    ApplicationId = "MyApplicationId",
+    BaseUrl = "MyBaseUrl"
+});
+services.AddTransient&lt;INStackRepository, NStackRepository&gt;();
+services.AddTransient&lt;INStackLocalizeService, NStackLocalizeService&gt;();
+services.AddTransient&lt;INStackTermsService, NStackTermsService&gt;();</code></pre>
+<p>Best practice is to not hard code the configuration values but to fetch them from your application settings.</p>
                 </section>
 
             </div>

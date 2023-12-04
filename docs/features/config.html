@@ -491,55 +491,47 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h1 id="gdpr">GDPR</h1>
-<h2 id="what-data-is-stored">What data is stored</h2>
-<p>As a general note, NStack only stores General Personal Data - Rec.26; Art.4(1), so no sensitive data nor criminal offence related data</p>
-<h3><code>User management</code> module, is storing user data, to be able to login users and give access to applications / companies inside NStack</h3>
+                    <h1 id="config">Config</h1>
+<p>The config feature meant to be our go-to solution for feature flag configuration in our app productions.</p>
+<p>Over time we've seen many different ways of storing and controlling state a la &quot;feature flags&quot; in NStack. Some have attempted to do it via <code>Localization</code> or via a custom <code>Response</code>. </p>
+<p>This is an attempt at a proper implementation.</p>
 <ul>
-<li>Name (Required)</li>
-<li>Email (Required)</li>
-<li>Password (hashed) (Required)</li>
-<li>Profile image (Optional)</li>
-<li>Invitations and permissions to access applications / companies inside NStack</li>
+<li>A feature is a name, type and value. The type can be <code>Integer</code>, <code>String</code> or <code>Boolean</code>. That should fit most use cases.</li>
+<li>These can be enabled or disabled, which just means it's not sent to the clients via <code>App Open</code>.</li>
+<li>An API is exposed to enable client SDK's to generate code similar to Translation classes for parsing feature flags.</li>
 </ul>
-<h3><code>Feedback</code> module, has options to store user data. But it is completely optional</h3>
+<p>Implementation details:</p>
 <ul>
-<li>Name</li>
-<li>Email</li>
-<li>Meta</li>
+<li>Name is automatically converted from <code>News delay</code> to <code>NEWS_DELAY</code>.</li>
 </ul>
-<h3><code>Terms</code> module, has option to store an &quot;identifier&quot; to fx reference a view of a terms and conditions to a user. This identifier can have a userId to antoher DB or some other primary key</h3>
-<h2 id="where-is-it-stored">Where is it stored</h2>
-<h4 id="nstack-has-4-databases-all-are-hosted-on-amazons-datacenter-quoteu-west-1quot-in-ireland">NStack has 4 databases. All are hosted on Amazons datacenter &quot;eu-west-1&quot; in Ireland.</h4>
-<ul>
-<li>
-<p>MySQL via AWS RDS: All persistent data to run the platform: users, permissions, content, user generated content etc</p>
-</li>
-<li>
-<p>Elastic search via cloud.elastic on AWS: Requests are stored for statistics. As personal information, we store an approximate location data (lat and long) deducted from the ip addresses we get from the requests (IP is not stored)</p>
-</li>
-<li>
-<p>Redis via AWS. Used for caching on top of MySQL</p>
-</li>
-<li>
-<p>AWS S3 file storage. 2 buckets for private and public files. All public files are served via CDN imginx or vapor.cloud</p>
-</li>
-</ul>
-<p>Read more <a href="https://aws.amazon.com/compliance/gdpr-center/">AWS GDPR Centers</a></p>
-<h3 id="the-data-that-is-stored-by-nstack-comes-via">The data that is stored by NStack comes via:</h3>
-<ul>
-<li>NStack RESTful API using secure data transfer (HTTPS using TLS) so that all collected data is encrypted while in transit from the app to the API.</li>
-<li>An Admin dashboard for serving HTML pages also using HTTPS/TLS</li>
-</ul>
-<h3 id="some-of-the-data-is-reaching-the-following-services">Some of the data is reaching the following services:</h3>
-<ul>
-<li>Mailgun (Invitation &amp; Reset password) <a href="https://www.mailgun.com/gdpr">Read more</a></li>
-<li>Pusher (Socket connection for app open requests to dashboard module) <a href="https://pusher.com/legal/data-protection">Read more</a></li>
-</ul>
-<h2 id="data-retention-schedule">Data retention schedule</h2>
-<p>All the request's data is kept for 6 months.</p>
-<p>The Backend users information is soft deleted, so the above specified data is not deleted fully, but only marked as unavailable.</p>
-<p>If you wish to get your user/company/application hard deleted. Please contact us via gdpr@nstack.io</p>
+<p><strong>AppOpen</strong></p>
+<pre><code>{
+    "data": {
+        "count": 44,
+        ...
+        "config": {
+            "NEWS_DELAY": 8
+        }
+    },
+    "meta": {
+        "accept_Language": "en_DK"
+    }
+}</code></pre>
+<p><strong>/v2/content/config</strong></p>
+<pre><code>{
+    "config": {
+        "NEWS_DELAY": 8
+    },
+    "raw": [
+        {
+            "name": "NEWS_DELAY",
+            "value": "8",
+            "type": "integer"
+        }
+    ]
+}</code></pre>
+<p><strong>Admin panel</strong></p>
+<img width="967" alt="Screenshot 2022-04-17 at 14 55 07" src="https://user-images.githubusercontent.com/1464994/163734825-89ca5d1a-ab4d-4cfc-874e-29883bd02d9b.png">
                 </section>
 
             </div>
