@@ -493,40 +493,28 @@
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h2 id="-requirements">📝 Requirements</h2>
 <ul>
-<li>iOS 8.0+ / tvOS 9.0+ / macOS 10.10+ / watchOS 2.0+</li>
-<li>Swift 3.0+</li>
+<li>iOS 11.0+ / tvOS 12.0+ / macOS 10.15+ / watchOS 6.0+</li>
+<li>Swift 5.0+</li>
 </ul>
 <h2 id="-installation">📦 Installation</h2>
-<h3 id="carthage">Carthage</h3>
-<pre><code># Swift 5
-github "nodes-ios/NStackSDK" ~&gt; 3.0
-
-# Swift 4.2-5 using Alamofire 5 - Pre-release
-github "nodes-ios/NStackSDK" "feature/alamofire5"
-
-# Swift 3-4
-github "nodes-ios/NStackSDK" ~&gt; 2.0
-
-# Swift 2.3
-github "nodes-ios/NStackSDK" == 0.3.12
-
-# Swift 2.2
-github "nodes-ios/NStackSDK" == 0.3.10</code></pre>
-<h3 id="migration-swift-4x--gt-swift-5">Migration Swift 4.x -&gt; Swift 5</h3>
-<ol>
-<li>Put this line in the cartfile
-<pre><code>github "nodes-ios/NStackSDK" ~&gt; 3.0</code></pre></li>
-<li>Remove all other references to Alamofire and Serpent from the Cartfile</li>
-<li>run <code>carthage update NStackSDK</code> for your platform</li>
-</ol>
-<h3 id="migration-to-nstacksdk-with-alamofire-5">Migration to NStackSDK with Alamofire 5</h3>
-<ol>
-<li>Put this line in the Cartfile
-<pre><code>github "nodes-ios/NStackSDK" "feature/alamofire5"</code></pre></li>
-<li>Remove all other references to Alamofire and Serpent from the Cartfile</li>
-<li>Make sure you don't have other dependencies using Alamofire 4 or Serpent ~&gt; 1.0. If you have, refer to the github repo for the dependency for migration pointers</li>
-<li>run <code>carthage update NStackSDK</code> for your platform</li>
-</ol>
+<h3 id="spm">SPM</h3>
+<pre><code>.package(url: "https://github.com/nstack-io/nstack-ios-sdk", from: "5.0.0"),</code></pre>
+<p>To use localizations in a separate module, you probably want to do something like this:</p>
+<pre><code>.target(
+    name: "Localizations",
+    dependencies: [
+        .product(name: "NStackSDK",
+                 package: "nstack-ios-sdk"),
+    ],
+    exclude: ["nstack-localizations-generator.bundle"],
+    resources: [
+        .copy("NStack.plist"),
+        .copy("Localizations/Localizations_en-GB.json"),
+        .copy("Localizations/Localizations_de-DE.json")
+    ]
+)</code></pre>
+<h3 id="cocoapods">CocoaPods</h3>
+<pre><code>pod 'NStackSDK', '~&gt; 5.2.0'</code></pre>
 <h2 id="-usage">💻 Usage</h2>
 <blockquote>
 <p><strong>NOTE:</strong> Don't forget to <code>import NStackSDK</code> in the top of the file.</p>
@@ -534,10 +522,13 @@ github "nodes-ios/NStackSDK" == 0.3.10</code></pre>
 <h3 id="getting-started">Getting Started</h3>
 <h4 id="plist">Plist</h4>
 <p>In your AppDelegate's <code>didFinishLaunching:</code> function start NStack by running:</p>
-<pre><code class="language-swift">let configuration = Configuration(plistName: "NStack", translationsClass: Translations.self)
-NStack.start(configuration: configuration, launchOptions: launchOptions)</code></pre>
+<pre><code class="language-swift">let configuration = NStackSDK.Configuration(plistName: "Nstack",
+                                            environment: .production,
+                                            localizationClass: Localizations.self)
+
+NStack.start(configuration: configuration, launchOptions: nil)</code></pre>
 <p>You should have a file called NStack.plist in your application bundle. It needs to contain a key called <strong><code>REST_API_KEY</code></strong> and a key called <strong><code>APPLICATION_ID</code></strong>.</p>
-<p>=======================</p>
+<p>You can also use an alternative initializer for the <code>NStackSDK.Configuration</code> and just pass the <strong><code>REST_API_KEY</code></strong> and <strong><code>APPLICATION_ID</code></strong> directly. </p>
                 </section>
 
             </div>

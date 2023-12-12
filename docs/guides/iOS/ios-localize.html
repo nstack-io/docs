@@ -492,12 +492,12 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h2 id="localization-on-ios">Localization on iOS</h2>
-<p>To use NStack for translations, you need to install the <a href="https://github.com/nodes-ios/nstack-translations-generator">NStack translations generator</a>. </p>
-<p>After that, all translations will be available through the tr-variable. </p>
-<p>Example: <code>tr.login.forgotPassword</code> where <code>login</code> is the section and <code>forgotPassword</code> is the key from nstack. For example:</p>
+<p>To use NStack for localizations, you need to install the <a href="https://github.com/nodes-ios/nstack-localizations-generator">NStack localizations generator</a>. </p>
+<p>After that, all localizations will be available through the lo-variable. </p>
+<p>Example: <code>lo.login.forgotPassword</code> where <code>login</code> is the section and <code>forgotPassword</code> is the key from nstack. For example:</p>
 <pre><code class="language-swift">@IBOutlet weak var forgotPasswordButton: UIButton! {
     didSet {
-    forgotPasswordButton.setTitle(tr.login.forgotPassword, for: .normal)
+        forgotPasswordButton.setTitle(lo.login.forgotPassword, for: .normal)
     }
 }</code></pre>
 <p>Read more about <strong>Localization</strong> in the <a href="../../features/localize.html"><em>Feature/Localization</em></a> section.</p>
@@ -505,28 +505,29 @@
 <ol>
 <li>In your Xcode project <em>(build phases)</em> add <strong>New Run Script Phase</strong> and drag it before <strong>Compile Sources</strong> phase</li>
 <li>Put in the script below and change your project specific IDs and Paths</li>
-<li>Everytime you do <strong>Clean</strong> and then <strong>Build</strong>, your translations will be fetched and models generated</li>
+<li>Everytime you do <strong>Clean</strong> and then <strong>Build</strong>, your localuzations will be fetched and models generated.</li>
 </ol>
+<p>This is important for updating the localizations during development only. In production, NStack updates the localizations automatically during the app launch. </p>
 <p><strong>You can find the translations run script <a href="https://github.com/nodes-ios/nstack-translations-generator/blob/master/translations_script.sh">here</a>.</strong></p>
 <p>​                                                           or here:</p>
 <pre><code class="language-bash">TL_PROJ_ROOT_FOLDER="App"
-TL_GEN_PATH="${SRCROOT}/${TL_PROJ_ROOT_FOLDER}/Resources/NStack/nstack-translations-generator.bundle"
+TL_GEN_PATH="${SRCROOT}/${TL_PROJ_ROOT_FOLDER}/Resources/NStack/nstack-localizations-generator.bundle"
 TL_CONFIG_PATH="${SRCROOT}/${TL_PROJ_ROOT_FOLDER}/Resources/NStack/NStack.plist"
-TL_OUT_PATH="${SRCROOT}/${TL_PROJ_ROOT_FOLDER}/Resources/NStack/Translations"
+TL_OUT_PATH="${SRCROOT}/${TL_PROJ_ROOT_FOLDER}/Resources/NStack/Localizations"
 
 # Check if doing a clean build
-if test -f "${DERIVED_FILE_DIR}/TranslationsGenerator.lock"; then
-echo "Not clean build, won't fetch translations this time."
+if test -f "${DERIVED_FILE_DIR}/LocalizationsGenerator.lock"; then
+echo "Not clean build, won't fetch localizations this time."
 else
-echo "Clean build. Getting translations..."
-"${TL_GEN_PATH}/Contents/MacOS/nstack-translations-generator" -plist "${TL_CONFIG_PATH}" -output "${TL_OUT_PATH}" -standalone
-touch "${DERIVED_FILE_DIR}/TranslationsGenerator.lock" # create lock file
+echo "Clean build. Getting localizations..."
+"${TL_GEN_PATH}/Contents/MacOS/nstack-localizations-generator" -plist "${TL_CONFIG_PATH}" -output "${TL_OUT_PATH}"
+touch "${DERIVED_FILE_DIR}/LocalizationsGenerator.lock" # create lock file
 fi</code></pre>
-<p>The Translation Manager picks the language translation based on the phone's selected language and region, e.g. en-DK (where the phone is in English, but the region is Denmark), in case there are at least two languages defined for that specific application. </p>
+<p>The Localizations Manager picks the language localization based on the phone's selected language and region, e.g. en-DK (where the phone is in English, but the region is Denmark), in case there are at least two languages defined for that specific application. </p>
 <blockquote>
 <p>If there is only one language defined in the NStack web console, the application will use that language</p>
 </blockquote>
-<p>On every launch of the mobile app, NStack checks to see if there are new translations available and it updates the translation file in the app's bundle. In the case of no Internet connection, the Translation Manager will use the default language specified in NStack (this default language translation is shipped with app, it exists since NStack was added in the development process).</p>
+<p>On every launch of the mobile app, NStack checks to see if there are new localizations available and it updates the localization file in the app's bundle. In the case of no Internet connection, the Localization Manager will use the default language specified in NStack (this default language localization is shipped with app, it exists since NStack was added in the development process).</p>
                 </section>
 
             </div>
