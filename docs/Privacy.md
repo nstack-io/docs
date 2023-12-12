@@ -62,12 +62,12 @@ In addition, we use a number of third parties to store and process data. These o
 Disclosure of personal information such as name and e-mail, etc. will only happen if you consent to it. We only use computer users in the EU or in countries that can provide your information with adequate protection.
 
 **Insights and complaints**  
-You are entitled to know what personal information we are processing about you. You may also object to the use of information at any time. You may also revoke your consent to processing information about you. If the information processed about you is incorrect, you are entitled to correct or delete. Inquiry about this can be done at: MLEU.ldn@monstar-lab.com. If you would like to complain about our processing of your personal information, you also have the opportunity to contact the Data Inspectorate.
+You are entitled to know what personal information we are processing about you. You may also object to the use of information at any time. You may also revoke your consent to processing information about you. If the information processed about you is incorrect, you are entitled to correct or delete. Inquiry about this can be done at: compliance@monstar-lab.com. If you would like to complain about our processing of your personal information, you also have the opportunity to contact the Data Inspectorate.
 
 Newsletter
 ----------
 
-By signing up for the Newsletter, downloading an ebook or using other services on nodes.dk and related websites (eg Nodesagency.com), you agree at the same time that Nodes may contact and / or send you relevant tips, tricks and guides, as well as other marketing material. You can always unsubscribe for free, via the button in our news emails, and all data about your sign-up will be deleted at the same time.
+By signing up for the Newsletter, downloading an ebook or using other services on monstar-lab.com and related websites, you agree at the same time that Nodes may contact and / or send you relevant tips, tricks and guides, as well as other marketing material. You can always unsubscribe for free, via the button in our news emails, and all data about your sign-up will be deleted at the same time.
 
 **Content & Frequency**  
 The content of our newsletter consists of the latest trends, analysis, guides, and tips and tricks within the app development industry. The frequency of these newsletters varies depending on how often we have new relevant content for you, but typically you will receive emails with the aforementioned content 1-4 times a month.
@@ -80,4 +80,4 @@ Information collected in connection with registration, purchase, download or par
 This knowledge is used to improve current products, services and technologies as well as display of content that is customized so that this is always relevant to users.
 
 **Disclosure of personal data**  
-If you wish to have access to the information Nodes has registered about you, please contact cph@nodesagency.com and phone number 42 41 01 01. If you have found incorrect data or have any other objections, please contact the same place.
+If you wish to have access to the information Monstarlab has registered about you, please contact compliance@monstar-lab.com. If you have found incorrect data or have any other objections, please contact the same place.
