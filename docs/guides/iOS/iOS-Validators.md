@@ -7,7 +7,7 @@ currentMenu: ios-Validation
 NStack makes it possible to validate the syntax and domain of an email, just use:
 
 ~~~~swift
-NStack.sharedInstance.validateEmail("tech@nodes.dk") { (valid, error) in
+NStack.sharedInstance.validateEmail("tech@monstar-lab.com") { (valid, error) in
     if valid {
         //Email syntax and domain is valid
     }
