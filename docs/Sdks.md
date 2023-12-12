@@ -14,6 +14,8 @@ The same information is also available here, so you don't have to leave the docu
 * **Android - Kotlin**
   * [GitHub](https://github.com/nstack-io/android-sdk)
   * [Installation](../docs/guides/Android/android-installation.html)
+* **Flutter - Dart**
+  * [GitHub](https://github.com/nstack-io/flutter-sdk)
 * **PHP**
   * [GitHub](https://github.com/nstack-io/php-sdk)
   * [Installation](../docs/guides/PHP/php-installation.html)
