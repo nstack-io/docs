@@ -67,7 +67,7 @@ You are entitled to know what personal information we are processing about you. 
 Newsletter
 ----------
 
-By signing up for the Newsletter, downloading an ebook or using other services on monstar-lab.com and related websites, you agree at the same time that Nodes may contact and / or send you relevant tips, tricks and guides, as well as other marketing material. You can always unsubscribe for free, via the button in our news emails, and all data about your sign-up will be deleted at the same time.
+By signing up for the Newsletter, downloading an ebook or using other services on monstar-lab.com and related websites, you agree at the same time that Monstarlab may contact and / or send you relevant tips, tricks and guides, as well as other marketing material. You can always unsubscribe for free, via the button in our news emails, and all data about your sign-up will be deleted at the same time.
 
 **Content & Frequency**  
 The content of our newsletter consists of the latest trends, analysis, guides, and tips and tricks within the app development industry. The frequency of these newsletters varies depending on how often we have new relevant content for you, but typically you will receive emails with the aforementioned content 1-4 times a month.

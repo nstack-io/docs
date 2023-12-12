@@ -3,6 +3,9 @@ currentMenu:  features-scropper
 ---
 
 # Scropper
+
+>#### Scropper has been removed and is no longer available in NStack!
+
 (S)mart Cropper
 
 New in 2.3.0

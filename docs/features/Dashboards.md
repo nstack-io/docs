@@ -3,7 +3,7 @@ currentMenu:  features-dashboard
 ---
 
 #Dashboards
-
+>#### Dashboards feature has been removed and is no longer available in NStack!
 
 
 ![dashboard](../images/Guides/Dashboard/dashboard.png)

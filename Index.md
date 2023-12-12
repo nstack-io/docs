@@ -20,6 +20,7 @@ This is what got us into developing NStack - a solution offering many such featu
 You can easily integrate it with:
 - iOS apps 
 - Android apps
+- Flutter apps
 - Laravel projects
 - Vapor projects
 - PHP 

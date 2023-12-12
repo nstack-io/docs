@@ -3,6 +3,8 @@ currentMenu:  features-stagger
 ---
 
 # Stagger
+>#### Stagger has been removed and is no longer available in NStack!
+
 (S)mart Tagger
 
 New in 2.3.0
