@@ -10,7 +10,7 @@ The full API documentation is available:
 
 [Postman collection](https://documenter.getpostman.com/view/12675/S1a8yjgk)
 
-[Render Open API in NSpec](https://nspec.like.st/deeplink?org=nstack-io&repo=docs&path=api%2F2-0%2Fopenapi-3-0.yaml)
+[Render Open API in Swagger UI](https://nstack-io.github.io/nstack-swagger-ui/)
 
 [Raw as Open Api 3.0](https://raw.githubusercontent.com/nstack-io/docs/master/api/2-0/openapi-3-0.yaml)
 
