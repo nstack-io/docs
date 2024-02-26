@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>NStack - Developers</title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/highlight.tomorrow-night.css">
+        <link rel="stylesheet" href="/css/main.css">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+        <link rel="manifest" href="/favicons/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+
+        <header class="navbar navbar-default navbar-fixed-top">
+
+            <a class="navbar-brand" href="/">
+                NStack
+                <small class="hidden-xs hidden-sm">
+                    Developers
+                </small>
+            </a>
+
+            <!--                 <a href="https://github.com/nstack-io/documentation">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+                </a>
+             -->
+
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                                                    <p class="text-muted">
+                                Documentation
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/index.html" onclick="interceptSidebarClick(event);">
+                                                Introduction
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/api.html" onclick="interceptSidebarClick(event);">
+                                                API
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/language-picker.html" onclick="interceptSidebarClick(event);">
+                                                Language picker
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/sdks.html" onclick="interceptSidebarClick(event);">
+                                                SDKs
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/app-open.html" onclick="interceptSidebarClick(event);">
+                                                App open
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/deeplink.html" onclick="interceptSidebarClick(event);">
+                                                Deeplink
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Features
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/localize.html" onclick="interceptSidebarClick(event);">
+                                                Localize
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/files.html" onclick="interceptSidebarClick(event);">
+                                                Files
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/rate-reminder.html" onclick="interceptSidebarClick(event);">
+                                                Rate-reminder
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/feedback.html" onclick="interceptSidebarClick(event);">
+                                                Feedback
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/version-control.html" onclick="interceptSidebarClick(event);">
+                                                Version-control
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/messages.html" onclick="interceptSidebarClick(event);">
+                                                Messages
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/responses.html" onclick="interceptSidebarClick(event);">
+                                                Responses
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/collections.html" onclick="interceptSidebarClick(event);">
+                                                Collections
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/geographic.html" onclick="interceptSidebarClick(event);">
+                                                Geographics
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Non-devs/master-app.html" onclick="interceptSidebarClick(event);">
+                                                Master App
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/push-logs.html" onclick="interceptSidebarClick(event);">
+                                                Push logs
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/validators.html" onclick="interceptSidebarClick(event);">
+                                                Validators
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/terms.html" onclick="interceptSidebarClick(event);">
+                                                Terms
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Features (deprecated)
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/scropper.html" onclick="interceptSidebarClick(event);">
+                                                Scropper
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/stagger.html" onclick="interceptSidebarClick(event);">
+                                                Stagger
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/features/dashboards.html" onclick="interceptSidebarClick(event);">
+                                                Dashboard
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Documentation for non developers
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Non-devs/getting-started.html" onclick="interceptSidebarClick(event);">
+                                                Getting started
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Non-devs/user-management.html" onclick="interceptSidebarClick(event);">
+                                                User management
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Non-devs/localize-for-beginners.html" onclick="interceptSidebarClick(event);">
+                                                Localize for beginners
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Non-devs/localize-for-experts.html" onclick="interceptSidebarClick(event);">
+                                                Localize for experts
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Non-devs/master-app.html" onclick="interceptSidebarClick(event);">
+                                                Master app
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Non-devs/export-localizations.html" onclick="interceptSidebarClick(event);">
+                                                Export Localizations
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="active">
+										<!--  -->
+                                            <a href="/docs/guides/Non-devs/collections.html" onclick="interceptSidebarClick(event);">
+                                                Collections
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Non-devs/responses.html" onclick="interceptSidebarClick(event);">
+                                                Responses
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                iOS
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/iOS/ios.html" onclick="interceptSidebarClick(event);">
+                                                iOS - Installation
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/iOS/ios-localize.html" onclick="interceptSidebarClick(event);">
+                                                iOS - Localize
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/iOS/ios-responses.html" onclick="interceptSidebarClick(event);">
+                                                iOS - Responses
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/iOS/ios-collections.html" onclick="interceptSidebarClick(event);">
+                                                iOS - Collections
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/iOS/ios-files.html" onclick="interceptSidebarClick(event);">
+                                                iOS - Files
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/iOS/ios-version-control.html" onclick="interceptSidebarClick(event);">
+                                                iOS - Version Control
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/iOS/ios-messages.html" onclick="interceptSidebarClick(event);">
+                                                iOS - Messages
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/iOS/ios-rate-reminder.html" onclick="interceptSidebarClick(event);">
+                                                iOS - Rate reminder
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/iOS/ios-geography.html" onclick="interceptSidebarClick(event);">
+                                                iOS - Geography
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/iOS/ios-validators.html" onclick="interceptSidebarClick(event);">
+                                                iOS - Validation
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Android
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Android/android-installation.html" onclick="interceptSidebarClick(event);">
+                                                Android - Installation
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Android/android-localize.html" onclick="interceptSidebarClick(event);">
+                                                Android - Localize
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Android/android-app-open.html" onclick="interceptSidebarClick(event);">
+                                                Android - App Open
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Android/android-version-control.html" onclick="interceptSidebarClick(event);">
+                                                Android - Version Control
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Android/android-collections.html" onclick="interceptSidebarClick(event);">
+                                                Android - Collections
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Android/android-rate-reminder.html" onclick="interceptSidebarClick(event);">
+                                                Android - Rate reminder
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Android/android-messages.html" onclick="interceptSidebarClick(event);">
+                                                Android - Messages
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Android/android-feedback.html" onclick="interceptSidebarClick(event);">
+                                                Android - Feedback
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Android/android-terms.html" onclick="interceptSidebarClick(event);">
+                                                Android - Terms
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                PHP
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/PHP/php-installation.html" onclick="interceptSidebarClick(event);">
+                                                PHP - Installation
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Laravel
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Laravel/laravel-installation.html" onclick="interceptSidebarClick(event);">
+                                                Laravel - Installation
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                            </ul>
+                                                    <p class="text-muted">
+                                Vapor
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Vapor/vapor-installation.html" onclick="interceptSidebarClick(event);">
+                                                Vapor - Installation
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Vapor/vapor-localize.html" onclick="interceptSidebarClick(event);">
+                                                Vapor - Localize
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Vapor/vapor-version-control.html" onclick="interceptSidebarClick(event);">
+                                                Vapor - Version Control
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                                    <li class="">
+										<!--  -->
+                                            <a href="/docs/guides/Vapor/vapor-responses.html" onclick="interceptSidebarClick(event);">
+                                                Vapor - Responses
+                                            </a>
+										<!--  -->
+                                    </li>
+                                                            </ul>
+                        
+                    </nav>
+
+                
+                <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                    <h1 id="nstack-guide---collections">NStack Guide - Collections</h1>
+<ul>
+<li><a href="#overview">Overview</a>
+<ul>
+<li><a href="#system-overview">System overview</a></li>
+<li><a href="#guide-overview">Guide overview</a></li>
+</ul></li>
+<li><a href="#accessing-the-collections-system">Accessing the collections system</a></li>
+<li><a href="#templates">Templates</a>
+<ul>
+<li><a href="#creating-a-template">Creating a template</a></li>
+<li><a href="#modifying-a-template">Modifying a template</a></li>
+<li><a href="#deleting-a-template">Deleting a template</a></li>
+</ul></li>
+<li><a href="#collections">Collections</a>
+<ul>
+<li><a href="#creating-a-collection">Creating a collection</a></li>
+<li><a href="#modifying-a-collection">Modifying a collection</a></li>
+<li><a href="#deleting-a-collection">Deleting a collection</a></li>
+</ul></li>
+<li><a href="#objects">Objects</a>
+<ul>
+<li><a href="#creating-an-object">Creating an object</a></li>
+<li><a href="#modifying-an-object">Modifying an object</a></li>
+<li><a href="#deleting-an-object">Deleting an object</a></li>
+<li><a href="#change-order-of-an-object">Change order of an object</a> </li>
+</ul></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<h3 id="system-overview">System overview</h3>
+<p>The purpose of the Collections feature in NStack is to enable you, as a client, to be able to control different data sets that are shown in the app. As the Collections feature is very versatile the usage of it depends in what it is used for in the app. The system is hosted on Monstarlab servers, and you gain access to the system by havnig a Monstarlab employee inviting you via email.
+See the <a href="getting-started.html">Getting started</a> guide for more info on accessing NStack.</p>
+<h3 id="guide-overview">Guide overview</h3>
+<p>The purpose of this guide is to present the Collections feature of NStack and one of it's possible use cases. The guide does not cover any other aspects of NStack, for information on other features or more use cases for collections, refer to the <a href="../../features/collections.html">feature overview</a>.</p>
+<h2 id="accessing-the-collections-system">Accessing the Collections system</h2>
+<p>After logging in, assuming you have just one project, you will be presented with the following screen. If you have access to multiple projects, you'll have to select a project first. Press the &quot;Collections&quot; button to access the Collections feature of NStack.</p>
+<p><img src="../../images/Guides/Collections/select_collections2.png" alt="Select Collections" class="screenshot" /></p>
+<h2 id="templates">Templates</h2>
+<p>How you use the Collections feature is all based on what templates you have defined.</p>
+<h3 id="creating-a-template">Creating a template</h3>
+<p>To create a new template press the &quot;&gt;Templates&quot; button on the top right.</p>
+<p><img src="../../images/Guides/Collections/template_button.png" alt="Templates button" /></p>
+<p>On the next page select the &quot;Create&quot; button to define a new template.</p>
+<p><img src="../../images/Guides/Collections/create_template_button.png" alt="Create template button" /></p>
+<p>On this page you can define your template, give the template a name and define up to 30 keys with their value type for this template.
+Once you are happy with your template scroll to the bottom of the page and press the &quot;Create&quot; button.</p>
+<p><img src="../../images/Guides/Collections/create_template.png" alt="Create template" /></p>
+<p>You will see your new template on the template overview, to use your new template navigate back to the collections over view by pressing &quot;collections&quot; in the navigator.</p>
+<p><img src="../../images/Guides/Collections/template_added.png" alt="Template added" /></p>
+<h3 id="modifying-a-template">Modifying a template</h3>
+<p>To modify a template go to the template overview by pressing the &quot;&gt;Templates&quot; button on the Collections overview.</p>
+<p><img src="../../images/Guides/Collections/template_button.png" alt="Templates button" /></p>
+<p>Press the &quot;Pencil&quot; button on the template you want to modify.</p>
+<p><img src="../../images/Guides/Collections/template_edit_buttons.png" alt="Template edit buttons" /></p>
+<p>Make your changes on this page, when you are happy with the changes scroll down to the bottom of the page and press the &quot;Update&quot; button.</p>
+<p><img src="../../images/Guides/Collections/update_template.png" alt="Update template" /></p>
+<h3 id="deleting-a-template">Deleting a template</h3>
+<p>To deleta a template go to the template overview by pressing the &quot;&gt;Templates&quot; button on the Collections overview.</p>
+<p><img src="../../images/Guides/Collections/template_button.png" alt="Templates button" /></p>
+<p>Press the &quot;Cross&quot; button on the template you want to delete.</p>
+<p><img src="../../images/Guides/Collections/template_edit_buttons.png" alt="Template edit buttons" /></p>
+<p>If you are sure you want to delete the template press the &quot;Delete&quot; button on the popup.</p>
+<p><img src="../../images/Guides/Collections/delete_template_dialog.png" alt="Delete template dialog" /></p>
+<h2 id="collections">Collections</h2>
+<h3 id="creating-a-collection">Creating a collection</h3>
+<p>To create a new collection press the &quot;Create&quot; button on the collections overview.</p>
+<p><img src="../../images/Guides/Collections/create_collection_button.png" alt="Create collection button" /></p>
+<p>Give your collection a name, assign a template, set it's mode and tell NStack if the collection can be changed using the api or not.
+Press the &quot;Create&quot; button when you are ready.</p>
+<p><img src="../../images/Guides/Collections/create_collection.png" alt="Create collection" /></p>
+<p>Now that you have created a collection you can start adding objects to it.</p>
+<h3 id="modifying-a-collection">Modifying a collection</h3>
+<p>To modify a collection press the &quot;Pencil&quot; button on the collection you want to modify.</p>
+<p><img src="../../images/Guides/Collections/collection_edit_buttons.png" alt="Collection edit buttons" /></p>
+<p>Make the changes you need to change and press the &quot;Update&quot; button when you are ready.</p>
+<p><img src="../../images/Guides/Collections/update_collection.png" alt="Update collection" /></p>
+<h3 id="deleting-a-collection">Deleting a collection</h3>
+<p>To delete a collection press the &quot;Cross&quot; button on the collection you want to delete.</p>
+<p><img src="../../images/Guides/Collections/collection_edit_buttons.png" alt="Collection edit buttons" /></p>
+<p>If you are sure you want to delete this collection press the &quot;Delete&quot; button on the popup.</p>
+<p><img src="../../images/Guides/Collections/delete_collection_dialog.png" alt="Delete collection dialog" /></p>
+<h2 id="objects">Objects</h2>
+<h3 id="creating-an-object">Creating an object</h3>
+<p>To create an object and add it to a collection press the &quot;eye&quot; button on the collection you want to add it to.</p>
+<p><img src="../../images/Guides/Collections/collection_edit_buttons.png" alt="Collection edit buttons" /></p>
+<p>Press the &quot;Create&quot; button to add an object to the colletion.</p>
+<p><img src="../../images/Guides/Collections/add_object_button.png" alt="Add to collection button" /></p>
+<p>Fill out the values you have previously defined in your template.
+And press the &quot;Update&quot; button when you are done.</p>
+<p><img src="../../images/Guides/Collections/create_object.png" alt="Create object" /></p>
+<p>You will see that the object you just added is listed in the collection.</p>
+<h3 id="modifying-an-object">Modifying an object</h3>
+<p>To modify an object navigate to the collection by pressing the &quot;Eye&quot; button on the colletion overview.</p>
+<p><img src="../../images/Guides/Collections/collection_edit_buttons.png" alt="Collection edit buttons" /></p>
+<p>After that Press the &quot;Pencil&quot; button on the object you want to modify.</p>
+<p><img src="../../images/Guides/Collections/object_edit_buttons.png" alt="Object edit buttons" /></p>
+<p>Make your changes and when you are ready press the &quot;Update&quot; button.</p>
+<p><img src="../../images/Guides/Collections/update_object.png" alt="Edit object" /></p>
+<h3 id="deleting-an-object">Deleting an object</h3>
+<p>First navigate to the collection that contains the object by pressing the &quot;Eye&quot; button on the collection that contains the object.</p>
+<p><img src="../../images/Guides/Collections/collection_edit_buttons.png" alt="Collection edit buttons" /></p>
+<p>Then press the &quot;Cross&quot; button on the object you want to delete. </p>
+<p><img src="../../images/Guides/Collections/object_edit_buttons.png" alt="Object edit buttons" /></p>
+<p>If you are sure you want to delete this object press the &quot;Delete&quot; button on the object.</p>
+<p><img src="../../images/Guides/Collections/delete_object_dialog.png" alt="Delete object dialog" /></p>
+<h3 id="change-order-of-an-object">Change order of an object</h3>
+<p>To change the order of object first navigate to the collection that contains the objects by pressing its &quot;Eye&quot; button.</p>
+<p><img src="../../images/Guides/Collections/collection_edit_buttons.png" alt="Collection edit buttons" /></p>
+<p>Then use the &quot;Up arrow&quot; and &quot;Down arrow&quot; to reorder the objects.</p>
+<p><img src="../../images/Guides/Collections/object_edit_buttons.png" alt="Object edit buttons" /></p>
+                </section>
+
+            </div>
+        </main>
+
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//yandex.st/highlightjs/7.5/highlight.min.js"></script>
+
+        <script>
+            $(function() {
+                $("section>h1").wrap('<div class="page-header" />');
+
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+
+                // Preserve menu scroll position
+                const urlParams = new URLSearchParams(window.location.search);
+                const sidebarScroll = urlParams.get('sidebarScroll');
+
+                $("#sidebar").scrollTop(sidebarScroll);
+            });
+
+            function interceptSidebarClick(event) {
+                event.preventDefault();
+
+                let url = new URL(event.target.href);
+                url.searchParams.append("sidebarScroll", $("#sidebar").scrollTop());
+
+                location.href = url.toString();
+            }
+
+        </script>
+        <!-- Livereload -->
+        <script>
+            document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+                    ':35729/livereload.js?snipver=1"></' + 'script>')
+        </script>
+        <!-- End Livereload -->
+    </body>
+</html>
